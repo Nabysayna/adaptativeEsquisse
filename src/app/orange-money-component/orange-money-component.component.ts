@@ -653,6 +653,5 @@ export class OrangeMoneyComponentComponent implements OnInit {
   public hidemodalventecredit(){
     this.modalventecredit.hide();
   }
-
 }
 
