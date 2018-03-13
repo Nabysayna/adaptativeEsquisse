@@ -317,94 +317,44 @@
     </div>
 </div>
 
-<div class="mobile">
-
-  <div *ngIf="pdvaccueilpagePOSTCASH==0" >
-    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
-      <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-        <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-        <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/> 
-      <div>
-      <img src="assets/retour.png" style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-      <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-    </div>
-    <div class="panel-heading">
-      <h2 style="background-color: transparent !important; border: 2px solid; padding: 1rem; width: 27rem;">POSTECASH</h2>
-    </div>
-    <div id="om-options">
-      <div (click)="pdvaccueilpagePOSTCASHClick=1; reinitialiser()" style="margin-right: 57rem; padding-top: 5rem; padding-bottom: 3rem;" >
-        <button (click)="reinitialiser()" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams'; border: 0rem;">Recharge Espece</button>
-      </div>
-                        
-      <div (click)="pdvaccueilpagePOSTCASHClick=2; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem;" >
-        <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams'; border: 0rem;">Achat Jula</button>
-      </div>
-                        
-      <div (click)="pdvaccueilpagePOSTCASHClick=3; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem;">
-        <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">Senelec</button>
-      </div>
-
-      <div (click)="pdvaccueilpagePOSTCASHClick=4; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem; " >
-        <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">Woyofal</button>
-      </div>                                
+<!--<div class="mobile">
+   <div>
+        <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+          <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+            <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+            <div>
+              <img src="assets/retour.png" style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+              <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+            </div>
+            <div class="panel-heading">
+              <h2 style="background-color: transparent !important; border: 2px solid; padding: 1rem; width: 27rem;">POSTECASH
+              </h2>
+            </div>
+            <div id="om-options">
+              <div (click)="pdvaccueilpagePOSTCASHClick=1; reinitialiser()" style="margin-right: 57rem; padding-top: 5rem; padding-bottom: 3rem;" >
+                <button (click)="reinitialiser()" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams'; border: 0rem;">Recharge Espece</button>
+              </div>          
+            <div (click)="pdvaccueilpagePOSTCASHClick=2; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem;" >
+              <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams'; border: 0rem;">Achat Jula</button>
+            </div>          
+            <div (click)="pdvaccueilpagePOSTCASHClick=3; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem;">
+              <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">Senelec</button>
+            </div>
+            <div (click)="pdvaccueilpagePOSTCASHClick=4; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem; " >
+              <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">Woyofal</button>
+            </div>                                
+            <div (click)="pdvaccueilpagePOSTCASHClick=5; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem; " >
+              <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">RAPIDO</button>
+            </div>
       
-      <div (click)="pdvaccueilpagePOSTCASHClick=5; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem; " >
-        <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">RAPIDO</button>
-      </div>
-      
-      <button class="btn btn-success" style="margin-right: 59rem;" (click)="pdvaccueilpagePOSTCASHValide()"><i class="fa fa-check" style="color : white" aria-hidden="true"  ></i></button>
-    </div>
-  </div>
-
-  <div *ngIf="pdvaccueilpagePOSTCASH==1" >
-    <!-- <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
-      <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-        <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-        <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/> 
-        <div>
-          <img src="assets/retour.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-          <img src="assets/deconnet.png" style="margin-top:-14rem; height: 4rem; margin-left: 23rem;"/>
+            <button class="btn btn-success" style="margin-right: 59rem;" (click)="pdvaccueilpagePOSTCASHValide()"><i class="fa fa-check" style="color : white" aria-hidden="true"  ></i>
+            </button>
+          </div>
+          </div>
         </div>
-        <div class="col-sm-6 col-xs-12" *ngIf="erreur" style="padding-top: 7rem ; color: #337ab7">
-          <h5>Désolé! Votre requête n'a pas pu être traitée.</h5> <h5 style="color : red">{{errorMessage}}</h5>
-        </div>
-
-        <div>
-          <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-            <h2 style="background-color: transparent; margin-left: -10rem; font-family:caviar dreams; font-size: 3rem;"> Rechargement Espèce</h2>
-          </fieldset>
-          <form (ngSubmit)="validrechargementespece()" #rechargementespece="ngForm" autocomplete="on">
-            <div class="form-group row">
-              <div class="col-xs-7" style="width: 14rem;">
-                <label  for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color:white; font-size: 13px; margin-top: 0rem;font-family: caviar dreams; padding:0rem;" >Téléphone client</label>
-              </div>
-              <div class="col-xs-4">
-                <input type="number" [(ngModel)]="this.telephone"  style="border-radius: 6rem;height: 3rem; width: 13rem;" name="telephone" id="telephonerechargementespece" class="form-control" placeholder="téléphone client" required>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-xs-7">
-                <label for="montantrechargementespece" class="col-sm-3 col-form-label" style="color:white; font-size: 13px; margin-top: 0rem; padding:0rem;font-family: caviar dreams;">Montant à recharger</label>
-              </div>
-              <div class="col-xs-4">
-                <input type="number" [(ngModel)]="this.montant"  style="border-radius: 6rem;height: 3rem;width: 13rem;" name="montant" id="montantrechargementespece" class="form-control" placeholder="montant à recharger" required>
-              </div>
-            </div>
-
-            <div class="row text-center">
-              <button type="submit" class="btn btn-success" [disabled]="!rechargementespece.form.valid">Valider</button>
-              <button type="reset" class="btn btn-danger" [disabled]="!rechargementespece.form.valid" >Annuler</button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div> -->
-    IL FAIT TARD
-  </div>
-  IL FAIT TARD ENCORE
-
-</div>
+   </div>
+</div>-->
 
 
 <div *ngIf="this.loading">

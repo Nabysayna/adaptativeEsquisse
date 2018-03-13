@@ -400,6 +400,7 @@ export class PostcashComponent implements OnInit {
 
 /////////////////////////////////////HERE MOBILE///////////////////////////////////////////////////////
 public pdvaccueilpagePOSTCASH:number = 0;
+public pdvaccueilpagejetest:number = 0;
 public pdvaccueilpagePOSTCASHClick:number = 0
 
 
@@ -408,8 +409,8 @@ public pdvaccueilpagePOSTCASHClick:number = 0
 public pdvaccueilpagePOSTCASHValide(){
   console.log(this.pdvaccueilpagePOSTCASHClick);
   if(this.pdvaccueilpagePOSTCASHClick!=0){
-    this.pdvaccueilpagePOSTCASH = this.pdvaccueilpagePOSTCASHClick;
-    console.log(this.pdvaccueilpagePOSTCASH+"-"+this.pdvaccueilpagePOSTCASHClick);
+    console.log("On m'a clické "+this.pdvaccueilpagePOSTCASHClick);
+    this.pdvaccueilpagejetest = this.pdvaccueilpagePOSTCASHClick;
   }
 }
 

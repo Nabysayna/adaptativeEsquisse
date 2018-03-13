@@ -382,15 +382,7 @@ body {
 
 
 @media screen and (min-width:501px) {
- .desktop{
-    display: block;
-  }
-  .mobile{
-    display: none;
-  
-
-  }
- #leftsidemenu{
+  #leftsidemenu{
     height:100%;
  }
    
@@ -399,14 +391,6 @@ body {
     
 @media only screen and (max-width: 500px) {
 
-    .desktop{
-    display: none;
-  }
-  .mobile{
-    display: block;
-  
-
-  }
     #encours{
     position: relative;
     top: 84rem;

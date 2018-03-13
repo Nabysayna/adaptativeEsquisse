@@ -66,102 +66,51 @@
 	body.bg, body,.bg{
 		padding-top: 0px !important;
 	}
+
+	html{
+		background-color: white ;
+	}
+
+	input{
+		margin: 1rem !important;
+	}
+
+	body{
+		padding-top: 0rem !important ;
+		overflow-x: hidden;
+	}
+
+	button{
+		border-radius: 1rem 0 1rem 1rem !important;
+	    background-color: #F39200 !important;
+	}
+
+	button:hover{
+		border-radius: 1rem 0 1rem 1rem !important;
+	    background-color: #FFFFFF !important;
+	    border-color: #F39200 !important;
+	    color: #36A9E0 !important;
+	    font-weight: bolder;
+	}
+
+	.bg
+	{
+		background-color: transparent;
+	}
+
+	.tab-pane h3{
+		padding: 1rem !important;
+	}
+
+
+
+	.panel-heading{
+		font-size: -webkit-xxx-large ! important;
+		color : white !important;
+		background-color: #337ab7 !important;
+		margin-bottom: 3rem ;
+	}
+
 }
 
 
-/*
-
-html{
-	background-color: white ;
-}
-
-input{
-	margin: 1rem !important;
-}
-
-body{
-	padding-top: 0rem !important ;
-	overflow-x: hidden;
-}
-
-button{
-	border-radius: 1rem 0 1rem 1rem !important;
-    background-color: #F39200 !important;
-}
-
-button:hover{
-	border-radius: 1rem 0 1rem 1rem !important;
-    background-color: #FFFFFF !important;
-    border-color: #F39200 !important;
-    color: #36A9E0 !important;
-    font-weight: bolder;
-}
-
-.bg
-{
-	background-color: transparent;
-}
-
-.tab-pane h3{
-	padding: 1rem !important;
-}
-
-
-
-.panel-heading{
-	font-size: -webkit-xxx-large ! important;
-	color : white !important;
-	background-color: #337ab7 !important;
-	margin-bottom: 3rem ;
-}
-
-/*.panel-body{
-	background-color : #337ab7 !important;
-}
-*/
-/* CSS MOBILE*/
-/*
-@media only screen and (max-width: 500px) {
-    
-    body {
-    	  /*background-image:url('assets/interface1.png');
-    	 background-repeat:no-repeat;
-		background-position:center center
-       background-color: white !important;
-      
-		;
-    }
-    .nav.navbar-default{
-    	background-image:url('assets/interface1.png');
-    	 background-repeat:no-repeat;
-		background-position:center center
-
-
-    }
-
-    form{
-    	visibility:;
-    	margin-right: 80px;
-    }
-     .navbar-default[_ngcontent-c1]{
-    	/*background-image: url('assets/interface.png');
-    	background-repeat:no-repeat;
-    	background-size: 350px;
-    	
-
-    }
-   
-#nav[_ngcontent-c1] img[_ngcontent-c1] {
-    visibility: hidden;
-}
-#sentooler[_ngcontent-c1]{
-	visibility: hidden;
-}
-.col-sm-12.col-xs-12{
-	visibility: hidden;
-}
-
-
-
-    }
-*/
