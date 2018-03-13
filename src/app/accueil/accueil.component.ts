@@ -1384,6 +1384,60 @@ export class AccueilComponent implements OnInit {
   currency(prix:number){
    return Number(prix).toLocaleString();
   }
+public pdvaccueilpage:number = 1;
+
+
+public pdvaccueilsousmenumobilemoney:number = 0
+public pdvaccueilsousmenumobilemoneyClick:number = 0
+
+
+
+
+public accueilmenuMOBILEMONEY(){
+  this.pdvaccueilpage = 2;
+}
+public accueilmenuFACTURIER(){
+  this.pdvaccueilpage = 3;
+}
+public accueilmenuGESTION(){
+  this.pdvaccueilpage = 4;
+}
+
+
+public pdvaccueilsousmenuMobilemoney(){
+  console.log(this.pdvaccueilsousmenumobilemoneyClick+"oooo")
+  if(this.pdvaccueilsousmenumobilemoneyClick!=0){
+    this.pdvaccueilsousmenumobilemoney = this.pdvaccueilsousmenumobilemoneyClick;
+
+    if ( this.pdvaccueilsousmenumobilemoney === 1 ){
+      this.router.navigate(['/accueil/POSTECASH']); 
+    } else if ( this.pdvaccueilsousmenumobilemoney === 2 ){
+      this.router.navigate(['/accueil/ORANGEMONEY']); 
+    } else if ( this.pdvaccueilsousmenumobilemoney === 3 ){
+      this.router.navigate(['/accueil/TIGOCASH']); 
+    } else if ( this.pdvaccueilsousmenumobilemoney === 4 ){
+      this.router.navigate(['/accueil/WIZALL']); 
+    } else if ( this.pdvaccueilsousmenumobilemoney === 5 ){
+      this.router.navigate(['/accueil/E-COMMERCE']); 
+    } else{
+      this.router.navigate(['/accueil/E-COMMERCE']); 
+    }
+  
+
+    console.log(this.pdvaccueilsousmenumobilemoney+"yyy")
+  }
+}
+
+public pdvacueilretour(){
+  this.pdvaccueilpage=1;
+}
+
+public pdvacueilmenumobilemoneyretour(){
+  this.pdvaccueilpage=1;
+  this.pdvaccueilsousmenumobilemoney=0;
+}
+
+
 
 
 }

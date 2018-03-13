@@ -22,4 +22,7 @@ describe('AccueilComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+ 
 });

@@ -1,4 +1,5 @@
 
+@media screen and (min-width:501px) {
 label{
     color : #36A9E0;
     text-transform : capitalize ;
@@ -114,8 +115,41 @@ fieldset h2{
     margin-left: 1rem ;
 }
 
-@media only screen and (max-width: 400px) {
-    #om-options{
-        width: max-content !important;
+
+
+   .desktop{
+    display: block;
+  }
+  .mobile{
+    display: none;
+  
+
+  }
+
+}
+
+    
+@media only screen and (max-width: 500px) {
+
+    .desktop{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  
+
+  }
+
+    button:hover{
+        background-color:  white !important;
+        border-color: #F39200 !important;
+        color: #36A9E0 !important;
+        font-weight: bolder;
+    }
+    h5:hover{
+         color: #36A9E0 !important;
+    }
+     p:hover{
+         color: #36A9E0 !important;
     }
 }  

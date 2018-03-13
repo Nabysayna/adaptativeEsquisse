@@ -224,6 +224,12 @@ export class AuthComponentComponent implements OnInit {
     }) ;
   }
 
+/////////////////////////////////////PARTIE MOBILE/////////////////////////////////////////
+public page:number = 1;
+
+public accueilmobil(){
+  this.page = 2;
+}
 
 
 }
