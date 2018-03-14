@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { OrangeMoneyService } from '../webServiceClients/Orangemoney/orangemoney.service' ;
-import { PostCashWebService } from '../webServiceClients/PostCash/postcash.service';
-import { TntServiceWeb, TntResponse } from '../webServiceClients/Tnt/Tnt.service';
-import { TigoCashService } from '../webServiceClients/Tigocash/tigocash.service';
-import {WizallWebService} from "../webServiceClients/Wizall/wizall.service";
-import { AuthentificationServiceWeb } from '../webServiceClients/Authentification/authentification.service';
+import {TntService} from "../services/tnt.service";
+import {PostCashService} from "../services/postcash.service";
+import {WizallService} from "../services/wizall.service";
+import {OrangemoneyService} from "../services/orangemoney.service";
+import {TigocashService} from "../services/tigocash.service";
+
 
 class Article {
   public id:number;
@@ -19,34 +19,21 @@ class Article {
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css'],
-  providers: [PostCashWebService, WizallWebService]
+  styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
   articles=[];
   process=[];
-  authentiService: AuthentificationServiceWeb = new AuthentificationServiceWeb();
-  token : string = JSON.parse(sessionStorage.getItem('currentUser')).baseToken ;
-
    quinzeMinutes = 900000;
-  registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'TIGOCASH', 'WIZALL'] ;
+  registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'E-MONEY', 'TIGOCASH', 'WIZALL'] ;
 
   authorisedToUseCRM = false ;
   load="loader";
-  private tntCaller: TntServiceWeb ;
   actif = -1 ;
   dataImpression:any;
-  isMobile : boolean ;
-  displayedPage : string = 'accueil' ;
 
-  constructor(private router: Router,private omService : OrangeMoneyService,private tcService : TigoCashService,private postcashwebservice: PostCashWebService,private wizallwebservice: WizallWebService) {
 
-    if ( window.screen.width <= 768 )
-        this.isMobile = true ;
-    else
-        this.isMobile = false ;
-
-  }
+  constructor(private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){}
 
 /******************************************************************************************************/
 
@@ -61,7 +48,6 @@ export class AccueilComponent implements OnInit {
     if (!sessionStorage.getItem('currentUser'))
        this.router.navigate(['']);
     this.processus();
-    this.tntCaller = new TntServiceWeb();
   }
 
 /******************************************************************************************************/
@@ -249,7 +235,7 @@ export class AccueilComponent implements OnInit {
     }
 
 
-    this.omService.requerirControllerOM(requete).then( resp => {
+    this._omService.requerirControllerOM(requete).then( resp => {
       if (resp.status==200){
            console.log("For this 'depot', we just say : "+resp._body) ;
             if(resp._body.trim()=='0'){
@@ -267,7 +253,7 @@ export class AccueilComponent implements OnInit {
             else
 
            setTimeout(()=>{
-              this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+              this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                 var donnee=rep._body.trim().toString();
                 console.log("Inside verifier depot : "+donnee) ;
                 if(donnee=='1'){
@@ -284,7 +270,7 @@ export class AccueilComponent implements OnInit {
                    }else{
                         var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
-                        this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                        this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                           var donnee=rep._body.trim().toString();
                           console.log("Inside verifier depot : "+donnee) ;
                           if(donnee=='1'){
@@ -302,7 +288,7 @@ export class AccueilComponent implements OnInit {
                              clearInterval(periodicVerifier) ;
                             }
                             if(donnee=='-1' && objet.etats.nbtour>=45){
-                              this.omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
+                              this._omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
                                 var donnee=rep._body.trim().toString();
                                  if(donnee=="c"){
                                    objet.etats.etat=true;
@@ -344,7 +330,7 @@ export class AccueilComponent implements OnInit {
       return 0 ;
     }
 
-    this.omService.requerirControllerOM(requete).then( resp => {
+    this._omService.requerirControllerOM(requete).then( resp => {
       if (resp.status==200){
 
         console.log("For this 'retrait', we just say : "+resp._body) ;
@@ -365,7 +351,7 @@ export class AccueilComponent implements OnInit {
 
            setTimeout(()=>{
 
-              this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+              this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                 var donnee=rep._body.trim().toString();
                 console.log("Inside verifier retrait: "+donnee) ;
                 if(donnee=='1'){
@@ -384,7 +370,7 @@ export class AccueilComponent implements OnInit {
                   }else{
                       var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
-                      this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                      this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                         var donnee=rep._body.trim().toString();
                         console.log("Inside verifier retrait: "+donnee) ;
                         if(donnee=='1'){
@@ -402,7 +388,7 @@ export class AccueilComponent implements OnInit {
                            clearInterval(periodicVerifier) ;
                           }
                             if(donnee=='-1' && objet.etats.nbtour>=10){
-                              this.omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
+                              this._omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
                                 var donnee=rep._body.trim().toString();
                                  if(donnee=="c"){
                                    objet.etats.etat=true;
@@ -439,7 +425,7 @@ export class AccueilComponent implements OnInit {
     if (this.repeatedInLastFifteen('om-retraitcode', requete)==1)
            requete = requete+'R' ;
 
-    this.omService.requerirControllerOM(requete).then( resp => {
+    this._omService.requerirControllerOM(requete).then( resp => {
       if (resp.status==200){
           console.log("For this 'retrait-code', we just say : "+resp._body) ;
 
@@ -459,7 +445,7 @@ export class AccueilComponent implements OnInit {
 
            setTimeout(()=>{
 
-              this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+              this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                 var donnee=rep._body.trim().toString();
                 console.log("Inside verifier retrait: "+donnee) ;
                 if(donnee=='1'){
@@ -478,7 +464,7 @@ export class AccueilComponent implements OnInit {
                   }else
                 var periodicVerifier = setInterval(()=>{
                 objet.etats.nbtour = objet.etats.nbtour + 1 ;
-                this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                   var donnee=rep._body.trim().toString();
                   console.log("Inside verifier retrait: "+donnee) ;
                   if(donnee=='1'){
@@ -495,7 +481,7 @@ export class AccueilComponent implements OnInit {
                        clearInterval(periodicVerifier) ;
                     }
                     if(donnee=='-1' && objet.etats.nbtour>=10){
-                      this.omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
+                      this._omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
                         var donnee=rep._body.trim().toString();
                          if(donnee=="c"){
                            objet.etats.etat=true;
@@ -529,7 +515,7 @@ export class AccueilComponent implements OnInit {
     if (this.repeatedInLastFifteen('om-retraitcptercpt', requete)==1)
            requete = requete+'R' ;
 
-    this.omService.requerirControllerOM(requete).then( resp => {
+    this._omService.requerirControllerOM(requete).then( resp => {
       if (resp.status==200){
         if (resp._body.trim().toString()=='1'){
           objet.etats.etat=true;
@@ -554,7 +540,7 @@ export class AccueilComponent implements OnInit {
     if (this.repeatedInLastFifteen('om-vente-credit', requete)==1)
            requete = requete+'R' ;
 
-    this.omService.requerirControllerOM(requete).then( resp => {
+    this._omService.requerirControllerOM(requete).then( resp => {
       if (resp.status==200){
 
             if(resp._body.trim()=='0'){
@@ -571,7 +557,7 @@ export class AccueilComponent implements OnInit {
             }
             else
            setTimeout(()=>{
-              this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+              this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                 var donnee=rep._body.trim().toString();
                 console.log("Inside verifier depot : "+donnee) ;
                 if(donnee=='1'){
@@ -588,7 +574,7 @@ export class AccueilComponent implements OnInit {
                    }else{
                         var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
-                        this.omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                        this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
                           var donnee=rep._body.trim().toString();
                           console.log("Inside verifier depot : "+donnee) ;
                           if(donnee=='1'){
@@ -606,7 +592,7 @@ export class AccueilComponent implements OnInit {
                              clearInterval(periodicVerifier) ;
                             }
                             if(donnee=='-1' && objet.etats.nbtour>=10){
-                              this.omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
+                              this._omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
                                 var donnee=rep._body.trim().toString();
                                  if(donnee=="c"){
                                    objet.etats.etat=true;
@@ -639,7 +625,7 @@ export class AccueilComponent implements OnInit {
 
 
   validrechargementespece(objet:any){
-    this.postcashwebservice.rechargementespece('00221'+objet.data.telephone+'',''+objet.data.montant).then(postcashwebserviceList => {
+    this._postCashService.rechargementespece('00221'+objet.data.telephone+'',''+objet.data.montant).then(postcashwebserviceList => {
 
       if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
             objet.etats.etat=true;
@@ -672,7 +658,7 @@ export class AccueilComponent implements OnInit {
 
 
   validateachatjula(objet:any){
-     this.postcashwebservice.achatjula(objet.data.montant+'',objet.data.nbcarte+'').then(postcashwebserviceList => {
+     this._postCashService.achatjula(objet.data.montant+'',objet.data.nbcarte+'').then(postcashwebserviceList => {
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
         let montant = objet.data.nbcarte * objet.data.montant ;
          objet.dataI = {
@@ -738,7 +724,7 @@ export class AccueilComponent implements OnInit {
 
   validateachatcodewoyofal(objet:any){
 
-      this.postcashwebservice.achatcodewoyofal(objet.data.montant+'',objet.data.compteur+'').then(postcashwebserviceList => {
+      this._postCashService.achatcodewoyofal(objet.data.montant+'',objet.data.compteur+'').then(postcashwebserviceList => {
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
         objet.dataI = {
             apiservice:'postecash',
@@ -800,7 +786,7 @@ export class AccueilComponent implements OnInit {
 
   validnabon(objet:any){
 
-    this.tntCaller.abonner(objet.data.token, objet.data.prenom,objet.data.nomclient, objet.data.tel,objet.data.cni, objet.data.chip, objet.data.carte, objet.data.duree, objet.data.typedebouquet).then( response =>
+    this._tntService.abonner(objet.data.token, objet.data.prenom,objet.data.nomclient, objet.data.tel,objet.data.cni, objet.data.chip, objet.data.carte, objet.data.duree, objet.data.typedebouquet).then( response =>
       {
 
         let typedebouquet = "" ;
@@ -859,7 +845,7 @@ export class AccueilComponent implements OnInit {
 
    vendreDecodeur(objet:any){
 
-    this.tntCaller.vendreDecodeur(objet.data.token, objet.data.prenom,objet.data.nomclient,objet.data.tel, objet.data.adresse, objet.data.region, objet.data.cni,objet.data.chip,objet.data.carte, objet.data.duree, objet.data.typedebouquet, objet.data.montant).then( response =>
+    this._tntService.vendreDecodeur(objet.data.token, objet.data.prenom,objet.data.nomclient,objet.data.tel, objet.data.adresse, objet.data.region, objet.data.cni,objet.data.chip,objet.data.carte, objet.data.duree, objet.data.typedebouquet, objet.data.montant).then( response =>
       {
         if(response=="ok"){
 
@@ -900,7 +886,7 @@ export class AccueilComponent implements OnInit {
 
 
    vendreCarte(objet:any){
-    this.tntCaller.vendreCarte('55555', objet.data.prenom, objet.data.nomclient,objet.data.tel,objet.data.tel, objet.data.region,objet.data.cni,objet.data.carte, 5000).then( response =>{
+    this._tntService.vendreCarte('55555', objet.data.prenom, objet.data.nomclient,objet.data.tel,objet.data.tel, objet.data.region,objet.data.cni,objet.data.carte, 5000).then( response =>{
         if(response=="ok"){
           objet.dataI = {
             apiservice:'tnt',
@@ -935,7 +921,7 @@ export class AccueilComponent implements OnInit {
 
     cashInWizall(objet : any){
       console.log('cashInWizall');
-      this.wizallwebservice.intouchCashin("test 1", objet.data.num, objet.data.montant).then( response =>{
+      this._wizallService.intouchCashin("test 1", objet.data.num, objet.data.montant).then( response =>{
               console.log(response)
               if(response.commission!=undefined){
                 objet.dataI = {
@@ -962,7 +948,7 @@ export class AccueilComponent implements OnInit {
 
     cashOutWizall(objet : any){
       console.log('cashOutWizall');
-      this.wizallwebservice.intouchCashout("test 1", objet.data.num, objet.data.montant).then( response =>{
+      this._wizallService.intouchCashout("test 1", objet.data.num, objet.data.montant).then( response =>{
               console.log(response) ;
               if(response.status=="PENDING"){
                 objet.dataI = {
@@ -989,7 +975,7 @@ export class AccueilComponent implements OnInit {
 
     payerSDEWizall(objet : any){
       console.log('payerSDEWizall');
-      this.wizallwebservice.intouchPayerFactureSde(objet.data.montant, objet.data.refclient, objet.data.refFacture).then( response =>{
+      this._wizallService.intouchPayerFactureSde(objet.data.montant, objet.data.refclient, objet.data.refFacture).then( response =>{
         if(response=="ok"){
           objet.dataI = {
             apiservice:'wizall',
@@ -1015,7 +1001,7 @@ export class AccueilComponent implements OnInit {
 
     payerSenelecWizall(objet : any){
       console.log('payerSenelecWizall');
-      this.wizallwebservice.intouchPayerFactureSenelec(objet.data.montant, objet.data.police, objet.data.numfacture).then( response =>{
+      this._wizallService.intouchPayerFactureSenelec(objet.data.montant, objet.data.police, objet.data.numfacture).then( response =>{
         if(response=="ok"){
           objet.dataI = {
             apiservice:'wizall',
@@ -1199,7 +1185,7 @@ export class AccueilComponent implements OnInit {
     }
 
 
-    this.tcService.requerirControllerTC(requete).then( resp => {
+    this._tcService.requerirControllerTC(requete).then( resp => {
       if (resp.status==200){
            console.log("For this 'depot', we just say : "+resp._body) ;
             if(resp._body.trim()=='0'){
@@ -1217,7 +1203,7 @@ export class AccueilComponent implements OnInit {
             else
 
            setTimeout(()=>{
-              this.tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
+              this._tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
                 var donnee=rep._body.trim().toString();
                 console.log("Inside verifier depot : "+donnee) ;
                 if(donnee=='1'){
@@ -1234,7 +1220,7 @@ export class AccueilComponent implements OnInit {
                    }else{
                         var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
-                        this.tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
+                        this._tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
                           var donnee=rep._body.trim().toString();
                           console.log("Inside verifier depot : "+donnee) ;
                           if(donnee=='1'){
@@ -1252,7 +1238,7 @@ export class AccueilComponent implements OnInit {
                              clearInterval(periodicVerifier) ;
                             }
                             if(donnee=='-1' && objet.etats.nbtour>=10){
-                              this.tcService.demanderAnnulationTC(resp._body.trim().toString()).then(rep =>{
+                              this._tcService.demanderAnnulationTC(resp._body.trim().toString()).then(rep =>{
                                 var donnee=rep._body.trim().toString();
                                  if(donnee=="c"){
                                    objet.etats.etat=true;
@@ -1294,7 +1280,7 @@ export class AccueilComponent implements OnInit {
       return 0 ;
     }
 
-    this.tcService.requerirControllerTC(requete).then( resp => {
+    this._tcService.requerirControllerTC(requete).then( resp => {
       if (resp.status==200){
 
         console.log("For this 'retrait', we just say : "+resp._body) ;
@@ -1315,7 +1301,7 @@ export class AccueilComponent implements OnInit {
 
            setTimeout(()=>{
 
-              this.tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
+              this._tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
                 var donnee=rep._body.trim().toString();
                 console.log("Inside verifier retrait: "+donnee) ;
                 if(donnee=='1'){
@@ -1333,7 +1319,7 @@ export class AccueilComponent implements OnInit {
                    clearInterval(periodicVerifier) ;
                   }else{
                       var periodicVerifier = setInterval(()=>{
-                      this.tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
+                      this._tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
                         var donnee=rep._body.trim().toString();
                         console.log("Inside verifier retrait: "+donnee) ;
                         if(donnee=='1'){
@@ -1393,80 +1379,6 @@ export class AccueilComponent implements OnInit {
   currency(prix:number){
    return Number(prix).toLocaleString();
   }
-public pdvaccueilpage:number = 1;
-
-
-public pdvaccueilsousmenumobilemoney:number = 0
-public pdvaccueilsousmenumobilemoneyClick:number = 0
-
-
-
-
-public accueilmenuMOBILEMONEY(){
-  this.pdvaccueilpage = 2;
-}
-public accueilmenuFACTURIER(){
-  this.pdvaccueilpage = 3;
-}
-public accueilmenuGESTION(){
-  this.pdvaccueilpage = 4;
-}
-
-
-public pdvaccueilsousmenuMobilemoney(){
-  console.log(this.pdvaccueilsousmenumobilemoneyClick+"oooo")
-  if(this.pdvaccueilsousmenumobilemoneyClick!=0){
-    this.pdvaccueilsousmenumobilemoney = this.pdvaccueilsousmenumobilemoneyClick;
-
-    if ( this.displayedPage === "accueil-mm-pc" ){
-      this.router.navigate(['/accueil/POSTECASH']); 
-    } else if ( this.displayedPage === "accueil-mm-om" ){
-      this.router.navigate(['/accueil/ORANGEMONEY']); 
-    } else if ( this.displayedPage === "accueil-mm-tc" ){
-      this.router.navigate(['/accueil/TIGOCASH']); 
-    } else if ( this.displayedPage === "accueil-mm-wz" ){
-      this.router.navigate(['/accueil/WIZALL']); 
-    } else if ( this.displayedPage === "accueil-mm-em" ){
-      this.router.navigate(['/accueil/E-MONEY']); 
-    }else if ( this.displayedPage === "accueil-mm-ec" ){
-      this.router.navigate(['/accueil/E-COMMERCE']); 
-    } else{
-      this.router.navigate(['/accueil/E-COMMERCE']); 
-    }
-  
-    console.log(this.displayedPage) ;
-  }
-}
-
-public pdvacueilretour(){
-  this.displayedPage = this.displayedPage.substring(0, this.displayedPage.lastIndexOf("-")) ;
-}
-
-public roadTo(choosedRoad){
-  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
-
-  if ( (this.displayedPage.match(/-/g) || []).length == 2 )
-      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
-
-}
-
-public pdvacueilmenumobilemoneyretour(){
-  this.pdvaccueilpage=1;
-  this.pdvaccueilsousmenumobilemoney=0;
-}
-
-  deconnexion(){
-    this.authentiService.deconnecter(this.token).then( response => {
-     if (response==1){
-        sessionStorage.removeItem('currentUser');
-        sessionStorage.clear();
-        this.router.navigate(['']);
-     } else
-      console.log("Echec deconnexion!") ;
-
-     }) ;
-  }
-
 
 
 }

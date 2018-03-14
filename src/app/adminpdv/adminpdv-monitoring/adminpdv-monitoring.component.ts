@@ -1,14 +1,16 @@
-import { Component, OnInit, OnDestroy ,ViewChild } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
-import { ModalDirective } from 'ng2-bootstrap/modal';
 
-import { AdminpdvServiceWeb } from '../../webServiceClients/Adminpdv/adminpdv.service';
-import {UtilService} from "../../services/util.service";
-import {CrmDoorServiceWeb} from "../../webServiceClients/CrmDoor/crmdoor.service";
+import { ModalDirective } from 'ng2-bootstrap/modal';
 import {stringify} from "querystring";
 import {BaseChartDirective} from "ng2-charts";
 
+import {AdminpdvService} from "../../services/adminpdv.service";
+import {UtilsService} from "../../services/utils.service";
+import {CrmService} from "../../services/crm.service";
 
+
+import {Http, Headers, RequestOptions} from "@angular/http";
 
 @Component({
   selector: 'app-adminpdv-monitoring',
@@ -28,7 +30,6 @@ export class AdminpdvMonitoringComponent implements OnInit {
   public listedepositsvalide:any[] = [];
   public listedepositsencours:any[] = [];
   viewonedetaildeposit:any;
-  killsetinterval:any;
 
   dataImpression:any;
 
@@ -38,48 +39,44 @@ export class AdminpdvMonitoringComponent implements OnInit {
   @ViewChild('apercuPhotoComModal') public apercuPhotoComModal:ModalDirective;
   @ViewChild('voirplusdedemandeModal') public voirplusdedemandeModal:ModalDirective;
 
-  constructor(private route:ActivatedRoute, private router: Router, private adminpdvServiceWeb: AdminpdvServiceWeb, private _crmdoorServiceWeb: CrmDoorServiceWeb, private _utilService:UtilService) { }
+  constructor(private _http: Http, private _adminpdvService:AdminpdvService, private route:ActivatedRoute, private router: Router, private _crmService: CrmService, private _utilsService:UtilsService) { }
 
   ngOnInit() {
-    console.log('monitoring deposit');
-    this.adminpdvServiceWeb.bilandeposit('azrrtt').then(adminpdvServiceWebList => {
-      this.monitoringAdminpdvDeposit = adminpdvServiceWebList.response;
-      this.getEtatDepot();
-    }).then( () => {
-      this.getAlldepotsSup();
-    });
+    this.loading = true;
+    this.coordonneesgeospatiales();
+    this._adminpdvService.bilandeposit({type:"azrrtt"}).subscribe(
+      data => {
+        this.monitoringAdminpdvDeposit = data.response;
+        this.getEtatDepot();
+      },
+      error => alert(error),
+      () => {
+        this.getAlldepotsSup();
+        this.loading = false ;
+      }
+    )
 
-/*    this.killsetinterval = setInterval(() => {
-      this.getEtatDepot();
-*/
-      this.adminpdvServiceWeb.bilandeposit('azrrtt').then(adminpdvServiceWebList => {
-        this.monitoringAdminpdvDeposit = adminpdvServiceWebList.response;
-      });
-/*
-      console.log('step');
-    }, 5000);
-*/
-
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.killsetinterval);
   }
 
   validerdmde(){
+    if(confirm("Confirmer la demande")){
+      console.log("je confirme")
+      this.loading = true ;
       this.selectdemanretrait = false;
+
       if (this.monitoringAdminpdvDeposit.etatdeposit < this.montant){
         this.ibanExcessif = true ;
         return 1 ;
       }
-
-      this.loading = true ;
-      this.adminpdvServiceWeb.demandeRetrait(this.montant.toString()).then(adminpdvserviceList => {
-        this.loading = false ;
-        this.montant = undefined ;
-      });
-
+      this._adminpdvService.demandeRetrait({montant:this.montant.toString()}).subscribe(
+        data => this.montant = undefined,
+        error => alert(error),
+        () => this.loading = false
+      )
+    } else{
+      console.log("Je ne confirme pas")
     }
+  }
 
   currencyFormat(somme) : String{
     return Number(somme).toLocaleString() ;
@@ -90,7 +87,7 @@ export class AdminpdvMonitoringComponent implements OnInit {
     }
 
   public getEtatDepot(){
-      this._crmdoorServiceWeb.getEtatDemandeDepot('infosup').then(adminpdvServiceWebList => {
+      /*this._crmdoorServiceWeb.getEtatDemandeDepot('infosup').then(adminpdvServiceWebList => {
         if(adminpdvServiceWebList.errorCode==0){
           let newdepot = false;
           this.listedeposit = adminpdvServiceWebList.response.map(function (opt) {
@@ -114,13 +111,15 @@ export class AdminpdvMonitoringComponent implements OnInit {
           }
 
         }
-      });
+      });*/
     }
 
   public getInitDeposit(){
-    this._utilService.recupererInfosCC()
+    console.log("getInitDeposit")
+    this._utilsService.recupererInfosCC()
       .subscribe(
         data => {
+          console.log(data);
           this.agentcc = data.response;
         },
         error => alert(error),
@@ -130,58 +129,80 @@ export class AdminpdvMonitoringComponent implements OnInit {
       );
   }
   public demndedeposit(data){
-    this._utilService.demandedeposit(data)
+    console.log('------------------------------------');
+    console.log('Ca fait quoi la');
+    this._utilsService.demandedeposit(data)
       .subscribe(
-        data => {
-          console.log('--');
+        datas => {
+          console.log('-----------------');
+          console.log(datas);
         },
         error => alert(error),
         () => {
-          console.log('est')
+          console.log('est demandedeposit')
         }
       );
   }
 
   public showdepositeModal():void {
     this.montantdeposit=undefined;
+    this.modeversement=undefined;
     this.getInitDeposit();
     this.depositeModal.show();
-    console.log('showdepositeModal')
   }
   public hidedepositeModal():void {
     this.depositeModal.hide();
     console.log('hidedepositeModal')
   }
   public validerdeposite(){
-    this._crmdoorServiceWeb.validerDemandeDepot(this.montantdeposit, JSON.stringify(this.agentcc), 'attente').then(adminpdvServiceWebList => {
-      console.log('---------');
-      if(adminpdvServiceWebList.errorCode == 0){
-        this.demndedeposit({infocc:this.agentcc, infocom:'attente', date:adminpdvServiceWebList.result});
-      }
-    });
-    this.hidedepositeModal();
-    console.log('validerdeposite')
+    console.log("-1-------------------------------")
+    if(confirm("Confirmer la demande")){
+      console.log("je confirme")
+      this._adminpdvService.validerDemandeDepot({montant: this.montantdeposit, infocc: JSON.stringify(this.agentcc).toString(), infocom: this.modeversement!=undefined?this.modeversement:""})
+        .subscribe(
+          data => {
+            console.log("---------------------------------------");
+            console.log(data);
+          },
+          error => alert(error),
+          () => this.hidedepositeModal()
+        );
+    } else{
+      console.log("Je ne confirme pas")
+    }
+
   }
+
+  public geoloc:{latitude:number, longitude:number} = JSON.parse(localStorage.getItem("coordonneesgeospatiales")==null?localStorage.getItem("coordonneesgeospatiales"):JSON.stringify({latitude:0, longitude:0}));
+  coordonneesgeospatiales(){
+    console.log('coordonneesgeospatiales wait');
+    navigator.geolocation.getCurrentPosition(position => {
+      this.geoloc.longitude = position.coords.longitude;
+      this.geoloc.latitude = position.coords.latitude;
+      console.log('coordonneesgeospatiales 2222');
+      console.log(this.geoloc);
+      localStorage.setItem("coordonneesgeospatiales",JSON.stringify(this.geoloc))
+    }, error => {
+      console.log('Veuillez activer la géolocalisation: ');
+      localStorage.setItem("coordonneesgeospatiales",JSON.stringify(this.geoloc))
+    });
+  }
+
 
   public showdechargeModal():void {
     this.dechargeModal.show();
-    console.log('showdechargeModal')
   }
   public hidedechargeModal():void {
     this.dechargeModal.hide();
-    console.log('hidedechargeModal')
   }
 
   public showapercudechargeModal(detail:any):void {
     this.viewonedetaildeposit = detail;
-    console.log('------------');
     this.apercudechargeModal.show();
-    console.log('showapercudechargeModal')
   }
   public hideapercudechargeModal():void {
     this.viewonedetaildeposit = undefined;
     this.apercudechargeModal.hide();
-    console.log('hideapercudechargeModal')
   }
 
   imprimerdecharge(decharge:any){
@@ -193,7 +214,6 @@ export class AdminpdvMonitoringComponent implements OnInit {
         client:decharge,
       },
     };
-    console.log('--------');
     sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
     this.router.navigate(['accueiladmpdv/impressionadminpdv']);
   }
@@ -203,7 +223,6 @@ export class AdminpdvMonitoringComponent implements OnInit {
   }
   public hideapercuPhotoComModal():void {
     this.apercuPhotoComModal.hide();
-    console.log('hideapercuPhotoComModal')
   }
 
   public showvoirplusdedemandeModal():void {
@@ -211,7 +230,6 @@ export class AdminpdvMonitoringComponent implements OnInit {
   }
   public hidevoirplusdedemandeModal():void {
     this.voirplusdedemandeModal.hide();
-    console.log('hidevoirplusdedemandeModal')
   }
 
 ///////////////////////// LIST DEPOTS //////////////////////////////////////
@@ -263,7 +281,7 @@ export class AdminpdvMonitoringComponent implements OnInit {
   }
 
   getAlldepotsSup(){
-    this._utilService.getOnePointSuivicc({infoinit:'initmonitoringsup', type:'depots'})
+    this._utilsService.getOnePointSuivicc({infoinit:'initmonitoringsup', type:'depots'})
       .subscribe(
         data => {
           if(data.errorCode){
@@ -281,34 +299,51 @@ export class AdminpdvMonitoringComponent implements OnInit {
       );
   }
 
-/*
-  var apiEndPoint = 'http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/index.php' ;
+  ////////////////////////////-----FILE-----//////////////////////////////
 
-  fileChange(event) {
-      let fileList: FileList = event.target.files;
-      if(fileList.length > 0) {
-          let file: File = fileList[0];
-          let formData:FormData = new FormData();
-          formData.append('file', file, file.name);
-          let headers = new Headers();
+  /*public filesToUpload: Array<File> = [];
+  public namefiledemandedepot:string = "";
+  public nameOriginalfiledemandedepot:string = "";
 
-          headers.append('Accept', 'application/json');
-          let options = new RequestOptions({
-                              headers: headers
-                            });
-
-          this.http.post(`${this.apiEndPoint}`, formData, options)
-              .map(res => res.json())
-              .catch(error => Observable.throw(error))
-              .subscribe(
-                  data => { 
-                           let newData = data;
-                           this.uploadFile = newData;
-                           this.newImage = this.uploadFile.generatedName ;
-                        },
-                  error => {}
-              )
+  upload() {
+    console.log(this.filesToUpload.length)
+    console.log("--------------------------------")
+    if(this.filesToUpload.length != 0){
+      let formData: any = new FormData();
+      for(let i=0; i<this.filesToUpload.length; i++) {
+        formData.append('uploads[]', this.filesToUpload[i], this.filesToUpload[i].name);
       }
+      console.log(formData)
+      let headers = new Headers();
+
+      headers.append('Accept', 'application/json');
+      let options = new RequestOptions({
+        headers: headers
+      });
+
+      let url = "http://sentool.bbstvnet.com/sslayer/index.php/uploads-sen/inputfiledemndedeposit";
+      console.log(url);
+      return this._http.post(url, formData, options)
+        .map(res => res.json()).subscribe(
+          data => {
+            console.log(data)
+
+            if(data.status==true){
+              this.namefiledemandedepot = data.originalName+"---"+data.generatedName;
+              this.nameOriginalfiledemandedepot = data.originalName;
+            }
+
+          },
+          error => alert(error),
+          () => {
+            console.log('est')
+          }
+        );
+    }
+  }
+
+  fileChangeEvent(fileInput: any){
+    this.filesToUpload = <Array<File>> fileInput.target.files;
   }
 */
 

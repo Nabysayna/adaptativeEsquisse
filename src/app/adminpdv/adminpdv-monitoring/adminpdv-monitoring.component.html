@@ -110,24 +110,25 @@
 
             <div class="form-group">
               <label>Mode de versement</label>
-                    <select class="form-control input-sm" [(ngModel)]="modeversement">
-                      <option>Direct</option>
-                      <option>CPS</option>
-                      <option>CBAO</option>
-                    </select>
-<!-- 
-             <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
- -->
+              <select class="form-control input-sm" [(ngModel)]="modeversement">
+                <option>Direct</option>
+                <option>CPS</option>
+                <option>CBAO</option>
+                <option>WARI</option>
+                <option>Orangemoney</option>
+              </select>
             </div>
-
           </div>
           <div class="col-sm-offset-1 col-xs-3">
             <img style="width:150px;height:150px" src="assets/bbs.png"  class="img-responsive" alt="photo de l'agent" />
           </div>
         </div>
-        <div>
-          Vous voulez faire un dépot de <b>{{ montantdeposit?currencyFormat(montantdeposit):'?' }} FCFA </b>
+        <div class="form-group row">
+          <!--<label class="col-sm-1">Pièce justificative:</label>
+          <input input type="file" class="col-sm-4 form-control-file" #fileinput accept="image/*" (change)="fileChangeEvent($event)"/>
+          <button type="button" (click)="upload()" class="btn btn-sm btn-primary col-sm-1">Charger</button>-->
         </div>
+        <div>Vous voulez faire un dépot de <b>{{ montantdeposit?currencyFormat(montantdeposit):'?' }} FCFA </b></div>
       </div>
       <div class="modal-footer">
         <button type="button" [disabled]="montantdeposit==undefined || montantdeposit<1" (click)="validerdeposite()" class="btn btn-success pull-left">valider</button>

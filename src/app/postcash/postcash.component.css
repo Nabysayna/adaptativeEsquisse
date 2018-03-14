@@ -114,20 +114,8 @@ fieldset h2{
     margin-left: 1rem ;
 }
 
-
-    
-@media only screen and (max-width: 500px) {
-
-    button:hover{
-        background-color:  white !important;
-        border-color: #F39200 !important;
-        color: #36A9E0 !important;
-        font-weight: bolder;
-    }
-    h5:hover{
-         color: #36A9E0 !important;
-    }
-     p:hover{
-         color: #36A9E0 !important;
+@media only screen and (max-width: 400px) {
+    #om-options{
+        width: max-content !important;
     }
 }  
