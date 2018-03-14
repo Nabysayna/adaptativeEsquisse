@@ -5,7 +5,7 @@ import { PostCashWebService } from '../webServiceClients/PostCash/postcash.servi
 import { TntServiceWeb, TntResponse } from '../webServiceClients/Tnt/Tnt.service';
 import { TigoCashService } from '../webServiceClients/Tigocash/tigocash.service';
 import {WizallWebService} from "../webServiceClients/Wizall/wizall.service";
-
+import { AuthentificationServiceWeb } from '../webServiceClients/Authentification/authentification.service';
 
 class Article {
   public id:number;
@@ -25,6 +25,9 @@ class Article {
 export class AccueilComponent implements OnInit {
   articles=[];
   process=[];
+  authentiService: AuthentificationServiceWeb = new AuthentificationServiceWeb();
+  token : string = JSON.parse(sessionStorage.getItem('currentUser')).baseToken ;
+
    quinzeMinutes = 900000;
   registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'TIGOCASH', 'WIZALL'] ;
 
@@ -33,9 +36,15 @@ export class AccueilComponent implements OnInit {
   private tntCaller: TntServiceWeb ;
   actif = -1 ;
   dataImpression:any;
-
+  isMobile : boolean ;
+  displayedPage : string = 'accueil' ;
 
   constructor(private router: Router,private omService : OrangeMoneyService,private tcService : TigoCashService,private postcashwebservice: PostCashWebService,private wizallwebservice: WizallWebService) {
+
+    if ( window.screen.width <= 768 )
+        this.isMobile = true ;
+    else
+        this.isMobile = false ;
 
   }
 
@@ -1409,27 +1418,36 @@ public pdvaccueilsousmenuMobilemoney(){
   if(this.pdvaccueilsousmenumobilemoneyClick!=0){
     this.pdvaccueilsousmenumobilemoney = this.pdvaccueilsousmenumobilemoneyClick;
 
-    if ( this.pdvaccueilsousmenumobilemoney === 1 ){
+    if ( this.displayedPage === "accueil-mm-pc" ){
       this.router.navigate(['/accueil/POSTECASH']); 
-    } else if ( this.pdvaccueilsousmenumobilemoney === 2 ){
+    } else if ( this.displayedPage === "accueil-mm-om" ){
       this.router.navigate(['/accueil/ORANGEMONEY']); 
-    } else if ( this.pdvaccueilsousmenumobilemoney === 3 ){
+    } else if ( this.displayedPage === "accueil-mm-tc" ){
       this.router.navigate(['/accueil/TIGOCASH']); 
-    } else if ( this.pdvaccueilsousmenumobilemoney === 4 ){
+    } else if ( this.displayedPage === "accueil-mm-wz" ){
       this.router.navigate(['/accueil/WIZALL']); 
-    } else if ( this.pdvaccueilsousmenumobilemoney === 5 ){
+    } else if ( this.displayedPage === "accueil-mm-em" ){
+      this.router.navigate(['/accueil/E-MONEY']); 
+    }else if ( this.displayedPage === "accueil-mm-ec" ){
       this.router.navigate(['/accueil/E-COMMERCE']); 
     } else{
       this.router.navigate(['/accueil/E-COMMERCE']); 
     }
   
-
-    console.log(this.pdvaccueilsousmenumobilemoney+"yyy")
+    console.log(this.displayedPage) ;
   }
 }
 
 public pdvacueilretour(){
-  this.pdvaccueilpage=1;
+  this.displayedPage = this.displayedPage.substring(0, this.displayedPage.lastIndexOf("-")) ;
+}
+
+public roadTo(choosedRoad){
+  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+
+  if ( (this.displayedPage.match(/-/g) || []).length == 2 )
+      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
+
 }
 
 public pdvacueilmenumobilemoneyretour(){
@@ -1437,6 +1455,17 @@ public pdvacueilmenumobilemoneyretour(){
   this.pdvaccueilsousmenumobilemoney=0;
 }
 
+  deconnexion(){
+    this.authentiService.deconnecter(this.token).then( response => {
+     if (response==1){
+        sessionStorage.removeItem('currentUser');
+        sessionStorage.clear();
+        this.router.navigate(['']);
+     } else
+      console.log("Echec deconnexion!") ;
+
+     }) ;
+  }
 
 
 

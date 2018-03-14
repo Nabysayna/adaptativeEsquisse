@@ -269,6 +269,9 @@ select{
   margin-right: 1rem ;
 }
 
+.authform br{
+    display: none ;
+ }
 
 #form select, label{
   margin-left: 1rem ;
@@ -287,10 +290,16 @@ select{
   }
   .mobile{
     display: block;
-  
-
   }
 
+  .authform{
+    margin-right: 32% !important ;
+  }
+
+.authform br{
+    display: block ;
+  }
+  
   body.bg, body,.bg{
     padding-top: 0px !important;
   }

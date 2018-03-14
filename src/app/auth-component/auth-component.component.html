@@ -4,7 +4,7 @@
 
             <img src="assets/head.png" style="position: absolute; z-index: -1; width: -webkit-fill-available;"/>
             <img src="assets/logo-sentool.png" style="max-height: 7rem ;" />
-             <form class="form form-inline pull-right" style="position: relative;z-index: 1;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
+             <form  class="form form-inline pull-right" style="position: relative;z-index: 1;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
                 <div class="form-group" style="color: white ;" *ngIf="!this.fakevalues">Login ou Mot de pass invalide! Veuillez reprendre la saisie.</div>
                     <input class="form-group form-control" type="text" [(ngModel)]="this.userName" required autofocus id="userName" name="userName"  placeholder="identifiant"/>
                     <input class="form-group form-control" type="password" [(ngModel)]="this.userPwd" required id="userPwd" name="userPwd" placeholder="password"/>
@@ -125,26 +125,30 @@
       <img src="assets/iconmobile.png" style="width: 70%; "/>
       <h2 style="color: orange; padding-top: 0rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
         <form class="form form-inline pull-right" style="position: relative;z-index: 1;padding-top: 5rem; margin-right:25%;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
-          <div class="form-group" style="color: white ;" *ngIf="!this.fakevalues">Login ou Mot de pass invalide! Veuillez reprendre la saisie.</div>
+
+          <br *ngIf="this.fakevalues==false"><label style="color: red ;" *ngIf="this.fakevalues==false">Login ou Mot de pass invalide!</label><br *ngIf="this.fakevalues==false">
+
           <label style="margin-left: 11%; font-size: 18px;color:#36A9E0;">Identifiant</label>
-            <input class="form-group form-control" type="text" [(ngModel)]="this.userName" required autofocus id="userName" name="userName"  placeholder="identifiant" style="border-radius: 5rem; height: 35px;"/>
+            <input class="form-group form-control" type="text" [(ngModel)]="this.userName" required autofocus id="userName" name="userName"  placeholder="identifiant" style="border-radius: 5rem; height: 35px;"/> <br>
             <label style="margin-left: 11%; font-size: 18px; color:#36A9E0;">Password</label>
             <input class="form-group form-control" type="password" [(ngModel)]="this.userPwd" required id="userPwd" name="userPwd" placeholder="password" style="border-radius: 5rem; height: 35px;"/>
-            <button class="btn btn-success" [disabled]="!loginForm.valid" style=" margin-top: 30px; background-color: orange; width: 50px; height: 50px; border-radius: 50% !important; border: none; margin-left: 7%;"><i class="fa fa-check" style="color : white" aria-hidden="true"></i></button>
+            <button class="btn btn-success" [disabled]="!loginForm.valid" style=" margin-top: 30px; background-color: orange; width: 50px; height: 50px; border-radius: 50% !important; border: none; margin-left: 7%;"><i class="fa fa-check fa-2x" style="color : white" aria-hidden="true"></i></button>
+
         </form>
     </div>
 
-    <div class="row" *ngIf="!phase1 && (page==2)" style="padding-top: 6rem;">
-      <img src="assets/iconmobile.png" style="width: 70%; margin-left: 40px;"/>
-      <h2 style="color:orange;font-size: 16px; padding-top:0rem;text-align: -webkit-center;font-family: caviar dreams bold">Bienvenue dans le futur</h2>
-      <form class="form form-inline pull-right" style="position: relative;z-index: 1; padding-top: 4rem; text-align: -webkit-center;
-    margin-right: 9rem;" (ngSubmit)="authentificateBySMS()" #loginNextForm="ngForm">
-                <div class="form-group"  *ngIf="!this.phase2fakevalues" style="font-size: 12px; ; text-align: center;">Le code que vous avez saisi est incorrect! Veuillez reprendre la saisie.</div>
+    <div class="row" *ngIf="!phase1 && (page==2)" style="padding-top: 7rem; text-align: center;">
+      <img src="assets/iconmobile.png" style="width: 70%; "/>
+      <h2 style="color: orange; padding-top: 0rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
+        <form class="form form-inline pull-right" style="position: relative;z-index: 1;padding-top: 5rem; margin-right:25%;" (ngSubmit)="authentificateBySMS()" #loginNextForm="ngForm">
+
+          <br *ngIf="this.phase2fakevalues==false"><label style="color: red ;" *ngIf="this.phase2fakevalues==false">Code incorrect!</label><br *ngIf="this.phase2fakevalues==false">
+
                 <label style="font-size: 14px; color:orange;"> Code Sms</label>
                 <input type="text" [(ngModel)]="this.fromSMS" name="fromSMS" id="fromSMS" style="border-radius: 5rem; height: 35px;"  class="form-group form-control" placeholder="SMS code" required autofocus >
                 <div class="row"><img src="assets/sentool.png" style="height: 40px; width: 20%; ;"/></div>
 
-                <input class="btn btn-success" value="" type="button" style="width: 50px; height: 50px; background: orange; font: caviar bold; border-radius: 50%; border: none; margin-top: 20px;" type="submit" [disabled]="!loginNextForm.form.valid"  />
+                <button class="btn btn-success" style="width: 50px; height: 50px; background: orange; font: caviar bold; border-radius: 50% !important; border: none; margin-top: 20px;" [disabled]="!loginNextForm.form.valid"><i class="fa fa-check fa-2x" style="color : white" aria-hidden="true"></i></button>
             </form>  
     </div>
 </div>

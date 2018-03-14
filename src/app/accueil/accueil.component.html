@@ -1,4 +1,6 @@
-<div class="desktop">
+<!-- class="desktop"  -->
+
+<div *ngIf="isMobile==false">
   <div id="wrapper">
 
       <nav class="navbar navbar-default navbar-fixed-top" style="background-color: transparent !important; border-style: hidden ;" role="navigation">
@@ -275,8 +277,10 @@
 </div>
     <!-- /#page-wrapper -->
 
-<div class="mobile">
-  <div class="row" *ngIf="pdvaccueilpage==1" style="background-image: url(assets/background-v.png); opacity: 0.90; background-size: 400px; min-height: -webkit-fill-available;">
+<!-- class="mobile"-->
+
+<div  *ngIf="isMobile==true">
+  <div class="row" *ngIf="displayedPage=='accueil'" style="background-image: url(assets/background-v.png); opacity: 0.90; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="row"   style="background-color:rgb(255,144, 00);width: 60%;text-align: center; opacity:0.96;    height: 450px; min-height: -webkit-fill-available; padding-top: 6rem;" >
       <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
       <img src="assets/thumbnail.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
@@ -285,22 +289,22 @@
       <div class="col-sm-12 col-xs-12" style="padding-top: 4rem;">
         <h5 style="font-family:caviar dreams bold; color: white;">MENU</h5>
       </div>
-      <button  (click)="accueilmenuMOBILEMONEY()" style="background-color: transparent;border: 0px;">
+      <button  (click)="roadTo('mm')" style="background-color: transparent;border: 0px;">
         <img src="assets/thumbnailphone.png" style="height:30px; margin-left: -120px"/>
         <H5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 64px;max-height: 20px; font-size: 18px;">MOBILE MONEY</H5>
       </button>
-      <button (click)="accueilmenuFACTURIER()" style="background-color: transparent;border: 0px;">
+      <button (click)="roadTo('fact')" style="background-color: transparent;border: 0px;">
         <img src="assets/facturevv.png" style="height:20px; margin-left: -120px"/>
         <h5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 30px;max-height: 20px; font-size: 18px;">FACTURIER</h5>
       </button>
-      <button (click)="accueilmenuGESTION()" style="background-color: transparent;border: 0px;">
+      <button (click)="roadTo('ges')" style="background-color: transparent;border: 0px;">
         <img src="assets/gestio.png" style="height:20px; margin-left: -120px" />
         <h5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 6px;max-height: 20px; font-size: 18px;">GESTION</h5>
       </button>
     </div>
   </div>
     <!--Mobile Money-->
-  <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="(pdvaccueilpage==2) && (pdvaccueilsousmenumobilemoney==0)" >
+  <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm'" >
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
           <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
           <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
@@ -309,47 +313,48 @@
           </div>
           <div>
             <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-20rem; height: 4rem; margin-left: 23rem;" />
-            <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+            <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
           </div>
           <!--<i class="fa fa-power-off" style="color: white; margin-right: -16rem;">Déconnexion</i>-->
           <div class="row" style="margin-top: -16px;">
-            <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="pdvaccueilsousmenumobilemoneyClick=1">
+            <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('POSTECASH')">
             <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">PostCash</p>
           </button>
           </div>
           <div class="row"  >
-            <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="pdvaccueilsousmenumobilemoneyClick=2">
+            <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('ORANGEMONEY')">
             <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">Orange Money</p>
             </button>
           </div>
           <div class="row" >
             <button style="background-color: transparent;border: 0px; width: 36rem;">
-            <p style="color:white;font-family: caviar dreams bold; font-size: 30px;" (click)="pdvaccueilsousmenumobilemoneyClick=3">Tigo cash</p>
+            <p style="color:white;font-family: caviar dreams bold; font-size: 30px;" (click)="roadTo('TIGOCASH')">Tigo cash</p>
             </button>
           </div>
           <div class="row">
-            <button style="background-color: transparent;border: 0px; width: 36rem;"(click)="pdvaccueilsousmenumobilemoneyClick=4">
+            <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('WIZALL')">
             <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">WIZALL</p>
             </button>
           </div>
           <div class="row">
-            <button style="background-color: transparent;border: 0px;width: 36rem;"(click)="pdvaccueilsousmenumobilemoneyClick=5">
+            <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('EMONEY')">
             <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">E money</p>
             </button>
           </div>
           <div class="row" >
-            <button style="background-color: transparent;border: 0px;width: 36rem;"(click)="pdvaccueilsousmenumobilemoneyClick=6">
+            <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('ec')">
             <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">E-commerce</p>
             </button>
           </div>
-          <button class="btn btn-success" style=" margin-top: 30px; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true" (click)="pdvaccueilsousmenuMobilemoney()" ></i></button>
+<!--           <button class="btn btn-success" style=" margin-top: 30px; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true" (click)="pdvaccueilsousmenuMobilemoney()" ></i></button> -->
+
         </div>
   </div>
 
 
 
     <!--FACTURIER-->
-  <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="pdvaccueilpage==3">
+  <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-fact'">
             <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
               <img src="assets/facturevv.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
               <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
@@ -357,8 +362,8 @@
                 <img src="">
               </div>
               <div>
-                <img src="assets/retour.png" style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
               </div>
               <div class="row">
                 <button style="background-color: transparent;border: 0px;width: 36rem;">
@@ -399,13 +404,13 @@
 
 
     <!--GESTION-->
-  <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="pdvaccueilpage==4">
+  <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ges'">
             <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 5rem;">
               <img src="assets/gestio.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: 0px; margin-right: 40px;">
               <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 1rem;"/>
               <div style=" margin-left: 5rem;">
-                <img src="assets/retour.png" style="margin-top:-13rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" style="margin-top:-11rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-13rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-11rem; height: 4rem; margin-left: 23rem;"/>
               </div>
               <div class="row" style="padding-top: 5rem;">
                 <button style="background-color: transparent;border: 0px;width: 36rem;">
