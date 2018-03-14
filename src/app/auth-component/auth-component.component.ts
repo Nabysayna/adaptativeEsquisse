@@ -59,12 +59,20 @@ export class AuthComponentComponent implements OnInit {
 
   fromSMS : string ;
   backstring : string = "" ;
+
+  isMobile : boolean ;
+
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService, private _compiler: Compiler, private _utilService:RegistrationService) 
   { 
     this._compiler.clearCache();
   	this.fakevalues = true ;
+
+    if ( window.screen.width <= 768 )
+        this.isMobile = true ;
+    else
+        this.isMobile = false ;
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 
-<div class="desktop">
+<div *ngIf="isMobile==false"> <!-- class="desktop" -->
     <nav id="nav" class="nav navbar-default" >
 
             <img src="assets/head.png" style="position: absolute; z-index: -1; width: -webkit-fill-available;"/>
@@ -112,23 +112,25 @@
 
 </div>
 
+<!-- class="mobile" --> <!-- background-image: url(assets/interface1.png); -->
 
-<div class="mobile" style="background-color: white;background-attachment:fixed;">
-    <div class="row" *ngIf="page==1" style="margin: 0 auto; text-align: center; background-image: url(assets/interface1.png); margin-right: -4rem; background-repeat: no-repeat; height: 540px; background-size: contain;">
+<div *ngIf="isMobile==true" style="background-color: white;background-attachment:fixed;">
+    <div class="row" *ngIf="page==1" style="margin: 0 auto; text-align: center; height: -webkit-fill-available; margin-right: -4rem; background-repeat: no-repeat; height: 540px; background-size: contain;" (click)="accueilmobil()">
     
-      <button class="btn btn-success" style=" margin-top: 400px; background-color: orange; width: 50px; height: 50px; border-radius: 50%; border: none; margin-right: 60px;"><i class="fa fa-check" style="color : white" (click)="accueilmobil()" aria-hidden="true"></i></button>
+     <img src="assets/interface1.png" style="width : 70%;" />
+<!--       <button class="btn btn-success" style=" margin-top: 400px; background-color: orange; width: 50px; height: 50px; border-radius: 50%; border: none; margin-right: 60px;"><i class="fa fa-check" style="color : white" (click)="accueilmobil()" aria-hidden="true"></i></button> -->
     </div>
 
-    <div class="row" *ngIf="phase1 && (page==2)" style=" padding-top: 7rem;">
-      <img src="assets/iconmobile.png" style="width: 70%; margin-left: 60px;"/>
-      <h4 style="color: orange;font-size: 16px; padding-top: 0rem; margin-left: 29%; font-family: caviar dreams bold;">Bienvenue dans le future</h4>
+    <div class="row" *ngIf="phase1 && (page==2)" style=" padding-top: 7rem; text-align: center;">
+      <img src="assets/iconmobile.png" style="width: 70%; "/>
+      <h2 style="color: orange; padding-top: 0rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
         <form class="form form-inline pull-right" style="position: relative;z-index: 1;padding-top: 5rem; margin-right:25%;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
           <div class="form-group" style="color: white ;" *ngIf="!this.fakevalues">Login ou Mot de pass invalide! Veuillez reprendre la saisie.</div>
-          <label style="margin-left: 74px; font-size: 14px;color:#36A9E0;">Identifiant</label>
+          <label style="margin-left: 11%; font-size: 18px;color:#36A9E0;">Identifiant</label>
             <input class="form-group form-control" type="text" [(ngModel)]="this.userName" required autofocus id="userName" name="userName"  placeholder="identifiant" style="border-radius: 5rem; height: 35px;"/>
-            <label style="margin-left: 72px; font-size: 14px; color:#36A9E0;">Password</label>
+            <label style="margin-left: 11%; font-size: 18px; color:#36A9E0;">Password</label>
             <input class="form-group form-control" type="password" [(ngModel)]="this.userPwd" required id="userPwd" name="userPwd" placeholder="password" style="border-radius: 5rem; height: 35px;"/>
-            <button class="btn btn-success" [disabled]="!loginForm.valid" style=" margin-top: 30px; background-color: orange; width: 50px; height: 50px; border-radius: 50%; border: none; margin-left: 42%;"><i class="fa fa-check" style="color : white" aria-hidden="true"></i></button>
+            <button class="btn btn-success" [disabled]="!loginForm.valid" style=" margin-top: 30px; background-color: orange; width: 50px; height: 50px; border-radius: 50% !important; border: none; margin-left: 7%;"><i class="fa fa-check" style="color : white" aria-hidden="true"></i></button>
         </form>
     </div>
 
