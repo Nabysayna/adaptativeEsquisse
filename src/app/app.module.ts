@@ -176,7 +176,6 @@ import {AuthService} from "./services/auth.service";
 import {ComptabiliteService} from "./services/comptabilite.service";
 import {AdminmultipdvService} from "./services/adminmultipdv.service";
 import {TntService} from "./services/tnt.service";
-import {PostCashService} from "./services/postcash.service";
 import {AuthenticationService} from "./services/authentification.service";
 import {GestionreportingService} from "./services/gestionreporting.service";
 import {DemandepretService} from "./services/demandepret.service";
@@ -186,6 +185,7 @@ import {FacturierService} from "./services/facturier.service";
 import {OrangemoneyService} from "./services/orangemoney.service";
 import {ExpressocashService} from "./services/expressocash.service";
 import {MapsService} from "./services/maps.service";
+import { PostCashService } from 'app/services/postCash.service';
 
 
 

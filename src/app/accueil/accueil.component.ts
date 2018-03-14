@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import {TntService} from "../services/tnt.service";
-import {PostCashService} from "../services/postcash.service";
 import {WizallService} from "../services/wizall.service";
 import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
 import {AuthService} from "../services/auth.service";
+import { PostCashService } from 'app/services/postCash.service';
 
 
 class Article {

@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import {PostCashService} from "../services/postcash.service";
+import { PostCashService } from 'app/services/postCash.service';
+
 
 
 @Component({
