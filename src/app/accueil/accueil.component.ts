@@ -5,6 +5,7 @@ import {PostCashService} from "../services/postcash.service";
 import {WizallService} from "../services/wizall.service";
 import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
+import {AuthService} from "../services/auth.service";
 
 
 class Article {
@@ -31,9 +32,17 @@ export class AccueilComponent implements OnInit {
   load="loader";
   actif = -1 ;
   dataImpression:any;
+    displayedPage : string = 'accueil' ;
+    isMobile : boolean ;
 
 
-  constructor(private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){}
+  constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
+
+      if ( window.screen.width <= 768 )
+          this.isMobile = true ;
+      else
+          this.isMobile = false ;
+  }
 
 /******************************************************************************************************/
 
@@ -1379,7 +1388,71 @@ export class AccueilComponent implements OnInit {
   currency(prix:number){
    return Number(prix).toLocaleString();
   }
+public pdvaccueilpage:number = 1;
 
+
+public pdvaccueilsousmenumobilemoney:number = 0
+public pdvaccueilsousmenumobilemoneyClick:number = 0
+
+
+
+
+public accueilmenuMOBILEMONEY(){
+  this.pdvaccueilpage = 2;
+}
+public accueilmenuFACTURIER(){
+  this.pdvaccueilpage = 3;
+}
+public accueilmenuGESTION(){
+  this.pdvaccueilpage = 4;
+}
+
+
+public pdvaccueilsousmenuMobilemoney(){
+  console.log(this.pdvaccueilsousmenumobilemoneyClick+"oooo")
+  if(this.pdvaccueilsousmenumobilemoneyClick!=0){
+    this.pdvaccueilsousmenumobilemoney = this.pdvaccueilsousmenumobilemoneyClick;
+
+    if ( this.displayedPage === "accueil-mm-pc" ){
+      this.router.navigate(['/accueil/POSTECASH']);
+    } else if ( this.displayedPage === "accueil-mm-om" ){
+      this.router.navigate(['/accueil/ORANGEMONEY']);
+    } else if ( this.displayedPage === "accueil-mm-tc" ){
+      this.router.navigate(['/accueil/TIGOCASH']);
+    } else if ( this.displayedPage === "accueil-mm-wz" ){
+      this.router.navigate(['/accueil/WIZALL']);
+    } else if ( this.displayedPage === "accueil-mm-em" ){
+      this.router.navigate(['/accueil/E-MONEY']);
+    }else if ( this.displayedPage === "accueil-mm-ec" ){
+      this.router.navigate(['/accueil/E-COMMERCE']);
+    } else{
+      this.router.navigate(['/accueil/E-COMMERCE']);
+    }
+
+    console.log(this.displayedPage) ;
+  }
+}
+
+public pdvacueilretour(){
+  this.displayedPage = this.displayedPage.substring(0, this.displayedPage.lastIndexOf("-")) ;
+}
+
+public roadTo(choosedRoad){
+  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+
+  if ( (this.displayedPage.match(/-/g) || []).length == 2 )
+      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] );
 
 }
 
+public pdvacueilmenumobilemoneyretour(){
+  this.pdvaccueilpage=1;
+  this.pdvaccueilsousmenumobilemoney=0;
+}
+
+  deconnexion(){
+    this._authService.deconnexion();
+  }
+
+
+}

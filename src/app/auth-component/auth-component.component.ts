@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy, Compiler, ViewChild } from '@angular/core';
+import { Component, OnInit, Compiler, ViewChild } from '@angular/core';
 
 import { ModalDirective } from 'ng2-bootstrap/modal';
 
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentification.service';
 import {UtilsService} from "../services/utils.service";
+import {AuthenticationService} from "../services/authentification.service";
 
 
 @Component({
@@ -13,14 +13,17 @@ import {UtilsService} from "../services/utils.service";
   templateUrl: './auth-component.component.html',
   styleUrls: ['./auth-component.component.css']
 })
-export class AuthComponentComponent implements OnInit,OnDestroy {
+export class AuthComponentComponent implements OnInit {
 
   userName = ''  ;
   userPwd  = '' ;
   fakevalues : boolean ;
   phase2fakevalues : boolean = true ;
+  saisietoken : string ;
   loading = false ;
   phase1 = true ;
+
+  valretour = "" ;
 
 
   public regions:any[] = [];
@@ -34,7 +37,9 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
   region : any ;
   zone : any ;
   souszone : any ;
+  chaine : string ;
 
+  codval : any ;
   prenom : any ;
   nom :any ;
   email :any ;
@@ -42,23 +47,35 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
   nometps : any ;
   nomshop : any ;
   adresse : any ;
+
+  l1: string ;
+  l2: string ;
+  l3: string ;
+  l4: string ;
+  c1: string ;
+  c2: string ;
+  c3: string ;
+  c4: string ;
+
   fromSMS : string ;
+  backstring : string = "" ;
+
+  isMobile : boolean ;
 
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private _compiler: Compiler,
-    private _utilsService:UtilsService) {
-      this._compiler.clearCache();
-      this.fakevalues = true ;
+  constructor(private router: Router, private authenticationService: AuthenticationService, private _compiler: Compiler, private _utilsService:UtilsService) {
+
+    this._compiler.clearCache();
+    this.fakevalues = true ;
+
+    if ( window.screen.width <= 768 )
+      this.isMobile = true ;
+    else
+      this.isMobile = false ;
   }
 
   ngOnInit() {
-    console.log("**************************************")
-    sessionStorage.clear();
-    this.coordonneesgeospatiales();
-
+    sessionStorage.clear() ;
     this.authenticationService.logout();
     this.getRegionNewCaissier();
   }
@@ -66,42 +83,57 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
   authentificate() {
     this.loading = true ;
     this.authenticationService.login(this.userName, this.userPwd).then(access=>
-      {
-        if(access  != "rejected"){
-          this.loading = false ;
-          this.phase1 = false ;
-        }else{
-          this.fakevalues = false ;
-          this.userName = ''  ;
-          this.userPwd  = '' ;
-          this.loading = false ;
-        }
-      });
+    {
+      if(access  != "rejected"){
+        this.loading = false ;
+        this.phase1 = false ;
+      }else{
+        this.fakevalues = false ;
+        this.userName = ''  ;
+        this.userPwd  = '' ;
+        this.loading = false ;
+      }
+    });
   }
 
   diagnostiquer(){
-      location.reload(true) ;
-  }
-
-  ngOnDestroy() {
+    location.reload(true) ;
   }
 
   authentificateBySMS(){
     this.loading = true ;
-    this.authenticationService.loginPhase2(this.fromSMS+"#"+sessionStorage.getItem('headToken') ).then( access=> {
+    this.authenticationService.loginPhase2(this.fromSMS+"#"+sessionStorage.getItem('headToken') ).then( access=>
+    {
       console.log(access) ;
+
       if ( access === 3 ){
         this.router.navigate(['/accueil']);
-      }else if ( access === 2 ){
-        if (JSON.parse(sessionStorage.getItem('currentUser')).firstuse==1){
+      }else
+      if ( access === 2 ){
+        if (JSON.parse(sessionStorage.getItem('currentUser')).firstuse==1)
           this.router.navigate(['/soppipwdbifi']);
-        }
-        else {
+        else
           this.router.navigate(['/accueiladmpdv']);
-        }
-      }else if ( access === 1 ){
+      }else
+      if ( access === 1 ){
         this.router.navigate(['/accueiladmmpdv']);
-      }else {
+      }else
+      if ( access === 5 ){
+        this.router.navigate(['/accueilcoursier']);
+      }
+      else
+      if ( access === 4 ){
+        this.router.navigate(['/accueiladmincoursier']);
+      }
+      else
+      if ( access === 6 ){
+        this.router.navigate(['/accueiladmincommercial']);
+      }
+      else
+      if ( access === 7 ){
+        this.router.navigate(['/accueilcommercial']);
+      }
+      else{
         this.phase2fakevalues = false ;
         this.fromSMS = ''  ;
       }
@@ -110,45 +142,46 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
     });
   }
 
+
   getRegionNewCaissier(){
     this._utilsService.getRegion()
-      .subscribe(
-        data => {
-          this.regions = data;
-        },
-        error => alert(error),
-        () => {
-          console.log('test init sentool')
-        }
-      );
+        .subscribe(
+            data => {
+              this.regions = data;
+            },
+            error => alert(error),
+            () => {
+              console.log('test init sentool')
+            }
+        );
   }
-
   selectRegionNewCaissier(){
     this.iszones = false;
     this.zone = '--Choix zone--';
     this.souszone = '--Choix sous zone--';
     this._utilsService.getZoneByRegion(this.region)
-      .subscribe(
-        data => {
-          this.zones = data;
-          this.iszones = true;
-        },
-        error => alert(error),
-        () => console.log('getZoneByRegion')
-      );
+        .subscribe(
+            data => {
+              this.zones = data;
+              this.iszones = true;
+            },
+            error => alert(error),
+            () => console.log('getZoneByRegion')
+        );
   }
+
 
   selectZoneNewCaissier(){
     this.issouszones = false;
     this._utilsService.getSouszoneByZoneByRegion({region:this.region, zone: this.zone})
-      .subscribe(
-        data => {
-          this.souszones = data;
-          this.issouszones = true;
-        },
-        error => alert(error),
-        () => console.log('getSouszoneByZoneByRegion')
-      );
+        .subscribe(
+            data => {
+              this.souszones = data;
+              this.issouszones = true;
+            },
+            error => alert(error),
+            () => console.log('getSouszoneByZoneByRegion')
+        );
   }
 
   selectsousZoneNewCaissier(){
@@ -156,14 +189,15 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
       this.isadresse = true;
   }
 
+
   @ViewChild('viewMore') public endRegisterdModal:ModalDirective;
 
   ouvrir(){
-      this.endRegisterdModal.show() ;
+    this.endRegisterdModal.show() ;
   }
 
   closeModal(){
-      this.endRegisterdModal.hide() ;
+    this.endRegisterdModal.hide() ;
   }
 
   inscrire(){
@@ -175,7 +209,7 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
       console.log(retourserveur);
 
       if(retourserveur=="bad"){
-          this.usedLogin=true ;
+        this.usedLogin=true ;
       }
       if(retourserveur=="ok"){
         this.endRegisterdModal.show() ;
@@ -194,7 +228,6 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
     }) ;
   }
 
-
   public geoloc = {latitude:14.747580899999999, longitude:-17.4654089};
   coordonneesgeospatiales(){
     console.log('coordonneesgeospatiales wait');
@@ -210,6 +243,14 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
     },{maximumAge:36000,enableHighAccuracy:true});
   }
 
+
+
+/////////////////////////////////////PARTIE MOBILE/////////////////////////////////////////
+  public page:number = 1;
+
+  public accueilmobil(){
+    this.page = 2;
+  }
 
 
 }

@@ -1,4 +1,3 @@
-
 label{
     color : #36A9E0;
     text-transform : capitalize ;
@@ -15,7 +14,7 @@ label{
 }
 
 .loader .ball-pulse-rise > div {
-   background-color: #337ab7 !important ;
+    background-color: #337ab7 !important ;
 }
 
 .panel{
@@ -35,11 +34,11 @@ label{
 
 .panel-heading h2{
     background-color: #36A9E0 !important;
-/*    width : 68rem ;*/
+    /*    width : 68rem ;*/
     width : 34rem ;
     padding: 2rem ;
     z-index: 1 ;
-}   
+}
 
 .panel-body{
     position: relative;
@@ -51,7 +50,7 @@ label{
     z-index: 0 ;
     position: relative;
     top : -8rem ;
-/*    width: 98rem ;*/
+    /*    width: 98rem ;*/
     width: 53rem ;
     height: 10rem ;
 }
@@ -70,7 +69,7 @@ fieldset h2{
     background-color : #F39200;
     padding: 2.5rem;
     border-radius: 2rem 0rem 2rem 2rem;
-/*    width: 82rem;*/
+    /*    width: 82rem;*/
     width: 53rem;
     margin-left: -4rem ;
 }
@@ -107,15 +106,34 @@ fieldset h2{
 }
 
 #om-options li:last-child{
-/*	margin-top: 2rem ; */
+    /*	margin-top: 2rem ; */
 }
 
 #paiefact select{
     margin-left: 1rem ;
 }
 
-@media only screen and (max-width: 400px) {
-    #om-options{
-        width: max-content !important;
+
+
+@media only screen and (max-width: 500px) {
+
+    .desktop{
+        display: none;
     }
-}  
+    .mobile{
+        display: block;
+    }
+
+    button:hover{
+        background-color:  white !important;
+        border-color: #F39200 !important;
+        color: #36A9E0 !important;
+        font-weight: bolder;
+    }
+    h5:hover{
+        color: #36A9E0 !important;
+    }
+    p:hover{
+        color: #36A9E0 !important;
+    }
+}
