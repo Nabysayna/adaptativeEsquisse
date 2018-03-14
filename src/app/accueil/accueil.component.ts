@@ -1419,21 +1419,21 @@ public pdvaccueilsousmenuMobilemoney(){
     this.pdvaccueilsousmenumobilemoney = this.pdvaccueilsousmenumobilemoneyClick;
 
     if ( this.displayedPage === "accueil-mm-pc" ){
-      this.router.navigate(['/accueil/POSTECASH']); 
+      this.router.navigate(['/accueil/POSTECASH']);
     } else if ( this.displayedPage === "accueil-mm-om" ){
-      this.router.navigate(['/accueil/ORANGEMONEY']); 
+      this.router.navigate(['/accueil/ORANGEMONEY']);
     } else if ( this.displayedPage === "accueil-mm-tc" ){
-      this.router.navigate(['/accueil/TIGOCASH']); 
+      this.router.navigate(['/accueil/TIGOCASH']);
     } else if ( this.displayedPage === "accueil-mm-wz" ){
-      this.router.navigate(['/accueil/WIZALL']); 
+      this.router.navigate(['/accueil/WIZALL']);
     } else if ( this.displayedPage === "accueil-mm-em" ){
-      this.router.navigate(['/accueil/E-MONEY']); 
+      this.router.navigate(['/accueil/E-MONEY']);
     }else if ( this.displayedPage === "accueil-mm-ec" ){
-      this.router.navigate(['/accueil/E-COMMERCE']); 
+      this.router.navigate(['/accueil/E-COMMERCE']);
     } else{
-      this.router.navigate(['/accueil/E-COMMERCE']); 
+      this.router.navigate(['/accueil/E-COMMERCE']);
     }
-  
+
     console.log(this.displayedPage) ;
   }
 }
@@ -1446,7 +1446,7 @@ public roadTo(choosedRoad){
   this.displayedPage = this.displayedPage + "-" + choosedRoad ;
 
   if ( (this.displayedPage.match(/-/g) || []).length == 2 )
-      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
+      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] );
 
 }
 
@@ -1470,4 +1470,3 @@ public pdvacueilmenumobilemoneyretour(){
 
 
 }
-
