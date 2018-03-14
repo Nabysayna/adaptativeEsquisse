@@ -7,6 +7,7 @@
 
             </div>
 
+
             <div class="cover"></div>
 
             <div class="panel-body">
@@ -15,14 +16,14 @@
                     <a href="#rechargementespece-pills" style="margin-left: -1.3rem; padding-left: 2rem; padding-right: 2rem;" (click)="reinitialiser()"  data-toggle="tab">Recharge Espece</a>
 
     <!--                 <a href="#rechargementespece-pills" style="padding-left: 2rem; padding-right: 2rem;" (click)="reinitialiser()"  data-toggle="tab">Retrait sur Carte</a> -->
-                    
+
                     <a href="#achatjula-pills" style="padding-left: 2rem; padding-right: 2rem;" (click)="reinitialiser()" data-toggle="tab">Achat Jula</a>
-                    
+
                      <a href="#reglementsenelec-pills" (click)="reinitialiser()" data-toggle="tab">Senelec</a>
 
-                    <a href="#achatcodewoyofal-pills" (click)="reinitialiser()" data-toggle="tab">Woyofal</a>                                
-                    <a href="#rapido-pills" (click)="reinitialiser()" data-toggle="tab">RAPIDO</a> 
-                  <!-- <a href="#oolu-pills" (click)="reinitialiser()" data-toggle="tab">Oolu Solar</a> --> 
+                    <a href="#achatcodewoyofal-pills" (click)="reinitialiser()" data-toggle="tab">Woyofal</a>
+                    <a href="#rapido-pills" (click)="reinitialiser()" data-toggle="tab">RAPIDO</a>
+                  <!-- <a href="#oolu-pills" (click)="reinitialiser()" data-toggle="tab">Oolu Solar</a> -->
                 </div>
 
                 <!-- Tab panes -->
@@ -317,7 +318,7 @@
     </div>
 </div>
 
-<!--<div class="mobile">
+<div class="mobile"  style="display: block;">
    <div>
         <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
           <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -334,27 +335,27 @@
             <div id="om-options">
               <div (click)="pdvaccueilpagePOSTCASHClick=1; reinitialiser()" style="margin-right: 57rem; padding-top: 5rem; padding-bottom: 3rem;" >
                 <button (click)="reinitialiser()" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams'; border: 0rem;">Recharge Espece</button>
-              </div>          
+              </div>
             <div (click)="pdvaccueilpagePOSTCASHClick=2; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem;" >
               <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams'; border: 0rem;">Achat Jula</button>
-            </div>          
+            </div>
             <div (click)="pdvaccueilpagePOSTCASHClick=3; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem;">
               <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">Senelec</button>
             </div>
             <div (click)="pdvaccueilpagePOSTCASHClick=4; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem; " >
               <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">Woyofal</button>
-            </div>                                
+            </div>
             <div (click)="pdvaccueilpagePOSTCASHClick=5; reinitialiser()" style="margin-right: 57rem; padding-bottom: 3rem; " >
               <button style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams';border: 0rem;">RAPIDO</button>
             </div>
-      
+
             <button class="btn btn-success" style="margin-right: 59rem;" (click)="pdvaccueilpagePOSTCASHValide()"><i class="fa fa-check" style="color : white" aria-hidden="true"  ></i>
             </button>
           </div>
           </div>
         </div>
    </div>
-</div>-->
+</div>
 
 
 <div *ngIf="this.loading">
