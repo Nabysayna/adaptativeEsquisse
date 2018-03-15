@@ -1421,7 +1421,7 @@ public pdvaccueilsousmenuMobilemoney(){
     if ( this.displayedPage === "accueil-mm-pc" ){
       this.router.navigate(['/accueil/POSTECASH']); 
     } else if ( this.displayedPage === "accueil-mm-om" ){
-      this.router.navigate(['/accueil/ORANGEMONEY']); 
+     // this.router.navigate(['/accueil/ORANGEMONEY']); 
     } else if ( this.displayedPage === "accueil-mm-tc" ){
       this.router.navigate(['/accueil/TIGOCASH']); 
     } else if ( this.displayedPage === "accueil-mm-wz" ){
@@ -1443,10 +1443,13 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
-  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+ // this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+  if(choosedRoad==='mm'){
+        this.displayedPage='accueil-mm-om';
+  }
 
-  if ( (this.displayedPage.match(/-/g) || []).length == 2 )
-      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
+ // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
+   //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
 
 }
 
@@ -1465,6 +1468,23 @@ public pdvacueilmenumobilemoneyretour(){
       console.log("Echec deconnexion!") ;
 
      }) ;
+  }
+  cheminretour(){
+     let chemin=this.displayedPage.split('-');
+     let newchemin='accueil';
+     for(let i=1;i<chemin.length-1;i++){
+        newchemin+='-'+chemin[i];
+     }
+     this.displayedPage=newchemin; 
+  }
+  depotmobile(){
+     this.displayedPage='accueil-mm-om-d';
+  }
+  retraitmobile(){
+     this.displayedPage='accueil-mm-om-r';
+  }
+  retraitcodemobile(){
+     this.displayedPage='accueil-mm-om-rc';
   }
 
 

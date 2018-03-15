@@ -1,4 +1,4 @@
-<div class="col-sm-12 desktop">
+<div *ngIf="isMobile==false" class="col-sm-12 desktop">
     <div class="panel panel-default" style="margin-top: 5rem;margin-left: -26rem;">
         <div class="panel-heading">
             <h2>OrangeMoney</h2>
@@ -184,7 +184,7 @@
     </div>
 </div>
 
-<div class="col-sm-12 mobile">
+<div *ngIf="isMobile==true" class="col-sm-12">
     <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
       <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;padding-top: 2rem;">
               <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
@@ -207,7 +207,7 @@
               <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="reinitialise()" data-toggle="tab">Vente crédit</button> </div>           
               
                   
-      </div>
+          </div>
     </div>
 
     <!--les sous menu d'orangemoney-->
