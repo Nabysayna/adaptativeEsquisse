@@ -565,52 +565,104 @@
 
     <!--PostCach-->
 
-<div *ngIf="displayedPage=='accueil-mm-POSTCASH'">
+<!--<div *ngIf="displayedPage=='accueil-mm-POSTCASH'">
     POSTCASH
-</div>
+</div>-->
 
     <!--TIGOCASH-->
 
-<<<<<<< HEAD
-<div class="col-sm-12">
+<div class="col-sm-12" *ngIf="displayedPage=='accueil-mm-TIGOCASH'" >
     <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 1rem;">
-            <img src="assets/gestio.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: 0px; margin-right: 40px;">
-            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 1rem;"/>
+            <img src="assets/thumbnailphone.png" style="height: 77px; margin-left: -107px; padding-top: 1rem; margin-right: 5rem; margin-top: 0px; margin-right: 40px;">
+            <img src="assets/TC-icone.png" style="width: 30%; height: 16rem; opacity:0.96;padding-top: 0rem;margin-right: 1rem; margin-bottom: -6rem;"/>
             <div style=" margin-left: 5rem;">
-                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-13rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-11rem; height: 4rem; margin-left: 23rem;"/>
-            </div>
-        <div class="panel-heading" style="padding: 0.02px 0px;">
-            <h2>TigoCash</h2>
-        </div>
-                <div class="cover"></div>
-            <div class="panel-body">
-                 <div id="om-options" style="margin-left: 10rem;">
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-14rem; height: 4rem; margin-left: 19rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-12rem; height: 4rem; margin-left: 19rem;"/>
+                <div id="om-options" style="margin-left: 5rem; padding-top: 5rem;">
                     <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
-                    <button href="#depottigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</button></div>
+                    <button class="TigoCash" href="#depottigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</button></div>
                     <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
-                    <button href="#retraittigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </button></div>
+                    <button class="TigoCash" href="#retraittigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </button></div>
                     <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
-                    <button style="color:white; border:0;" href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</button></div>
+                    <button class="TigoCash" style="color:white; border:0;" href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</button></div>
                     <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
-                    <button href="#envoyerargent" style="display: none ; border:0; color:white;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</button></div>
+                    <button class="TigoCash" href="#envoyerargent" style="display: none ; border:0; color:white; font-family: caviar dreams; font-size: 2rem;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</button></div>
                     <div>
-                    <button href="#vendreizi" style="padding-left: 1rem; border:0; color:white; padding-right: 1rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</button></div>
-                     <div class="row text-center" style="padding-top: 5rem;">
-                        <button type="submit" class="btn btn-success">Valider</button>
+                    <button class="TigoCash" href="#vendreizi" style="padding-left: 1rem; border:0; color:white; padding-right: 1rem;font-family: caviar dreams; font-size: 2rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</button></div>
+                     <div class="row text-center" style="padding-top: 5rem;border-radius: 50% ! important;">
+                        <button  style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important; border: none;" class="TigoCash" type="submit" class="btn btn-success"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-=======
-<div *ngIf="displayedPage=='accueil-mm-TIGOCASH'">
-    TIGOCASH
+
+
+
+                                                <!--Depôt-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 1rem;">
+             <div class="col-xs-12 col-sm-12" style="padding-bottom: 5rem;">
+                    <div class="row">
+                         <div class="col-xs-3 col-sm-3">
+                                <img src="assets/thumbnailphone.png" style="height: 5rem; margin-left: 2rem;">
+
+                         </div>
+                        <div class="col-xs-6 col-sm-6">
+                                <img src="assets/TC-icone.png" style="width: 100%; height: 16rem; "/>
+
+                         </div>
+                        <div class="col-xs-3 col-sm-3">
+                                <div class="row">
+                                    <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;"/>
+
+                                </div>
+                                <div class="row">
+                                    <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;"/> 
+
+                                </div>
+
+                         </div>
+                    </div>
+             </div>
+             <div class="col-sm-12 col-xs-12" *ngIf="erreur" style="padding-top: 7rem ; color: #337ab7">
+                    <h5>Désolé! Votre requête n'a pas pu être traitée.</h5> <h5 style="color : red">{{errorMessage}}</h5>
+            </div>
+            <div class="col-xs-12 col-sm-12" style="border: 2px solid white;" >
+                <h2 style="color:white; font-family: 'caviar dreams bold';" >Dépôt</h2>
+            </div>
+            <div class="col-xs-12 col-sm-12" >
+                <form (ngSubmit)="showmodaldepot()" #rechargementespece="ngForm" autocomplete="on">
+                    <div class="row" style="padding-top: 5rem;">
+                    <div class="col-xs-4 col-sm-4" style="">
+                        <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family: caviar dreams bold;    font-size: 15.3px;">Numéro du client:</label>
+                    </div>
+                    <div class="col-xs-7 col-sm-7">
+                        <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="" required  style="border-radius: 3rem; height: 25px; background-color: rgb(250, 250, 250, 0.8);">
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-4 col-sm-4" style="">
+                      <label style="color: white;font-family: caviar dreams bold; font-size: 15.3px; " for="montantrechargementespece" class="col-sm-3 col-form-label">Montant recharger:</label> 
+                    </div>
+                    <div class="col-xs-7 col-sm-7" style="">
+                        <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="" required  style="border-radius: 3rem; height: 25px; background-color: rgb(250, 250, 250, 0.8);">
+                    </div>
+                    <div class="row text-center" style="padding-top: 13rem;">
+                          <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i class="fa fa-times fa-2x" style="color:orange;"></i></button>
+                          <button type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
+                        
+                    </div>
+                    </div>
+                </form>
+        
+            </div>
+    </div>
 </div>
 
->>>>>>> 8525e6d975f4373b9416401333063a42a09dc312
+
+
     <!--WIZALL-->
 
 <div *ngIf="displayedPage=='accueil-mm-WIZALL'">

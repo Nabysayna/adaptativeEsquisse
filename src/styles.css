@@ -92,6 +92,14 @@
 	    color: #36A9E0 !important;
 	    font-weight: bolder;
 	}
+	 button.TigoCash:hover{
+        background-color: transparent !important;
+        color: white!important;
+        border:1px solid white !important;
+        border-radius: 0rem 0rem 0rem !important;
+        
+
+    }
 
 	.bg
 	{
