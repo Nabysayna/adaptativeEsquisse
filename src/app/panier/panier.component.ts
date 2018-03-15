@@ -1,11 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { ModalDirective } from 'ng2-bootstrap/modal';
-import { OrangeMoneyService } from '../webServiceClients/Orangemoney/orangemoney.service' ;
-import { PostCashWebService } from '../webServiceClients/PostCash/postcash.service';
-import { TntServiceWeb, TntResponse } from '../webServiceClients/Tnt/Tnt.service';
-import { TigoCashService } from '../webServiceClients/Tigocash/tigocash.service';
-import { EcomServiceWeb } from '../webServiceClients/ecom/ecom.service';
 
 class Article {
   public id:number;
@@ -20,23 +15,14 @@ class Article {
   selector: 'app-panier',
   templateUrl: './panier.component.html',
   styleUrls: ['./panier.component.css'],
-  
+
 })
 export class panierComponent implements OnInit {
   articles:any=[];
-  panier:any=[];
   process=[];
-  commandevalidee:boolean=false;
-  token : string = JSON.parse(sessionStorage.getItem('currentUser')).baseToken ;
-  
-   quinzeMinutes = 900000; 
-//  quinzeMinutes = 15000;	
+
   registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'TIGOCASH', 'TNT BY EXCAF'] ;
-  //registredAPIs : string [] = ['POSTECASH', 'TNT BY EXCAF'] ;
-  authorisedToUseCRM = false ;
   load="loader";
-  private tntCaller: TntServiceWeb ;
-  actif = -1 ;
   dataImpression:any;
   clients=[{'prenom':'magor','nom':'sy','telephone':779013878,'adress':'Mbour'}];
   prenom:string="";
@@ -44,16 +30,15 @@ export class panierComponent implements OnInit {
   adress:string="";
   telephone:number=undefined;
   estclient:boolean=false;
-  constructor(private router: Router,private omService : OrangeMoneyService,private postcashwebservice: PostCashWebService,public ecomCaller: EcomServiceWeb) {}
+  constructor(private router: Router) {}
 
 /******************************************************************************************************/
 
 
   ngOnInit() {
-       if(sessionStorage.getItem('panier')!=undefined){
            this.articles=JSON.parse(sessionStorage.getItem('panier'));
            console.log(this.articles);
-        }
+
   }
 
 
@@ -102,7 +87,7 @@ export class panierComponent implements OnInit {
      this.modalcommande.hide();
   }
   chercherclient(tel:number){
-   
+
       for(let i=0;i<this.clients.length;i++){
          if(this.clients[i].telephone==tel){
             this.prenom=this.clients[i].prenom;
@@ -113,58 +98,7 @@ export class panierComponent implements OnInit {
       }
       this.estclient=true;
   }
- //getTelephone() methode de la class users backend 
-  validercommande(){
-     let total=this.totalpanier();
-    // console.log(this.articles);
-     for(let i=0;i<this.articles.length;i++){
-     let ad=JSON.parse(this.articles[i].data.infosup);
-     console.log(ad);
-       let data={
-			idarticle:2,
-			qte:this.articles[i].data.quantite,
-			prix:this.articles[i].data.prix,
-			montant:this.articles[i].data.prix*this.articles[i].data.montant,
-			designation:this.articles[i].data.designation,
-			description:this.articles[i].data.description,
-			nomLink: this.articles[i].data.nomImg,
-			pourvoyeur:this.articles[i].data.pourvoyeur,
-			supplied:0,
-			address:ad.adresse.address,
-			souszone:ad.adresse.souszone,
-			zone:ad.adresse.zone,
-			region:ad.adresse.region,
-       }
-       console.log(data);
-       this.panier.push(data);
-     }
-     console.log(this.panier);
-     let params = { 
-		  token:this.token , 
-		  orderedarticles:""+JSON.stringify(this.panier), 
-		  prenomclient: this.prenom, 
-		  nomclient: this.nom, 
-		  telephoneclient: this.telephone, 
-		  montant:total,
-		  emailclient: '',
-    };
-    this.ecomCaller.commander(params).then( response => {
-      let data=JSON.parse(response);
-     if(data.errorCode=='1'){
-         this.viderpanier();
-         this.commandevalidee=true;
-     }else{
-        console.log(data);
-     }
-    });
-     this.viderpanier();
-     this.commandevalidee=true;
-    this.hidemodalcommande(); 
-    
-  }
-  viderpanier(){
-    this.articles=[];
-    sessionStorage.removeItem('panier');
-  }
+
+
 }
-  
+
