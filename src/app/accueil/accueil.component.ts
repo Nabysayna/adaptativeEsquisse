@@ -54,9 +54,9 @@ export class AccueilComponent implements OnInit {
     localStorage.removeItem('tc-depot') ;
     localStorage.removeItem('tc-retrait') ;
 
-    if (!sessionStorage.getItem('currentUser'))
-       this.router.navigate(['']);
-    this.processus();
+    // if (!sessionStorage.getItem('currentUser'))
+    //    this.router.navigate(['']);
+    // this.processus();
   }
 
 /******************************************************************************************************/
