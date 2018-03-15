@@ -1,91 +1,82 @@
+  <div class="desktop">
   <div class="col-sm-12">
     <div class="panel panel-default" style="margin-top: 5rem;margin-left: -26rem;">
         <div class="panel-heading">
-        
           <h2>TigoCash</h2>
-        
         </div>
-
         <div class="cover"></div>
-
         <div class="panel-body">
-             <div id="om-options">
-                <a href="#depottigocash" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</a>
-                
-                <a href="#retraittigocash" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </a>
-                
-                <a href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</a>
+          <div id="om-options">
+            <a href="#depottigocash" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</a>
+            
+            <a href="#retraittigocash" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </a>
+            
+            <a href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</a>
 
-                <a href="#envoyerargent" style="display: none ;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</a>
-                
-                <a href="#vendreizi" style="padding-left: 1rem; padding-right: 1rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</a>
-                
-            </div>
-
+            <a href="#envoyerargent" style="display: none ;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</a>
+            
+            <a href="#vendreizi" style="padding-left: 1rem; padding-right: 1rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</a>
+          </div>
 
             <!-- Tab panes  -->
-            <div class="tab-content">
-
-              <div class="col-sm-6 col-xs-12" *ngIf="erreur" style="padding-top: 7rem ; color: #337ab7">
-                <h5>Désolé! Votre requête n'a pas pu être traitée.</h5> <h5 style="color : red">{{errorMessage}}</h5>
+          <div class="tab-content">
+            <div class="col-sm-6 col-xs-12" *ngIf="erreur" style="padding-top: 7rem ; color: #337ab7">
+              <h5>Désolé! Votre requête n'a pas pu être traitée.</h5> <h5 style="color : red">{{errorMessage}}</h5>
+            </div>
+          <div class="tab-pane fade col-sm-12 col-xs-12 in active" id="depottigocash">
+              <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
+                <h2>Dépôt</h2>
+              </fieldset>
+          <form (ngSubmit)="showmodaldepot()" #rechargementespece="ngForm" autocomplete="on">
+            <div class="form-group row">
+              <label for="telephonerechargementespece" class="col-sm-3 col-form-label">Téléphone client</label>
+            <div class="col-sm-8">
+              <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control" placeholder="téléphone client" required>
+            </div>
+            </div>
+            <div class="form-group row">
+              <label for="montantrechargementespece" class="col-sm-3 col-form-label">Montant à recharger</label>
+              <div class="col-sm-8">
+                <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="montant à recharger" required>
               </div>
-
-               <div class="tab-pane fade col-sm-12 col-xs-12 in active" id="depottigocash">
-                    <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-                        <h2>Dépôt</h2>
-                    </fieldset>
-
-                    <form (ngSubmit)="showmodaldepot()" #rechargementespece="ngForm" autocomplete="on">
-                      <div class="form-group row">
-                        <label for="telephonerechargementespece" class="col-sm-3 col-form-label">Téléphone client</label>
-                        <div class="col-sm-8">
-                          <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control" placeholder="téléphone client" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="montantrechargementespece" class="col-sm-3 col-form-label">Montant à recharger</label>
-                        <div class="col-sm-8">
-                          <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="montant à recharger" required>
-                        </div>
-                      </div>
-
-                      <div class="row text-center">
-                        <button type="submit" class="btn btn-success">Valider</button>
-                        <button type="reset" class="btn btn-danger" >Annuler</button>
-                      </div>
-                    </form>
-                </div>
-               <div class="tab-pane fade col-sm-12 col-xs-12" id="retraittigocash">
-                    <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-                        <h2>Retrait</h2>
-                    </fieldset>
-                    <h4>Le service est en cours de finalisation.</h4>
+            </div>
+            <div class="row text-center">
+              <button type="submit" class="btn btn-success">Valider</button>
+              <button type="reset" class="btn btn-danger" >Annuler</button>
+            </div>
+          </form>
+          </div>
+          <div class="tab-pane fade col-sm-12 col-xs-12" id="retraittigocash">
+            <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
+              <h2>Retrait</h2>
+            </fieldset>
+            <h4>Le service est en cours de finalisation.</h4>
 
 <!--                     <form (ngSubmit)="showmodalretrait()" #rechargementespece="ngForm" autocomplete="on">
-                      <div class="form-group row">
-                        <label for="telephonerechargementespece" class="col-sm-3 col-form-label">Téléphone client</label>
-                        <div class="col-sm-8">
-                          <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control" placeholder="téléphone client" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="montantrechargementespece" class="col-sm-3 col-form-label">Montant à recharger</label>
-                        <div class="col-sm-8">
-                          <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="montant à recharger" required>
-                        </div>
-                      </div>
+                  <div class="form-group row">
+                    <label for="telephonerechargementespece" class="col-sm-3 col-form-label">Téléphone client</label>
+                    <div class="col-sm-8">
+                      <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control" placeholder="téléphone client" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="montantrechargementespece" class="col-sm-3 col-form-label">Montant à recharger</label>
+                    <div class="col-sm-8">
+                      <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="montant à recharger" required>
+                    </div>
+                  </div>
 
-                      <div class="row text-center">
-                        <button type="submit" class="btn btn-success">Valider</button>
-                        <button type="reset" class="btn btn-danger" >Annuler</button>
-                      </div>
-                    </form>
- -->                </div>
-               <div class="tab-pane fade col-sm-12 col-xs-12" id="payertranfert">
-                    <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-                        <h2>Payer un transfert</h2>
-                    </fieldset>
-                    <h4>Le service sera bientôt disponible</h4>
+                  <div class="row text-center">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <button type="reset" class="btn btn-danger" >Annuler</button>
+                  </div>
+                </form>
+-->        </div>
+            <div class="tab-pane fade col-sm-12 col-xs-12" id="payertranfert">
+              <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
+                <h2>Payer un transfert</h2>
+              </fieldset>
+                <h4>Le service sera bientôt disponible</h4>
 
 <!--                     <form (ngSubmit)="showmodalpaiment()" #rechargementespece="ngForm" autocomplete="on">
                       <div class="form-group row">
@@ -102,10 +93,9 @@
                         <button type="reset" (click)="reinitialiser()" class="btn btn-danger">Annuler</button>
                       </div>
                     </form> -->
-                </div>
-               <div class="tab-pane fade col-sm-12 col-xs-12" id="envoyerargent">
-
-                    <h4>Le service sera bientôt disponible</h4>
+              </div>
+              <div class="tab-pane fade col-sm-12 col-xs-12" id="envoyerargent">
+                <h4>Le service sera bientôt disponible</h4>
 
 <!--                   <div class="row">
 					  <div class="col-lg-5">
@@ -162,12 +152,12 @@
 								<button type="submit" (click)="showmodalenvoi()" class="btn btn-success">Valider</button>
 								<button type="reset" class="btn btn-danger"  >Annuler</button>
 					 </div>
- -->                </div>
+ -->         </div>
              <div class="tab-pane fade col-sm-12 col-xs-12" id="vendreizi">
-                    <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-                        <h2>Vente IZI</h2>
-                    </fieldset>
-                    <h4>Le service sera bientôt disponible</h4>
+                <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
+                  <h2>Vente IZI</h2>
+                </fieldset>
+                  <h4>Le service sera bientôt disponible</h4>
 
 <!--                     <form (ngSubmit)="showmodalvendreizi()" #rechargementespece="ngForm" autocomplete="on">
                       <div class="form-group row">
@@ -226,13 +216,35 @@
                       </div>
                     </form> -->
                 </div>
-
-
            </div>
         </div>
     </div>
 </div>
 
+			<!--classe mobile-->
+<div class="mobile">
+	<div class="col-sm-12">
+    	<div class="panel panel-default" style="margin-top: 5rem;margin-left: -26rem;">
+        	<div class="panel-heading">
+        		<h2>TigoCash</h2>
+        	</div>
+        <div class="cover"></div>
+        <div class="panel-body">
+             <div id="om-options">
+                <a href="#depottigocash" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</a>
+                
+                <a href="#retraittigocash" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </a>
+                
+                <a href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</a>
+
+                <a href="#envoyerargent" style="display: none ;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</a>
+                
+                <a href="#vendreizi" style="padding-left: 1rem; padding-right: 1rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</a> 
+            </div>
+		</div>
+		</div>
+	</div>
+</div>
 <div *ngIf="this.loading">
     <app-loader></app-loader>
 </div>

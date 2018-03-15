@@ -1,3 +1,4 @@
+@media only screen and (min-width: 501px) {
 fieldset h4{
     text-align: center;
 	color : white;
@@ -137,4 +138,27 @@ fieldset h2{
 
 #paiefact select{
     margin-left: 1rem ;
+}
+}
+@media only screen and (max-width: 500px) {
+
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+
+    button:hover{
+        background-color:  white !important;
+        border-color: #F39200 !important;
+        color: #36A9E0 !important;
+        font-weight: bolder;
+    }
+    h5:hover{
+        color: #36A9E0 !important;
+    }
+    p:hover{
+        color: #36A9E0 !important;
+    }
 }

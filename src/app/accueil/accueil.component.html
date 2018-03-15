@@ -449,7 +449,39 @@
 
     <!--TIGOCASH-->
 
-
+<div class="col-sm-12">
+    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 1rem;">
+            <img src="assets/gestio.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: 0px; margin-right: 40px;">
+            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 1rem;"/>
+            <div style=" margin-left: 5rem;">
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-13rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-11rem; height: 4rem; margin-left: 23rem;"/>
+            </div>
+        <div class="panel-heading" style="padding: 0.02px 0px;">
+            <h2>TigoCash</h2>
+        </div>
+                <div class="cover"></div>
+            <div class="panel-body">
+                 <div id="om-options" style="margin-left: 10rem;">
+                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <button href="#depottigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</button></div>
+                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <button href="#retraittigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </button></div>
+                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <button style="color:white; border:0;" href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</button></div>
+                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <button href="#envoyerargent" style="display: none ; border:0; color:white;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</button></div>
+                    <div>
+                    <button href="#vendreizi" style="padding-left: 1rem; border:0; color:white; padding-right: 1rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</button></div>
+                     <div class="row text-center" style="padding-top: 5rem;">
+                        <button type="submit" class="btn btn-success">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <!--WIZALL-->
 
     <!--ECOMMERCE-->
