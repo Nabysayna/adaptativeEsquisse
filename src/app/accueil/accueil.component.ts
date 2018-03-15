@@ -1439,10 +1439,7 @@ public pdvacueilretour(){
 
 public roadTo(choosedRoad){
   this.displayedPage = this.displayedPage + "-" + choosedRoad ;
-
-  if ( (this.displayedPage.match(/-/g) || []).length == 2 )
-      this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] );
-
+  console.log(this.displayedPage) ;
 }
 
 public pdvacueilmenumobilemoneyretour(){
