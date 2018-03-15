@@ -360,122 +360,238 @@
 
         </div>
     </div>
-
-
-    <!-- sous menu orange money     -->
-      
-    <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY'" class="col-sm-12">
-        <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
-          <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;padding-top: 2rem;">
-                  <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-                  <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-                  
-                  <div>
-                    <img src="assets/retour.png" (click)="pdvacueilretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                    <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-                  </div>
-                  <div style="margin-right: 7rem;margin-left: 7rem; padding-bottom: 3rem;">
-                   <!-- <h2 style="color:white; background-color: transparent !important; border: 2px solid white;padding: 0.7rem;">OrangeMoney</h2>-->
-                   <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-                  </div>
-                 <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;">
-                    <button  style="padding-left: 4rem; border: 0px; padding-right: 4rem; border: 0px;" (click)="depotmobile()"  data-toggle="tab">Depôt</button>
-                  </div>
-                  <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;">
-                    <button  style="padding-left: 4rem; padding-right: 4rem;border: 0px;" (click)="retraitmobile()" data-toggle="tab">Retrait </button>
-                  </div>
-                  <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;">
-                    <button style="border:0px;" href="#retraitcode" (click)="reinitialiseRcode()" data-toggle="tab">Retrait avec code</button>
-                  </div>
-                  <div style="font-family: caviar dreams;font-size: 2.1rem;color: white; padding-top: 1rem;">
-                    <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="reinitialise()" data-toggle="tab">Vente crédit</button> 
-                  </div>  
-           </div>                
-        </div>
+  <!-- sous menu orange money     -->
+  
+<div *ngIf="displayedPage=='accueil-mm-om'" class="col-sm-12">
+    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+      <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;padding-top: 2rem;">
+              <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+              
+              <div>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+              </div>
+			  <div style="margin-right: 7rem;margin-left: 7rem; padding-bottom: 3rem;">
+			   <!-- <h2 style="color:white; background-color: transparent !important; border: 2px solid white;padding: 0.7rem;">OrangeMoney</h2>-->
+			  <!-- <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>-->
+			  </div>
+             <div  style="font-family: caviar dreams;font-size: 2.1rem;color: white;border:2px solid white">
+                <button  style="padding-left: 4rem; border: 0px; padding-right: 4rem; border: 0px;" (click)="depotmobile()"  data-toggle="tab">Depôt</button>
+              </div>
+              <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;">
+                <button  style="padding-left: 4rem; padding-right: 4rem;border: 0px;" (click)="retraitmobile()" data-toggle="tab">Retrait </button>
+              </div>
+              <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;border:2px solid white">
+                <button style="border:0px;" href="#retraitcode" (click)="retraitcodemobile()" data-toggle="tab">Retrait avec code</button>
+              </div>
+              <div style="font-family: caviar dreams;font-size: 2.1rem;color: white; padding-top: 1rem;">
+                <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="ventecredit()" data-toggle="tab">Vente crédit</button> 
+              </div>  
+       </div>               
     </div>
+</div>
 
-        <!--les sous menu d'orangemoney-->
-           <!-- Depot orange money -->
-    <div *ngIf="displayedPage=='accueil-mm-om-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
-     <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-       <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
-                  <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-                  <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-                  
-                  <div>
-                    <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                    <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-                  </div>
-        <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
-         <!-- <h2 style="color:#36A9E0;">Orange Money</h2>-->
-          <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-        </div>
-            <div>
-              <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Dépôt</h2>
-            </div>
-            <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
-            <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-            <form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-              <div class="form-inline" style=";">
-                <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
-                <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+    <!--les sous menu d'orangemoney-->
+       <!-- Depot orange money -->
+<div *ngIf="displayedPage=='accueil-mm-om-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+ <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+   <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
+              <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+              
+              <div>
+                <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
               </div>
-              <p *ngIf="mag1" style="color:red">numero incorrect</p>
-              <div class="form-inline">
-               <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%">Montant transfert :</label>
-                <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
-                
+    <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
+     <!-- <h2 style="color:#36A9E0;">Orange Money</h2>-->
+      <!--<img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>-->
+    </div>
+		<div>
+		  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Dépôt</h2>
+		</div>
+		<h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
+		<h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		  <div class="form-inline" style=";">
+			<label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
+			<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+		  </div>
+		  <p *ngIf="mag1" style="color:red">numero incorrect</p>
+		  <div class="form-inline">
+		   <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%">Montant transfert :</label>
+			<input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+			
+		  </div>
+		  <p *ngIf="mag2" style="color:red">montant incorrect</p>
+		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+		</form>
+  </div>
+ </div>
+</div>  
+      <!-- fin depot  -->
+       <!-- vente credit orange money -->
+<div *ngIf="displayedPage=='accueil-mm-om-vc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+ <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+   <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
+              <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+              
+              <div>
+                <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
               </div>
-              <p *ngIf="mag2" style="color:red">montant incorrect</p>
-              <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
-            </form>
-      </div>
-     </div>
-    </div>  
-          <!-- fin depot  -->
-          <!-- retrait Orange Money -->
+    <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
+     <!-- <h2 style="color:#36A9E0;">Orange Money</h2>-->
+      <!--<img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>-->
+    </div>
+		<div>
+		  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Vente credit</h2>
+		</div>
+		<h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
+		<h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		  <div class="form-inline" style=";">
+			<label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
+			<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+		  </div>
+		  <p *ngIf="mag1" style="color:red">numero incorrect</p>
+		  <div class="form-inline">
+		   <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%">Montant transfert :</label>
+			<input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+			
+		  </div>
+		  <p *ngIf="mag2" style="color:red">montant incorrect</p>
+		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+		</form>
+  </div>
+ </div>
+</div>  
+      <!-- fin vente credit  -->
+      <!-- retrait Orange Money -->
+      
+<div *ngIf="displayedPage=='accueil-mm-om-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+ <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+   <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
+              <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+              
+              <div>
+                <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+              </div>
+    <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
+     <!-- <h2 style="color:#36A9E0;">Orange Money</h2>-->
+     <!-- <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>-->
+    </div>
+		<div>
+		  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait Orange Money</h2>
+		</div>
+		<h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
+		<h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		  <div class="form-inline" style=";">
+			<label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
+			<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+			
+		  </div>
+		  <p *ngIf="mag1" style="color:red">numero incorrect</p>
+		  <div class="form-inline">
+		   <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%;">Montant  :</label>
+			<input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+			
+		  </div>
+		  <p *ngIf="mag2" style="color:red">montant incorrect</p>
+		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+		</form>
+  </div>
+ </div>
+</div>  
+      
+      <!-- fin retrait  -->
+      <!-- retrait avec code Orange Money -->
+      
+<div *ngIf="displayedPage=='accueil-mm-om-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
+ <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+   <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; opacity:0.9;padding-top: 2rem;">
+      <div style="text-align:center">
+		   <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+		   <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+				  
+		   <div>
+				  <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+				  <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+		   </div>
+			<div>
+			  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait avec code Orange Money</h2>
+			</div>
+	    </div>
+		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+			  <div class="row" style="margin-left:1em">
+				 <div style="" class="col-xs-5 col-sm-5">
+					 <label style="color:white" >Code de retrait :</label>
+				 </div>
+				 <div style="padding:0px;margin:0px" class="col-xs-4 col-sm-4">
+					  <input type="text" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code de retrait" required >
+				 </div>
+
+			  </div>
+			  <div class="row" style="margin-left:1em">
+				<div class="col-xs-5 col-sm-5">
+                       <label style="color:white" >Prénom :</label>				
+				</div>
+				<div class="col-xs-4 col-sm-4">
+				  <input type="text" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
+			    </div>
+			  </div>
+			  <div class="row" style="margin-left:1em">
+				 <div class="col-xs-5 col-sm-5">
+	                   <label style="color:white;" >Date de naissance :</label>			 
+				 </div>
+				 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
+				       <input type="text" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  class="form-control" placeholder="Exemple : 03041900" required >
+			     </div>
+			  </div>
+			  <div class="row" style="margin-left:1em">
+				 <div class="col-xs-5 col-sm-5">
+					 <label style="color:white" >Numéro de piece d'identite :</label>
+				 </div>
+				 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
+					  <input type="text" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
+				 </div>
+				 
+			  </div>
+			  <div class="row" style="margin-left:1em">
+				<div class="col-xs-5 col-sm-4">
+				     <label style="color:white">Numéro du client  :</label>
+				</div>
+				<div class="col-xs-4 col-sm-4" style="padding-top:0px">
+					 <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
+				</div>
+				
+			  </div>
+			  <div class="row" style="margin-left:1em">
+				<div class="col-xs-5 col-sm-5">
+		              <label style="color: white;">Montant  :</label>		
+				</div>
+				<div class="col-xs-4 col-sm-4" style="padding-top:0px">
+					  <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus > 
+				</div>
+				
+			  </div>
+			  <div style="text-align:center">
+			     <button   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+			  </div>
+				  
+			  
+		</form>
+  </div>
+ </div>
+</div>  
           
-    <div *ngIf="displayedPage=='accueil-mm-om-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
-     <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-       <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
-                  <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-                  <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-                  
-                  <div>
-                    <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                    <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-                  </div>
-        <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
-         <!-- <h2 style="color:#36A9E0;">Orange Money</h2>-->
-          <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-        </div>
-            <div>
-              <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait Orange Money</h2>
-            </div>
-            <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
-            <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-            <form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-              <div class="form-inline" style=";">
-                <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
-                <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
-                
-              </div>
-              <p *ngIf="mag1" style="color:red">numero incorrect</p>
-              <div class="form-inline">
-               <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%;">Montant  :</label>
-                <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
-                
-              </div>
-              <p *ngIf="mag2" style="color:red">montant incorrect</p>
-              <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
-            </form>
-      </div>
-     </div>
-    </div>  
-          
-          
-          <!-- fin retrait  -->
-      <!-- fin sous menu orange money     -->
+      <!-- fin retrait avec code orange money  -->
+  <!-- fin sous menu orange money     -->
 
 
 
@@ -558,16 +674,75 @@
         </div>
     </div>
 
-    <!--Les sous menu-->
-    
-<!--     <router-outlet></router-outlet> -->
-
 
     <!--PostCach-->
+<div *ngIf="displayedPage=='accueil-mm-POSTCASH'">
+    <!-- POSTCASH -->
+    <div _ngcontent-c3="" class="mobile">
+            <div _ngcontent-c3="">
+                <div _ngcontent-c3="" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+                    <div _ngcontent-c3="" class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+                        <div _ngcontent-c3="" class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                              <div _ngcontent-c3="" class="col-sm-3 col-xs-3">
+                                  <img _ngcontent-c3="" src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                              </div>
+                              <div _ngcontent-c3="" class="col-sm-6 col-xs-6">
+                                  <img _ngcontent-c3="" src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                              </div>
+                              <div _ngcontent-c3="" class="col-sm-3 col-xs-3">
+                                  <div class="row">
+                                       <img _ngcontent-c3="" src="assets/retour.png" style="height: 4rem; margin-right:-1px;">
+                                  </div>
+                                  <div class="row">
+                                      <img _ngcontent-c3="" src="assets/deconnet.png" style="height: 4rem; margin-right:-0.5rem;">
+                                  </div>
+                              </div>
+                      </div>
 
-<!--<div *ngIf="displayedPage=='accueil-mm-POSTCASH'">
-    POSTCASH
-</div>-->
+
+                      <div class="col-xs-12 col-sm-12">
+                            <h2 style="color:white ; font-family:'caviar dreams bold';" class="row"> Rechargement espece</h2>
+                      </div>
+                      <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
+                            <div class="row" style="width:98%; margin-left:1%;">
+                                   <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 1.3rem;color:white ;font-size: 1.5rem;">Telephone client</label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                       <input type="text" class="form-control" placeholder="telephone" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                   </div>
+                            </div>
+                            <div class="row" style="width:98%; margin-left:1%;">
+                                   <div class="col-xs-5 col-sm-5">
+                                          <label style="margin-top: 1.3rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant a  recharger</label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                                     <input type="text" class="form-control" placeholder="telephone" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                   </div>
+                            </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12" style="margin-top:8rem;">
+                          <div class="row">
+                                 <div class="col-xs-4 col-sm-4">
+
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                        <i class="fa fa-times-circle" style="font-size:6rem; color:white;"></i>
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                         <i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i>
+                                 </div>
+                                 <div class="col-xs-4 col-sm-4">
+
+                                 </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+>>>>>>> 24b7c21e3c91fe2d32fda0ced117a36f3820cbda
 
     <!--TIGOCASH-->
 
@@ -669,9 +844,8 @@
     WIZALL
 </div>
 
-
     <!--ECOMMERCE-->
-    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm-ec'">
+    <!--<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm-ec'">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
             <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
@@ -680,7 +854,6 @@
                 <img src="assets/retour.png" (click)="pdvacueilretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
                 <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
             </div>
-            <!--<i class="fa fa-power-off" style="color: white; margin-right: -16rem;">Déconnexion</i>-->
             <div class="row" style="margin-top: -16px; ">
                 <button style="background-color: transparent;border: 0px;width: 18rem;height: 5rem;border: 2px solid white;">
                     <p style="color:white;font-family: caviar dreams bold; font-size: 3rem;">E-commerce</p>
@@ -701,10 +874,10 @@
                     <p style="color:white;font-family: caviar dreams bold; font-size: 2rem;">Espace Perso</p>
                 </button>
             </div>
+
             <button class="btn btn-success" style=" margin-top: 30px; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true"></i></button>
         </div>
-    </div>
-
+    </div>-->
     <!--les interfaces des sous menus-->
 
 </div>

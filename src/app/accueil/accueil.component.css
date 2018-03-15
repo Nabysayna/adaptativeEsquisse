@@ -1,3 +1,12 @@
+@font-face {
+   font-family: 'caviar dreams';
+   src: url('../../assets/fontsfamily/caviar_dreams/CaviarDreams.ttf');
+}
+
+@font-face {
+   font-family: 'caviar dreams bold';
+   src: url('../../assets/fontsfamily/caviar_dreams/CaviarDreams_Bold.ttf');
+}
 
 body {
     padding-top: 3rem !important;
@@ -402,8 +411,3 @@ body {
         width: max-content !important;
     }
 }
-
-
-
-
-

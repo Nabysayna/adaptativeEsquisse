@@ -40,9 +40,14 @@ export class OrangeMoneyComponentComponent implements OnInit {
   cni:string;
   date:string;
   verifretraitcode=[false,false,false,false];
+  isMobile:boolean;
 
-  constructor(private _omService:OrangemoneyService) {
-  }
+  constructor(private _omService : OrangemoneyService) { 
+       if ( window.screen.width <= 768 )
+        this.isMobile = true ;
+       else
+        this.isMobile = false ;
+    }
   @ViewChild('modaldepot') public modal:ModalDirective;
   @ViewChild('modalretrait') public modalretrait:ModalDirective;
   @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;

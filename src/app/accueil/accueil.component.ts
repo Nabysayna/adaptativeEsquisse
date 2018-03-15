@@ -54,9 +54,9 @@ export class AccueilComponent implements OnInit {
     localStorage.removeItem('tc-depot') ;
     localStorage.removeItem('tc-retrait') ;
 
-    if (!sessionStorage.getItem('currentUser'))
-       this.router.navigate(['']);
-    this.processus();
+    // if (!sessionStorage.getItem('currentUser'))
+    //    this.router.navigate(['']);
+    // this.processus();
   }
 
 /******************************************************************************************************/
@@ -1438,8 +1438,15 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
-  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
-  console.log(this.displayedPage) ;
+ // this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+  if(choosedRoad==='mm'){
+        this.displayedPage='accueil-mm-om';
+  }
+
+ // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
+   //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
+
+
 }
 
 public pdvacueilmenumobilemoneyretour(){
@@ -1449,6 +1456,26 @@ public pdvacueilmenumobilemoneyretour(){
 
   deconnexion(){
     this._authService.deconnexion();
+  }
+  cheminretour(){
+     let chemin=this.displayedPage.split('-');
+     let newchemin='accueil';
+     for(let i=1;i<chemin.length-1;i++){
+        newchemin+='-'+chemin[i];
+     }
+     this.displayedPage=newchemin; 
+  }
+  depotmobile(){
+     this.displayedPage='accueil-mm-om-d';
+  }
+  retraitmobile(){
+     this.displayedPage='accueil-mm-om-r';
+  }
+  retraitcodemobile(){
+     this.displayedPage='accueil-mm-om-rc';
+  }
+  ventecredit(){
+      this.displayedPage='accueil-mm-om-vc';
   }
 
 
