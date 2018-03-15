@@ -42,16 +42,12 @@ export class OrangeMoneyComponentComponent implements OnInit {
   verifretraitcode=[false,false,false,false];
   isMobile:boolean;
 
-<<<<<<< HEAD
-  constructor(private omService : OrangeMoneyService) { 
+  constructor(private _omService : OrangemoneyService) { 
        if ( window.screen.width <= 768 )
         this.isMobile = true ;
        else
         this.isMobile = false ;
-=======
-  constructor(private _omService:OrangemoneyService) {
->>>>>>> 8525e6d975f4373b9416401333063a42a09dc312
-  }
+    }
   @ViewChild('modaldepot') public modal:ModalDirective;
   @ViewChild('modalretrait') public modalretrait:ModalDirective;
   @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;

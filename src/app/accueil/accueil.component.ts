@@ -1474,6 +1474,9 @@ public pdvacueilmenumobilemoneyretour(){
   retraitcodemobile(){
      this.displayedPage='accueil-mm-om-rc';
   }
+  ventecredit(){
+      this.displayedPage='accueil-mm-om-vc';
+  }
 
 
 }

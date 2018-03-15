@@ -109,13 +109,13 @@ fieldset h2{
 }
 
 
-<<<<<<< HEAD
+/*
 @media screen and (min-width:501px) {
   #leftsidemenu{
     height:100%;
  }
    
-}
+}*/
 
     
 @media only screen and (max-width: 505px) {
@@ -143,10 +143,9 @@ fieldset h2{
          color: #36A9E0 !important;
     }
 }   
-=======
+
 @media only screen and (max-width: 400px) {
     #om-options{
         width: max-content !important;
     }
 }  
->>>>>>> 8525e6d975f4373b9416401333063a42a09dc312
