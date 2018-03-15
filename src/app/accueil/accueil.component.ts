@@ -1416,11 +1416,7 @@ public pdvaccueilsousmenuMobilemoney(){
     if ( this.displayedPage === "accueil-mm-pc" ){
       this.router.navigate(['/accueil/POSTECASH']);
     } else if ( this.displayedPage === "accueil-mm-om" ){
-<<<<<<< HEAD
-     // this.router.navigate(['/accueil/ORANGEMONEY']); 
-=======
       this.router.navigate(['/accueil/ORANGEMONEY']);
->>>>>>> 8525e6d975f4373b9416401333063a42a09dc312
     } else if ( this.displayedPage === "accueil-mm-tc" ){
       this.router.navigate(['/accueil/TIGOCASH']);
     } else if ( this.displayedPage === "accueil-mm-wz" ){
@@ -1442,7 +1438,6 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
-<<<<<<< HEAD
  // this.displayedPage = this.displayedPage + "-" + choosedRoad ;
   if(choosedRoad==='mm'){
         this.displayedPage='accueil-mm-om';
@@ -1451,10 +1446,7 @@ public roadTo(choosedRoad){
  // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
    //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
 
-=======
-  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
-  console.log(this.displayedPage) ;
->>>>>>> 8525e6d975f4373b9416401333063a42a09dc312
+
 }
 
 public pdvacueilmenumobilemoneyretour(){
