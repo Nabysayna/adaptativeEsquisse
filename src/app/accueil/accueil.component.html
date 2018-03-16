@@ -1,6 +1,6 @@
 <!-- class="desktop"  -->
 
-<div *ngIf="isMobile==false">
+<div *ngIf="isMobile==false" style="margin: 0px !important; padding: 0px !important">
     <div id="wrapper">
 
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color: transparent !important; border-style: hidden ;" role="navigation">
@@ -293,20 +293,20 @@
                 <div class="row">
                       <div class="col-sm-12 col-xs-12"  style="padding-right:0px;">
                             <button  (click)="roadTo('mm')" style="background-color: transparent;border: 0px; width:100%;">
-                              <img src="assets/thumbnailphone.png" style="height:30px; margin-left: -120px"/>
-                              <H5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 64px;max-height: 20px; font-size: 18px;">MOBILE MONEY</H5>
+                              <img src="assets/thumbnailphone.png" style="height:30px; margin-left: -160px;"/>
+                              <H5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 0px;max-height: 20px; font-size: 18px;">MOBILE MONEY</H5>
                             </button>
                       </div>
                       <div class="col-sm-12 col-xs-12"  style="padding-right:0px;">
                             <button (click)="roadTo('fact')" style="background-color: transparent;border: 0px; width:100%;">
-                              <img src="assets/facturevv.png" style="height:20px; margin-left: -120px"/>
-                              <h5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 30px;max-height: 20px; font-size: 18px;">FACTURIER</h5>
+                              <img src="assets/facturevv.png" style="height:20px; margin-left: -172px;"/>
+                              <h5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;    margin-left: -42px;max-height: 20px; font-size: 18px;">FACTURIER</h5>
                             </button>
                       </div>
                       <div class="col-sm-12 col-xs-12" style="padding-right:0px;">
                           <button (click)="roadTo('ges')" style="background-color: transparent;border: 0px; width:100%;">
-                            <img src="assets/gestio.png" style="height:20px; margin-left: -120px" />
-                            <h5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;margin-left: 6px;max-height: 20px; font-size: 18px;">GESTION</h5>
+                            <img src="assets/gestio.png" style="height:20px;     margin-left: -172px;" />
+                            <h5 style="font-family:caviar dreams bold; color: white;margin-top: -20px;    margin-left: -58px;max-height: 20px; font-size: 18px;">GESTION</h5>
                           </button>
                       </div>
                 </div>
@@ -316,14 +316,14 @@
     <!--Mobile Money-->
     <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm'" >
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+            <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; margin-right: 7rem;">
+            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 0rem;"/>
             <div>
                 <img src="">
             </div>
             <div>
-                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-20rem; height: 4rem; margin-left: 23rem;" />
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-18rem; height: 3rem; margin-left: 31rem;" />
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 3rem; margin-left: 31rem;"/>
             </div>
             <!--<i class="fa fa-power-off" style="color: white; margin-right: -16rem;">Déconnexion</i>-->
             <div class="row" style="margin-top: -16px;">
@@ -742,31 +742,29 @@
             </div>
         </div>
 </div>
->>>>>>> 24b7c21e3c91fe2d32fda0ced117a36f3820cbda
 
     <!--TIGOCASH-->
 
 <div class="col-sm-12" *ngIf="displayedPage=='accueil-mm-TIGOCASH'" >
     <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 1rem;">
-            <img src="assets/thumbnailphone.png" style="height: 77px; margin-left: -107px; padding-top: 1rem; margin-right: 5rem; margin-top: 0px; margin-right: 40px;">
-            <img src="assets/TC-icone.png" style="width: 30%; height: 16rem; opacity:0.96;padding-top: 0rem;margin-right: 1rem; margin-bottom: -6rem;"/>
+            <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; margin-right: 7rem;">
+            <img src="assets/TC-icone.png" style="width: 38%; height: 17rem; opacity:0.96;padding-top: 0rem;margin-bottom: -6rem;"/>
             <div style=" margin-left: 5rem;">
-                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-14rem; height: 4rem; margin-left: 19rem;"/>
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-12rem; height: 4rem; margin-left: 19rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-18rem; height: 3rem; margin-left: 25rem;"/>
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height:3rem; margin-left: 25rem;"/>
                 <div id="om-options" style="margin-left: 5rem; padding-top: 5rem;">
-                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <div style="padding-bottom: 1rem; font-family: 'caviar dreams bold'; font-size: 2rem;padding-top: 5rem;">
                     <button class="TigoCash" href="#depottigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()"  data-toggle="tab">Dépôt</button></div>
-                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <div style="padding-bottom: 1rem; font-family: 'caviar dreams bold'; font-size: 2rem;">
                     <button class="TigoCash" href="#retraittigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab">Retrait </button></div>
-                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <div style="padding-bottom: 1rem; font-family:'caviar dreams bold'; font-size: 2rem;">
                     <button class="TigoCash" style="color:white; border:0;" href="#payertranfert" (click)="reinitialiser()" data-toggle="tab">Payer un transfert</button></div>
-                    <div style="padding-bottom: 1rem; font-family: caviar dreams; font-size: 2rem;">
+                    <div style="padding-bottom: 1rem; font-family:'caviar dreams bold'; font-size: 2rem;">
                     <button class="TigoCash" href="#envoyerargent" style="display: none ; border:0; color:white; font-family: caviar dreams; font-size: 2rem;" (click)="reinitialiser()" data-toggle="tab">Envoyer de l'argent</button></div>
                     <div>
-                    <button class="TigoCash" href="#vendreizi" style="padding-left: 1rem; border:0; color:white; padding-right: 1rem;font-family: caviar dreams; font-size: 2rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</button></div>
+                    <button class="TigoCash" href="#vendreizi" style="padding-left: 1rem; border:0; color:white; padding-right: 1rem;font-family: 'caviar dreams bold'; font-size: 2rem;" (click)="reinitialiser()" data-toggle="tab">Vente IZI</button></div>
                      <div class="row text-center" style="padding-top: 5rem;border-radius: 50% ! important;">
-                        <button  style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important; border: none;" class="TigoCash" type="submit" class="btn btn-success"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
                     </div>
                 </div>
             </div>
@@ -779,27 +777,22 @@
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 1rem;">
              <div class="col-xs-12 col-sm-12" style="padding-bottom: 5rem;">
-                    <div class="row">
-                         <div class="col-xs-3 col-sm-3">
-                                <img src="assets/thumbnailphone.png" style="height: 5rem; margin-left: 2rem;">
-
-                         </div>
-                        <div class="col-xs-6 col-sm-6">
-                                <img src="assets/TC-icone.png" style="width: 100%; height: 16rem; "/>
-
-                         </div>
-                        <div class="col-xs-3 col-sm-3">
-                                <div class="row">
-                                    <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;"/>
-
-                                </div>
-                                <div class="row">
-                                    <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;"/> 
-
-                                </div>
-
-                         </div>
-                    </div>
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3">
+                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-left: 2rem;">
+                     </div>
+                    <div class="col-xs-6 col-sm-6">
+                            <img src="assets/TC-icone.png" style="width: 100%; height: 16rem; "/>
+                     </div>
+                    <div class="col-xs-3 col-sm-3">
+                            <div class="row">
+                                <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;"/>
+                            </div>
+                            <div class="row">
+                                <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;"/> 
+                            </div>
+                     </div>
+                </div>
              </div>
              <div class="col-sm-12 col-xs-12" *ngIf="erreur" style="padding-top: 7rem ; color: #337ab7">
                     <h5>Désolé! Votre requête n'a pas pu être traitée.</h5> <h5 style="color : red">{{errorMessage}}</h5>

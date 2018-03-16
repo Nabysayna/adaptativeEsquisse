@@ -128,5 +128,12 @@
 		background-color: #337ab7 !important;
 		margin-bottom: 3rem ;
 	}
-
+	.row{
+		margin-right: 0px !important;
+    	margin-left: 0px !important;
+	}
+	.col-sm-12{
+		padding-right: 0px !important; 
+    	padding-left: 0px !important; 
+	}
 }

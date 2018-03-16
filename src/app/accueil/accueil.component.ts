@@ -1438,10 +1438,11 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
- // this.displayedPage = this.displayedPage + "-" + choosedRoad ;
-  if(choosedRoad==='mm'){
-        this.displayedPage='accueil-mm-om';
-  }
+ 
+ this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+/*  if(choosedRoad==='mm'){
+        this.displayedPage='accueil-mm';
+  }*/
 
  // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
    //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
