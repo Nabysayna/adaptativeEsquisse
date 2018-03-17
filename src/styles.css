@@ -8,7 +8,7 @@
    src: url('assets/fontsfamily/caviar_dreams/CaviarDreams_Bold.ttf');
 }
 
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: 768px) {
 	html{
 		background-color: white ;
 	}
@@ -93,6 +93,8 @@
 	button{
 		border-radius: 1rem 0 1rem 1rem !important;
 	    background-color: #F39200 !important;
+	    margin-bottom:1rem!important;
+		background-color:transparent!important;
 	}
 
 	button:hover{
@@ -136,4 +138,5 @@
 		padding-right: 0px !important; 
     	padding-left: 0px !important; 
 	}
+	
 }
