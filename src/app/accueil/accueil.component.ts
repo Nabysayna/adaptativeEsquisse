@@ -1466,6 +1466,7 @@ public pdvacueilmenumobilemoneyretour(){
      }
      this.displayedPage=newchemin; 
   }
+
   depotmobile(){
      this.displayedPage='accueil-mm-om-d';
   }

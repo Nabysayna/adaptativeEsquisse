@@ -362,7 +362,7 @@
     </div>
   <!-- sous menu orange money     -->
   
-<div *ngIf="displayedPage=='accueil-mm-om'" class="col-sm-12">
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY'" class="col-sm-12">
     <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
       <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;padding-top: 2rem;">
               <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
@@ -373,20 +373,18 @@
                 <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
               </div>
 			  <div style="margin-right: 7rem;margin-left: 7rem; padding-bottom: 3rem;">
-			   <!-- <h2 style="color:white; background-color: transparent !important; border: 2px solid white;padding: 0.7rem;">OrangeMoney</h2>-->
-			  <!-- <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>-->
 			  </div>
              <div  style="font-family: caviar dreams;font-size: 2.1rem;color: white;border:2px solid white">
-                <button  style="padding-left: 4rem; border: 0px; padding-right: 4rem; border: 0px;" (click)="depotmobile()"  data-toggle="tab">Depôt</button>
+                <button  style="padding-left: 4rem; border: 0px; padding-right: 4rem; border: 0px;" (click)="roadTo('d')"  data-toggle="tab">Depôt</button>
               </div>
               <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;">
-                <button  style="padding-left: 4rem; padding-right: 4rem;border: 0px;" (click)="retraitmobile()" data-toggle="tab">Retrait </button>
+                <button  style="padding-left: 4rem; padding-right: 4rem;border: 0px;" (click)="roadTo('r')" data-toggle="tab">Retrait </button>
               </div>
               <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;border:2px solid white">
-                <button style="border:0px;" href="#retraitcode" (click)="retraitcodemobile()" data-toggle="tab">Retrait avec code</button>
+                <button style="border:0px;" href="#retraitcode" (click)="roadTo('rc')" data-toggle="tab">Retrait avec code</button>
               </div>
               <div style="font-family: caviar dreams;font-size: 2.1rem;color: white; padding-top: 1rem;">
-                <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="ventecredit()" data-toggle="tab">Vente crédit</button> 
+                <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button> 
               </div>  
        </div>               
     </div>
@@ -394,7 +392,7 @@
 
     <!--les sous menu d'orangemoney-->
        <!-- Depot orange money -->
-<div *ngIf="displayedPage=='accueil-mm-om-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
               <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
@@ -432,7 +430,7 @@
 </div>  
       <!-- fin depot  -->
        <!-- vente credit orange money -->
-<div *ngIf="displayedPage=='accueil-mm-om-vc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-vc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
               <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
@@ -471,7 +469,7 @@
       <!-- fin vente credit  -->
       <!-- retrait Orange Money -->
       
-<div *ngIf="displayedPage=='accueil-mm-om-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
               <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
@@ -512,7 +510,7 @@
       <!-- fin retrait  -->
       <!-- retrait avec code Orange Money -->
       
-<div *ngIf="displayedPage=='accueil-mm-om-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
    <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; opacity:0.9;padding-top: 2rem;">
       <div style="text-align:center">
