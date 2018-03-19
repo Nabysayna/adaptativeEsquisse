@@ -23,6 +23,9 @@ class Article {
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
+
+
+
 export class AccueilComponent implements OnInit {
   articles=[];
   process=[];
@@ -51,6 +54,8 @@ export class AccueilComponent implements OnInit {
       else
           this.isMobile = false ;
   }
+  @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
+  @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
 
 /******************************************************************************************************/
 
@@ -1632,6 +1637,7 @@ public pdvacueilmenumobilemoneyretour(){
     for (let i=0 ; i<args.length ; i++)
       console.log(" "+args[i]) ;
   }
+
    @ViewChild('addChildModal') public addChildModal:ModalDirective;
    @ViewChild('modalretrait') public modalretrait:ModalDirective;
    @ViewChild('modalventecredit') public modalventecredit:ModalDirective;
@@ -1700,7 +1706,25 @@ public pdvacueilmenumobilemoneyretour(){
     console.log(montant);
   }
   
-  
+              //TigoCash
+  /**********************************/
+  /**********les modals***************/
+    showmodaldepotTigoCash(){
+     this.modaldepotTigoCash.show();
+    }
+    hidemodaldepotTigoCash(){
+     this.modaldepotTigoCash.hide()
+    }
+    showmodalvendreizi(){
+     this.modalvendreizi.show();
+    }
+    hidemodalvendreizi(){
+     this.modalvendreizi.hide();
+    }
+    
+    
+  /**********************************/
+
 
 
 }
