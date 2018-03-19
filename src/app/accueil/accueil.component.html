@@ -1159,7 +1159,7 @@
             <div style=" margin-left: 5rem;">
                 <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-18rem; height: 3rem; margin-left: 25rem;"/>
                 <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height:3rem; margin-left: 25rem;"/>
-                <div id="om-options" style="margin-left: 5rem; padding-top: 5rem;">
+                <div id="om-options" style="margin-left: 5rem; padding-top: 0rem;">
                     <div style="padding-bottom: 1rem; font-family: 'caviar dreams bold'; font-size: 2rem;padding-top: 5rem;">
                     <button class="TigoCash" href="#depottigocash" style="padding-left: 4rem; border:0; color:white; padding-right: 4rem;" (click)="roadTo('dp')"  data-toggle="tab">Dépôt</button></div>
                     <div style="padding-bottom: 1rem; font-family: 'caviar dreams bold'; font-size: 2rem;">
@@ -1182,7 +1182,7 @@
                                                 <!--Depôt-->
 <div class="row"  *ngIf="displayedPage=='accueil-mm-TIGOCASH-dp'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
-             <div class="col-xs-12 col-sm-12" style="padding-bottom: 5rem;">
+             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
                             <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
@@ -1200,20 +1200,20 @@
                      </div>
                 </div>
              </div>
-             <div class="col-sm-12 col-xs-12" *ngIf="erreur" style="padding-top: 7rem ; color: #337ab7">
+             <div class="col-sm-12 col-xs-12" *ngIf="erreur" style="padding-top: 3rem ; color: #337ab7">
                     <h5>Désolé! Votre requête n'a pas pu être traitée.</h5> <h5 style="color : red">{{errorMessage}}</h5>
             </div>
-            <div class="col-xs-12 col-sm-12" style="" >
+            <div class="col-xs-12 col-sm-12" style=" padding-bottom: 3rem;" >
                 <h2 style="color:white; font-family: 'caviar dreams bold';  border: 2px solid white;padding: 0.6rem;" >Dépôt</h2>
             </div>
             <div class="col-xs-12 col-sm-12" >
-                <form (ngSubmit)="showmodaldepot()" #rechargementespece="ngForm" autocomplete="on">
-                    <div class="row" style="padding-top: 5rem;">
-                    <div class="col-xs-4 col-sm-4" style="">
+                <form (ngSubmit)="showmodaldepotTicoCash()" #rechargementespeceTicoCash="ngForm" autocomplete="on">
+                    <div class="row" >
+                    <div class="col-xs-4 col-sm-4" >
                         <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family: caviar dreams bold; font-size: 12.3px;">Numéro du client:</label>
                     </div>
                     <div class="col-xs-7 col-sm-7">
-                        <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="" required  style="border-radius: 2rem; height: 25px;     background-color: rgba(255,255,255,0.8);">
+                        <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control" placeholder="" required style="border-radius: 2rem; height: 25px;background-color: rgba(255,255,255,0.8);">
                     </div>
                     </div>
                     <div class="row">
@@ -1224,8 +1224,11 @@
                         <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control" placeholder="" required  style="border-radius: 2rem; height: 25px;     background-color: rgba(255,255,255,0.8);">
                     </div>
                     <div class="row text-center" style="padding-top: 13rem;">
-                          <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i class="fa fa-times fa-2x" style="color:orange;"></i></button>
-                          <button type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
+                        <button type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                        </button>
+                          <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                          </button>
+                          
 
                     </div>
                     </div>
@@ -1234,6 +1237,7 @@
             </div>
        </div>
   </div>
+
 
                                               <!--Retrait-->
 <div class="row"  *ngIf="displayedPage=='accueil-mm-TIGOCASH-r'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -1314,7 +1318,7 @@
                                               <!--Vente IZI-->
 <div class="row"  *ngIf="displayedPage=='accueil-mm-TIGOCASH-vi'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
-             <div class="col-xs-12 col-sm-12" style="padding-bottom: 5rem;">
+             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
                             <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
@@ -1333,22 +1337,108 @@
                 </div>
              </div>
 
-            <div class="col-xs-12 col-sm-12" style="" >
+            <div class="col-xs-12 col-sm-12" style="    padding-bottom: 3rem;" >
                 <h2 style="color:white; font-family: 'caviar dreams bold';  border: 2px solid white;padding: 0.6rem;" >Vente IZI</h2>
             </div>
             <div class="col-xs-12 col-sm-12" >
-               <marquee>
-                <div class="marquee-outer">
-                <div class="marquee-inner"><h5>Service en cour</h5>
-                    <img src="http://www.html.am/images/html-codes/marquees/fish-swimming.gif" width="94" height="88" alt="Swimming fish">
-                </div>
-                </div>
-               </marquee>
+               <form (ngSubmit)="showmodalvendreizi()" #rechargementespeceTigoCash="ngForm" autocomplete="on">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4">
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family: caviar dreams bold; font-size: 12.3px;">Numéro du client:
+                            </label>
+                        </div>
+                        <div class="col-sm-7 col-xs-7">
+                              <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control" placeholder="" required style="border-radius: 2rem; height: 25px;background-color: rgba(255,255,255,0.8);">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4">
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family: caviar dreams bold; font-size: 12.3px;">Montant:
+                            </label>
+                        </div>
+                        <div class="col-sm-7 col-xs-7">
+                          <input type="number" [(ngModel)]="this.montant"   name="montant" id="telephonerechargementespece" class="form-control" placeholder="" required style="border-radius: 2rem; height: 25px;background-color: rgba(255,255,255,0.8);">
+                        </div>
+                    </div>
+                    <div class="row text-center" style="padding-top: 6rem;">
+                        <button type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                        </button>
+                        <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                        </button>
+                    </div>
+               </form>
             </div>
     </div>
 </div>
 
 
+                                        <!--les modales de TigoCash-->
+<!-- Modal depot -->
+<div bsModal #modaldepotTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCash()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             </div>
+             <div class="modal-body">
+        
+                 <div>
+                     <form class="form">
+                         <div class="form-group">
+                             <label >Telephone client : {{this.telephone}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >montant : {{this.montant}}</label>
+                         </div>
+                     </form>
+                    
+                 </div>
+             </div>
+             <div class="modal-footer">
+                  <input type="button" value="valider" (click)="depot()" class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hidemodaldepotTigoCash()" class="btn btn-danger" />
+             </div>
+          </div> 
+        </div>
+</div>
+                                        <!--Vendre Izi-->
+<div bsModal #modalvendreizi="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalvendreizi()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             </div>
+             <div class="modal-body">
+        
+                 <div>
+                     <form class="form">
+                         <div class="form-group">
+                             <label >Numero client : {{this.telephone}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >Montant  : {{this.montant}}</label>
+                         </div>
+                         
+                     </form>
+                    
+                 </div>
+             </div>
+             <div class="modal-footer">
+                  <input type="button" value="valider" (click)="izi()" class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hidemodalvendreizi()" class="btn btn-danger" />
+             </div>
+          </div> 
+        </div>
+</div>
 
     <!--WIZALL-->
 

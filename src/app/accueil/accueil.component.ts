@@ -6,6 +6,8 @@ import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
 import {AuthService} from "../services/auth.service";
 import { PostCashService } from 'app/services/postCash.service';
+import { ViewChild } from '@angular/core';
+import { ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 
 class Article {
@@ -22,6 +24,9 @@ class Article {
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
+
+
+
 export class AccueilComponent implements OnInit {
 
 
@@ -49,6 +54,8 @@ export class AccueilComponent implements OnInit {
       else
           this.isMobile = false ;
   }
+  @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
+  @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
 
 /******************************************************************************************************/
 
@@ -1617,6 +1624,25 @@ public pdvacueilmenumobilemoneyretour(){
     for (let i=0 ; i<args.length ; i++)
       console.log(" "+args[i]) ;
   }
+               //TigoCash
+  /**********************************/
+  /**********les modals***************/
+    showmodaldepotTigoCash(){
+     this.modaldepotTigoCash.show();
+    }
+    hidemodaldepotTigoCash(){
+     this.modaldepotTigoCash.hide()
+    }
+    showmodalvendreizi(){
+     this.modalvendreizi.show();
+    }
+    hidemodalvendreizi(){
+     this.modalvendreizi.hide();
+    }
+    
+    
+  /**********************************/
+
 
   /* -------------------------------------- Modal --------------------------------------- */
 
