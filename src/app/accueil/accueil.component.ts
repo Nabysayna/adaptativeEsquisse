@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild ,ElementRef} from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import {TntService} from "../services/tnt.service";
 import {WizallService} from "../services/wizall.service";
@@ -23,10 +23,13 @@ class Article {
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
+
+
   articles=[];
   process=[];
    quinzeMinutes = 900000;
   registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'E-MONEY', 'TIGOCASH', 'WIZALL'] ;
+
 
   authorisedToUseCRM = false ;
   load="loader";
@@ -35,9 +38,12 @@ export class AccueilComponent implements OnInit {
     displayedPage : string = 'accueil' ;
     isMobile : boolean ;
 
+  isselectretraitespeceaveccarte:boolean=true
+  montant:number;
+  telephone:number;
+  codevalidation:number;
 
   constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
-
       if ( window.screen.width <= 768 )
           this.isMobile = true ;
       else
@@ -57,7 +63,7 @@ export class AccueilComponent implements OnInit {
     if (!sessionStorage.getItem('currentUser'))
        this.router.navigate(['']);
 
-      if ( window.screen.width > 768 )    
+      if ( window.screen.width > 768 )
           this.processus();
 
   }
@@ -223,6 +229,7 @@ export class AccueilComponent implements OnInit {
     }
   },3000);
   }
+
 
 
 /******************************************************************************************************/
@@ -1441,14 +1448,14 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
- 
+
  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
 /*  if(choosedRoad==='mm'){
         this.displayedPage='accueil-mm';
   }*/
 
  // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
-   //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
+   //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] );
 
 
 }
@@ -1467,7 +1474,7 @@ public pdvacueilmenumobilemoneyretour(){
      for(let i=1;i<chemin.length-1;i++){
         newchemin+='-'+chemin[i];
      }
-     this.displayedPage=newchemin; 
+     this.displayedPage=newchemin;
   }
 
 
@@ -1476,7 +1483,7 @@ public pdvacueilmenumobilemoneyretour(){
       let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'', 'errorCode':'*', nbtour:0};
 
       let sesion={'data':objet,'etats':infoOperation,'dataI':''};
-      
+
       this.process.push(sesion);
 
       sessionStorage.removeItem('curentProcess');
@@ -1611,5 +1618,31 @@ public pdvacueilmenumobilemoneyretour(){
       console.log(" "+args[i]) ;
   }
 
+  /* -------------------------------------- Modal --------------------------------------- */
+
+  // public showconfirmeModal():void {
+  //   this.confirmeModal.show();
+  // }
+  //
+  // public hideconfirmeModal():void {
+  //   this.confirmeModal.hide();
+  // }
+  /* -------------------------------------- PostCash --------------------------------------- */
+
+  public selectretraitespeceaveccarte(){
+    this.telephone = undefined ;
+    this.montant = undefined ;
+  }
+
+
+  public validateretraitespece(){
+      let data = {telephone:this.telephone,montant: this.montant};
+      //
+  }
+
+  attentecodevalidationretraitespeceaveccarte(){
+      let data = {telephone:this.telephone,montant: this.montant};
+      //
+  }
 
 }
