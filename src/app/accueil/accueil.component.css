@@ -89,6 +89,21 @@ body {
  }
 
 
+.runningTask{
+    border : 1px solid white;
+    padding: 0.2rem  ;
+    margin-right: 1rem ;
+}
+
+.runner{
+    border: 1px solid white;
+}
+
+.runningService{
+    margin-right: 1rem ;
+    color: white ;
+}
+
 
 @keyframes spin {
     0% { transform: rotate(0deg); }

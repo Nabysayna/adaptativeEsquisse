@@ -8,7 +8,7 @@
    src: url('assets/fontsfamily/caviar_dreams/CaviarDreams_Bold.ttf');
 }
 
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: 768px) {
 	html{
 		background-color: white ;
 	}
@@ -93,6 +93,8 @@
 	button{
 		border-radius: 1rem 0 1rem 1rem !important;
 	    background-color: #F39200 !important;
+	    margin-bottom:1rem!important;
+		background-color:transparent!important;
 	}
 
 	button:hover{
@@ -102,6 +104,14 @@
 	    color: #36A9E0 !important;
 	    font-weight: bolder;
 	}
+	 button.TigoCash:hover{
+        background-color: transparent !important;
+        color: white!important;
+        border:1px solid white !important;
+        border-radius: 0rem 0rem 0rem !important;
+        
+
+    }
 
 	.bg
 	{
@@ -120,5 +130,13 @@
 		background-color: #337ab7 !important;
 		margin-bottom: 3rem ;
 	}
-
+	.row{
+		margin-right: 0px !important;
+    	margin-left: 0px !important;
+	}
+	.col-sm-12{
+		padding-right: 0px !important; 
+    	padding-left: 0px !important; 
+	}
+	
 }

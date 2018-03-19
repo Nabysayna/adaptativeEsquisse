@@ -62,9 +62,12 @@ export class AccueilComponent implements OnInit {
     localStorage.removeItem('tc-depot') ;
     localStorage.removeItem('tc-retrait') ;
 
-    // if (!sessionStorage.getItem('currentUser'))
-    //    this.router.navigate(['']);
-    // this.processus();
+    if (!sessionStorage.getItem('currentUser'))
+       this.router.navigate(['']);
+
+      if ( window.screen.width > 768 )    
+          this.processus();
+
   }
 
 /******************************************************************************************************/
@@ -1446,10 +1449,11 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
- // this.displayedPage = this.displayedPage + "-" + choosedRoad ;
-  if(choosedRoad==='mm'){
-        this.displayedPage='accueil-mm-om';
-  }
+ 
+ this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+/*  if(choosedRoad==='mm'){
+        this.displayedPage='accueil-mm';
+  }*/
 
  // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
    //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
@@ -1473,6 +1477,7 @@ public pdvacueilmenumobilemoneyretour(){
      }
      this.displayedPage=newchemin; 
   }
+<<<<<<< HEAD
   depotmobile(){
      this.reinitialiser();
      this.displayedPage='accueil-mm-om-d';
@@ -1488,6 +1493,148 @@ public pdvacueilmenumobilemoneyretour(){
   ventecredit(){
       this.reinitialiser();
       this.displayedPage='accueil-mm-om-vc';
+=======
+
+
+ mobileProcessing(objet){
+
+      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'', 'errorCode':'*', nbtour:0};
+
+      let sesion={'data':objet,'etats':infoOperation,'dataI':''};
+      
+      this.process.push(sesion);
+
+      sessionStorage.removeItem('curentProcess');
+      var operateur=sesion.data.operateur;
+      switch(operateur){
+        case 1:{
+                var operation=sesion.data.operation;
+                switch(operation){
+                  case 1:{
+                        this.validrechargementespece(sesion);
+                        break;
+                  }
+                  case 2:{
+                        this.validateachatjula(sesion);
+                        break;
+                  }
+                  case 3:{
+                        this.validatedetailfacturesenelec(sesion);
+                        break;
+                  }
+                  case 4:{
+                        this.validateachatcodewoyofal(sesion);
+                        break;
+                  }
+                  default:break;
+                }
+                   break ;
+        }
+
+        case 2:{
+             var operation=sesion.data.operation;
+
+              switch(operation){
+                case 1:{
+                       this.deposer(sesion);
+                       break;
+                       }
+                case 2:{
+                       this.retirer(sesion);
+                       break;
+                }
+                case 3:{
+                       this.retraitAvecCode(sesion);
+                       break;
+                }
+                case 4:{
+                       this.retraitCpteRecep(sesion);
+                       break;
+                }
+                case 5:{
+                       this.acheterCredit(sesion);
+                       break;
+                }
+                default :break;
+              }
+               break ;
+        }
+
+        case 3:{
+             var operation=sesion.data.operation;
+
+              switch(operation){
+                case 1:{
+                       this.deposertc(sesion);
+                       break;
+                       }
+                case 2:{
+                       this.retirertc(sesion);
+                       break;
+                }
+                default :break;
+              }
+               break ;
+        }
+
+
+       case 4:{
+             var operation=sesion.data.operation;
+
+             switch(operation){
+              case 1:{
+                   this.validnabon(sesion);
+                   break;
+              }
+              case 2:{
+                  this.vendreDecodeur(sesion);
+                  break;
+              }
+              case 3:{
+                  this.vendreCarte(sesion);
+                  break;
+              }
+              default : break;
+             }
+             break ;
+       }
+
+
+
+       case 6:{
+             var operation=sesion.data.operation;
+         console.log(sesion);
+         console.log('Willa');
+             switch(operation){
+              case 1:{
+                   this.cashInWizall(sesion);
+                   break;
+              }
+              case 2:{
+                  this.cashOutWizall(sesion);
+                  break;
+              }
+              case 3:{
+                  this.payerSDEWizall(sesion);
+                  break;
+              }
+              case 4:{
+                  this.payerSenelecWizall(sesion);
+                  break;
+              }
+              default : break;
+             }
+       }
+
+        default:break;
+      }
+  }
+
+  testMultiArg(...args){
+    console.log("Longueur : "+args.length) ;
+    for (let i=0 ; i<args.length ; i++)
+      console.log(" "+args[i]) ;
+>>>>>>> 3f29fce3ecbfb3346166e04fc79e0c46f0d58e0b
   }
    @ViewChild('addChildModal') public addChildModal:ModalDirective;
    @ViewChild('modalretrait') public modalretrait:ModalDirective;
