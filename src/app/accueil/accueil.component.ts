@@ -35,8 +35,8 @@ export class AccueilComponent implements OnInit {
   dataImpression:any;
   displayedPage : string = 'accueil' ;
   isMobile : boolean ;
-  mnt:number;
-  numclient:number;
+  mnt:string;
+  numclient:string;
   cni:number;
   date:number;
   prenom:string;
@@ -1477,7 +1477,7 @@ public pdvacueilmenumobilemoneyretour(){
      }
      this.displayedPage=newchemin; 
   }
-<<<<<<< HEAD
+
   depotmobile(){
      this.reinitialiser();
      this.displayedPage='accueil-mm-om-d';
@@ -1493,18 +1493,18 @@ public pdvacueilmenumobilemoneyretour(){
   ventecredit(){
       this.reinitialiser();
       this.displayedPage='accueil-mm-om-vc';
-=======
+   }
 
 
  mobileProcessing(objet){
 
-      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'', 'errorCode':'*', nbtour:0};
+      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'blue', 'errorCode':'*', nbtour:0};
 
-      let sesion={'data':objet,'etats':infoOperation,'dataI':''};
+      let sesion={'data':JSON.parse(objet),'etats':infoOperation,'dataI':''};
       
       this.process.push(sesion);
-
-      sessionStorage.removeItem('curentProcess');
+     console.log(JSON.parse(objet));
+     // sessionStorage.removeItem('curentProcess');
       var operateur=sesion.data.operateur;
       switch(operateur){
         case 1:{
@@ -1536,11 +1536,11 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
-                       this.deposer(sesion);
+                      // this.deposer(sesion);
                        break;
                        }
                 case 2:{
-                       this.retirer(sesion);
+                      // this.retirer(sesion);
                        break;
                 }
                 case 3:{
@@ -1577,8 +1577,7 @@ public pdvacueilmenumobilemoneyretour(){
                break ;
         }
 
-
-       case 4:{
+      case 4:{
              var operation=sesion.data.operation;
 
              switch(operation){
@@ -1599,9 +1598,7 @@ public pdvacueilmenumobilemoneyretour(){
              break ;
        }
 
-
-
-       case 6:{
+      case 6:{
              var operation=sesion.data.operation;
          console.log(sesion);
          console.log('Willa');
@@ -1634,7 +1631,6 @@ public pdvacueilmenumobilemoneyretour(){
     console.log("Longueur : "+args.length) ;
     for (let i=0 ; i<args.length ; i++)
       console.log(" "+args[i]) ;
->>>>>>> 3f29fce3ecbfb3346166e04fc79e0c46f0d58e0b
   }
    @ViewChild('addChildModal') public addChildModal:ModalDirective;
    @ViewChild('modalretrait') public modalretrait:ModalDirective;
@@ -1644,7 +1640,8 @@ public pdvacueilmenumobilemoneyretour(){
   
   Deposer(){
          // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
-         
+          let data=JSON.stringify({'nom':'OrangeMoney','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient});
+          this.mobileProcessing(data);
           this.addChildModal.hide();
          // this.depotreussi=true;
           //this.numclient = undefined ;
@@ -1653,6 +1650,7 @@ public pdvacueilmenumobilemoneyretour(){
   }
   public showAddChildModal():void {
     this.addChildModal.show();
+    this.verifnumber();
   }
 
   public hideAddChildModal():void {
@@ -1687,6 +1685,19 @@ public pdvacueilmenumobilemoneyretour(){
     this.cni=undefined;
     this.numclient=undefined;
     this.coderetrait=undefined;
+  }
+  public number=['0','1','2','3','4','5','6','7','8','9'];
+  verifnumber(){
+   let numero=this.numclient.split('');
+   let montant=this.mnt.split('');
+   /* for(let i=0;i<montant.length;i++){
+       for(let j=0;j<number.length;j++){
+         
+       }
+      
+    }*/
+    console.log(numero);
+    console.log(montant);
   }
   
   
