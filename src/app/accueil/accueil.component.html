@@ -413,7 +413,7 @@
 		</div>
 		<h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
 		<h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		<form name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
 		  <div class="form-inline" style=";">
 			<label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
 			<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
@@ -425,7 +425,7 @@
 			
 		  </div>
 		  <p *ngIf="mag2" style="color:red">montant incorrect</p>
-		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" >Valider</button>
 		</form>
   </div>
  </div>
@@ -451,7 +451,7 @@
 		</div>
 		<h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
 		<h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		<form name="transnat" (ngSubmit)="showmodalventecredit()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
 		  <div class="form-inline" style=";">
 			<label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
 			<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
@@ -463,7 +463,7 @@
 			
 		  </div>
 		  <p *ngIf="mag2" style="color:red">montant incorrect</p>
-		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" >Valider</button>
 		</form>
   </div>
  </div>
@@ -490,7 +490,7 @@
 		</div>
 		<h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
 		<h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		<form name="transnat" (ngSubmit)="showmodalretrait()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
 		  <div class="form-inline" style=";">
 			<label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
 			<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
@@ -503,7 +503,7 @@
 			
 		  </div>
 		  <p *ngIf="mag2" style="color:red">montant incorrect</p>
-		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+		  <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" >Valider</button>
 		</form>
   </div>
  </div>
@@ -515,7 +515,7 @@
 <div *ngIf="displayedPage=='accueil-mm-om-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
    <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; opacity:0.9;padding-top: 2rem;">
-      <div style="text-align:center">
+      <div style="text-align:center;margin:1rem">
 		   <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
 		   <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
 				  
@@ -523,33 +523,40 @@
 				  <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
 				  <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
 		   </div>
-			<div>
-			  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait avec code Orange Money</h2>
+			<div >
+			  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait avec code</h2>
 			</div>
 	    </div>
-		<form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+		<form name="transnat" (ngSubmit)="showmodalretraitcode()" #formdepot="ngForm" autocomplete="on" style="margin:1rem;">
 			  <div class="row" style="margin-left:1em">
 				 <div style="" class="col-xs-5 col-sm-5">
 					 <label style="color:white" >Code de retrait :</label>
 				 </div>
-				 <div style="padding:0px;margin:0px" class="col-xs-4 col-sm-4">
-					  <input type="text" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code de retrait" required >
+				 <div style="" class="col-xs-6 col-sm-6">
+					  <input type="text" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code" required >
 				 </div>
-
+			  </div>
+			  <div class="row" style="margin-left:1em">
+				<div class="col-xs-5 col-sm-5" >
+                       <label style="color:white" >Prénom :</label>				
+				</div>
+				<div class="col-xs-6 col-sm-6" >
+				      <input type="text" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom" required >
+			    </div>
 			  </div>
 			  <div class="row" style="margin-left:1em">
 				<div class="col-xs-5 col-sm-5">
-                       <label style="color:white" >Prénom :</label>				
+                       <label style="color:white" >nom :</label>				
 				</div>
-				<div class="col-xs-4 col-sm-4">
-				  <input type="text" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
+				<div class="col-xs-6 col-sm-6">
+				  <input type="text" [(ngModel)]="this.nom" autocomplete="off" (keyup)="veriprenomnom()" name="nom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
 			    </div>
 			  </div>
 			  <div class="row" style="margin-left:1em">
 				 <div class="col-xs-5 col-sm-5">
 	                   <label style="color:white;" >Date de naissance :</label>			 
 				 </div>
-				 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
+				 <div class="col-xs-6 col-sm-6" style="padding-top:0px;bacground-color:red">
 				       <input type="text" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  class="form-control" placeholder="Exemple : 03041900" required >
 			     </div>
 			  </div>
@@ -557,16 +564,16 @@
 				 <div class="col-xs-5 col-sm-5">
 					 <label style="color:white" >Numéro de piece d'identite :</label>
 				 </div>
-				 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
+				 <div class="col-xs-6 col-sm-6" style="padding-top:0px">
 					  <input type="text" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
 				 </div>
 				 
 			  </div>
 			  <div class="row" style="margin-left:1em">
-				<div class="col-xs-5 col-sm-4">
+				<div class="col-xs-5 col-sm-5">
 				     <label style="color:white">Numéro du client  :</label>
 				</div>
-				<div class="col-xs-4 col-sm-4" style="padding-top:0px">
+				<div class="col-xs-6 col-sm-6" style="padding-top:0px">
 					 <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
 				</div>
 				
@@ -575,13 +582,13 @@
 				<div class="col-xs-5 col-sm-5">
 		              <label style="color: white;">Montant  :</label>		
 				</div>
-				<div class="col-xs-4 col-sm-4" style="padding-top:0px">
+				<div class="col-xs-6 col-sm-6" style="padding-top:0px">
 					  <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus > 
 				</div>
 				
 			  </div>
 			  <div style="text-align:center">
-			     <button   type="submit" class="btn btn-success" [disabled]="!buttondepot2">Valider</button>
+			     <button   type="submit" class="btn btn-success" ><i class="fal fa-chevron-circle-down md lg"></i></button>
 			  </div>
 				  
 			  
@@ -674,12 +681,7 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-     <!--Les sous menu-->
-     <!-- <router-outlet></router-outlet>-->
-     <!--PostCach--> 
-     
-=======
+
     <!--Les sous menu-->
 
 <!--     <router-outlet></router-outlet> -->
@@ -687,7 +689,6 @@
 
     <!--PostCach-->
 
->>>>>>> 14db5339886202e4bcc2e9d57ded2e57167c36b8
 <div *ngIf="displayedPage=='accueil-mm-POSTCASH'">
     <!-- POSTCASH -->
     <div _ngcontent-c3="" class="mobile">
@@ -803,4 +804,145 @@
     </div>-->
     <!--les interfaces des sous menus-->
 
+</div>
+<div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+		 <div class="modal-dialog modal-sm">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+				<button type="button" class="close pull-right" aria-label="Close" (click)="hideAddChildModal()">
+				    <span aria-hidden="true">&times;</span>
+		        </button>
+	            <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+		     </div>
+		     <div class="modal-body">
+		
+				 <div>
+					 <form class="form">
+						 <div class="form-group">
+							 <label >numero client : {{this.numclient}} </label>
+						 </div>
+						 <div class="form-group">
+							 <label >montant : {{this.mnt}} </label>
+						 </div>
+					 </form>
+					
+				 </div>
+		     </div>
+		     <div class="modal-footer">
+				  <input type="button" value="valider" (click)="Deposer()" class="btn btn-success" />
+				  <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />
+		     </div>
+		  </div> 
+	    </div>
+</div>
+<div bsModal #modalretrait="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+		 <div class="modal-dialog modal-sm">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+				<button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretrait()">
+				    <span aria-hidden="true">&times;</span>
+		        </button>
+	            <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+		     </div>
+		     <div class="modal-body">
+		
+				 <div>
+					 <form class="form">
+						 <div class="form-group">
+							 <label >numero client : {{this.numclient}}</label>
+						 </div>
+						 <div class="form-group">
+							 <label >montant : {{this.mnt}}</label>
+						 </div>
+					 </form>
+					
+				 </div>
+		     </div>
+		     <div class="modal-footer">
+				  <input type="button" value="valider" (click)="Retirer()" class="btn btn-success" />
+				  <input type="button" value="fermer" (click)="hidemodalretrait()" class="btn btn-danger" />
+		     </div>
+		  </div> 
+	    </div>
+</div>
+<div bsModal #modalventecredit="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+		 <div class="modal-dialog modal-sm">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+				<button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalventecredit()" >
+				    <span aria-hidden="true">&times;</span>
+		        </button>
+	            <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+		     </div>
+		     <div class="modal-body">
+		
+				 <div>
+					 <form class="form">
+						 <div class="form-group">
+							 <label >Numéro client : {{this.numclient}}</label>
+						 </div>
+						 <div class="form-group">
+							 <label >Montant : {{this.mnt}}</label>
+						 </div>
+					 </form>
+					
+				 </div>
+		     </div>
+		     <div class="modal-footer">
+				  <input type="button" value="valider"  class="btn btn-success" />
+				  <input type="button" value="fermer" (click)="hidemodalventecredit()"  class="btn btn-danger" />
+		     </div>
+		  </div> 
+	    </div>
+</div>
+<div bsModal #modalretraitcode="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+		 <div class="modal-dialog modal-sm">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+				<button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcode()">
+				    <span aria-hidden="true">&times;</span>
+		        </button>
+	            <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+		     </div>
+		     <div class="modal-body">
+		
+				 <div>
+					 <form class="form">
+						 <div class="form-group">
+							 <label >Code de retrait : {{this.coderetrait}}</label>
+						 </div>
+						 <div class="form-group">
+							 <label >Prénom : {{this.prenom}}</label>
+						 </div>
+						 <div class="form-group">
+							 <label >Nom : {{this.nom}}</label>
+						 </div>
+						 <div class="form-group">
+							 <label >Date De Naissance: {{this.date}}</label>
+						 </div>
+             <div class="form-group">
+               <label >Numéro CNI : {{this.cni}}</label>
+             </div>
+             <div class="form-group">
+               <label >Numéro Client : {{this.numclient}}</label>
+             </div>
+             <div class="form-group">
+               <label >Montant : {{this.mnt}}</label>
+             </div>
+					 </form>
+					
+				 </div>
+		     </div>
+		     <div class="modal-footer">
+				  <input type="button" value="valider" (click)="retraitAvecCode()" class="btn btn-success" />
+				  <input type="button" value="annuler" (click)="hidemodalretraitcode()" class="btn btn-danger" />
+		     </div>
+		  </div> 
+	    </div>
+
+  
 </div>

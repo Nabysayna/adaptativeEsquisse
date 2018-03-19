@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import {TntService} from "../services/tnt.service";
 import {WizallService} from "../services/wizall.service";
@@ -6,6 +6,7 @@ import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
 import {AuthService} from "../services/auth.service";
 import { PostCashService } from 'app/services/postCash.service';
+import { ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 
 class Article {
@@ -32,8 +33,15 @@ export class AccueilComponent implements OnInit {
   load="loader";
   actif = -1 ;
   dataImpression:any;
-    displayedPage : string = 'accueil' ;
-    isMobile : boolean ;
+  displayedPage : string = 'accueil' ;
+  isMobile : boolean ;
+  mnt:number;
+  numclient:number;
+  cni:number;
+  date:number;
+  prenom:string;
+  nom:string;
+  coderetrait:number;
 
 
   constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
@@ -1466,17 +1474,75 @@ public pdvacueilmenumobilemoneyretour(){
      this.displayedPage=newchemin; 
   }
   depotmobile(){
+     this.reinitialiser();
      this.displayedPage='accueil-mm-om-d';
   }
   retraitmobile(){
+     this.reinitialiser();
      this.displayedPage='accueil-mm-om-r';
   }
   retraitcodemobile(){
+     this.reinitialiser();
      this.displayedPage='accueil-mm-om-rc';
   }
   ventecredit(){
+      this.reinitialiser();
       this.displayedPage='accueil-mm-om-vc';
   }
+   @ViewChild('addChildModal') public addChildModal:ModalDirective;
+   @ViewChild('modalretrait') public modalretrait:ModalDirective;
+   @ViewChild('modalventecredit') public modalventecredit:ModalDirective;
+   @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;
+   
+  
+  Deposer(){
+         // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
+         
+          this.addChildModal.hide();
+         // this.depotreussi=true;
+          //this.numclient = undefined ;
+          //this.mnt = undefined;
+
+  }
+  public showAddChildModal():void {
+    this.addChildModal.show();
+  }
+
+  public hideAddChildModal():void {
+    this.addChildModal.hide();
+  }
+  public showmodalretrait(){
+    this.modalretrait.show();
+  }
+  public hidemodalretrait(){
+    this.modalretrait.hide();
+  }
+  public Retirer(){
+    this.modalretrait.hide();
+  }
+  public showmodalventecredit(){
+    this.modalventecredit.show();
+  }
+  public hidemodalventecredit(){
+    this.modalventecredit.hide();
+  }
+  public showmodalretraitcode(){
+    this.modalretraitcode.show();
+  }
+  public hidemodalretraitcode(){
+    this.modalretraitcode.hide();
+  }
+  public reinitialiser(){
+    this.mnt=undefined;
+    this.prenom=undefined;
+    this.nom=undefined;
+    this.date=undefined;
+    this.cni=undefined;
+    this.numclient=undefined;
+    this.coderetrait=undefined;
+  }
+  
+  
 
 
 }
