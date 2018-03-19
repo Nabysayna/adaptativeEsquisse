@@ -614,7 +614,7 @@
                 </button>
             </div>
             <div class="row">
-                <button (clcik)="roadTo('sde')" style="background-color: transparent;border: 0px; width: 36rem;">
+                <button (click)="roadTo('sde')" style="background-color: transparent;border: 0px; width: 36rem;">
                     <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">SDE</p>
                 </button>
             </div>
@@ -636,7 +636,7 @@
 
             <div class="row">
                 <button (click)="roadTo('oos')" style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">OuLuSolar</p>
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">OuLu Solar</p>
                 </button>
             </div>
         </div>
@@ -662,7 +662,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">Règlement SENELEC</h2>
+                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">SENELEC</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
 
@@ -690,7 +690,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">Achat Code Woyofal</h2>
+                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">Woyofal</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
 
@@ -746,7 +746,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">SDE</h2>
+                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">RAPIDO</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
 
@@ -802,7 +802,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">Oolu Solar</h2>
+                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
 
@@ -1232,6 +1232,10 @@
 
               E-MONEY
 
+              <button (click)="testMultiArg('a')">Arg1</button>
+              <button (click)="testMultiArg('a', 'b')">Arg2</button>
+              <button (click)="testMultiArg('a', 'b', 'c')">Arg3</button>
+
        </div>               
     </div>
 
@@ -1273,8 +1277,29 @@
     </div>
     <!--les interfaces des sous menus-->
 
-    <div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem">
-        En cours ...
+    <div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ;">
+        <div class="row">
+             
+            <div *ngFor="let item of process" class="col-sm-2 col-xs-2 runningTask"> 
+                <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div> 
+            </div> 
+
+<!--             <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner"  style="width:100%"></div> </div> 
+            <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner" style="width:30%"></div> </div> 
+            <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner" style="width:50%"></div> </div>
+ -->
+        </div> 
+
+        <div *ngFor="let item of process" class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;">
+            <div class="col-sm-2 col-xs-2 runningService">OrangeMoney</div> 
+
+<!--             <div class="col-sm-2 col-xs-2 runningService">Woyofal</div> 
+            <div class="col-sm-2 col-xs-2 runningService">Wizall</div> 
+            <div class="col-sm-2 col-xs-2 runningService">Senelec</div> 
+            <div class="col-sm-2 col-xs-2 runningService">TigoCash</div>
+ -->
+        </div> 
+
     </div>
 
 </div>

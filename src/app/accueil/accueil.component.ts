@@ -54,9 +54,12 @@ export class AccueilComponent implements OnInit {
     localStorage.removeItem('tc-depot') ;
     localStorage.removeItem('tc-retrait') ;
 
-    // if (!sessionStorage.getItem('currentUser'))
-    //    this.router.navigate(['']);
-    // this.processus();
+    if (!sessionStorage.getItem('currentUser'))
+       this.router.navigate(['']);
+
+      if ( window.screen.width > 768 )    
+          this.processus();
+
   }
 
 /******************************************************************************************************/
@@ -1467,17 +1470,145 @@ public pdvacueilmenumobilemoneyretour(){
      this.displayedPage=newchemin; 
   }
 
-  depotmobile(){
-     this.displayedPage='accueil-mm-om-d';
+
+ mobileProcessing(objet){
+
+      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'', 'errorCode':'*', nbtour:0};
+
+      let sesion={'data':objet,'etats':infoOperation,'dataI':''};
+      
+      this.process.push(sesion);
+
+      sessionStorage.removeItem('curentProcess');
+      var operateur=sesion.data.operateur;
+      switch(operateur){
+        case 1:{
+                var operation=sesion.data.operation;
+                switch(operation){
+                  case 1:{
+                        this.validrechargementespece(sesion);
+                        break;
+                  }
+                  case 2:{
+                        this.validateachatjula(sesion);
+                        break;
+                  }
+                  case 3:{
+                        this.validatedetailfacturesenelec(sesion);
+                        break;
+                  }
+                  case 4:{
+                        this.validateachatcodewoyofal(sesion);
+                        break;
+                  }
+                  default:break;
+                }
+                   break ;
+        }
+
+        case 2:{
+             var operation=sesion.data.operation;
+
+              switch(operation){
+                case 1:{
+                       this.deposer(sesion);
+                       break;
+                       }
+                case 2:{
+                       this.retirer(sesion);
+                       break;
+                }
+                case 3:{
+                       this.retraitAvecCode(sesion);
+                       break;
+                }
+                case 4:{
+                       this.retraitCpteRecep(sesion);
+                       break;
+                }
+                case 5:{
+                       this.acheterCredit(sesion);
+                       break;
+                }
+                default :break;
+              }
+               break ;
+        }
+
+        case 3:{
+             var operation=sesion.data.operation;
+
+              switch(operation){
+                case 1:{
+                       this.deposertc(sesion);
+                       break;
+                       }
+                case 2:{
+                       this.retirertc(sesion);
+                       break;
+                }
+                default :break;
+              }
+               break ;
+        }
+
+
+       case 4:{
+             var operation=sesion.data.operation;
+
+             switch(operation){
+              case 1:{
+                   this.validnabon(sesion);
+                   break;
+              }
+              case 2:{
+                  this.vendreDecodeur(sesion);
+                  break;
+              }
+              case 3:{
+                  this.vendreCarte(sesion);
+                  break;
+              }
+              default : break;
+             }
+             break ;
+       }
+
+
+
+       case 6:{
+             var operation=sesion.data.operation;
+         console.log(sesion);
+         console.log('Willa');
+             switch(operation){
+              case 1:{
+                   this.cashInWizall(sesion);
+                   break;
+              }
+              case 2:{
+                  this.cashOutWizall(sesion);
+                  break;
+              }
+              case 3:{
+                  this.payerSDEWizall(sesion);
+                  break;
+              }
+              case 4:{
+                  this.payerSenelecWizall(sesion);
+                  break;
+              }
+              default : break;
+             }
+       }
+
+        default:break;
+      }
   }
-  retraitmobile(){
-     this.displayedPage='accueil-mm-om-r';
-  }
-  retraitcodemobile(){
-     this.displayedPage='accueil-mm-om-rc';
-  }
-  ventecredit(){
-      this.displayedPage='accueil-mm-om-vc';
+
+  testMultiArg(...args){
+    console.log("Longueur : "+args.length) ;
+    for (let i=0 ; i<args.length ; i++)
+      console.log(" "+args[i]) ;
   }
 
 
