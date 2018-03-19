@@ -30,6 +30,8 @@ class Article {
 export class AccueilComponent implements OnInit {
   articles=[];
   process=[];
+  telephone: any;
+  montant : any;
    quinzeMinutes = 900000;
   registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'E-MONEY', 'TIGOCASH', 'WIZALL'] ;
 
@@ -1636,6 +1638,13 @@ public pdvacueilmenumobilemoneyretour(){
     
   /**********************************/
 
+/********depotTigoCash**********************/
+      depot(){
+         let depotInfo = {'nom':'Tigo cash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.hidemodaldepotTigoCash();
+         console.log(depotInfo);
+      }
+  /***********************************/
 
 
 }
