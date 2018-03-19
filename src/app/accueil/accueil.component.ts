@@ -1572,11 +1572,11 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
-                       this.deposertc(sesion);
+                       //this.deposertc(sesion);
                        break;
                        }
                 case 2:{
-                       this.retirertc(sesion);
+                       //this.retirertc(sesion);
                        break;
                 }
                 default :break;
@@ -1729,10 +1729,20 @@ public pdvacueilmenumobilemoneyretour(){
 
 /********depotTigoCash**********************/
       depot(){
-         let depotInfo = {'nom':'Tigo cash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
+         let depotInfo = {'nom':'TigoCash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodaldepotTigoCash();
-         console.log(depotInfo);
+         
+
       }
+  /***********************************/
+   /*************izi*******************/
+     izi(){
+       let iziInfo ={'nom':'tigoCash izi','operateur':3,'operation':5,'telephone':this.telephone,'montant':this.montant};
+       this.mobileProcessing(JSON.stringify(iziInfo));
+       this.hidemodalvendreizi();
+       console.log(iziInfo);
+     }
   /***********************************/
 
 
