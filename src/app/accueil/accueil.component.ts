@@ -52,6 +52,7 @@ export class AccueilComponent implements OnInit {
   isselectretraitespeceaveccarte:boolean=true
   public montant:any;
   public telephone:any;
+  public codevalidation:any;
   public odevalidation:any;
   public nb_carte:any;
   public mt_carte:any;
@@ -1468,6 +1469,7 @@ public pdvacueilretour(){
 public roadTo(choosedRoad){
 
  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+ this.reinitialiser();
 /*  if(choosedRoad==='mm'){
         this.displayedPage='accueil-mm';
   }*/
@@ -1707,6 +1709,11 @@ public pdvacueilmenumobilemoneyretour(){
     this.cni=undefined;
     this.numclient=undefined;
     this.coderetrait=undefined;
+    this.telephone = undefined ;
+    this.montant = undefined ;
+    // this.compteur = undefined ;
+    this.nb_carte = undefined ;
+    this.mt_carte = undefined ;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(){
@@ -1738,15 +1745,46 @@ public pdvacueilmenumobilemoneyretour(){
      this.modalvendreizi.hide();
     }
 
-    //PostCash
-/**********************************/
-/**********les modals***************/
-  showmodalPostCash(){
-    this.modaldepotTigoCash.show();
-   }
-   hidemodalPostCash(){
-    this.modaldepotTigoCash.hide()
-   }
+
+/*-------------- --------PostCash-------------------------------*/
+    /********** PostCash-modals ***************/
+    showmodalPostCash(){
+      this.modalPostCash.show();
+    }
+    hidemodalPostCash(){
+      this.modalPostCash.hide()
+    }
+    /********** PostCash-transactions *********/
+
+    achatJula(){
+      let depotInfo = {'nom':'PostCash achat jula','operateur':1,'operation':2,'nb_carte':this.nb_carte,'mt_carte':this.mt_carte};
+      this.mobileProcessing(JSON.stringify(depotInfo));
+      this.reinitialiser();
+      this.hidemodalPostCash();
+    }
+
+    rechargementEspecePostCash(){
+       let depotInfo = {'nom':'PostCash rechargement espece','operateur':1,'operation':1,'num':this.telephone,'montant':this.montant};
+       this.mobileProcessing(JSON.stringify(depotInfo));
+       this.reinitialiser();
+       this.hidemodalPostCash();
+    }
+
+    retraitEspeceAvecCartePostCash(){
+       let depotInfo = {'nom':'PostCash retait espece avec carte','operateur':1,'operation':3,'type':2,'num':this.telephone,'montant':this.montant};
+       this.mobileProcessing(JSON.stringify(depotInfo));
+       this.reinitialiser();
+       this.hidemodalPostCash();
+    }
+
+    retraitEspeceSansCartePostCash(){
+      let depotInfo = {'nom':'PostCash retait espece avec carte','operateur':1,'operation':3,'type':1,'num':this.telephone,'montant':this.montant,'codevalidation': this.codevalidation};
+       this.mobileProcessing(JSON.stringify(depotInfo));
+       this.reinitialiser();
+       this.hidemodalPostCash();
+    }
+
+
   /**********************************/
 
 /********depotTigoCash**********************/
@@ -1793,5 +1831,6 @@ public pdvacueilmenumobilemoneyretour(){
       let data = {telephone:this.telephone,montant: this.montant};
       //
   }
+
 
 }

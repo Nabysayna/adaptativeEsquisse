@@ -1061,7 +1061,7 @@
                                                   <label for="codevalidation" style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Code de validation</label>
                                            </div>
                                            <div class="col-xs-7 col-sm-7">
-                                                <input type="number" [(ngModel)]="this.codevalidation" name="codevalidation" id="codevalidation" class="form-control" placeholder="Code de validation" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                                 <input type="number" [(ngModel)]="this.codevalidation"  name="codevalidation" class="form-control" placeholder="code de validation" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
                                            </div>
                                     </div>
                               </div>
@@ -1178,7 +1178,7 @@
                                     <label for="mt_carte" style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Montant Carte</label>
                               </div>
                               <div class="col-xs-7 col-sm-7">
-                                    <select class="form-control input-sm" name="mt_carte" id="mt_carte" [(ngModel)]="mt_carte" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                    <select class="form-control input-sm" name="mt_carte" id="mt_carte" [(ngModel)]="this.mt_carte" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
                                         <option>2000</option>
                                         <option>5000</option>
                                         <option>10000</option>
@@ -1214,42 +1214,7 @@
           </div>
         </div>
     </div>
-    <!--  PostCash Modal-->
-    <div bsModal #modalPostCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
-             <div class="modal-dialog modal-sm">
-                <div class="modal-content" >
-                  <div class="modal-header">
-                    <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalPostCash()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                    <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-                 <div class="modal-body">
-
-                     <div>
-                         <form class="form">
-                             <div class="form-group">
-                                 <label >Numero client : {{ this.telephone }}</label>
-                             </div>
-                             <div class="form-group">
-                             </div>
-                                 <label>Montant  : {{ this.montant }}</label>
-                             <div class="form-group" *ngIf="isselectretraitespeceaveccarte" >
-                                 <label >Code validation  : {{ this.codevalidation}}</label>
-                             </div>
-
-                         </form>
-
-                     </div>
-                 </div>
-                 <div class="modal-footer">
-                      <input type="button" value="valider" class="btn btn-success" />
-                      <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
-                 </div>
-              </div>
-            </div>
-    </div>
 
     <!--TIGOCASH-->
 
@@ -1627,7 +1592,7 @@
 
             <div *ngFor="let item of process" class="col-sm-2 col-xs-2 runningTask">
                 <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div>
-            </div> -->
+            </div>
 
             <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner"  style="width:100%"></div> </div>
             <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner" style="width:30%"></div> </div>
@@ -1648,6 +1613,82 @@
     </div>
 
 </div>
+
+<!-- ........................................................................................ -->
+                                <!--  Les Modals-->
+<!-- ........................................................................................ -->
+
+<!--  PostCash Modal-->
+<div bsModal #modalPostCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalPostCash()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             <div class="modal-body">
+
+                 <div>
+                     <form class="form">
+                         <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
+                                   <div class="form-group">
+                                       <label >Numero client : {{ this.telephone }}</label>
+                                   </div>
+                                   <div class="form-group">
+                                        <label>Montant  : {{ this.montant }}</label>
+                                   </div>
+                         </div>
+                          <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
+                                  <div class="form-group">
+                                      <label >Numero client : {{ this.telephone }}</label>
+                                  </div>
+                                  <div class="form-group">
+                                       <label>Montant  : {{ this.montant }}</label>
+                                  </div>
+                                  <div class="form-group" *ngIf="isselectretraitespeceaveccarte">
+                                      <label >Code validation  : {{ this.codevalidation}}</label>
+                                  </div>
+                          </div>
+                         <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
+                               <div class="form-group">
+                                   <label >Nombre de carte  : {{ this.nb_carte}}</label>
+                               </div>
+                               <div class="form-group">
+                                   <label >Montant Carte : {{ this.mt_carte}}</label>
+                               </div>
+                         </div>
+                     </form>
+
+                 </div>
+             </div>
+             <div class="modal-footer">
+                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
+                          <input type="button" value="valider" class="btn btn-success" (click)="rechargementEspecePostCash()"/>
+                          <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                   </div>
+                    <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
+                          <div  *ngIf="isselectretraitespeceaveccarte">
+                              <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceAvecCartePostCash()"/>
+                              <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                          </div>
+                          <div  *ngIf="!isselectretraitespeceaveccarte">
+                              <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceSansCartePostCash()"/>
+                              <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                          </div>
+                    </div>
+                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
+                        <input type="button" value="valider" class="btn btn-success" (click)="achatJula()"/>
+                        <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                   </div>
+             </div>
+          </div>
+        </div>
+</div>
+
+<!--  Autes Modals -->
 <div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
 		 <div class="modal-dialog modal-sm">
