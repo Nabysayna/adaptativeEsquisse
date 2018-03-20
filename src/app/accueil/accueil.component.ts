@@ -39,8 +39,15 @@ export class AccueilComponent implements OnInit {
   load="loader";
   actif = -1 ;
   dataImpression:any;
-    displayedPage : string = 'accueil' ;
-    isMobile : boolean ;
+  displayedPage : string = 'accueil' ;
+  isMobile : boolean ;
+  mnt:string;
+  numclient:string;
+  cni:number;
+  date:number;
+  prenom:string;
+  nom:string;
+  coderetrait:number;
 
   isselectretraitespeceaveccarte:boolean=true
   public montant:any;
@@ -1488,16 +1495,37 @@ public pdvacueilmenumobilemoneyretour(){
      this.displayedPage=newchemin;
   }
 
+  depotmobile(){
+     this.reinitialiser();
+     this.displayedPage='accueil-mm-om-d';
+  }
+  retraitmobile(){
+     this.reinitialiser();
+     this.displayedPage='accueil-mm-om-r';
+  }
+  retraitcodemobile(){
+     this.reinitialiser();
+     this.displayedPage='accueil-mm-om-rc';
+  }
+  ventecredit(){
+      this.reinitialiser();
+      this.displayedPage='accueil-mm-om-vc';
+   }
+
 
  mobileProcessing(objet){
 
-      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'', 'errorCode':'*', nbtour:0};
+      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'blue', 'errorCode':'*', nbtour:0};
 
-      let sesion={'data':objet,'etats':infoOperation,'dataI':''};
+// <<<<<<< HEAD
+//       let sesion={'data':objet,'etats':infoOperation,'dataI':''};
+//
+// =======
+      let sesion={'data':JSON.parse(objet),'etats':infoOperation,'dataI':''};
 
       this.process.push(sesion);
-
-      sessionStorage.removeItem('curentProcess');
+     console.log(JSON.parse(objet));
+     // sessionStorage.removeItem('curentProcess');
       var operateur=sesion.data.operateur;
       switch(operateur){
         case 1:{
@@ -1529,11 +1557,11 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
-                       this.deposer(sesion);
+                      // this.deposer(sesion);
                        break;
                        }
                 case 2:{
-                       this.retirer(sesion);
+                      // this.retirer(sesion);
                        break;
                 }
                 case 3:{
@@ -1558,11 +1586,11 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
-                       this.deposertc(sesion);
+                       //this.deposertc(sesion);
                        break;
                        }
                 case 2:{
-                       this.retirertc(sesion);
+                       //this.retirertc(sesion);
                        break;
                 }
                 default :break;
@@ -1570,8 +1598,7 @@ public pdvacueilmenumobilemoneyretour(){
                break ;
         }
 
-
-       case 4:{
+      case 4:{
              var operation=sesion.data.operation;
 
              switch(operation){
@@ -1592,9 +1619,7 @@ public pdvacueilmenumobilemoneyretour(){
              break ;
        }
 
-
-
-       case 6:{
+      case 6:{
              var operation=sesion.data.operation;
          console.log(sesion);
          console.log('Willa');
@@ -1628,7 +1653,76 @@ public pdvacueilmenumobilemoneyretour(){
     for (let i=0 ; i<args.length ; i++)
       console.log(" "+args[i]) ;
   }
-               //TigoCash
+
+   @ViewChild('addChildModal') public addChildModal:ModalDirective;
+   @ViewChild('modalretrait') public modalretrait:ModalDirective;
+   @ViewChild('modalventecredit') public modalventecredit:ModalDirective;
+   @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;
+
+
+  Deposer(){
+         // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
+          let data=JSON.stringify({'nom':'OrangeMoney','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient});
+          this.mobileProcessing(data);
+          this.addChildModal.hide();
+         // this.depotreussi=true;
+          //this.numclient = undefined ;
+          //this.mnt = undefined;
+
+  }
+  public showAddChildModal():void {
+    this.addChildModal.show();
+    this.verifnumber();
+  }
+
+  public hideAddChildModal():void {
+    this.addChildModal.hide();
+  }
+  public showmodalretrait(){
+    this.modalretrait.show();
+  }
+  public hidemodalretrait(){
+    this.modalretrait.hide();
+  }
+  public Retirer(){
+    this.modalretrait.hide();
+  }
+  public showmodalventecredit(){
+    this.modalventecredit.show();
+  }
+  public hidemodalventecredit(){
+    this.modalventecredit.hide();
+  }
+  public showmodalretraitcode(){
+    this.modalretraitcode.show();
+  }
+  public hidemodalretraitcode(){
+    this.modalretraitcode.hide();
+  }
+  public reinitialiser(){
+    this.mnt=undefined;
+    this.prenom=undefined;
+    this.nom=undefined;
+    this.date=undefined;
+    this.cni=undefined;
+    this.numclient=undefined;
+    this.coderetrait=undefined;
+  }
+  public number=['0','1','2','3','4','5','6','7','8','9'];
+  verifnumber(){
+   let numero=this.numclient.split('');
+   let montant=this.mnt.split('');
+   /* for(let i=0;i<montant.length;i++){
+       for(let j=0;j<number.length;j++){
+
+       }
+
+    }*/
+    console.log(numero);
+    console.log(montant);
+  }
+
+              //TigoCash
   /**********************************/
   /**********les modals***************/
     showmodaldepotTigoCash(){
@@ -1655,6 +1749,23 @@ public pdvacueilmenumobilemoneyretour(){
    }
   /**********************************/
 
+/********depotTigoCash**********************/
+      depot(){
+         let depotInfo = {'nom':'TigoCash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodaldepotTigoCash();
+
+
+      }
+  /***********************************/
+   /*************izi*******************/
+     izi(){
+       let iziInfo ={'nom':'tigoCash izi','operateur':3,'operation':5,'telephone':this.telephone,'montant':this.montant};
+       this.mobileProcessing(JSON.stringify(iziInfo));
+       this.hidemodalvendreizi();
+       console.log(iziInfo);
+     }
+  /***********************************/
 
   /* -------------------------------------- Modal --------------------------------------- */
 
