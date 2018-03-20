@@ -6,7 +6,6 @@ import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
 import {AuthService} from "../services/auth.service";
 import { PostCashService } from 'app/services/postCash.service';
-import { ViewChild } from '@angular/core';
 import { ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 
@@ -44,9 +43,11 @@ export class AccueilComponent implements OnInit {
     isMobile : boolean ;
 
   isselectretraitespeceaveccarte:boolean=true
-  montant:number;
-  telephone:number;
-  codevalidation:number;
+  public montant:any;
+  public telephone:any;
+  public odevalidation:any;
+  public nb_carte:any;
+  public mt_carte:any;
 
   constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
       if ( window.screen.width <= 768 )
@@ -56,6 +57,9 @@ export class AccueilComponent implements OnInit {
   }
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
   @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
+
+  @ViewChild('modalPostCash') modalPostCash: ModalDirective;
+
 
 /******************************************************************************************************/
 
@@ -1639,8 +1643,16 @@ public pdvacueilmenumobilemoneyretour(){
     hidemodalvendreizi(){
      this.modalvendreizi.hide();
     }
-    
-    
+
+    //PostCash
+/**********************************/
+/**********les modals***************/
+  showmodalPostCash(){
+    this.modaldepotTigoCash.show();
+   }
+   hidemodalPostCash(){
+    this.modaldepotTigoCash.hide()
+   }
   /**********************************/
 
 
