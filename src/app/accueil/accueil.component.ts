@@ -50,6 +50,7 @@ export class AccueilComponent implements OnInit {
   coderetrait:number;
 
   isselectretraitespeceaveccarte:boolean=true
+  typerecherchegestion:string = "parmotif";
   public montant:any;
   public telephone:any;
   public codevalidation:any;

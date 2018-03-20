@@ -411,6 +411,11 @@ body {
     height:100%;
  }
 
+ body{
+    margin: 0px;
+    padding: 0px;
+ }
+
 }
 
 
@@ -425,4 +430,9 @@ body {
     #om-options{
         width: max-content !important;
     }
+}
+
+.row{
+    margin: 0px;
+    padding: 0px;
 }
