@@ -51,23 +51,28 @@ export class AccueilComponent implements OnInit {
 
   isselectretraitespeceaveccarte:boolean=true
   typerecherchegestion:string = "parmotif";
+
   public montant:any;
   public telephone:any;
   public codevalidation:any;
   public odevalidation:any;
   public nb_carte:any;
   public mt_carte:any;
-
+  public service:any;
+  public libelle:any;
+  public designation:any;
+  
   constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
       if ( window.screen.width <= 768 )
           this.isMobile = true ;
       else
           this.isMobile = false ;
   }
+
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
   @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
-
   @ViewChild('modalPostCash') modalPostCash: ModalDirective;
+  @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
 
 
 /******************************************************************************************************/
@@ -1715,6 +1720,9 @@ public pdvacueilmenumobilemoneyretour(){
     // this.compteur = undefined ;
     this.nb_carte = undefined ;
     this.mt_carte = undefined ;
+    this.designation = undefined;
+    this.libelle  = undefined;
+    this.service   = undefined;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(){
@@ -1784,6 +1792,18 @@ public pdvacueilmenumobilemoneyretour(){
        this.reinitialiser();
        this.hidemodalPostCash();
     }
+
+    /*-------------- --------GESTIONREPORTING-------------------------------*/
+        /********** PostCash-modals ***************/
+        showGestionReporting(){
+          this.modalGestionReporting.show();
+        }
+        hideGestionReporting(){
+          this.modalGestionReporting.hide()
+        }
+        /********** GESTIONREPORTING-transactions *********/
+
+
 
 
   /**********************************/
