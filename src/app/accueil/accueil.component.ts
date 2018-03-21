@@ -5,8 +5,10 @@ import {WizallService} from "../services/wizall.service";
 import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
 import {AuthService} from "../services/auth.service";
-import { PostCashService } from 'app/services/postCash.service';
-import { ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
+import {PostCashService } from 'app/services/postCash.service';
+import {ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { ExpressocashService } from "../services/expressocash.service";
+
 
 
 class Article {
@@ -1611,19 +1613,19 @@ public pdvacueilmenumobilemoneyretour(){
          console.log('Willa');
              switch(operation){
               case 1:{
-                   this.cashInWizall(sesion);
+                  // this.cashInWizall(sesion);
                    break;
               }
               case 2:{
-                  this.cashOutWizall(sesion);
+                  //this.cashOutWizall(sesion);
                   break;
               }
               case 3:{
-                  this.payerSDEWizall(sesion);
+                 // this.payerSDEWizall(sesion);
                   break;
               }
               case 4:{
-                  this.payerSenelecWizall(sesion);
+                 // this.payerSenelecWizall(sesion);
                   break;
               }
               default : break;
@@ -1658,7 +1660,7 @@ public pdvacueilmenumobilemoneyretour(){
   }
   public showAddChildModal():void {
     this.addChildModal.show();
-    this.verifnumber();
+    //this.verifnumber();
   }
 
   public hideAddChildModal():void {
@@ -1695,7 +1697,7 @@ public pdvacueilmenumobilemoneyretour(){
     this.coderetrait=undefined;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
-  verifnumber(){
+  verifnumber(event){
    let numero=this.numclient.split('');
    let montant=this.mnt.split('');
    /* for(let i=0;i<montant.length;i++){
@@ -1708,9 +1710,10 @@ public pdvacueilmenumobilemoneyretour(){
     console.log(montant);
   }
   
-              //TigoCash
-  /**********************************/
-  /**********les modals***************/
+/*************************************************TigoCash****************************************/
+  
+  /**********************************************les modals***************************************/
+    
     showmodaldepotTigoCash(){
      this.modaldepotTigoCash.show();
     }
@@ -1723,27 +1726,96 @@ public pdvacueilmenumobilemoneyretour(){
     hidemodalvendreizi(){
      this.modalvendreizi.hide();
     }
-    
-    
-  /**********************************/
 
-/********depotTigoCash**********************/
-      depot(){
+  //depotTigoCash
+      depotTigoCash(){
          let depotInfo = {'nom':'TigoCash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodaldepotTigoCash();
-         
-
       }
-  /***********************************/
-   /*************izi*******************/
-     izi(){
+  //izi
+      izi(){
        let iziInfo ={'nom':'tigoCash izi','operateur':3,'operation':5,'telephone':this.telephone,'montant':this.montant};
        this.mobileProcessing(JSON.stringify(iziInfo));
        this.hidemodalvendreizi();
        console.log(iziInfo);
      }
-  /***********************************/
+  /**************************************************WIZALL****************************************/
 
+   @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
+   @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
+  
+  //Depot
+  depotmodalWIZALL(){
+     this.modaldepotWIZALL.show();
+    }
+    fermermodaldepotWIZALL(){
+     this.modaldepotWIZALL.hide()
+    }
+
+deposerWIZALL(){
+         let depotInfo = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.fermermodalretraitWIZALL();
+      }
+//retrait
+retirerWIZALL(){
+         let retraitInfo = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(retraitInfo));
+         this.fermermodalretraitWIZALL();
+      }
+
+  retirermodalWIZALL(){
+     this.modalretraitWIZALL.show();
+    }
+    fermermodalretraitWIZALL(){
+     this.modalretraitWIZALL.hide()
+    }
+
+
+    /*****************************************EMONEY*****************************************/
+  @ViewChild('modaldepotEMONEY') public modaldepotEMONEY:ModalDirective;
+  @ViewChild('modalretraitEMONEY') public modalretraitEMONEY:ModalDirective;
+  @ViewChild('modalretraitcodeEMONEY') public modalretraitcodeEMONEY:ModalDirective;
+  
+  
+  //Depot
+  showmodaldepotEMONEY(){
+     this.modaldepotEMONEY.show();
+    }
+    hidemodaldepotEMONEY(){
+     this.modaldepotEMONEY.hide()
+    }
+
+fairedepotEMONEY(){
+         let depotInfo = {'nom':'EMONEY depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodaldepotEMONEY();
+      }
+  //retrait
+  showmodalretraitEMONEY(){
+     this.modalretraitEMONEY.show();
+    }
+    hidemodalretraitEMONEY(){
+     this.modalretraitEMONEY.hide()
+    }
+faireretraitsimpleEMONEY(){
+         let depotInfo = {'nom':'EMONEY retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodaldepotEMONEY();
+      }
+      //retrait avec code
+  showmodalretraitcodeEMONEY(){
+     this.modalretraitcodeEMONEY.show();
+    }
+    hidemodalretraitcodeEMONEY(){
+     this.modalretraitcodeEMONEY.hide()
+    }
+
+faireretraitaveccodeEMONEY(){
+         let depotInfo = {'nom':'EMONEY retrait avec code','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodaldepotEMONEY();
+      }
 
 }
