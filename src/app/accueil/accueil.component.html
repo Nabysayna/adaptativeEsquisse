@@ -490,7 +490,7 @@
           <div class="form-inline" style=";">
             <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
             <!--<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">-->
-             <input autocomplete="off" type="text"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+             <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
           </div>
           <p *ngIf="mag1" style="color:red">numero incorrect</p>
           <div class="form-inline">

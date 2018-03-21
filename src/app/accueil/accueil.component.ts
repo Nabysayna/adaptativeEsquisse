@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit , ViewChild ,ElementRef} from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import {TntService} from "../services/tnt.service";
 import {WizallService} from "../services/wizall.service";
@@ -29,12 +29,13 @@ class Article {
 
 
 export class AccueilComponent implements OnInit {
+
+
   articles=[];
   process=[];
-  telephone: any;
-  montant : any;
    quinzeMinutes = 900000;
   registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'E-MONEY', 'TIGOCASH', 'WIZALL'] ;
+
 
   authorisedToUseCRM = false ;
   load="loader";
@@ -50,16 +51,31 @@ export class AccueilComponent implements OnInit {
   nom:string;
   coderetrait:number;
 
+  isselectretraitespeceaveccarte:boolean=true
+  typerecherchegestion:string = "parmotif";
 
+  public montant:any;
+  public telephone:any;
+  public codevalidation:any;
+  public odevalidation:any;
+  public nb_carte:any;
+  public mt_carte:any;
+  public service:any;
+  public libelle:any;
+  public designation:any;
+  
   constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
-
       if ( window.screen.width <= 768 )
           this.isMobile = true ;
       else
           this.isMobile = false ;
   }
+
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
   @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
+  @ViewChild('modalPostCash') modalPostCash: ModalDirective;
+  @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
+
 
 /******************************************************************************************************/
 
@@ -74,7 +90,7 @@ export class AccueilComponent implements OnInit {
     if (!sessionStorage.getItem('currentUser'))
        this.router.navigate(['']);
 
-      if ( window.screen.width > 768 )    
+      if ( window.screen.width > 768 )
           this.processus();
 
   }
@@ -240,6 +256,7 @@ export class AccueilComponent implements OnInit {
     }
   },3000);
   }
+
 
 
 /******************************************************************************************************/
@@ -1458,14 +1475,15 @@ public pdvacueilretour(){
 }
 
 public roadTo(choosedRoad){
- 
+
  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+ this.reinitialiser();
 /*  if(choosedRoad==='mm'){
         this.displayedPage='accueil-mm';
   }*/
 
  // if ( (this.displayedPage.match(/-/g) || []).length == 2 )
-   //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] ); 
+   //   this.router.navigate( ['/accueil/' + this.displayedPage.substr(this.displayedPage.lastIndexOf("-")+1)] );
 
 
 }
@@ -1484,7 +1502,7 @@ public pdvacueilmenumobilemoneyretour(){
      for(let i=1;i<chemin.length-1;i++){
         newchemin+='-'+chemin[i];
      }
-     this.displayedPage=newchemin; 
+     this.displayedPage=newchemin;
   }
 
   depotmobile(){
@@ -1509,8 +1527,11 @@ public pdvacueilmenumobilemoneyretour(){
 
       let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'blue', 'errorCode':'*', nbtour:0};
 
+//       let sesion={'data':objet,'etats':infoOperation,'dataI':''};
+
+
       let sesion={'data':JSON.parse(objet),'etats':infoOperation,'dataI':''};
-      
+
       this.process.push(sesion);
      console.log(JSON.parse(objet));
      // sessionStorage.removeItem('curentProcess');
@@ -1646,8 +1667,8 @@ public pdvacueilmenumobilemoneyretour(){
    @ViewChild('modalretrait') public modalretrait:ModalDirective;
    @ViewChild('modalventecredit') public modalventecredit:ModalDirective;
    @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;
-   
-  
+
+
   Deposer(){
          // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
           let data=JSON.stringify({'nom':'OrangeMoney','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient});
@@ -1695,6 +1716,14 @@ public pdvacueilmenumobilemoneyretour(){
     this.cni=undefined;
     this.numclient=undefined;
     this.coderetrait=undefined;
+    this.telephone = undefined ;
+    this.montant = undefined ;
+    // this.compteur = undefined ;
+    this.nb_carte = undefined ;
+    this.mt_carte = undefined ;
+    this.designation = undefined;
+    this.libelle  = undefined;
+    this.service   = undefined;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(event){
@@ -1702,18 +1731,18 @@ public pdvacueilmenumobilemoneyretour(){
    let montant=this.mnt.split('');
    /* for(let i=0;i<montant.length;i++){
        for(let j=0;j<number.length;j++){
-         
+
        }
-      
+
     }*/
     console.log(numero);
     console.log(montant);
   }
-  
-/*************************************************TigoCash****************************************/
+
   
   /**********************************************les modals***************************************/
     
+
     showmodaldepotTigoCash(){
      this.modaldepotTigoCash.show();
     }
@@ -1727,11 +1756,60 @@ public pdvacueilmenumobilemoneyretour(){
      this.modalvendreizi.hide();
     }
 
+
+    /********** PostCash-modals ***************/
+    showmodalPostCash(){
+      this.modalPostCash.show();
+    }
+    hidemodalPostCash(){
+      this.modalPostCash.hide()
+    }
+    /********** PostCash-transactions *********/
+
+    achatJula(){
+      let depotInfo = {'nom':'PostCash achat jula','operateur':1,'operation':2,'nb_carte':this.nb_carte,'mt_carte':this.mt_carte};
+      this.mobileProcessing(JSON.stringify(depotInfo));
+      this.reinitialiser();
+      this.hidemodalPostCash();
+    }
+
+    rechargementEspecePostCash(){
+       let depotInfo = {'nom':'PostCash rechargement espece','operateur':1,'operation':1,'num':this.telephone,'montant':this.montant};
+       this.mobileProcessing(JSON.stringify(depotInfo));
+       this.reinitialiser();
+       this.hidemodalPostCash();
+    }
+
+    retraitEspeceAvecCartePostCash(){
+       let depotInfo = {'nom':'PostCash retait espece avec carte','operateur':1,'operation':3,'type':2,'num':this.telephone,'montant':this.montant};
+       this.mobileProcessing(JSON.stringify(depotInfo));
+       this.reinitialiser();
+       this.hidemodalPostCash();
+    }
+
+    retraitEspeceSansCartePostCash(){
+      let depotInfo = {'nom':'PostCash retait espece avec carte','operateur':1,'operation':3,'type':1,'num':this.telephone,'montant':this.montant,'codevalidation': this.codevalidation};
+       this.mobileProcessing(JSON.stringify(depotInfo));
+       this.reinitialiser();
+       this.hidemodalPostCash();
+    }
+
+    /*-------------- --------GESTIONREPORTING-------------------------------*/
+        /********** PostCash-modals ***************/
+        showGestionReporting(){
+          this.modalGestionReporting.show();
+        }
+        hideGestionReporting(){
+          this.modalGestionReporting.hide()
+        }
+       
+
   //depotTigoCash
       depotTigoCash(){
          let depotInfo = {'nom':'TigoCash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodaldepotTigoCash();
+
       }
   //izi
       izi(){
@@ -1752,6 +1830,7 @@ public pdvacueilmenumobilemoneyretour(){
     fermermodaldepotWIZALL(){
      this.modaldepotWIZALL.hide()
     }
+
 
 deposerWIZALL(){
          let depotInfo = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
@@ -1817,5 +1896,22 @@ faireretraitaveccodeEMONEY(){
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodaldepotEMONEY();
       }
+
+  public selectretraitespeceaveccarte(){
+    this.telephone = undefined ;
+    this.montant = undefined ;
+  }
+
+
+  public validateretraitespece(){
+      let data = {telephone:this.telephone,montant: this.montant};
+      //
+  }
+
+  attentecodevalidationretraitespeceaveccarte(){
+      let data = {telephone:this.telephone,montant: this.montant};
+      //
+  }
+
 
 }
