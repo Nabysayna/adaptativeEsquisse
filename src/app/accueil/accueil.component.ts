@@ -1525,7 +1525,7 @@ public pdvacueilmenumobilemoneyretour(){
 
  mobileProcessing(objet){
 
-      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'blue', 'errorCode':'*', nbtour:0};
+      let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'white', 'errorCode':'*', nbtour:0};
 
 //       let sesion={'data':objet,'etats':infoOperation,'dataI':''};
 
@@ -1649,6 +1649,28 @@ public pdvacueilmenumobilemoneyretour(){
                  // this.payerSenelecWizall(sesion);
                   break;
               }
+              default : break;
+             }
+       }
+
+       case 7 :{
+             var operation=sesion.data.operation;
+         console.log(sesion);
+         console.log('EMONEY');
+             switch(operation){
+              case 1:{
+                  // this.cashInWizall(sesion);
+                   break;
+              }
+              case 2:{
+                  //this.cashOutWizall(sesion);
+                  break;
+              }
+              case 3:{
+                 // this.payerSDEWizall(sesion);
+                  break;
+              }
+             
               default : break;
              }
        }
@@ -1856,6 +1878,8 @@ retirerWIZALL(){
   @ViewChild('modaldepotEMONEY') public modaldepotEMONEY:ModalDirective;
   @ViewChild('modalretraitEMONEY') public modalretraitEMONEY:ModalDirective;
   @ViewChild('modalretraitcodeEMONEY') public modalretraitcodeEMONEY:ModalDirective;
+  @ViewChild('modalretraitConfirmEMONEY') public modalretraitConfirmEMONEY:ModalDirective;
+
   
   
   //Depot
@@ -1867,22 +1891,25 @@ retirerWIZALL(){
     }
 
 fairedepotEMONEY(){
-         let depotInfo = {'nom':'EMONEY depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodaldepotEMONEY();
       }
   //retrait
   showmodalretraitEMONEY(){
-     this.modalretraitEMONEY.show();
+     this.modalretraitConfirmEMONEY.show();
     }
-    hidemodalretraitEMONEY(){
-     this.modalretraitEMONEY.hide()
+    hidemodalretraitConfirmEMONEY(){
+     this.modalretraitConfirmEMONEY.hide()
     }
-faireretraitsimpleEMONEY(){
-         let depotInfo = {'nom':'EMONEY retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+faireretraitsimpleConfirmEMONEY(){
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
-         this.hidemodaldepotEMONEY();
+         this.hidemodalretraitConfirmEMONEY();
       }
+      //retraitconfirm
+ 
+      //finretraiconfir
       //retrait avec code
   showmodalretraitcodeEMONEY(){
      this.modalretraitcodeEMONEY.show();
@@ -1892,9 +1919,9 @@ faireretraitsimpleEMONEY(){
     }
 
 faireretraitaveccodeEMONEY(){
-         let depotInfo = {'nom':'EMONEY retrait avec code','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
-         this.hidemodaldepotEMONEY();
+         this.hidemodalretraitcodeEMONEY();
       }
 
   public selectretraitespeceaveccarte(){

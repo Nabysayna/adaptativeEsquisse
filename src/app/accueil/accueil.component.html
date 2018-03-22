@@ -289,7 +289,7 @@
             <div class="col-sm-12 col-xs-12" style="padding-top: 4rem;">
                 <h5 style="font-family:caviar dreams bold; color: white;">MENU</h5>
             </div>
-            <div class="col-sm-12 col-xs-12" style="padding-top: 4rem;">
+            <div class="col-sm-12 col-xs-12" style="padding-top: 0rem;">
                 <div class="row">
                       <div class="col-sm-12 col-xs-12"  style="padding-right:0px;">
                             <button  (click)="roadTo('mm')" style="background-color: transparent;border: 0px; width:100%;">
@@ -395,9 +395,10 @@
                 <button style="border:0px;" href="#retraitcode" (click)="roadTo('rc')" data-toggle="tab">Retrait avec code</button>
              </div>
              <div style="font-family: caviar dreams;font-size: 2.1rem;color: white; padding-top: 1rem;">
-                <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button> 
-             </div>  
-       </div>               
+                <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button>
+             </div>
+       </div>
+
     </div>
 </div>
 
@@ -408,7 +409,6 @@
    <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
        <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
               <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-
               <div>
                 <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
                 <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
@@ -459,7 +459,6 @@
    <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
        <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
               <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-
               <div>
                 <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
                 <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
@@ -489,13 +488,12 @@
         <form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
           <div class="form-inline" style=";">
             <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
-            <!--<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">-->
-             <input autocomplete="off" type="number"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+            <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
           </div>
           <p *ngIf="mag1" style="color:red">numero incorrect</p>
           <div class="form-inline">
            <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%">Montant transfert :</label>
-            <input type="number" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+            <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
 
           </div>
           <p *ngIf="mag2" style="color:red">montant incorrect</p>
@@ -506,14 +504,13 @@
 </div>
       <!-- fin vente credit  -->
       <!-- retrait Orange Money -->
-      
+
 <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
 
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
    <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
     <!--          <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
               <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-
               <div>
                 <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
                 <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
@@ -532,7 +529,7 @@
                  <div class="col-xs-2 col-sm-2">
                     <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
                     <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
-                 </div> 
+                 </div>
              </div>
         <div>
           <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait Orange Money</h2>
@@ -542,13 +539,13 @@
         <form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
           <div class="form-inline" style=";">
             <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
-            <input autocomplete="off" type="text"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+            <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
 
           </div>
           <p *ngIf="mag1" style="color:red">numero incorrect</p>
           <div class="form-inline">
            <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%;">Montant  :</label>
-            <input type="text" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+            <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
 
           </div>
           <p *ngIf="mag2" style="color:red">montant incorrect</p>
@@ -560,7 +557,7 @@
 
       <!-- fin retrait  -->
       <!-- retrait avec code Orange Money -->
-      
+
 <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
 
  <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
@@ -569,7 +566,6 @@
       <div style="text-align:center">
         <!--   <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
            <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-
            <div>
                   <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
                   <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
@@ -596,7 +592,7 @@
                      <label style="color:white" >Code de retrait :</label>
                  </div>
                  <div style="padding:0px;margin:0px" class="col-xs-4 col-sm-4">
-                      <input type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code de retrait" required >
+                      <input type="text" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code de retrait" required >
                  </div>
 
               </div>
@@ -605,7 +601,7 @@
                        <label style="color:white" >Prénom :</label>
                 </div>
                 <div class="col-xs-4 col-sm-4">
-                  <input type="text" [(ngModel)]="this.prenom" autocomplete="off"  name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
+                  <input type="text" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
                 </div>
               </div>
               <div class="row" style="margin-left:1em">
@@ -613,7 +609,7 @@
                        <label style="color:white;" >Date de naissance :</label>
                  </div>
                  <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                       <input type="text" [(ngModel)]="this.date" name="date" autocomplete="off"  id="numclient" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  class="form-control" placeholder="Exemple : 03041900" required >
+                       <input type="text" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  class="form-control" placeholder="Exemple : 03041900" required >
                  </div>
               </div>
               <div class="row" style="margin-left:1em">
@@ -621,7 +617,7 @@
                      <label style="color:white" >Numéro de piece d'identite :</label>
                  </div>
                  <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                      <input type="text" [(ngModel)]="this.cni"  autocomplete="off" name="cni" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
+                      <input type="text" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
                  </div>
 
               </div>
@@ -630,7 +626,7 @@
                      <label style="color:white">Numéro du client  :</label>
                 </div>
                 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                     <input autocomplete="off" type="number"  autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
+                     <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
                 </div>
 
               </div>
@@ -639,7 +635,7 @@
                       <label style="color: white;">Montant  :</label>
                 </div>
                 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                      <input type="number" autocomplete="off"  autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
+                      <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
                 </div>
 
               </div>
@@ -703,7 +699,7 @@
             </div>
         </div>
     </div>
-
+     <!-- SENELEC -->
     <div *ngIf="displayedPage=='accueil-fact-senelec'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -731,7 +727,7 @@
           </div>
         </div>
     </div>
-    <!--  Suivant-->
+    <!--  Woyofal-->
     <div  *ngIf="displayedPage=='accueil-fact-wf'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -787,7 +783,7 @@
           </div>
         </div>
     </div>
-
+    <!-- RAPIDO -->
     <div  *ngIf="displayedPage=='accueil-fact-rpd'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -815,7 +811,7 @@
           </div>
         </div>
     </div>
-
+    <!-- Oolu Solar -->
     <div *ngIf="displayedPage=='accueil-fact-oos'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -843,7 +839,7 @@
           </div>
         </div>
     </div>
-
+   <!-- Facturier TNT -->
     <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -866,47 +862,1082 @@
             <div class="col-xs-12 col-sm-12">
                 <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
             </div>
-          <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
-
+            <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                    <div class="row" style="padding-top: 5rem;">
+                        <button style="background-color: transparent;border: 0px;width: 36rem;">
+                            <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">Abonnement</p>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <button style="background-color: transparent;border: 0px; width: 36rem;">
+                            <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">Suivi Abonnées</p>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <button style="background-color: transparent;border: 0px; width: 36rem;">
+                            <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">Vente Décodeur</p>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <button style="background-color: transparent;border: 0px; width: 36rem;">
+                            <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">Suivi Décodeurs</p>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <button style="background-color: transparent;border: 0px; width: 36rem;">
+                            <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">Vente Carte</p>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <button style="background-color: transparent;border: 0px; width: 36rem;">
+                            <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">Suivi Cartes</p>
+                        </button>
+                    </div>
           </div>
         </div>
     </div>
+    <!-- Facturier TNT  Abonnement-->
+     <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                   <div  class="col-sm-3 col-xs-3">
+                       <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                   </div>
+                   <div  class="col-sm-6 col-xs-6">
+                       <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                   </div>
+                   <div  class="col-sm-3 col-xs-3">
+                       <div class="row">
+                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                       </div>
+                       <div class="row">
+                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                       </div>
+                   </div>
+             </div>
 
+             <div class="col-xs-12 col-sm-12">
+                 <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+             </div>
+             <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                     <div class="row">
+                         <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Abonnement</h4>
+                     </div>
+                     <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                            <div class="col-xs-12 col-sm-12">
+                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Chip, Numéro Carte Ou Téléphone</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
+                                  <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Chip, Numéro Carte Ou Téléphone" required="" type="number" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                            </div>
+                     </div>
+                     <div class="row" style="margin-top:2rem;">
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                   <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                   <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                     </div>
+             </div>
+         </div>
+     </div>
+     <!-- Facturier TNT  Nouvel Abonnement-->
+      <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+          <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll;padding-bottom:2rem;">
+              <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                    <div  class="col-sm-3 col-xs-3">
+                        <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                    </div>
+                    <div  class="col-sm-6 col-xs-6">
+                        <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                    </div>
+                    <div  class="col-sm-3 col-xs-3">
+                        <div class="row">
+                             <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                        </div>
+                        <div class="row">
+                            <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                        </div>
+                    </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12">
+                  <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+              </div>
+              <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                      <div class="row">
+                          <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">NOUVEL ABONNEMENT</h4>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Client</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Nom Client" required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                             </div>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom Client</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Prénom Client" required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                             </div>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone Client</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Téléphone Client" required="" type="number" ng-reflect-required="te" ng-reflect-name="telephone" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                             </div>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Chip</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Chip" required="" type="number" ng-reflect-required="te" ng-reflect-name="Chip" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                             </div>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Carte</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Carte" required="" type="number" ng-reflect-required="te" ng-reflect-name="carte" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                             </div>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nombre De Mois</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Nombre De Mois" required="" type="number" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                             </div>
+                      </div>
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                             <div class="col-xs-5 col-sm-5">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Type De Bouquet</label>
+                             </div>
+                             <div class="col-xs-7 col-sm-7">
+                                   <select class="form-control ng-pristine ng-invalid ng-touched" id="tbouquet" name="tbouquet" required="" style="margin-bottom: 2rem;margin-left: 1rem;" ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                          <option >Maanaa</option>
+                                          <option >Boul khool</option>
+                                          <option >Maanaa + Boul khool</option>
+                                    </select>
+                             </div>
+                      </div>
+                      <div class="row" style="margin-top:2rem;">
+                             <div class="col-xs-4 col-sm-4">
+
+                             </div>
+                             <div class="col-xs-2 col-sm-2">
+                                    <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                             </div>
+                             <div class="col-xs-2 col-sm-2">
+                                    <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                             </div>
+                             <div class="col-xs-4 col-sm-4">
+
+                             </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+      <!-- Facturier TNT  Suivi Abonnéest-->
+       <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+           <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+               <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                     <div  class="col-sm-3 col-xs-3">
+                         <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                     </div>
+                     <div  class="col-sm-6 col-xs-6">
+                         <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                     </div>
+                     <div  class="col-sm-3 col-xs-3">
+                         <div class="row">
+                              <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                         </div>
+                         <div class="row">
+                             <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                         </div>
+                     </div>
+               </div>
+
+               <div class="col-xs-12 col-sm-12">
+                   <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+               </div>
+               <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                       <div class="row">
+                           <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Suivi Abonneés</h4>
+                       </div>
+                       <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                              <div class="col-xs-4 col-sm-4">
+                                     <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Rechercher</label>
+                              </div>
+                              <div class="col-xs-8 col-sm-8" >
+                                    <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="mot clé" required="" type="text" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                              </div>
+                       </div>
+                       <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                tableau
+                       </div>
+               </div>
+           </div>
+       </div>
+       <!-- Facturier TNT  Decodeur-->
+        <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; ">
+            <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll;padding-bottom:2rem;">
+                <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                      <div  class="col-sm-3 col-xs-3">
+                          <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                      </div>
+                      <div  class="col-sm-6 col-xs-6">
+                          <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                      </div>
+                      <div  class="col-sm-3 col-xs-3">
+                          <div class="row">
+                               <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                          </div>
+                          <div class="row">
+                              <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                          </div>
+                      </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12">
+                    <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+                </div>
+                <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                        <div class="row">
+                            <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Decodeur</h4>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Nom Du Client" required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Prénom du Client" required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Téléphone du Client" required="" type="number" ng-reflect-required="te" ng-reflect-name="telephone" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Région Du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Région Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="Chip" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Adresse Du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                      <textarea  class="form-control ng-pristine ng-invalid ng-touched" id="descrip" name="descrip" placeholder="Adresse Du Client" required="" rows="3" type="text" ng-reflect-required="" ng-reflect-name="descrip" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;"></textarea>
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro CNI Du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro CNI Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Chip Du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Chip Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Carte Du Client</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Carte Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                               </div>
+                        </div>
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                               <div class="col-xs-5 col-sm-5">
+                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Type</label>
+                               </div>
+                               <div class="col-xs-7 col-sm-7">
+                                     <select class="form-control ng-pristine ng-invalid ng-touched" id="type" name="type" required="" style="margin-bottom: 2rem;margin-left: 1rem;" ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                            <option >Sans Abonnement</option>
+                                            <option >+1 mois</option>
+                                            <option >+3 mois</option>
+                                      </select>
+                               </div>
+                        </div>
+                        <div class="row" style="margin-top:2rem;">
+                               <div class="col-xs-4 col-sm-4">
+
+                               </div>
+                               <div class="col-xs-2 col-sm-2">
+                                      <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                               </div>
+                               <div class="col-xs-2 col-sm-2">
+                                      <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                               </div>
+                               <div class="col-xs-4 col-sm-4">
+
+                               </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- Facturier TNT  Suivi Decodeurs-->
+         <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+             <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+                 <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                       <div  class="col-sm-3 col-xs-3">
+                           <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                       </div>
+                       <div  class="col-sm-6 col-xs-6">
+                           <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                       </div>
+                       <div  class="col-sm-3 col-xs-3">
+                           <div class="row">
+                                <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                           </div>
+                           <div class="row">
+                               <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                           </div>
+                       </div>
+                 </div>
+
+                 <div class="col-xs-12 col-sm-12">
+                     <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+                 </div>
+                 <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                         <div class="row">
+                             <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Suivi Decodeurs</h4>
+                         </div>
+                         <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                <div class="col-xs-4 col-sm-4">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Rechercher</label>
+                                </div>
+                                <div class="col-xs-8 col-sm-8" >
+                                      <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="mot clé" required="" type="text" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                         </div>
+                         <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                  tableau
+                         </div>
+                 </div>
+             </div>
+         </div>
+
+         <!-- Facturier TNT  CARTE-->
+          <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; ">
+              <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll; padding-bottom:2rem;">
+                  <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                        <div  class="col-sm-3 col-xs-3">
+                            <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                        </div>
+                        <div  class="col-sm-6 col-xs-6">
+
+                            <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                        </div>
+                        <div  class="col-sm-3 col-xs-3">
+                            <div class="row">
+                                 <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                            </div>
+                            <div class="row">
+                                <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                            </div>
+                        </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-12">
+                      <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+                  </div>
+                  <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                          <div class="row">
+                              <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Carte</h4>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                       <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Nom Du Client" required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                 </div>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                       <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Prénom du Client" required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                 </div>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                       <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Téléphone du Client" required="" type="number" ng-reflect-required="te" ng-reflect-name="telephone" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                 </div>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Région Du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                       <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Région Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="Chip" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                 </div>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Adresse Du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                        <textarea  class="form-control ng-pristine ng-invalid ng-touched" id="descrip" name="descrip" placeholder="Adresse Du Client" required="" rows="3" type="text" ng-reflect-required="" ng-reflect-name="descrip" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;"></textarea>
+                                 </div>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro CNI Du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                       <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro CNI Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                 </div>
+                          </div>
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                 <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Carte Du Client</label>
+                                 </div>
+                                 <div class="col-xs-7 col-sm-7">
+                                       <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Carte Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                 </div>
+                          </div>
+                          <div class="row" style="margin-top:2rem;">
+                                 <div class="col-xs-4 col-sm-4">
+
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                        <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                        <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                 </div>
+                                 <div class="col-xs-4 col-sm-4">
+
+                                 </div>
+                          </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Facturier TNT  Suivi Cartes -->
+           <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+               <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+                   <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
+                         <div  class="col-sm-3 col-xs-3">
+                             <img  src="assets/thumbnailphone.png" style="height: 50px; padding-left:4rem; ">
+                         </div>
+                         <div  class="col-sm-6 col-xs-6">
+                             <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                         </div>
+                         <div  class="col-sm-3 col-xs-3">
+                             <div class="row">
+                                  <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                             </div>
+                             <div class="row">
+                                 <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                             </div>
+                         </div>
+                   </div>
+
+                   <div class="col-xs-12 col-sm-12">
+                       <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT</h2>
+                   </div>
+                   <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                           <div class="row">
+                               <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Suivi Cartes</h4>
+                           </div>
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                  <div class="col-xs-4 col-sm-4">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Rechercher</label>
+                                  </div>
+                                  <div class="col-xs-8 col-sm-8" >
+                                        <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="mot clé" required="" type="text" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                  </div>
+                           </div>
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                    tableau
+                           </div>
+
+                   </div>
+               </div>
+           </div>
 
     <!--GESTION-->
-    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ges'">
-        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 5rem;">
-            <img src="assets/gestio.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: 0px; margin-right: 40px;">
-            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 1rem;"/>
-            <div style=" margin-left: 5rem;">
-                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-13rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-11rem; height: 4rem; margin-left: 23rem;"/>
+  <div  *ngIf="displayedPage=='accueil-ges'">
+    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" >
+        <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 5rem;  width:100%;margin:0px; padding:0px;">
+            <div  class="row" style="margin-top:3rem; padding:0;">
+                  <div  class="col-sm-3 col-xs-3">
+                       <img src="assets/gestio.png" style="height: 50px;">
+                  </div>
+                  <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                          <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                  </div>
+                  <div  class="col-sm-3 col-xs-3">
+                      <div class="row">
+                           <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                      </div>
+                      <div class="row">
+                          <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                      </div>
+                  </div>
             </div>
             <div class="row" style="padding-top: 5rem;">
                 <button style="background-color: transparent;border: 0px;width: 36rem;">
-                    <p style="color:white; font-size: 19px; padding-top: 1rem;">GESTION REPORTING</p>
+                    <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">GESTION REPORTING</p>
                 </button>
             </div>
             <div class="row">
                 <button style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white; font-size: 19px; padding-top: 1rem;">DEMANDE DE PRET</p>
+                    <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">DEMANDE DE PRET</p>
                 </button>
             </div>
             <div class="row">
                 <button style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white; font-size: 19px; padding-top: 1rem;">GUIDE D'UTILISATION</p>
+                    <p style="color:white; font-size: 2.3rem; padding-top: 1rem;">GUIDE D'UTILISATION</p>
                 </button>
             </div>
             <button class="btn btn-success" style="margin-top: 12rem; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true"></i>
             </button>
         </div>
     </div>
+    <!--  GESTION REPORTING -->
+    <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+        <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+            <div  class="row" style="margin-top:3rem; padding:0;">
+                  <div  class="col-sm-3 col-xs-3">
+                      <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                  </div>
+                  <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                          <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                  </div>
+                  <div  class="col-sm-3 col-xs-3">
+                      <div class="row">
+                           <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                      </div>
+                      <div class="row">
+                          <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                      </div>
+                  </div>
+            </div>
+            <div  class="row" style="margin-top:3.5rem;">
+                <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">GESTION & REPORTING</h2>
+            </div>
+            <div class="row" style="margin-top:8rem;">
+                  <div class="col-sm-12 col-xs-12"   style="margin-top:2rem;">
+                          <button (click)="roadTo('re')" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold'; border: 0rem;">HISTOIRE DES OPERATIONS</button>
+                  </div>
+                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                          <button (click)="roadTo('aj')"  style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold'; border: 0rem;">Dépense</button>
+                  </div>
+                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                          <button (click)="roadTo('rte')"  style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;">Recettes</button>
+                  </div>
+                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                          <button (click)="roadTo('rte')"  style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;">Reclamations</button>
+                  </div>
+                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                          <button (click)="roadTo('rte')"  style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;">Caisse</button>
+                  </div>
+            </div>
+        </div>
+     </div>
+     <!--  HISTOIRE DES OPERATIONS (formulaire de recherche)-->
+     <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; padding">
+         <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+             <div  class="row" style="margin-top:3rem; padding:0;">
+                   <div  class="col-sm-3 col-xs-3">
+                       <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                   </div>
+                   <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                           <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                   </div>
+                   <div  class="col-sm-3 col-xs-3" >
+                       <div class="row">
+                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                       </div>
+                       <div class="row">
+                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                       </div>
+                   </div>
+             </div>
+             <div  class="row" style="margin-top:3.5rem;">
+                 <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">HISTOIRE DES OPERATIONS</h2>
+             </div>
+             <div class="row" style="margin-top:2.5rem;">
+                  <button type="button" class="btn btn-info" (click)="typerecherchegestion='parmotif'" style="border-color:white; background-color:rgb(255,144, 00); font-family: 'caviar dreams bold';">par motif</button>
+                   <button type="button" class="btn btn-info"  (click)="typerecherchegestion='parjour'" style="border-color:white; background-color:rgb(255,144, 00); font-family: 'caviar dreams bold';">par jour</button>
+                   <button type="button" class="btn btn-info"  (click)="typerecherchegestion='parinterval'" style="border-color:white; background-color:rgb(255,144, 00); font-family: 'caviar dreams bold';">par interval</button>
+             </div>
+             <div class="row" style="margin-top:8rem;" *ngIf="typerecherchegestion == 'parmotif'">
+                      <div class="col-xs-12 col-sm-12">
+                             <div class="row">
+                                 <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Recherche par motif</h4>
+                             </div>
+                             <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                    <div class="col-xs-5 col-sm-5">
+                                           <label style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">motif</label>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7">
+                                       <input [(ngModel)]="this.motif" type="text" class="form-control" placeholder="motif" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);" id="datejour" name="motif">
+                                    </div>
+                             </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12" style="margin-top:8rem;">
+                          <div class="row">
+                                 <div class="col-xs-4 col-sm-4">
+
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                        <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-arrow-left" style="font-size:6rem; color:white;" ></i></button>
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                        <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                 </div>
+                                 <div class="col-xs-4 col-sm-4">
+
+                                 </div>
+                          </div>
+                      </div>
+
+             </div>
+             <div class="row" style="margin-top:8rem;" *ngIf="typerecherchegestion == 'parjour'">
+                     <div class="col-xs-12 col-sm-12">
+                            <div class="row">
+                                <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Recherche par jour</h4>
+                            </div>
+                            <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                   <div class="col-xs-5 col-sm-5">
+                                          <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Date du jour</label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.datejour"  ng-reflect-name="datejour" class="ng-pristine ng-valid ng-touched" ng-reflect-model="2018-03-20" type="date"  style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;" id="datejour" name="datejour">
+                                   </div>
+                            </div>
+                     </div>
+                     <div class="col-xs-12 col-sm-12" style="margin-top:8rem;">
+                         <div class="row">
+                                <div class="col-xs-4 col-sm-4">
+
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                       <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-arrow-left" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                       <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+
+                                </div>
+                         </div>
+                     </div>
+             </div>
+             <div class="row" style="margin-top:8rem;" *ngIf="typerecherchegestion == 'parinterval'">
+                     <div class="col-xs-12 col-sm-12">
+                            <div class="row">
+                                <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Recherche par interval</h4>
+                            </div>
+                            <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                   <div class="col-xs-5 col-sm-5">
+                                          <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">De </label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                      <input  [(ngModel)]="this.de" name="intervalledateinit" type="date" ng-reflect-name="intervalledateinit" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);width:100%; margin-left:0px; margin-right:0px;" class="ng-pristine ng-valid ng-touched">
+                                   </div>
+                            </div>
+                            <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                                   <div class="col-xs-5 col-sm-5">
+                                          <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">A </label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.a" name="intervalleddatefinal" type="date" ng-reflect-name="intervalleddatefinal" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;" class="ng-pristine ng-valid ng-touched">
+                                   </div>
+                            </div>
+                     </div>
+                     <div class="col-xs-12 col-sm-12" style="margin-top:8rem;">
+                         <div class="row">
+                                <div class="col-xs-4 col-sm-4">
+
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                       <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-arrow-left" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                       <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-4 col-sm-4">
+
+                                </div>
+                         </div>
+                     </div>
+             </div>
+         </div>
+      </div>
+      <!-- HISTOIRE DES OPERATIONS (Resultats) -->
+      <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+          <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+              <div  class="row" style="margin-top:3rem; padding:0;">
+                    <div  class="col-sm-3 col-xs-3">
+                        <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                    </div>
+                    <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                            <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                    </div>
+                    <div  class="col-sm-3 col-xs-3">
+                        <div class="row">
+                             <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                        </div>
+                        <div class="row">
+                            <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                        </div>
+                    </div>
+              </div>
+              <div  class="row" style="margin-top:3.5rem;">
+                  <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Résultats de la recherche</h2>
+              </div>
+              <div class="row" style="margin-top:10rem;">
+                      <table class="table table-bordered table-dark">
+                              <thead>
+                                    <tr>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Servie</th>
+                                        <th scope="col">Traitement</th>
+                                        <th scope="col">Montant</th>
+                                        <th scope="col">Client</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                      <tr>
+                                        <td>Mark</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                      </tr>
+                              </tbody>
+                    </table>
+              </div>
+          </div>
+       </div>
+       <!-- Dépense -->
+       <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+           <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+               <div  class="row" style="margin-top:3rem; padding:0;">
+                     <div  class="col-sm-3 col-xs-3">
+                         <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                     </div>
+                     <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                             <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                     </div>
+                     <div  class="col-sm-3 col-xs-3">
+                         <div class="row">
+                              <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                         </div>
+                         <div class="row">
+                             <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                         </div>
+                     </div>
+               </div>
+               <div  class="row" style="margin-top:3.5rem;">
+                   <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Dépense</h2>
+               </div>
+               <div class="row" style="margin-top:8rem;">
+                     <div class="col-xs-12 col-sm-12">
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                  <div class="col-xs-5 col-sm-5">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Libelle charge </label>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-7">
+                                         <input  [(ngModel)]="this.libelle" class="form-control ng-pristine ng-invalid ng-touched" id="libelle" name="libelle" placeholder="Libelle charge" required="" type="text" ng-reflect-required="" ng-reflect-name="libelle" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);width:100%; margin-left:0px; margin-right:0px;">
+                                  </div>
+                           </div>
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                  <div class="col-xs-5 col-sm-5">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant de la dépense</label>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-7">
+                                     <input [(ngModel)]="this.montant" class="form-control ng-dirty ng-valid ng-touched" id="montant" name="montant" placeholder="Montant de la dépense" required="" type="number" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                  </div>
+                           </div>
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                  <div class="col-xs-5 col-sm-5">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">service concerné</label>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-7">
+                                        <select [(ngModel)]="this.service" class="form-control input-sm ng-pristine ng-valid ng-touched" style="margin-top: 1rem;" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                               <option >--Choisir le service concerné--</option>
+                                               <option >TNT</option>
+                                               <option >POSTECASH</option>
+                                               <option >ORANGE MONEY</option>
+                                               <option >TIGO CASH</option>
+                                               <option >WIZALL</option>
+                                               <option >E-MONEY</option>
+                                         </select>
+                                  </div>
+                           </div>
+                     </div>
+               </div>
+               <div class="row">
+                   <div class="col-xs-12 col-sm-12" style="margin-top:10rem;">
+                     <div class="row">
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                   <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                   <button (click)="showGestionReporting()" type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                     </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+        <!-- Recettes -->
+        <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+            <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+                <div  class="row" style="margin-top:3rem; padding:0;">
+                      <div  class="col-sm-3 col-xs-3">
+                          <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                      </div>
+                      <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                              <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                      </div>
+                      <div  class="col-sm-3 col-xs-3">
+                          <div class="row">
+                               <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                          </div>
+                          <div class="row">
+                              <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                          </div>
+                      </div>
+                </div>
+                <div  class="row" style="margin-top:3.5rem;">
+                    <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Recettes</h2>
+                </div>
+                <div class="row" style="margin-top:8rem;">
+                        <div class="col-xs-12 col-sm-12">
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">service</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <select [(ngModel)]="this.service" class="form-control input-sm ng-pristine ng-valid ng-touched" style="margin-top: 1rem;" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                                  <option >--Faites le Choix--</option>
+                                                  <option >TNT</option>
+                                                  <option >POSTECASH</option>
+                                                  <option >ORANGE MONEY</option>
+                                                  <option >TIGO CASH</option>
+                                                  <option >WIZALL</option>
+                                                  <option >E-MONEY</option>
+                                            </select>
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Désignation</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <select [(ngModel)]="this.designation"  class="form-control input-sm ng-pristine ng-valid ng-touched" style="margin-top: 1rem;" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                                  <option >--Faites le Choix--</option>
+                                            </select>
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">quantité</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                        <input [(ngModel)]="this.quantite" class="form-control ng-dirty ng-valid ng-touched" id="quantite" name="quantite" placeholder="Montant de la dépense" required="" type="number" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12" style="margin-top:10rem;">
+                              <div class="row">
+                                     <div class="col-xs-4 col-sm-4">
+
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2">
+                                            <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2">
+                                            <button (click)="showGestionReporting()" type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                     <div class="col-xs-4 col-sm-4">
+
+                                     </div>
+                              </div>
+                        </div>
+                </div>
+            </div>
+         </div>
+         <!-- Reclamations -->
+         <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+             <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+                 <div  class="row" style="margin-top:3rem; padding:0;">
+                       <div  class="col-sm-3 col-xs-3">
+                           <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                       </div>
+                       <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                               <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                       </div>
+                       <div  class="col-sm-3 col-xs-3">
+                           <div class="row">
+                                <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                           </div>
+                           <div class="row">
+                               <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                           </div>
+                       </div>
+                 </div>
+                 <div  class="row" style="margin-top:3.5rem;">
+                     <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Reclamations</h2>
+                 </div>
+                 <div class="row" style="margin-top:8rem;">
+                   <div class="col-xs-12 col-sm-12">
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                  <div class="col-xs-5 col-sm-5">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">service</label>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-7">
+                                        <select  class="form-control input-sm ng-pristine ng-valid ng-touched" style="margin-top: 1rem;" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                               <option >--Faites le Choix--</option>
+                                               <option >TNT</option>
+                                               <option >POSTECASH</option>
+                                               <option >ORANGE MONEY</option>
+                                               <option >TIGO CASH</option>
+                                               <option >WIZALL</option>
+                                               <option >E-MONEY</option>
+                                         </select>
+                                  </div>
+                           </div>
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                  <div class="col-xs-5 col-sm-5">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">motif reclamation</label>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-7">
+                                     <input  class="form-control ng-dirty ng-valid ng-touched" id="motif" name="motif" placeholder="motif" required="" type="text" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;">
+                                  </div>
+                           </div>
+                           <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                                  <div class="col-xs-5 col-sm-5">
+                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">quantité</label>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-7">
+                                        <textarea  class="form-control ng-pristine ng-invalid ng-touched" id="descrip" name="descrip" placeholder="description de votre réclamation" required="" rows="7" type="text" ng-reflect-required="" ng-reflect-name="descrip" style="border-radius:2rem; background-color: rgba(255,255,255,0.8); width:100%; margin-left:0px; margin-right:0px;"></textarea>
+                                  </div>
+                           </div>
+
+                      </div>
+                      <div class="col-xs-12 col-sm-12" style="margin-top:10rem;">
+                              <div class="row">
+                                     <div class="col-xs-5 col-sm-5">
+
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2">
+                                            <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                     <div class="col-xs-5 col-sm-5">
+
+                                     </div>
+                              </div>
+                      </div>
+                 </div>
+             </div>
+          </div>
+          <!-- caisse -->
+          <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+              <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
+                  <div  class="row" style="margin-top:3rem; padding:0;">
+                        <div  class="col-sm-3 col-xs-3">
+                            <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                        </div>
+                        <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
+                                <img src="assets/thumbnail.png" style="width: 60%; opacity:0.96;padding-top: 1rem;"/>
+                        </div>
+                        <div  class="col-sm-3 col-xs-3">
+                            <div class="row">
+                                 <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;">
+                            </div>
+                            <div class="row">
+                                <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;">
+                            </div>
+                        </div>
+                  </div>
+                  <div  class="row" style="margin-top:3.5rem;">
+                      <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Etat de la caisse</h2>
+                  </div>
+                  <div class="row" style="margin-top:8rem;">
+                        <h3 style=" color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Solde caisse : 0.FCFA </h3>
+                        <p style=" color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Nouvel approvisionnement de 0</p>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12 col-sm-12" style="margin-top:10rem;">
+                          <div class="row">
+                                 <div class="col-xs-5 col-sm-5">
+
+                                 </div>
+                                 <div class="col-xs-2 col-sm-2">
+                                        <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                 </div>
+                                 <div class="col-xs-5 col-sm-5">
+
+                                 </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+           </div>
+</div>
+
 
     <!--PostCach-->
 
-<div *ngIf="displayedPage=='accueil-mm-POSTCASH'">
+<div *ngIf="displayedPage=='accueil-mm-POSTCASH'" class="row">
     <!-- POSTCASH -->
-    <div  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+    <div  class="col-sm-12 col-xs-12" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
@@ -940,7 +1971,7 @@
      </div>
     </div>
 
-    <!--  Suivant -->
+    <!--  Rechargement espece -->
     <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'"  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -964,21 +1995,23 @@
           <div class="col-xs-12 col-sm-12">
                 <h2 style="color:white ; font-family:'caviar dreams bold';" class="row"> Rechargement espece</h2>
           </div>
+          <form (ngSubmit)="showmodalPostCash()" #rechargementespecePostCash="ngForm" autocomplete="on">
+
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
                 <div class="row" style="width:98%; margin-left:1%;">
                        <div class="col-xs-5 col-sm-5">
-                           <label style="margin-top: 1.3rem;color:white ;font-size: 1.5rem;">Telephone client</label>
+                           <label style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Telephone client</label>
                        </div>
                        <div class="col-xs-7 col-sm-7">
-                           <input type="text" class="form-control" placeholder="telephone" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                           <input  [(ngModel)]="this.telephone" type="number" class="form-control" placeholder="telephone" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);" id="telephone" name="telephone">
                        </div>
                 </div>
-                <div class="row" style="width:98%; margin-left:1%;">
+                <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
                        <div class="col-xs-5 col-sm-5">
-                              <label style="margin-top: 1.3rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant a  recharger</label>
+                              <label style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant a  recharger</label>
                        </div>
                        <div class="col-xs-7 col-sm-7">
-                                         <input type="text" class="form-control" placeholder="telephone" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                          <input [(ngModel)]="this.montant" type="number" class="form-control" placeholder="montant" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);" id="montant" name="telephone">
                        </div>
                 </div>
           </div>
@@ -988,19 +2021,20 @@
 
                      </div>
                      <div class="col-xs-2 col-sm-2">
-                            <i class="fa fa-times-circle" style="font-size:6rem; color:white;"></i>
+                            <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
                      </div>
                      <div class="col-xs-2 col-sm-2">
-                             <i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i>
+                            <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                      </div>
                      <div class="col-xs-4 col-sm-4">
 
                      </div>
               </div>
           </div>
+          </form>
         </div>
     </div>
-    <!--  Suivant-->
+    <!--   Retrait espece-->
     <div *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -1024,11 +2058,117 @@
                 <h2 style="color:white ; font-family:'caviar dreams bold';" class="row"> Retrait espece</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
+              <div class="row">
+                    <button type="button" class="btn btn-info" (click)="isselectretraitespeceaveccarte = true; selectretraitespeceaveccarte();" style="border-color:white; background-color:rgb(255,144, 00);">Retrait sans carte</button>
+                    <button type="button" class="btn btn-info" (click)="isselectretraitespeceaveccarte = false; selectretraitespeceaveccarte();" style="border-color:white; background-color:rgb(255,144, 00);">Retrait avec carte</button>
+              </div>
+              <div class="row">
+                      <div style="margin-top: 2rem" *ngIf="isselectretraitespeceaveccarte">
+                          <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
+                              <h4 style="color:white ; font-family:'caviar dreams bold';" > Sans carte</h4>
+                          </fieldset>
+                          <form (ngSubmit)="showmodalPostCash()" #retraitespece="ngForm" autocomplete="on" class="row">
+                              <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
+                                    <div class="row" style="width:98%; margin-left:1%;">
+                                           <div class="col-xs-5 col-sm-5">
+                                               <label for="telephoneretraitespece" style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Téléphone client</label>
+                                           </div>
+                                           <div class="col-xs-7 col-sm-7">
+                                                <input type="number"  [(ngModel)]="this.telephone"   name="telephone" id="telephoneretraitespece" class="form-control" placeholder="téléphone client" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                           </div>
+                                    </div>
+                                    <div class="row" style="width:98%; margin-left:1%; margin-top:2rem;">
+                                           <div class="col-xs-5 col-sm-5">
+                                                  <label for="montantretraitespece" style="margin-top: 1rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant</label>
+                                           </div>
+                                           <div class="col-xs-7 col-sm-7">
+                                              <input type="number" [(ngModel)]="this.montant"  name="montant" class="form-control" placeholder="telephone" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                           </div>
+                                    </div>
+                                    <div class="row" style="width:98%; margin-left:1%;  margin-top:2rem;">
+                                           <div class="col-xs-5 col-sm-5">
+                                                  <label for="codevalidation" style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Code de validation</label>
+                                           </div>
+                                           <div class="col-xs-7 col-sm-7">
+                                                 <input type="number" [(ngModel)]="this.codevalidation"  name="codevalidation" class="form-control" placeholder="code de validation" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                           </div>
+                                    </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                                  <div class="row">
+                                         <div class="col-xs-4 col-sm-4">
 
+                                         </div>
+                                         <div class="col-xs-2 col-sm-2">
+                                                <button type="reset" class="btn btn-success"   style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;"></i></button>
+                                         </div>
+                                         <div class="col-xs-2 col-sm-2">
+                                                <button type="submit" class="btn btn-danger" style="border:none; background-color: transparent;" ><i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i></button>
+                                         </div>
+                                         <div class="col-xs-4 col-sm-4">
+
+                                         </div>
+                                  </div>
+                              </div>
+                              <!-- <div class="row text-center">
+                                  <button type="submit" class="btn btn-success" [disabled]="!retraitespece.form.valid">Valider</button>
+                              </div> -->
+                          </form>
+                      </div>
+                      <div style="margin-top: 2rem" *ngIf="!isselectretraitespeceaveccarte">
+                          <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
+                              <h4 style="color:white ; font-family:'caviar dreams bold';"> Avec carte</h4>
+                          </fieldset>
+                          <form (ngSubmit)="showmodalPostCash()" #attentevalidateretraitespece="ngForm" autocomplete="on" class="row">
+                              <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
+                                    <div class="row" style="width:98%; margin-left:1%;">
+                                           <div class="col-xs-5 col-sm-5">
+                                               <label for="telephoneretraitespeceattentevalid" style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Téléphone client</label>
+                                           </div>
+                                           <div class="col-xs-7 col-sm-7">
+                                                <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephoneretraitespeceattentevalid" class="form-control" placeholder="téléphone client" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                           </div>
+                                    </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12" style="margin-top:1rem;  margin-top:2rem;">
+                                    <div class="row" style="width:98%; margin-left:1%;">
+                                           <div class="col-xs-5 col-sm-5">
+                                               <label for="montantretraitespeceattentevalid" style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Montant</label>
+                                           </div>
+                                           <div class="col-xs-7 col-sm-7">
+                                                <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantretraitespeceattentevalid" class="form-control" placeholder="montant à retirer" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                           </div>
+                                    </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                                    <div class="row">
+                                           <div class="col-xs-4 col-sm-4">
+
+                                           </div>
+                                           <div class="col-xs-2 col-sm-2">
+                                                  <button type="reset" class="btn btn-success"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;"></i></button>
+                                           </div>
+                                           <div class="col-xs-2 col-sm-2">
+                                                  <button type="submit" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i></button>
+                                           </div>
+                                           <div class="col-xs-4 col-sm-4">
+
+                                           </div>
+                                    </div>
+                              </div>
+
+<!--
+                              <div class="row text-center">
+                                  <button data-toggle="modal" data-target="#myModalCodeValidation" type="submit" class="btn btn-success" [disabled]="!attentevalidateretraitespece.form.valid">Valider</button>
+                                  <button type="reset" class="btn btn-danger" [disabled]="!attentevalidateretraitespece.form.valid" >Annuler</button>
+                              </div> -->
+                          </form>
+                      </div>
+              </div>
           </div>
         </div>
     </div>
-    <!--  Suivant-->
+    <!--  Achat JULA -->
     <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -1052,11 +2192,58 @@
                 <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">Achat JULA</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
+                <form (ngSubmit)="showmodalPostCash()" #achatjula="ngForm" autocomplete="on" class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-xs-5 col-sm-5">
+                                  <label for="nb_carte" style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Nombre de carte</label>
+                            </div>
+                            <div class="col-xs-7 col-sm-7">
+                                  <input type="number" [(ngModel)]="this.nb_carte"   name="nb_carte" id="nb_carte" class="form-control" placeholder="nombre de carte" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                            </div>
+                        </div>
+                          <div class="row" style="margin-top:3rem;" style=" margin-top:2rem;">
+                              <div class="col-xs-5 col-sm-5">
+                                    <label for="mt_carte" style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Montant Carte</label>
+                              </div>
+                              <div class="col-xs-7 col-sm-7">
+                                    <select class="form-control input-sm" name="mt_carte" id="mt_carte" [(ngModel)]="this.mt_carte" required style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                        <option>2000</option>
+                                        <option>5000</option>
+                                        <option>10000</option>
+                                        <option>25000</option>
+                                    </select>
+                              </div>
+                          </div>
+                    </div>
 
+                    <div class="col-xs-12 col-sm-12" style="margin-top:8rem;">
+                        <div class="row">
+                               <div class="col-xs-4 col-sm-4">
+
+                               </div>
+                               <div class="col-xs-2 col-sm-2">
+                                      <button type="reset" class="btn btn-success"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                               </div>
+                               <div class="col-xs-2 col-sm-2">
+                                       <button type="submit"   style="border:none; background-color: transparent;"><i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i></button>
+                               </div>
+                               <div class="col-xs-4 col-sm-4">
+
+                               </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row text-center">
+                        <button type="submit" class="btn btn-success" [disabled]="!achatjula.form.valid">Valider</button>
+                        <button type="reset" class="btn btn-danger" [disabled]="!achatjula.form.valid" >Annuler</button>
+                    </div> -->
+
+                </form>
           </div>
         </div>
     </div>
-    <!--  Suivant-->
+
 
     <!--TIGOCASH-->
 
@@ -1283,7 +2470,74 @@
 </div>
 
 
-                                        
+
+                                        <!--les modales de TigoCash-->
+<!-- Modal depot -->
+<div bsModal #modaldepotTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCash()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             </div>
+             <div class="modal-body">
+
+                 <div>
+                     <form class="form">
+                         <div class="form-group">
+                             <label >Telephone client : {{this.telephone}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >montant : {{this.montant}}</label>
+                         </div>
+                     </form>
+
+                 </div>
+             </div>
+             <div class="modal-footer">
+                  <input type="button" value="valider" (click)="depotTigoCash()" class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hidemodaldepotTigoCash()" class="btn btn-danger" />
+             </div>
+          </div>
+        </div>
+</div>
+                                        <!--Vendre Izi-->
+<div bsModal #modalvendreizi="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalvendreizi()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             </div>
+             <div class="modal-body">
+
+                 <div>
+                     <form class="form">
+                         <div class="form-group">
+                             <label >Numero client : {{this.telephone}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >Montant  : {{this.montant}}</label>
+                         </div>
+
+                     </form>
+
+                 </div>
+             </div>
+             <div class="modal-footer">
+                  <input type="button" value="valider" (click)="izi()" class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hidemodalvendreizi()" class="btn btn-danger" />
+             </div>
+          </div>
+        </div>
+</div>
+
 
                                             <!--WIZALL-->
 
@@ -1318,10 +2572,10 @@
                 <button class="WIZALL" href="#retrait" (click)="roadTo('r')" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem; font-family: 'caviar dreams bold'; color: white;padding-bottom: 1rem;" >Retrait </button>
             </div>
             <div class="col-sm-12 col-xs-12">   
-                <button class="WIZALL" href="#sde" (click)="roadTo('psd')" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem;color: white;padding-bottom: 1rem;font-family: 'caviar dreams bold';">Envoie de Bon</button>
+                <button class="WIZALL" href="#sde" (click)="roadTo('eb')" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem;color: white;padding-bottom: 1rem;font-family: 'caviar dreams bold';">Envoie de Bon</button>
             </div>
             <div class="col-sm-12 col-xs-12">
-                <button class="WIZALL" href="#senelec" (click)="roadTo('pse')" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold';font-size: 2.3rem;color: white;padding-bottom: 1rem;">Retrait de Bon</button>
+                <button class="WIZALL" href="#senelec" (click)="roadTo('rb')" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold';font-size: 2.3rem;color: white;padding-bottom: 1rem;">Retrait de Bon</button>
             </div>
     </div>
 </div>
@@ -1370,10 +2624,11 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-xs-12">
-                            <button style="margin-top: 1rem;width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="!formdepot.form.valid"><i style="color: orange;" class="fa fa-check fa-2x"></i>
-                            </button>
-                        <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                            <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
                         </button>
+                            <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="!formdepot.form.valid"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                            </button>
+                        
                         </div>
                     </form>
                 </div>
@@ -1428,7 +2683,7 @@
                             </div>
                         </div>
                        <div class="col-sm-12 col-xs-12">
-                            <button style="margin-top: 1rem;width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="!formretrait.form.valid"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                            <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="!formretrait.form.valid"><i style="color: orange;" class="fa fa-check fa-2x"></i>
                             </button>
                         <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
                         </button>
@@ -1439,6 +2694,191 @@
         </div>
 </div>
                                             <!--fin de retrait WIZALL-->
+                                            <!--Envoie de bon-->
+<div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-eb'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3">
+                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                     </div>
+                    <div class="col-xs-6 col-sm-6">
+                            <img src="assets/wizall-m.png" style="width: 100%; height: 16rem; "/>
+                     </div>
+                    <div class="col-xs-3 col-sm-3">
+                        <div class="row">
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                        <div class="row">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-12 col-xs-12" style="padding-top: 10rem;">
+                    <button class="WIZALL" href="#depot" (click)="roadTo('bc')" style="padding-left: 4rem; padding-right: 4rem;"  data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold'; font-size: 2.3rem;color: white;padding-bottom: 1rem;">Bon Cashe</button>
+                </div>
+            <div class="col-sm-12 col-xs-12">    
+                <button class="WIZALL" href="#retrait" (click)="roadTo('ba')" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem; font-family: 'caviar dreams bold'; color: white;padding-bottom: 1rem;" >Bon d'achat </button>
+            </div>
+            </div>
+        </div>
+</div>
+
+
+
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:1000px; min-height: -webkit-fill-available;">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+           <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3">
+                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                     </div>
+                    <div class="col-xs-6 col-sm-6">
+                            <img src="assets/wizall-m.png" style="width: 100%; height: 16rem; "/>
+                     </div>
+                    <div class="col-xs-3 col-sm-3">
+                        <div class="row">
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                        <div class="row">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <form>
+        <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Envoyeur</div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;">Prénom</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Prénom">
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Nom</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Nom">
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Téléphone</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Téléphone">
+            </div>
+          </div>
+           <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Nationalité</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <select class="form-control">
+                <option selected style="color: white;" >Carte Nationale</option>
+                <option>Nationale</option>
+                <option>Nationale</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Type de piéce</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <select class="form-control">
+                <option selected>Carte d'identité</option>
+                <option>carte</option>
+                <option>carte</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Montant</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Téléphone">
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Numéro</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Téléphone">
+            </div>
+          </div>
+
+           <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Bénéficiaire</div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;">Prénom</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Prénom">
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Nom</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Nom">
+            </div>
+          </div>
+          <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;" >Téléphone</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input type="text" placeholder="Téléphone">
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+<!--retrait de bon-->
+<div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-rb'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3">
+                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                     </div>
+                    <div class="col-xs-6 col-sm-6">
+                            <img src="assets/wizall-m.png" style="width: 100%; height: 16rem; "/>
+                     </div>
+                    <div class="col-xs-3 col-sm-3">
+                        <div class="row">
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                        <div class="row">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="padding-top: 10rem;">
+                <button class="WIZALL" href="#depot" (click)="roadTo('bc')" style="padding-left: 4rem; padding-right: 4rem;"  data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold'; font-size: 2.3rem;color: white;padding-bottom: 1rem;">Bon Cashe</button>
+            </div>
+            <div class="col-sm-12 col-xs-12">    
+                <button class="WIZALL" href="#retrait" (click)="roadTo('ba')" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem; font-family: 'caviar dreams bold'; color: white;padding-bottom: 1rem;" >Bon d'achat </button>
+            </div>
+        </div>
+</div>
+<!--finretrait-->
 
 
                                             <!--EMONEY-->
@@ -1497,7 +2937,9 @@
                     </div>
                 </div>
                  <div class="tab-pane fade col-sm-12 col-xs-12" id="retrait">
-                    <h2 style="color: white; font-family: 'caviar dreams bold'; font-size: 3rem"> Retrait sur compte principal</h2>
+                    <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;">
+                    <h2 style="color: white;border: 2px solid white; padding: 0.6rem;">Retrait sur compte principal</h2>
+                </div>
                     <h3 *ngIf="retraitreussi" class="alert alert-success">Retrait reussi!</h3>
                     <h3 *ngIf="echecretrait" class="alert alert-success">Echec de l'operation reussi!</h3>
                     <form name="transnat" (ngSubmit)="showmodalretraitEMONEY()" #formretrait="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
@@ -1506,7 +2948,7 @@
                             <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;">Numéro du client :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                        <input  style="border-radius: 2rem; height: 25px; background-color: rgba(255,255,255,0.8);" type="number" autocomplete="off"  [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" required autofocus>
+                        <input  style="border-radius: 2rem; height: 25px; background-color: rgba(255,255,255,0.8);" type="text" autocomplete="off"  [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" required autofocus>
                       </div>
                       </div>
                       <div class="col-sm-12 col-xs-12">
@@ -1517,12 +2959,12 @@
                         <input style="border-radius: 2rem; height: 25px;background-color: rgba(255,255,255,0.8);"  type="number" autocomplete="off"  [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus>
                       </div>
                       </div>
-                       <div class="col-sm-12 col-xs-12" style="margin-top: 6rem;">
-                         <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i>
-                         </button>
+                       <div class="col-sm-12 col-xs-12" style="padding-top: 5rem;">
+                            <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
                         <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
                         </button>
                         </div>
+                        
                     </form>
                 </div>
             </div>
@@ -1552,7 +2994,9 @@
                 </div>
             </div>
             <div class="row">
-                <h2 style="color: white;">Dépôt</h2>
+               <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;">
+                    <h2 style="color: white;border: 2px solid white; padding: 0.6rem;">Dépôt</h2>
+            </div>
                 <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
                 <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
             </div>
@@ -1576,9 +3020,8 @@
                             <p *ngIf="mag2" style="color:red">montant incorrect</p>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-xs-12" style="margin-top: 6rem;">
-                        <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i>
-                         </button>
+                    <div class="col-sm-12 col-xs-12" style="padding-top: 5rem;">
+                        <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
                         <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
                         </button>
                     </div>
@@ -1608,11 +3051,13 @@
                     </div>
                 </div>
             </div>
-                    <div class="col-sm-12 col-xs-12">
-                         <h2 style="color:white; font-family:'caviar dreams bold';font-size: 2.3rem">Retrait avec code</h2>
+                <div class="col-sm-12 col-xs-12" id="retrait">
+                    <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;" >
+                         <h2 style="color:white; font-family:'caviar dreams bold';font-size: 2.3rem;border: 2px solid white; padding: 0.6rem;">Retrait avec code</h2>
+                    </div>
                           <h3 *ngIf="retraitcodereussi" class="alert alert-success">Retrait avec code reussi!</h3>
                           <h3 *ngIf="echecretraitcode" class="alert alert-success">Echec de l'operation reussi!</h3>
-                    </div>
+                    
                     <form name="transnat" (ngSubmit)="showmodalretraitcodeEMONEY()" #formretraitcode="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;" class="">
 
                     <div class="col-xs-12 col-sm-12">
@@ -1624,16 +3069,15 @@
                              <input  style="border-radius: 2rem; height: 25px;  background-color: rgba(255,255,255,0.8);" autocomplete="off" type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required >
                         </div>
                     </div>
-                     <div class="col-sm-12 col-xs-12" style="margin-top: 6rem;">
-                         <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i>
-                         </button>
+                    <div class="col-sm-12 col-xs-12" style="padding-top: 5rem;">
+                        <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
                         <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
                         </button>
                         </div>
                     </form>    
-            
+                </div>
+            </div>
        </div>
-</div>
 <!--finretaitaveccodeMONEY-->
 
     <!--ECOMMERCE-->
@@ -1674,109 +3118,434 @@
 
     <div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ;">
         <div class="row">
-             
-<!--            <div class="col-sm-2 col-xs-2 runningTask"> 
-                <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div> 
-            </div> 
-            
--->         
-            <div  [ngStyle]="{'background-color':op.etats.color}" class="col-sm-2 col-xs-2 runningTask" *ngFor="let op of process">
-                <div  class="runner"  style="width:100%"></div>
-            </div>
-            <!--<div class="col-sm-2 col-xs-2 runningTask"> <div class="runner"  style="width:100%"></div></div> 
-            <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner" style="width:30%"></div> </div> 
-            <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner" style="width:50%"></div> </div>
-            <div class="col-sm-2 col-xs-2 runningTask"> <div class="runner" style="width:50%"></div> </div>-->
- 
-        </div> 
 
+            <div *ngFor="let item of process" class="col-sm-2 col-xs-2 runningTask">
+                <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div>
+            </div>
+
+            
+
+        </div>
 
         <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;">
-<!--            <div class="col-sm-2 col-xs-2 runningService">OrangeMoney</div> 
--->
-            <!--<div class="col-sm-2 col-xs-2 runningService">Woyofal</div> 
-            <div class="col-sm-2 col-xs-2 runningService">Wizall</div> 
-            <div class="col-sm-2 col-xs-2 runningService">Senelec</div> 
-            <div class="col-sm-2 col-xs-2 runningService">TigoCash</div>-->
             <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process">
                 {{op.data.nom}}
             </div>
- 
-        </div> 
+        </div>
 
     </div>
 
 </div>
 
 
-                                    <!--les modales de TigoCash-->
-                                    <!-- Modal depot -->
-<div bsModal #modaldepotTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<!-- ........................................................................................ -->
+                                <!--  Les Modals-->
+<!-- ........................................................................................ -->
+
+<!--  PostCash Modal-->
+<div bsModal #modalPostCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalPostCash()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                               <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
+             <div class="modal-body">
+
+                 <div>
+                     <form class="form">
+                         <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
+                                   <div class="form-group">
+                                       <label >Numero client : {{ this.telephone }}</label>
+                                   </div>
+                                   <div class="form-group">
+                                        <label>Montant  : {{ this.montant }}</label>
+                                   </div>
+                         </div>
+                          <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
+                                  <div class="form-group">
+                                      <label >Numero client : {{ this.telephone }}</label>
+                                  </div>
+                                  <div class="form-group">
+                                       <label>Montant  : {{ this.montant }}</label>
+                                  </div>
+                                  <div class="form-group" *ngIf="isselectretraitespeceaveccarte">
+                                      <label >Code validation  : {{ this.codevalidation}}</label>
+                                  </div>
+                          </div>
+                         <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
+                               <div class="form-group">
+                                   <label >Nombre de carte  : {{ this.nb_carte}}</label>
+                               </div>
+                               <div class="form-group">
+                                   <label >Montant Carte : {{ this.mt_carte}}</label>
+                               </div>
+                         </div>
+                     </form>
+
+                 </div>
+             </div>
+             <div class="modal-footer">
+                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
+                          <input type="button" value="valider" class="btn btn-success" (click)="rechargementEspecePostCash()"/>
+                          <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                   </div>
+                    <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
+                          <div  *ngIf="isselectretraitespeceaveccarte">
+                              <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceAvecCartePostCash()"/>
+                              <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                          </div>
+                          <div  *ngIf="!isselectretraitespeceaveccarte">
+                              <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceSansCartePostCash()"/>
+                              <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                          </div>
+                    </div>
+                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
+                        <input type="button" value="valider" class="btn btn-success" (click)="achatJula()"/>
+                        <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                   </div>
+             </div>
+          </div>
+        </div>
+</div>
+
+<!-- Modals Gestion & Reporting -->
+
+<div bsModal #modalGestionReporting="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideGestionReporting()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+             <div class="modal-body">
+               <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
+
+                 <div>
+                     <form class="form">
+
+                        <div class="form-group" *ngIf="this.libelle != undefined">
+                              <label >libelle : {{ this.libelle }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.montant != undefined">
+                            <label>Montant  : {{ this.montant }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.service != undefined">
+                            <label>Service  : {{ this.service }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.designation != undefined">
+                            <label>designation  : {{ this.designation }}</label>
+                        </div>
+                   </form>
+                 </div>
+             </div>
+             <div class="modal-footer">
+
+             </div>
+          </div>
+        </div>
+</div>
+
+<!--  Autes Modals -->
+<div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
          <div class="modal-dialog modal-sm">
             <div class="modal-content" >
               <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCash()">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideAddChildModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
              </div>
              <div class="modal-body">
-        
+
                  <div>
                      <form class="form">
                          <div class="form-group">
-                             <label >Telephone client : {{this.telephone}}</label>
+                             <label >numero client : {{this.numclient}} </label>
                          </div>
                          <div class="form-group">
-                             <label >montant : {{this.montant}}</label>
+                             <label >montant : {{this.mnt}} </label>
                          </div>
                      </form>
-                    
+
                  </div>
              </div>
              <div class="modal-footer">
-                  <input type="button" value="valider" (click)="depotTigoCash()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodaldepotTigoCash()" class="btn btn-danger" />
+                  <input type="button" value="valider" (click)="Deposer()" class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />
              </div>
-          </div> 
+          </div>
         </div>
 </div>
-                                        <!--fin modal depot-->
-                                        <!--modal Vente Izi-->
-<div bsModal #modalvendreizi="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div bsModal #modalretraitconfirmEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
          <div class="modal-dialog modal-sm">
             <div class="modal-content" >
               <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalvendreizi()">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretrait()">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
              </div>
              <div class="modal-body">
-        
+
                  <div>
                      <form class="form">
                          <div class="form-group">
-                             <label >Numero client : {{this.telephone}}</label>
+                             <label >numero client : {{this.numclient}}</label>
                          </div>
                          <div class="form-group">
-                             <label >Montant  : {{this.montant}}</label>
+                             <label >montant : {{this.mnt}}</label>
                          </div>
-                         
                      </form>
-                    
+
                  </div>
              </div>
              <div class="modal-footer">
-                  <input type="button" value="valider" (click)="izi()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodalvendreizi()" class="btn btn-danger" />
+                  <input type="button" value="valider" (click)="RetirerEMONEY()" class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hidemodalretraitEMONEY()" class="btn btn-danger" />
              </div>
-          </div> 
+          </div>
         </div>
 </div>
-                                        <!--fin modal vente Izi-->
+<div bsModal #modalventecredit="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalventecredit()" >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             </div>
+             <div class="modal-body">
+
+                 <div>
+                     <form class="form">
+                         <div class="form-group">
+                             <label >Numéro client : {{this.numclient}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >Montant : {{this.mnt}}</label>
+                         </div>
+                     </form>
+
+                 </div>
+             </div>
+             <div class="modal-footer">
+                  <input type="button" value="valider"  class="btn btn-success" />
+                  <input type="button" value="fermer" (click)="hidemodalventecredit()"  class="btn btn-danger" />
+             </div>
+          </div>
+        </div>
+</div>
+<div bsModal #modalretraitcode="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcode()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+             </div>
+             <div class="modal-body">
+
+                 <div>
+                     <form class="form">
+                         <div class="form-group">
+                             <label >Code de retrait : {{this.coderetrait}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >Prénom : {{this.prenom}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >Nom : {{this.nom}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label >Date De Naissance: {{this.date}}</label>
+                         </div>
+             <div class="form-group">
+               <label >Numéro CNI : {{this.cni}}</label>
+             </div>
+             <div class="form-group">
+               <label >Numéro Client : {{this.numclient}}</label>
+             </div>
+             <div class="form-group">
+               <label >Montant : {{this.mnt}}</label>
+             </div>
+                     </form>
+
+                 </div>
+             </div>
+             <div class="modal-footer">
+                  <input type="button" value="valider" (click)="retraitAvecCode()" class="btn btn-success" />
+                  <input type="button" value="annuler" (click)="hidemodalretraitcode()" class="btn btn-danger" />
+             </div>
+          </div>
+        </div>
+</div>
+
+<!--les modales d'EMONEY-->
+<!--depotEMONEY-->
+<div bsModal #modaldepotEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-sm">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotEMONEY()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabeldepot">Fenêtre de confirmation Dépot.</h4>
+         </div>
+         <div class="modal-body">
+
+             <div>
+                 <form class="form">
+                     <div class="form-group">
+                         <label >Numéro client : {{this.numclient}}</label>
+                     </div>
+                     <div class="form-group">
+                         <label >Montant dépot: {{this.mnt}}</label>
+                     </div>
+                 </form>
+
+             </div>
+         </div>
+         <div class="modal-footer">
+              <input type="button" value="valider" (click)="fairedepotEMONEY()" class="btn btn-success" />
+              <input type="button" value="fermer" (click)="hidemodaldepotEMONEY()" class="btn btn-danger" />
+         </div>
+      </div>
+    </div>
+</div>
+<!--findepotEMONEY-->
+<!--retraitEMONEY-->
+<div bsModal #modalretraitEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-sm">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitEMONEY()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabelretrait">Fenêtre de confirmation Retrait.</h4>
+         </div>
+         <div class="modal-body">
+
+             <div>
+                 <form class="form">
+                     <div class="form-group">
+                         <label >numero client : {{this.numclient}}</label>
+                     </div>
+                     <div class="form-group">
+                         <label >montant : {{this.mnt}}</label>
+                     </div>
+                 </form>
+
+             </div>
+         </div>
+         <div class="modal-footer">
+              <input type="button" value="valider" (click)="faireretraitsimpleEMONEY()" class="btn btn-success" />
+              <input type="button" value="fermer" (click)="hidemodalretraitEMONEY()" class="btn btn-danger" />
+         </div>
+      </div>
+    </div>
+</div>
+<!--finretraitEMONEY-->
+<!--confirmretaiemoney-->
+<div bsModal #modalretraitConfirmEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitConfirm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabelretraitConfirm">Fenêtre de validation .</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-inline">
+          <div>Info retrait</div>
+        </div>
+        <div class="form-inline">
+          <label >Ref :</label>
+          <input type="text" [(ngModel)]="transactionReference" autocomplete="off" id="transactionReference" name="transactionReference"  class="form-control" placeholder="Référence" required >
+        </div>
+        <div class="form-inline">
+          <label >OTP :</label>
+          <input type="text" [(ngModel)]="OTP" autocomplete="off"  id="OTP" name="OTP"  class="form-control" placeholder="OTP" required >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" value="valider" [disabled]="transactionReference==undefined || OTP==undefined" (click)="faireretraitsimpleConfirmEMONEY()" class="btn btn-success" />
+        <input type="button" value="annuler" (click)="hidemodalretraitConfirmEMONEY()" class="btn btn-danger" />
+      </div>
+    </div>
+  </div>
+</div>
+<!--finconfirmretraiemoney-->
+<!--retraitaveccodeEMONEY-->
+<div bsModal #modalretraitcodeEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcodeEMONEY()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form class="form">
+            <div class="form-group">
+              <label >Code de retrait : {{this.coderetrait}}</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" value="valider" (click)="faireretraitaveccodeEMONEY()" class="btn btn-success" />
+        <input type="button" value="annuler" (click)="hidemodalretraitcodeEMONEY()" class="btn btn-danger" />
+      </div>
+    </div>
+  </div>
+</div>
+<!--finretraitaveccodeEMONEY-->
+<!--Retraitcodeconfirme-->
+<div bsModal #modalretraitcodeConfirm="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcodeConfirm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabelretraitcodeConfirm">Fenêtre de validation .</h4>
+      </div>
+      <div class="modal-body" *ngIf="infoRetraitaveccode && infoRetraitaveccode.status==0">
+        <h3>Info retrait avec code</h3>
+        <div class="form-inline text-left">
+          <p>Numero Envoyeur: {{infoRetraitaveccode.sender}}</p>
+          <p>Numero Receveur: {{infoRetraitaveccode.receiver}}</p>
+          <p>Client : {{infoRetraitaveccode.firstname}} {{infoRetraitaveccode.lastname}}</p>
+          <p>Montant : {{infoRetraitaveccode.amount}}</p>
+        </div>
+        <div class="form-inline">
+          <label >CNI :</label>
+          <input type="text" [(ngModel)]="cni" autocomplete="off" (keyup)="verifcode($event)" id="ncni" name="coderetrait"  class="form-control col-lg-5" placeholder="Numéro d'identification" required >
+        </div>
+      </div>
+      <div class="modal-footer" style="margin: 0 auto; text-align: center">
+        <input type="button" value="valider" [disabled]="cni==undefined" (click)="faireretraitaveccodeConfirm()" class="btn btn-success" />
+        <input type="button" value="annuler" (click)="hidemodalretraitcodeConfirm()" class="btn btn-danger" />
+      </div>
+    </div>
+  </div>
+  <!--finRetraitcodeconfirme-->
+
                                         <!--Modal WIZALL-->
 <!--ModalsepotWIZALL-->
 <div bsModal #modaldepotWIZALL="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -1843,238 +3612,4 @@
           </div> 
         </div>
         
-</div>
-                                      <!--les modales d'EMONEY-->
-<!--depotEMONEY-->
-<div bsModal #modaldepotEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-sm">
-        <div class="modal-content" >
-          <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotEMONEY()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="myModalLabeldepot">Fenêtre de confirmation Dépot.</h4>
-         </div>
-         <div class="modal-body">
-
-             <div>
-                 <form class="form">
-                     <div class="form-group">
-                         <label >Numéro client : {{this.numclient}}</label>
-                     </div>
-                     <div class="form-group">
-                         <label >Montant dépot: {{this.mnt}}</label>
-                     </div>
-                 </form>
-
-             </div>
-         </div>
-         <div class="modal-footer">
-              <input type="button" value="valider" (click)="fairedepotEMONEY()" class="btn btn-success" />
-              <input type="button" value="fermer" (click)="hidemodaldepotEMONEY()" class="btn btn-danger" />
-         </div>
-      </div>
-    </div>
-</div>
-<!--findepotEMONEY-->
-<!--retraitEMONEY-->
-<div bsModal #modalretraitEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-sm">
-        <div class="modal-content" >
-          <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitEMONEY()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="myModalLabelretrait">Fenêtre de confirmation Retrait.</h4>
-         </div>
-         <div class="modal-body">
-
-             <div>
-                 <form class="form">
-                     <div class="form-group">
-                         <label >numero client : {{this.numclient}}</label>
-                     </div>
-                     <div class="form-group">
-                         <label >montant : {{this.mnt}}</label>
-                     </div>
-                 </form>
-
-             </div>
-         </div>
-         <div class="modal-footer">
-              <input type="button" value="valider" (click)="faireretraitsimpleEMONEY()" class="btn btn-success" />
-              <input type="button" value="fermer" (click)="hidemodalretraitEMONEY()" class="btn btn-danger" />
-         </div>
-      </div>
-    </div>
-</div>
-<!--finretraitEMONEY-->
-<!--retraitaveccodeEMONEY-->
-<div bsModal #modalretraitcodeEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content" >
-      <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcodeEMONEY()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-      </div>
-      <div class="modal-body">
-        <div>
-          <form class="form">
-            <div class="form-group">
-              <label >Code de retrait : {{this.coderetrait}}</label>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <input type="button" value="valider" (click)="faireretraitaveccodeEMONEY()" class="btn btn-success" />
-        <input type="button" value="annuler" (click)="hidemodalretraitcodeEMONEY()" class="btn btn-danger" />
-      </div>
-    </div>
-  </div>
-</div>
-<!--finretraitaveccodeEMONEY-->
-
-<div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hideAddChildModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-             </div>
-             <div class="modal-body">
-        
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >numero client : {{this.numclient}} </label>
-                         </div>
-                         <div class="form-group">
-                             <label >montant : {{this.mnt}} </label>
-                         </div>
-                     </form>
-                    
-                 </div>
-             </div>
-             <div class="modal-footer">
-                  <input type="button" value="valider" (click)="Deposer()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />
-             </div>
-          </div> 
-        </div>
-</div>
-<div bsModal #modalretrait="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretrait()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-             </div>
-             <div class="modal-body">
-        
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >numero client : {{this.numclient}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >montant : {{this.mnt}}</label>
-                         </div>
-                     </form>
-                    
-                 </div>
-             </div>
-             <div class="modal-footer">
-                  <input type="button" value="valider" (click)="Retirer()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodalretrait()" class="btn btn-danger" />
-             </div>
-          </div> 
-        </div>
-</div>
-<div bsModal #modalventecredit="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalventecredit()" >
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-             </div>
-             <div class="modal-body">
-        
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >Numéro client : {{this.numclient}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >Montant : {{this.mnt}}</label>
-                         </div>
-                     </form>
-                    
-                 </div>
-             </div>
-             <div class="modal-footer">
-                  <input type="button" value="valider"  class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodalventecredit()"  class="btn btn-danger" />
-             </div>
-          </div> 
-        </div>
-</div>
-<div bsModal #modalretraitcode="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcode()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-             </div>
-             <div class="modal-body">
-        
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >Code de retrait : {{this.coderetrait}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >Prénom : {{this.prenom}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >Nom : {{this.nom}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >Date De Naissance: {{this.date}}</label>
-                         </div>
-             <div class="form-group">
-               <label >Numéro CNI : {{this.cni}}</label>
-             </div>
-             <div class="form-group">
-               <label >Numéro Client : {{this.numclient}}</label>
-             </div>
-             <div class="form-group">
-               <label >Montant : {{this.mnt}}</label>
-             </div>
-                     </form>
-                    
-                 </div>
-             </div>
-             <div class="modal-footer">
-                  <input type="button" value="valider" (click)="retraitAvecCode()" class="btn btn-success" />
-                  <input type="button" value="annuler" (click)="hidemodalretraitcode()" class="btn btn-danger" />
-             </div>
-          </div> 
-        </div>
-
-  
 </div>
