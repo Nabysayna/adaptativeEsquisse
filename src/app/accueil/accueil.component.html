@@ -490,12 +490,12 @@
           <div class="form-inline" style=";">
             <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
             <!--<input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">-->
-             <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+             <input autocomplete="off" type="number"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
           </div>
           <p *ngIf="mag1" style="color:red">numero incorrect</p>
           <div class="form-inline">
            <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%">Montant transfert :</label>
-            <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+            <input type="number" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
 
           </div>
           <p *ngIf="mag2" style="color:red">montant incorrect</p>
@@ -542,13 +542,13 @@
         <form name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
           <div class="form-inline" style=";">
             <label style="color: white; font-size: 1.6rem;width:50%">Numéro du client  :</label>
-            <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
+            <input autocomplete="off" type="text"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="width: 30%;display: inline;height: 3rem;border-radius: 4rem 4rem 4rem 4rem;">
 
           </div>
           <p *ngIf="mag1" style="color:red">numero incorrect</p>
           <div class="form-inline">
            <label style="color: white;font-size: 1.6rem;padding-bottom: 7rem;width:50%;">Montant  :</label>
-            <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
+            <input type="text" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="width: 30%;display: inline;height: 3rem; border-radius: 4rem 4rem 4rem 4rem;">
 
           </div>
           <p *ngIf="mag2" style="color:red">montant incorrect</p>
@@ -596,7 +596,7 @@
                      <label style="color:white" >Code de retrait :</label>
                  </div>
                  <div style="padding:0px;margin:0px" class="col-xs-4 col-sm-4">
-                      <input type="text" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code de retrait" required >
+                      <input type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclient" name="coderetrait" style="border-radius: 4rem 4rem 4rem 4rem;height: 2rem;"  class="form-control" placeholder="Code de retrait" required >
                  </div>
 
               </div>
@@ -605,7 +605,7 @@
                        <label style="color:white" >Prénom :</label>
                 </div>
                 <div class="col-xs-4 col-sm-4">
-                  <input type="text" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
+                  <input type="text" [(ngModel)]="this.prenom" autocomplete="off"  name="prenom" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
                 </div>
               </div>
               <div class="row" style="margin-left:1em">
@@ -613,7 +613,7 @@
                        <label style="color:white;" >Date de naissance :</label>
                  </div>
                  <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                       <input type="text" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  class="form-control" placeholder="Exemple : 03041900" required >
+                       <input type="text" [(ngModel)]="this.date" name="date" autocomplete="off"  id="numclient" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  class="form-control" placeholder="Exemple : 03041900" required >
                  </div>
               </div>
               <div class="row" style="margin-left:1em">
@@ -621,7 +621,7 @@
                      <label style="color:white" >Numéro de piece d'identite :</label>
                  </div>
                  <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                      <input type="text" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
+                      <input type="text" [(ngModel)]="this.cni"  autocomplete="off" name="cni" style="height: 2rem; border-radius: 4rem 4rem 4rem 4rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
                  </div>
 
               </div>
@@ -630,7 +630,7 @@
                      <label style="color:white">Numéro du client  :</label>
                 </div>
                 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                     <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
+                     <input autocomplete="off" type="number"  autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
                 </div>
 
               </div>
@@ -639,7 +639,7 @@
                       <label style="color: white;">Montant  :</label>
                 </div>
                 <div class="col-xs-4 col-sm-4" style="padding-top:0px">
-                      <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
+                      <input type="number" autocomplete="off"  autocomplete="off" style="display: inline;height: 2rem; border-radius: 4rem 4rem 4rem 4rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
                 </div>
 
               </div>
@@ -901,8 +901,6 @@
             </button>
         </div>
     </div>
-
-
 
     <!--PostCach-->
 
@@ -1508,7 +1506,7 @@
                             <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;">Numéro du client :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                        <input  style="border-radius: 2rem; height: 25px; background-color: rgba(255,255,255,0.8);" type="text" autocomplete="off" (keyup)="verifNumber($event)" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" required autofocus>
+                        <input  style="border-radius: 2rem; height: 25px; background-color: rgba(255,255,255,0.8);" type="number" autocomplete="off"  [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" required autofocus>
                       </div>
                       </div>
                       <div class="col-sm-12 col-xs-12">
@@ -1516,10 +1514,15 @@
                         <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Montant à retirer :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                        <input style="border-radius: 2rem; height: 25px;background-color: rgba(255,255,255,0.8);"  type="text" autocomplete="off" (keyup)="verifMontant($event)" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus>
+                        <input style="border-radius: 2rem; height: 25px;background-color: rgba(255,255,255,0.8);"  type="number" autocomplete="off"  [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus>
                       </div>
                       </div>
-                        <button style="margin-top: 1rem;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1">Valider</button>
+                       <div class="col-sm-12 col-xs-12" style="margin-top: 6rem;">
+                         <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                         </button>
+                        <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                        </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1560,7 +1563,7 @@
                             <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Numéro du client  :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                            <input autocomplete="off"  style="border-radius: 2rem; height: 25px;     background-color: rgba(255,255,255,0.8);"  type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="numclient" name="verifiernuminput" id="numclientdepot"  class="form-control" placeholder="Numéro du client" autofocus>
+                            <input autocomplete="off"  style="border-radius: 2rem; height: 25px;     background-color: rgba(255,255,255,0.8);"  type="number"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="numclient" name="verifiernuminput" id="numclientdepot"  class="form-control" placeholder="Numéro du client" autofocus>
                              <p *ngIf="mag1" style="color:red">numero incorrect</p>
                         </div>
                     </div>
@@ -1569,11 +1572,16 @@
                              <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Montant dépot :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                            <input type="text"  style="border-radius: 2rem; height: 25px;     background-color: rgba(255,255,255,0.8);" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="mnt" name="verifiernuminput" id="mnttransdepot"  class="form-control" placeholder="Montant du transfert" required autofocus>
+                            <input type="number"  style="border-radius: 2rem; height: 25px;     background-color: rgba(255,255,255,0.8);" autocomplete="off" autocomplete="off" [(ngModel)]="mnt" name="verifiernuminput" id="mnttransdepot"  class="form-control" placeholder="Montant du transfert" required autofocus>
                             <p *ngIf="mag2" style="color:red">montant incorrect</p>
                         </div>
                     </div>
-                    <button style="margin-top: 1rem;"   type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1">Valider</button>
+                    <div class="col-sm-12 col-xs-12" style="margin-top: 6rem;">
+                        <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                         </button>
+                        <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
        </div>
@@ -1585,12 +1593,12 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/express-logo.png" style="width: 100%; height: 16rem; "/>
+                        <img src="assets/express-logo.png" style="width: 100%; height: 16rem; "/>
                      </div>
-                    <div class="col-xs-6 col-sm-6">
+                    <div class="col-xs-3 col-sm-3">
                         <div class="row">
                             <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
                         </div>
@@ -1599,7 +1607,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-xs-12" id="retrait">
+            </div>
                     <div class="col-sm-12 col-xs-12">
                          <h2 style="color:white; font-family:'caviar dreams bold';font-size: 2.3rem">Retrait avec code</h2>
                           <h3 *ngIf="retraitcodereussi" class="alert alert-success">Retrait avec code reussi!</h3>
@@ -1613,13 +1621,17 @@
                         </div>
                     
                         <div class="col-sm-6 col-xs-5">
-                             <input  style="border-radius: 2rem; height: 25px;  background-color: rgba(255,255,255,0.8);" autocomplete="off" type="text" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required >
+                             <input  style="border-radius: 2rem; height: 25px;  background-color: rgba(255,255,255,0.8);" autocomplete="off" type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required >
                         </div>
                     </div>
-                    <button style="margin: 1rem;" type="submit" class="btn btn-success" [disabled]="coderetrait==undefined">Valider</button>
+                     <div class="col-sm-12 col-xs-12" style="margin-top: 6rem;">
+                         <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                         </button>
+                        <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                        </button>
+                        </div>
                     </form>    
-                </div>
-            </div>
+            
        </div>
 </div>
 <!--finretaitaveccodeMONEY-->
