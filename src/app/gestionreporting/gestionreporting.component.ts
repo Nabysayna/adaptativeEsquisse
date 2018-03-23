@@ -27,7 +27,7 @@ export class GestionreportingComponent implements OnInit {
   servicevente:string = "";
   datedebut:any;
   datefin:any;
-  noma:string;
+  nom:string;
   prenoma:string;
   telephonea:string;
   choosenServiceName : string ;
@@ -35,7 +35,7 @@ export class GestionreportingComponent implements OnInit {
   token : string = JSON.parse(sessionStorage.getItem('currentUser')).baseToken ;
   loading = false ;
 
-  nom="";
+  noma="";
   asc="";
   filtre:"";
 
@@ -367,4 +367,3 @@ export class GestionreportingComponent implements OnInit {
 
 
 }
-

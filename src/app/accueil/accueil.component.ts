@@ -8,6 +8,7 @@ import {AuthService} from "../services/auth.service";
 import {PostCashService } from 'app/services/postCash.service';
 import {ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ExpressocashService } from "../services/expressocash.service";
+import {GestionreportingService, Gestionreporting, Servicepoint} from "../services/gestionreporting.service";
 
 
 
@@ -50,7 +51,8 @@ export class AccueilComponent implements OnInit {
   prenom:string;
   nom:string;
   coderetrait:number;
-
+  servicevente:string;
+  
   isselectretraitespeceaveccarte:boolean=true
   typerecherchegestion:string = "parmotif";
 
@@ -63,12 +65,24 @@ export class AccueilComponent implements OnInit {
   public service:any;
   public libelle:any;
   public designation:any;
-  
-  constructor(private _authService:AuthService, private _postCashService: PostCashService, private _tntService:TntService, private router: Router, private _wizallService : WizallService, private _omService:OrangemoneyService, private _tcService: TigocashService){
-      if ( window.screen.width <= 768 )
-          this.isMobile = true ;
-      else
-          this.isMobile = false ;
+
+  noma="";
+  asc="";
+  filtre:"";
+
+  constructor(
+        private _authService:AuthService,
+        private _postCashService: PostCashService,
+        private _tntService:TntService,
+        private router: Router,
+        private _wizallService : WizallService,
+        private _omService:OrangemoneyService,
+        private _tcService: TigocashService,
+        private _gestionreportingService:GestionreportingService){
+          if ( window.screen.width <= 768 )
+              this.isMobile = true ;
+          else
+              this.isMobile = false ;
   }
 
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
@@ -81,17 +95,31 @@ export class AccueilComponent implements OnInit {
 
 
   ngOnInit() {
-    localStorage.removeItem('om-depot') ;
-    localStorage.removeItem('om-retrait') ;
+          localStorage.removeItem('om-depot') ;
+          localStorage.removeItem('om-retrait') ;
 
-    localStorage.removeItem('tc-depot') ;
-    localStorage.removeItem('tc-retrait') ;
+          localStorage.removeItem('tc-depot') ;
+          localStorage.removeItem('tc-retrait') ;
 
-    if (!sessionStorage.getItem('currentUser'))
-       this.router.navigate(['']);
+          if (!sessionStorage.getItem('currentUser'))
+             this.router.navigate(['']);
 
-      if ( window.screen.width > 768 )
-          this.processus();
+            if ( window.screen.width > 768 )
+                this.processus();
+
+          /* --------------ngOnInit gestion reporting----------------*/
+          // this._gestionreportingService.servicepoint()
+          //         .subscribe(
+          //           data => {
+          //             this.servicepoint = data;
+          //             console.log(data)
+          //           },
+          //           error => console.log(error),
+          //           () => {
+          //             this.histop();
+          //           }
+          //  )
+           /* --------------Autes parties----------------*/
 
   }
 
@@ -1739,9 +1767,9 @@ public pdvacueilmenumobilemoneyretour(){
     console.log(montant);
   }
 
-  
+
   /**********************************************les modals***************************************/
-    
+
 
     showmodaldepotTigoCash(){
      this.modaldepotTigoCash.show();
@@ -1795,14 +1823,153 @@ public pdvacueilmenumobilemoneyretour(){
     }
 
     /*-------------- --------GESTIONREPORTING-------------------------------*/
-        /********** PostCash-modals ***************/
+
+        /********** gestionreporting-variables ***************/
+
+        public gestionreporting:Gestionreporting[];
+        selectionjour:string;
+        selectionintervalledateinit:string;
+        selectionintervalleddatefinal:string;
+        loading = false ;
+
+        /********** gestionreporting-modals ***************/
         showGestionReporting(){
           this.modalGestionReporting.show();
         }
         hideGestionReporting(){
           this.modalGestionReporting.hide()
         }
-       
+
+        /***********gestionreporting-traitement****************************/
+            historiquejour(){
+              this.loading = true ;
+              this.selectionintervalledateinit = undefined;
+              this.selectionintervalleddatefinal = undefined;
+              this._gestionreportingService.reportingdate({idpdv:10, type:'jour', infotype:this.selectionjour})
+                .subscribe(
+                  data => {
+                    this.gestionreporting = data;
+                  },
+                  error => console.log(error),
+                  () => {
+                    this.loading = false ;
+                  }
+                )
+            }
+            historiqueintervalle(){
+              console.log('reportingdate intervalle');
+              this.loading = true ;
+              this.selectionjour = undefined;
+              this._gestionreportingService.reportingdate({idpdv:10, type:'intervalle', infotype:this.selectionintervalledateinit+" "+this.selectionintervalleddatefinal})
+                .subscribe(
+                  data => {
+                    this.gestionreporting = data;
+                  },
+                  error => console.log(error),
+                  () => {
+                    this.loading = false ;
+                  }
+                )
+            }
+          reimprimerhistop(operation){
+            this._gestionreportingService.reimpression({idpdv:10, operation:JSON.stringify(operation), infooperation:operation.operateur})
+              .subscribe(
+                gestreportserviceList => {
+                  console.log('reimpression');
+                  let getdataimpression = gestreportserviceList;
+                  console.log(getdataimpression)
+                  let dataImpression = null;
+                  let infos = JSON.parse(getdataimpression.infosoperation);
+                  if(operation.operateur=="TNT"){
+                    if(getdataimpression.typeoperation=="abonnement"){
+                      let typebouquet = "";
+                      if (infos.id_typeabonnement==1){
+                        typebouquet = "Maanaa";
+                      }
+                      if (infos.id_typeabonnement==2){
+                        typebouquet = "Boul Khool";
+                      }
+                      if (infos.id_typeabonnement==3){
+                        typebouquet = "Maanaa + Boul Khool";
+                      }
+                      dataImpression = {
+                        apiservice:'tntreimpression',
+                        service:'abonnement',
+                        infotransaction:{
+                          dateoperation:getdataimpression.dateOperation.date.split('.')[0],
+                          echeance:getdataimpression.echeance.date.split('.')[0],
+                          transactionBBS: getdataimpression.idoperation,
+                          client:{
+                            prenom:infos.prenom,
+                            nom:infos.nom,
+                            telephone:infos.tel,
+                            carte: infos.n_carte,
+                            chip:infos.n_chip,
+                            typebouquet:typebouquet,
+                            montant: infos.montant,
+                            duree:infos.duree,
+                          },
+                        },
+                      }
+                      sessionStorage.setItem('dataImpression', JSON.stringify(dataImpression));
+                      this.router.navigate(['accueil/impression']);
+                    }
+                    if(getdataimpression.typeoperation=="decodeur"){
+                      let infos = JSON.parse(getdataimpression.infosoperation);
+                      console.log(infos);
+                    }
+                    if(getdataimpression.typeoperation=="carte"){
+                      let infos = JSON.parse(getdataimpression.infosoperation);
+                      console.log(infos);
+                    }
+                  }
+                  if(operation.operateur=="POSTCASH"){
+                    if(operation.traitement=="RETRAIT CASH"){
+                      console.log('RETRAIT CASH');
+                      dataImpression = {
+                        apiservice:'postecashreimpression',
+                        service:'retraitespece',
+                        infotransaction:{
+                          dateoperation:getdataimpression.dateOperation.date.split('.')[0],
+                          transactionBBS: getdataimpression.idoperation,
+                          transactionPostCash: infos.transactionId,
+                          client:{
+                            montant: infos.montant_reel,
+                            telephone:'00221??',
+                          },
+                        },
+                      }
+                      sessionStorage.setItem('dataImpression', JSON.stringify(dataImpression));
+                      this.router.navigate(['accueil/impression']);
+                    }
+                    if(operation.traitement=="ACHAT DE CODE WOYOFAL"){
+                      console.log("ACHAT DE CODE WOYOFAL");
+                      dataImpression = {
+                        apiservice:'postecashreimpression',
+                        service:'achatcodewayafal',
+                        infotransaction:{
+                          dateoperation:getdataimpression.dateOperation.date.split('.')[0],
+                          transactionBBS: getdataimpression.idoperation,
+                          transactionPostCash: infos.transactionId,
+                          client:{
+                            montant: infos.montant_reel,
+                            codewoyafal: infos.code,
+                            compteur: '??',
+                          },
+                        },
+                      }
+                      sessionStorage.setItem('dataImpression', JSON.stringify(dataImpression));
+                      this.router.navigate(['accueil/impression']);
+                    }
+                  }
+                },
+                error => console.log(error),
+                () => {
+                  this.loading = false ;
+                }
+              )
+          }
+
 
   //depotTigoCash
       depotTigoCash(){
@@ -1822,7 +1989,7 @@ public pdvacueilmenumobilemoneyretour(){
 
    @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
    @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
-  
+
   //Depot
   depotmodalWIZALL(){
      this.modaldepotWIZALL.show();
@@ -1856,8 +2023,8 @@ retirerWIZALL(){
   @ViewChild('modaldepotEMONEY') public modaldepotEMONEY:ModalDirective;
   @ViewChild('modalretraitEMONEY') public modalretraitEMONEY:ModalDirective;
   @ViewChild('modalretraitcodeEMONEY') public modalretraitcodeEMONEY:ModalDirective;
-  
-  
+
+
   //Depot
   showmodaldepotEMONEY(){
      this.modaldepotEMONEY.show();
