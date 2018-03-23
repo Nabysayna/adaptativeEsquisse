@@ -1505,6 +1505,7 @@ public pdvacueilretour(){
 public roadTo(choosedRoad){
 
  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
+ console.log(this.displayedPage);
  this.reinitialiser();
 /*  if(choosedRoad==='mm'){
         this.displayedPage='accueil-mm';
