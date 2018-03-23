@@ -2717,7 +2717,7 @@
             </div>
             <div class="col-sm-12 col-xs-12">
                 <div class="col-sm-12 col-xs-12" style="padding-top: 10rem;">
-                    <button class="WIZALL" href="#depot" (click)="roadTo('bc')" style="padding-left: 4rem; padding-right: 4rem;"  data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold'; font-size: 2.3rem;color: white;padding-bottom: 1rem;">Bon Cashe</button>
+                    <button class="WIZALL" href="#depot" (click)="roadTo('bc')" style="padding-left: 4rem; padding-right: 4rem;"  data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold'; font-size: 2.3rem;color: white;padding-bottom: 1rem;">Bon Cash</button>
                 </div>
             <div class="col-sm-12 col-xs-12">    
                 <button class="WIZALL" href="#retrait" (click)="roadTo('ba')" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem; font-family: 'caviar dreams bold'; color: white;padding-bottom: 1rem;" >Bon d'achat </button>
@@ -2727,10 +2727,10 @@
 </div>
 
 
-
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:1000px; min-height: -webkit-fill-available;">
+<!--Bon Cash-->
+<div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-bc'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:; min-height: -webkit-fill-available;">
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
-           <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+           <div class="row" style="background-color:rgb(255,144, 00);height: px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
@@ -2749,14 +2749,14 @@
                     </div>
                 </div>
             </div>
-        <form>
+       <form (ngSubmit)="boncashmodal()" #formcash="ngForm" >
         <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Envoyeur</div>
           <div class="form-group col-sm-12 col-xs-12">
             <div class="form-group col-sm-4 col-xs-4">
                 <label style="color: white;">Prénom</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Prénom">
+              <input type="text" placeholder="Prénom" style="height: 3.4rem;">
             </div>
           </div>
           <div class="form-group col-sm-12 col-xs-12">
@@ -2764,7 +2764,7 @@
                 <label style="color: white;" >Nom</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Nom">
+              <input type="text" placeholder="Nom" style="height: 3.4rem;">
             </div>
           </div>
           <div class="form-group col-sm-12 col-xs-12">
@@ -2772,7 +2772,7 @@
                 <label style="color: white;" >Téléphone</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Téléphone">
+              <input type="text" placeholder="Téléphone" style="height: 3.4rem;">
             </div>
           </div>
            <div class="form-group col-sm-12 col-xs-12">
@@ -2780,9 +2780,9 @@
                 <label style="color: white;" >Nationalité</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <select class="form-control">
+              <select class="form-control" style="height: 3.4rem;">
                 <option selected style="color: white;" >Carte Nationale</option>
-                <option>Nationale</option>
+                <option >Nationale</option>
                 <option>Nationale</option>
               </select>
             </div>
@@ -2792,7 +2792,7 @@
                 <label style="color: white;" >Type de piéce</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <select class="form-control">
+              <select class="form-control" style="height: 3.4rem;">
                 <option selected>Carte d'identité</option>
                 <option>carte</option>
                 <option>carte</option>
@@ -2804,15 +2804,15 @@
                 <label style="color: white;" >Montant</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Téléphone">
+              <input type="number" placeholder="Montant" style="height: 3.4rem;">
             </div>
           </div>
           <div class="form-group col-sm-12 col-xs-12">
             <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Numéro</label>
+                <label style="color: white;" >Numéro Carte</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Téléphone">
+              <input type="number" placeholder="Numéro Carte" style="height: 3.4rem;">
             </div>
           </div>
 
@@ -2822,7 +2822,7 @@
                 <label style="color: white;">Prénom</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Prénom">
+              <input type="text" placeholder="Prénom" style="height: 3.4rem;">
             </div>
           </div>
           <div class="form-group col-sm-12 col-xs-12">
@@ -2830,7 +2830,7 @@
                 <label style="color: white;" >Nom</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Nom">
+              <input type="text" placeholder="Nom" style="height: 3.4rem;">
             </div>
           </div>
           <div class="form-group col-sm-12 col-xs-12">
@@ -2838,15 +2838,121 @@
                 <label style="color: white;" >Téléphone</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Téléphone">
+              <input type="text" placeholder="Téléphone" style="height: 3.4rem;">
             </div>
           </div>
+        <div class="col-sm-12 col-xs-12">
+            <input type="button" value="valider"  class="btn btn-success" />
+            <input type="button" value="fermer"  class="btn btn-danger" />
+        </div>
         </form>
     </div>
 </div>
 </div>
+<!--fin Bon Cash-->
+<!--fin Bon d'achat-->
+<div class="row"  *ngIf="displayedPage=='accueil-mm-WIZALL-ba'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+        <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3">
+                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                     </div>
+                    <div class="col-xs-6 col-sm-6">
+                            <img src="assets/wizall-m.png" style="width: 100%; height: 16rem; "/>
+                     </div>
+                    <div class="col-xs-3 col-sm-3">
+                        <div class="row">
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                        <div class="row">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-sm-12 col-xs-12" id="retrait">
+            <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;" >
+                <h2 style="color:white; font-family:'caviar dreams bold';font-size: 2.3rem;border: 2px solid white; padding: 0.6rem;">Retrait avec code</h2>
+            </div>
+                <h3 *ngIf="retraitcodereussi" class="alert alert-success">Retrait avec code reussi!</h3>
+                <h3 *ngIf="echecretraitcode" class="alert alert-success">Echec de l'operation reussi!</h3>
+                    
+            <form name="transnat"  (ngSubmit)="bondachatmodal()" #formbondachat="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;" class="">
 
+                <div class="col-xs-12 col-sm-12">
+                    <div class="col-sm-5 col-xs-5">
+                        <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Code de retrait :</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-5">
+                        <input  style="border-radius: 2rem; height: 25px;  background-color: rgba(255,255,255,0.8);" autocomplete="off" type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required >
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xs-12" style="padding-top: 5rem;">
+                    <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  type="submit" class="btn btn-success" [disabled]="numclient==undefined || mnt<1"><i style="color: orange;" class="fa fa-check fa-2x"></i></button>
+                    <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                        </button>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>
+<!--fin Bon d'achat-->
+<!--Les modales bon Cash-->
 
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="color: orange;">Bon Cash</button>-->
+        
+   
+<!--Les deuxiémemodales bon Cash-->
+<!-- Large modal -->
+
+<!-- bon d'achat-->
+<!--<button type="button" style="color: orange;" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Bon d'achat</button>-->
+<div bsModal #modalbondachat="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form >
+            <div class="form-group col-sm-12 col-xs-12">
+                <div class="col-sm-6 col-xs-6">
+                    <h5>Envoyeur:</h5>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6">
+                            <label for="recipient-name" class="col-form-label">Code de validation:</label>
+                        </div>
+                       <div class="col-sm-6 col-xs-6">
+                            <input type="text" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <select class="form-control" style="height: 3.4rem;">
+                            <option selected style="color: white;" >Carte Nationale</option>
+                            <option >Nationale</option>
+                            <option>Nationale</option>
+                      </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3">
+                            <label for="recipient-name" class="col-form-label">Numéro de Carte:</label>
+                        </div>
+                        <div class="col-sm-3 col-xs-3">
+                            <input type="number" class="form-control" >
+                        </div>
+                    </div>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-primary">Valider</button>  
+            </div>
+        </form>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Valider</button>
+    </div>
+    </div>
+  </div>
 
 <!--retrait de bon-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-rb'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -3425,6 +3531,37 @@
     </div>
 </div>
 <!--findepotEMONEY-->
+<!--confirmretaiemoney-->
+<div bsModal #modalretraitConfirmEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitConfirm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabelretraitConfirm">Fenêtre de validation .</h4>
+      </div>
+      <div class="modal-body" (ngSubmit)="showmodalretraitConfirmEMONEY()">
+        <div class="form-inline">
+          <div>Info retrait</div>
+        </div>
+        <div class="form-inline">
+          <label >Ref :</label>
+          <input type="text" [(ngModel)]="transactionReference" autocomplete="off" id="transactionReference" name="transactionReference"  class="form-control" placeholder="Référence" required >
+        </div>
+        <div class="form-inline">
+          <label >OTP :</label>
+          <input type="text" [(ngModel)]="OTP" autocomplete="off"  id="OTP" name="OTP"  class="form-control" placeholder="OTP" required >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" value="valider" [disabled]="transactionReference==undefined || OTP==undefined" (click)="faireretraitsimpleConfirmEMONEY()" class="btn btn-success" />
+        <input type="button" value="annuler" (click)="hidemodalretraitConfirmEMONEY()" class="btn btn-danger" />
+      </div>
+    </div>
+  </div>
+</div>
+<!--finconfirmretraiemoney-->
 <!--retraitEMONEY-->
 <div bsModal #modalretraitEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
      <div class="modal-dialog modal-sm">
@@ -3457,41 +3594,11 @@
     </div>
 </div>
 <!--finretraitEMONEY-->
-<!--confirmretaiemoney-->
-<div bsModal #modalretraitConfirmEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" >
-      <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitConfirm()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabelretraitConfirm">Fenêtre de validation .</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-inline">
-          <div>Info retrait</div>
-        </div>
-        <div class="form-inline">
-          <label >Ref :</label>
-          <input type="text" [(ngModel)]="transactionReference" autocomplete="off" id="transactionReference" name="transactionReference"  class="form-control" placeholder="Référence" required >
-        </div>
-        <div class="form-inline">
-          <label >OTP :</label>
-          <input type="text" [(ngModel)]="OTP" autocomplete="off"  id="OTP" name="OTP"  class="form-control" placeholder="OTP" required >
-        </div>
-      </div>
-      <div class="modal-footer">
-        <input type="button" value="valider" [disabled]="transactionReference==undefined || OTP==undefined" (click)="faireretraitsimpleConfirmEMONEY()" class="btn btn-success" />
-        <input type="button" value="annuler" (click)="hidemodalretraitConfirmEMONEY()" class="btn btn-danger" />
-      </div>
-    </div>
-  </div>
-</div>
-<!--finconfirmretraiemoney-->
+
 <!--retraitaveccodeEMONEY-->
 <div bsModal #modalretraitcodeEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
-    <div class="modal-content" >
+    <div class="modal-content" (ngSubmit)="showmodalretraitaveccodeEMONEY()" >
       <div class="modal-header">
         <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcodeEMONEY()">
           <span aria-hidden="true">&times;</span>
@@ -3516,8 +3623,8 @@
 </div>
 <!--finretraitaveccodeEMONEY-->
 <!--Retraitcodeconfirme-->
-<div bsModal #modalretraitcodeConfirm="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div bsModal #modalretraitcodeConfirmEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" (ngSubmit)="showmodalretraitcodeEMONEY()">
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitcodeConfirm()">
@@ -3613,3 +3720,4 @@
         </div>
         
 </div>
+

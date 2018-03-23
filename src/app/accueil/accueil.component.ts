@@ -1844,6 +1844,7 @@ public pdvacueilmenumobilemoneyretour(){
 
    @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
    @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
+   @ViewChild('modalbondachat') public modalbondachat:ModalDirective;
   
   //Depot
   depotmodalWIZALL(){
@@ -1908,21 +1909,56 @@ faireretraitsimpleConfirmEMONEY(){
          this.hidemodalretraitConfirmEMONEY();
       }
       //retraitconfirm
+  showmodalretraitConfirmEMONEY(){
+     this.modalretraitEMONEY.show();
+    }
+    hidemodalretraitEMONEY(){
+     this.modalretraitEMONEY.hide()
+    } 
+  faireretraitsimpleEMONEY(){
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodalretraitEMONEY();
+      }
  
-      //finretraiconfir
+//bon achat
+ showmodalBonbachat(){
+     this.modalbondachat.show();
+    }
+    hidemodalBondachat(){
+     this.modalbondachat.hide()
+    }
+
+      //finretraiconfirm
+
+      //confirm retrait avec code
+  /*showmodalretraitcodeEMONEY(){
+     this.modalretraitcodeConfirmEMONEY.show();
+    }
+    hidemodalretraitcodeConfirm(){
+     this.modalretraitcodeConfirmEMONEY.hide()
+    } 
+  faireretraitaveccodeConfirm(){
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodalretraitcodeConfirm();
+      }
+      //confirm fin retrait avec code
+
       //retrait avec code
-  showmodalretraitcodeEMONEY(){
+  showmodalretraitConfirmEMONEY(){
      this.modalretraitcodeEMONEY.show();
     }
     hidemodalretraitcodeEMONEY(){
      this.modalretraitcodeEMONEY.hide()
-    }
-
-faireretraitaveccodeEMONEY(){
+    } 
+  faireretraitaveccodeConfirm(){
          let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodalretraitcodeEMONEY();
-      }
+      }*/
+      
+      //fin retrait avec code
 
   public selectretraitespeceaveccarte(){
     this.telephone = undefined ;
