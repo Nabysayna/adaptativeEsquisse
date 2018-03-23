@@ -434,6 +434,10 @@ body {
     #om-options{
         width: max-content !important;
     }
+
+    td{
+        order: 2px solid white;
+    }
 }
 
 .row{
