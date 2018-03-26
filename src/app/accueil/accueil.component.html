@@ -3073,7 +3073,6 @@
 <div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-eb'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
-                <div class="row">
                     <div class="col-xs-3 col-sm-3">
                             <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
                      </div>
@@ -3088,25 +3087,22 @@
                             <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
                         </div>
                     </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="padding-top: 10rem;">
+                <button class="WIZALL" href="#depot" (click)="roadTo('bc')" style="padding-left: 4rem; padding-right: 4rem;"  data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold'; font-size: 2.3rem;color: white;padding-bottom: 1rem;">Bon Cash</button>
+            </div>
+                <div class="col-sm-12 col-xs-12">
+                    <button class="WIZALL" href="#retrait" (click)="roadTo('ba')" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem; font-family: 'caviar dreams bold'; color: white;padding-bottom: 1rem;" >Bon d'achat </button>
                 </div>
-            </div>
-            <div class="col-sm-12 col-xs-12">
-                <div class="col-sm-12 col-xs-12" style="padding-top: 10rem;">
-                    <button class="WIZALL" href="#depot" (click)="roadTo('bc')" style="padding-left: 4rem; padding-right: 4rem;"  data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold'; font-size: 2.3rem;color: white;padding-bottom: 1rem;">Bon Cash</button>
-                </div>
-            <div class="col-sm-12 col-xs-12">
-                <button class="WIZALL" href="#retrait" (click)="roadTo('ba')" style="padding-left: 4rem; padding-right: 4rem;" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-size: 2.3rem; font-family: 'caviar dreams bold'; color: white;padding-bottom: 1rem;" >Bon d'achat </button>
-            </div>
-            </div>
         </div>
 </div>
 
+<!--Bon cash-->
 
-<!--Bon Cash-->
-<div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-bc'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:; min-height: -webkit-fill-available;">
-<div *ngIf="displayedPage=='accueil-mm-WIZALL-eb'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:1000px; min-height: -webkit-fill-available;">
-    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
-           <div class="row" style="background-color:rgb(255,144, 00);height: px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+<div *ngIf="displayedPage=='accueil-mm-WIZALL-eb-bc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:1000px; min-height: -webkit-fill-available;">
+    <div class="row" style="background-color:rgb(255,144, 00);height: px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
+        
+      <div class="row" style="background-color:rgb(255,144, 00);height: px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
@@ -3125,109 +3121,119 @@
                     </div>
                 </div>
             </div>
-       <form (ngSubmit)="boncashmodal()" #formcash="ngForm" >
+    <form (ngSubmit)="showmboncashmodalWIZALL()" #formboncash="ngForm" >
         <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Envoyeur</div>
           <div class="form-group col-sm-12 col-xs-12">
             <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;">Prénom</label>
+                <label style="color: white;padding-top: 2rem;">Prénom</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Prénom" style="height: 3.4rem;">
+              <input  [(ngModel)]="this.prenom" name="prenom" type="text" placeholder="Prénom" style="height: 3.4rem; border-radius: 2rem; border-color: transparent;">
             </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
             <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Nom</label>
+                <label style="color: white; padding-top: 2rem;" >Nom</label>
             </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Nom" style="height: 3.4rem;">
+            <div  class="form-group col-sm-7 col-xs-7">
+              <input [(ngModel)]="this.nom" name="nom" type="text" placeholder="Nom" style="height: 3.4rem;border-radius: 2rem; border-color: transparent;">
             </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
             <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Téléphone</label>
+                <label style="color: white; padding-top:2rem;" >Téléphone</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Téléphone" style="height: 3.4rem;">
+              <input [(ngModel)]="this.telephone" name="telephone" type="text" placeholder="Téléphone" style="height: 3.4rem; border-radius: 2rem; border-color: transparent;">
             </div>
-          </div>
-           <div class="form-group col-sm-12 col-xs-12">
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
             <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Nationalité</label>
+                <label style="color: white; padding-top:2rem;" >Nationalité</label>
             </div>
             <div class="form-group col-sm-7 col-xs-7">
-              <select class="form-control" style="height: 3.4rem;">
+              <select [(ngModel)]="this.nationalite" name="nationalite" class="form-control" style="height: 3.4rem;border-radius: 2rem;border-color: transparent;">
                 <option selected style="color: white;" >Carte Nationale</option>
                 <option >Nationale</option>
                 <option>Nationale</option>
               </select>
             </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Type de piéce</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <select class="form-control" style="height: 3.4rem;">
-                <option selected>Carte d'identité</option>
-                <option>carte</option>
-                <option>carte</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Montant</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input type="number" placeholder="Montant" style="height: 3.4rem;">
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Numéro Carte</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input type="number" placeholder="Numéro Carte" style="height: 3.4rem;">
-            </div>
-          </div>
-
-           <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Bénéficiaire</div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;">Prénom</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Prénom" style="height: 3.4rem;">
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Nom</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Nom" style="height: 3.4rem;">
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label style="color: white;" >Téléphone</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input type="text" placeholder="Téléphone" style="height: 3.4rem;">
-            </div>
-          </div>
-        <div class="col-sm-12 col-xs-12">
-            <input type="button" value="valider"  class="btn btn-success" />
-            <input type="button" value="fermer"  class="btn btn-danger" />
         </div>
-        </form>
+        <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white; padding-top: 2rem;" >Type de piéce</label>
+        </div>
+        <div class="form-group col-sm-7 col-xs-7">
+          <select [(ngModel)]="this.cni" name="cni" class="form-control" style="height: 3.4rem; border-radius: 2rem;border-color: transparent;">
+            <option selected>Carte d'identité</option>
+            <option>carte</option>
+            <option>carte</option>
+          </select>
+        </div>
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white; padding-top: 2rem;" >Montant</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input [(ngModel)]="this.montant" name="montant" type="number" placeholder="Montant" style="height: 3.4rem; border-radius: 2rem; border-color: transparent;">
+            </div>
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white; padding-top: 2rem;" >Numéro Carte</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input [(ngModel)]="this.cni" name="cni" type="number" placeholder="Numéro Carte" style="height:3.4rem; border-radius: 2rem; border-color: transparent;">
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Bénéficiaire</div>
+        <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white; padding-top: 2rem;">Prénom</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input [(ngModel)]="this.prenom" name="prenom" type="text" placeholder="Prénom" style="height: 3.4rem;border-radius: 2rem;border-color: transparent;">
+            </div>
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white;padding-top: 2rem;">Nom</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input [(ngModel)]="this.nom" name="nom" type="text" placeholder="Nom" style="height: 3.4rem; border-radius: 2rem; border-color: transparent;">
+            </div>
+        </div>
+        <div class="form-group col-sm-12 col-xs-12">
+            <div class="form-group col-sm-4 col-xs-4">
+                <label style="color: white; padding-top: 2rem;" >Téléphone</label>
+            </div>
+            <div class="form-group col-sm-7 col-xs-7">
+              <input [(ngModel)]="this.telephone" name="telephone" type="text" placeholder="Téléphone" style="height: 3.4rem; border-radius: 2rem; border-color: transparent;">
+            </div>
+        </div>
+        <div class="row text-center" style="padding-top: 6rem;">
+            <button type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;">
+                <i style="color: orange;" class="fa fa-check fa-2x"></i>
+            </button>
+            <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" >
+                <i class="fa fa-times fa-2x" style="color:orange;"></i>
+            </button>
+        </div>
+    </form>
+</div>  
     </div>
 </div>
-</div>
-<!--fin Bon Cash-->
-<!--fin Bon d'achat-->
-<div class="row"  *ngIf="displayedPage=='accueil-mm-WIZALL-ba'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+<!--fin bon cash-->
+
+
+<!--retrait de bon-->
+
+<!--Bon Cash-->
+
+<!--bon d'achat-->
+<div class="row"  *ngIf="displayedPage=='accueil-mm-WIZALL-eb-ba'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
         <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
@@ -3273,63 +3279,8 @@
     </div>
 </div>
 <!--fin Bon d'achat-->
-<!--Les modales bon Cash-->
 
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="color: orange;">Bon Cash</button>-->
-        
-   
-<!--Les deuxiémemodales bon Cash-->
-<!-- Large modal -->
 
-<!-- bon d'achat-->
-<!--<button type="button" style="color: orange;" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Bon d'achat</button>-->
-<div bsModal #modalbondachat="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-body">
-        <form >
-            <div class="form-group col-sm-12 col-xs-12">
-                <div class="col-sm-6 col-xs-6">
-                    <h5>Envoyeur:</h5>
-                </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-6">
-                            <label for="recipient-name" class="col-form-label">Code de validation:</label>
-                        </div>
-                       <div class="col-sm-6 col-xs-6">
-                            <input type="text" class="form-control" >
-                        </div>
-                    </div>
-                    <div class="row">
-                        <select class="form-control" style="height: 3.4rem;">
-                            <option selected style="color: white;" >Carte Nationale</option>
-                            <option >Nationale</option>
-                            <option>Nationale</option>
-                      </select>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-3">
-                            <label for="recipient-name" class="col-form-label">Numéro de Carte:</label>
-                        </div>
-                        <div class="col-sm-3 col-xs-3">
-                            <input type="number" class="form-control" >
-                        </div>
-                    </div>
-            </div>
-            <div class="col-sm-12 col-xs-12">
-              <button type="button" class="btn btn-primary">Valider</button>  
-            </div>
-        </form>
-      </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Valider</button>
-    </div>
-    </div>
-  </div>
-
-<!--retrait de bon-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-rb'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 0rem;">
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
@@ -4096,4 +4047,120 @@
           </div>
         </div> 
 </div>
+
+
+<div bsModal #modalbondachat="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form >
+            <div class="form-group col-sm-12 col-xs-12">
+                <div class="col-sm-6 col-xs-6">
+                    <h5>Envoyeur:</h5>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6">
+                            <label for="recipient-name" class="col-form-label">Code de validation:</label>
+                        </div>
+                       <div class="col-sm-6 col-xs-6">
+                            <input type="text" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <select class="form-control" style="height: 3.4rem;">
+                            <option selected style="color: white;" >Carte Nationale</option>
+                            <option >Nationale</option>
+                            <option>Nationale</option>
+                      </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3">
+                            <label for="recipient-name" class="col-form-label">Numéro de Carte:</label>
+                        </div>
+                        <div class="col-sm-3 col-xs-3">
+                            <input type="number" class="form-control" >
+                        </div>
+                    </div>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+              <button type="button" class="btn btn-primary">Valider</button>  
+            </div>
+        </form>
+      </div>
+    <div class="modal-footer">
+        <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button   type="button" class="btn btn-primary" >Valider</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--modale de bon cash-->
+
+
+
+
+
+
+<!--modal de bon cash-->
+<div bsModal #modalbondcash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" (ngSubmit)="showmboncashmodalWIZALL()" >
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideboncashmodalWIZALL()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form >
+            <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Envoyeur</div>
+                <div class="form-group">
+                    <label >Prénom : {{this.prenom}} </label>
+                </div>
+           <div class="form-group">
+                    <label >Nom : {{this.nom}} </label>
+                </div>
+           <div class="form-group">
+                <label >Téléphone : {{this.telphone}} </label>
+            </div>
+            <div class="form-group">
+                    <label >Nationalité : {{this.nationalite}} </label>
+            </div>
+            <div class="form-group">
+                    <label >Type de Carte : {{this.typedepiece}} </label>
+            </div>
+           <div class="form-group">
+                <label >Montant : {{this.montant}} </label>
+            </div>
+            <div class="form-group">
+                <label >Numéros Carte : {{this.cni}} </label>
+            </div>
+
+            <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Bénéficiaire</div>
+            <div class="form-group">
+                <label >Prénom : {{this.prenom}} </label>
+            </div>
+            <div class="form-group">
+                    <label >Nom : {{this.nom}} </label>
+            </div>
+            <div class="form-group">
+                    <label >Téléphone : {{this.telephone}} </label>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <input type="button" value="valider"  class="btn btn-success" />
+                <input type="button" value="fermer"  class="btn btn-danger" />
+            </div>
+       </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" value="valider" (click)="faireboncashWIZALL()" class="btn btn-success" />
+        <input type="button" value="annuler" (click)="hideboncashmodalWIZALL()" class="btn btn-danger" />
+      </div>
+    </div>
+  </div>
 </div>

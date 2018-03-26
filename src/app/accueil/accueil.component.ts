@@ -19,6 +19,7 @@ class Article {
   public description:string;
   public prix:number;
   public quantite:number;
+
 }
 
 @Component({
@@ -52,6 +53,9 @@ export class AccueilComponent implements OnInit {
   nom:string;
   coderetrait:number;
   servicevente:string;
+  nationalite:string;
+  typedepiece:string;
+  numerocarte:number;
 
   isselectretraitespeceaveccarte:boolean=true
   typerecherchegestion:string = "parmotif";
@@ -2012,12 +2016,8 @@ public pdvacueilmenumobilemoneyretour(){
 
    @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
    @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
-<<<<<<< HEAD
    @ViewChild('modalbondachat') public modalbondachat:ModalDirective;
-  
-=======
-
->>>>>>> 63645c528ccf96793191a68eb04f9faf052b35fe
+ 
   //Depot
   depotmodalWIZALL(){
      this.modaldepotWIZALL.show();
@@ -2051,7 +2051,7 @@ retirerWIZALL(){
   @ViewChild('modaldepotEMONEY') public modaldepotEMONEY:ModalDirective;
   @ViewChild('modalretraitEMONEY') public modalretraitEMONEY:ModalDirective;
   @ViewChild('modalretraitcodeEMONEY') public modalretraitcodeEMONEY:ModalDirective;
-
+  @ViewChild('modalbondcash') public modalbondcash:ModalDirective;
   @ViewChild('modalretraitConfirmEMONEY') public modalretraitConfirmEMONEY:ModalDirective;
 
   //Depot
@@ -2080,7 +2080,6 @@ faireretraitsimpleConfirmEMONEY(){
          this.hidemodalretraitConfirmEMONEY();
       }
       //retraitconfirm
-<<<<<<< HEAD
   showmodalretraitConfirmEMONEY(){
      this.modalretraitEMONEY.show();
     }
@@ -2093,46 +2092,26 @@ faireretraitsimpleConfirmEMONEY(){
          this.hidemodalretraitEMONEY();
       }
  
-//bon achat
- showmodalBonbachat(){
-     this.modalbondachat.show();
+//bon cash
+ showmboncashmodalWIZALL(){
+     this.modalbondcash.show();
     }
-    hidemodalBondachat(){
-     this.modalbondachat.hide()
+  hideboncashmodalWIZALL(){
+     this.modalbondcash.hide()
     }
+     faireboncashWIZALL(){
+         let depotInfo = {'nom':'wizall ','operateur':6,'operation':1};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hideboncashmodalWIZALL();
+      }
 
       //finretraiconfirm
+       public validateretraitespeceWIZALL(){
+      let data = {telephone:this.telephone, montant: this.montant, nationalite:this.nationalite, typedepiece:this.typedepiece, numerocarte:this.numerocarte};
 
-      //confirm retrait avec code
-  /*showmodalretraitcodeEMONEY(){
-     this.modalretraitcodeConfirmEMONEY.show();
-    }
-    hidemodalretraitcodeConfirm(){
-     this.modalretraitcodeConfirmEMONEY.hide()
-    } 
-  faireretraitaveccodeConfirm(){
-         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
-         this.mobileProcessing(JSON.stringify(depotInfo));
-         this.hidemodalretraitcodeConfirm();
-      }
-      //confirm fin retrait avec code
+      //
+  }
 
-=======
-
-      //finretraiconfir
->>>>>>> 63645c528ccf96793191a68eb04f9faf052b35fe
-      //retrait avec code
-  showmodalretraitConfirmEMONEY(){
-     this.modalretraitcodeEMONEY.show();
-    }
-    hidemodalretraitcodeEMONEY(){
-     this.modalretraitcodeEMONEY.hide()
-    } 
-  faireretraitaveccodeConfirm(){
-         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
-         this.mobileProcessing(JSON.stringify(depotInfo));
-         this.hidemodalretraitcodeEMONEY();
-      }*/
       
       //fin retrait avec code
 
