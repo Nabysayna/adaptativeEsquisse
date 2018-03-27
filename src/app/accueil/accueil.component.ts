@@ -1,6 +1,6 @@
 import { Component, OnInit , ViewChild ,ElementRef} from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import {TntService} from "../services/tnt.service";
+import {TntService, TntResponse} from "../services/tnt.service";
 import {WizallService} from "../services/wizall.service";
 import {OrangemoneyService} from "../services/orangemoney.service";
 import {TigocashService} from "../services/tigocash.service";
@@ -9,6 +9,13 @@ import {PostCashService } from 'app/services/postCash.service';
 import {ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ExpressocashService } from "../services/expressocash.service";
 import {GestionreportingService, Gestionreporting, Servicepoint} from "../services/gestionreporting.service";
+import { ComptabiliteService } from 'app/services/comptabilite.service';
+import {ActivatedRoute, Params} from '@angular/router';
+import { UtilsService } from 'app/services/utils.service';
+import { NAbonnementService, LAbonnementService, EFinancierService } from 'app/tnt/tntservices';
+import { NAbonnement, EFinancier, LAbonnement } from 'app/tnt/tntmodels';
+import { Location }  from '@angular/common';
+import { FacturierService } from 'app/services/facturier.service';
 
 
 
@@ -19,7 +26,6 @@ class Article {
   public description:string;
   public prix:number;
   public quantite:number;
-
 }
 
 @Component({
@@ -46,19 +52,17 @@ export class AccueilComponent implements OnInit {
   displayedPage : string = 'accueil' ;
   isMobile : boolean ;
   mnt:string;
-  numclient:string;
-  cni:number;
+  numclient:any;
+  cni:any;
   date:number;
   prenom:string;
   nom:string;
   coderetrait:number;
   servicevente:string;
-  nationalite:string;
-  typedepiece:string;
-  numerocarte:number;
 
   isselectretraitespeceaveccarte:boolean=true
   typerecherchegestion:string = "parmotif";
+  public servicepoint:Servicepoint[];
 
   public montant:any;
   public telephone:any;
@@ -69,12 +73,86 @@ export class AccueilComponent implements OnInit {
   public service:any;
   public libelle:any;
   public designation:any;
+  public libelleCharge : string ;
+  public montantCharge : number ;
+  public prenoma:string;
+  public telephonea:string;
+  public datedebut:any;
+  public datefin:any;
+  public quantite;any;
+  public sujet:string;
+  public nomservice:string;
+
+  verifierNumInput:string ;
+  verifierNumValide:boolean = false;
+  verifierNumInputValide:boolean = true;
+  erreur = false ;
+  token : string = JSON.parse(sessionStorage.getItem('currentUser')).baseToken ;
+  private singleTntWS: TntResponse ;
+
+  prenomNewClient : string ;
+  nomNewClient: string ;
+  telNewClient: number ;
+  adresseNewClient: string ;
+  regionNewClient: string ;
+  cniNewClient: string ;
+  nchipNewClient: number ;
+  ncarteNewClient: number ;
+  nbmNewClient: number;
+  tbouquetNewClient : string = 'Sans Abonnement';
+  nbm:number;
+  public retourTntWS: {}[] ;
+
+  nAbonnement:NAbonnement;
+	lAbonnement:LAbonnement;
+	eFinancier:EFinancier;
+
+  badge:string;
+  messagesucce:boolean=false;
+
+  tbouquet:string;
+  
+  caisseEtat: any;
+
+  compte:string;
+  etatsuccess:boolean=false;
+  etaterror:boolean=false;
 
   noma="";
   asc="";
   filtre:"";
 
+  message:any=false;
+  mntsde:number;
+  echeance:any;
+  refclientsde:number;
+  refFactureSDE:number;
+  nomclient:string;
+  statuspayment:boolean;
+
+  etat:boolean=true;
+  api:number=5;
+  compteur:any;
+
+
+  etat1:boolean=false;
+  etat2:boolean=false;
+
+  
+  detailfacturesenelec:any={errorCode:0,police:12545555,numeroFacture:156665,nom_client:'nom du client',montant:50000,dateEcheance:"12/3/2018"};
+  facture_deja_paye:boolean = false;
+  police:string;
+  num_facture:string;
+
   constructor(
+        private _facturierService : FacturierService,
+        private eFinancierService:EFinancierService,
+        private lAbonnementService: LAbonnementService,
+        private nAbonnementService: NAbonnementService,
+        private location: Location,
+        private _utilsService:UtilsService,
+        private route:ActivatedRoute,
+        private _comptabiliteService:ComptabiliteService,
         private _authService:AuthService,
         private _postCashService: PostCashService,
         private _tntService:TntService,
@@ -92,17 +170,20 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
   @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
   @ViewChild('modalPostCash') modalPostCash: ModalDirective;
+  @ViewChild('modalTnt') modalTnt: ModalDirective;
   @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
-
-
-  @ViewChild('modaldepotWIZALL') modaldepotWIZALL: ModalDirective;
-  @ViewChild('modalretraitWIZALL') modalretraitWIZALL: ModalDirective;
-  @ViewChild('modalbondachat') modalbondachat: ModalDirective;
+  @ViewChild('modalsde') public modalsde:ModalDirective;
+  @ViewChild('modalrapido') public modalrapido:ModalDirective;
+  @ViewChild('modalwoyofal') public modalwoyofal:ModalDirective;
+  @ViewChild('modaloolu') public modaloolu:ModalDirective;
+  @ViewChild('modalsenelec') public modalsenelec:ModalDirective;
 
 /******************************************************************************************************/
 
 
-  ngOnInit() {
+  ngOnInit() {          
+    
+
           localStorage.removeItem('om-depot') ;
           localStorage.removeItem('om-retrait') ;
 
@@ -115,18 +196,31 @@ export class AccueilComponent implements OnInit {
             if ( window.screen.width > 768 )
                 this.processus();
 
+       /* --------------ngOnInit TNT----------------*/
+          this.retrieveAlerteMessage() ;
+                this.route.params.subscribe( (params : Params) => {
+                this.nAbonnement = this.nAbonnementService.getNAbonnement(5);
+          });
+
+          this.route.params.subscribe( (params : Params) => {
+                this.lAbonnement = this.lAbonnementService.getLAbonnement(5);
+          });
+
+          this.route.params.subscribe( (params : Params) => {
+                this.eFinancier = this.eFinancierService.getEFinancier(5);
+          });
           /* --------------ngOnInit gestion reporting----------------*/
-          // this._gestionreportingService.servicepoint()
-          //         .subscribe(
-          //           data => {
-          //             this.servicepoint = data;
-          //             console.log(data)
-          //           },
-          //           error => console.log(error),
-          //           () => {
-          //             this.histop();
-          //           }
-          //  )
+          this._gestionreportingService.servicepoint()
+                  .subscribe(
+                    data => {
+                      this.servicepoint = data;
+                      console.log(data)
+                    },
+                    error => console.log(error),
+                    () => {
+                      this.histop();
+                    }
+           )
            /* --------------Autes parties----------------*/
 
   }
@@ -1578,11 +1672,13 @@ public pdvacueilmenumobilemoneyretour(){
                 var operation=sesion.data.operation;
                 switch(operation){
                   case 1:{
-                        this.validrechargementespece(sesion);
+                        console.log("PosteCash operation 1");
+                        // this.validrechargementespece(sesion);
                         break;
                   }
                   case 2:{
-                        this.validateachatjula(sesion);
+                    console.log("PosteCash operation 2");
+                        // this.validateachatjula(sesion);
                         break;
                   }
                   case 3:{
@@ -1603,6 +1699,7 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
+                      
                       // this.deposer(sesion);
                        break;
                        }
@@ -1783,6 +1880,18 @@ public pdvacueilmenumobilemoneyretour(){
     this.designation = undefined;
     this.libelle  = undefined;
     this.service   = undefined;
+    this.erreur = false ;
+    this.verifierNumValide = false ;
+    this.prenomNewClient =undefined ;
+    this.nomNewClient=undefined ;
+    this.telNewClient=undefined ;
+    this.adresseNewClient=undefined ;
+    this.regionNewClient=undefined ;
+    this.cniNewClient=undefined ;
+    this.nchipNewClient=undefined ;
+    this.ncarteNewClient=undefined ;
+    this.nbmNewClient=undefined;
+    this.tbouquetNewClient=undefined ;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(event){
@@ -1797,6 +1906,12 @@ public pdvacueilmenumobilemoneyretour(){
     console.log(numero);
     console.log(montant);
   }
+
+ /*-------------- --------TNT -------------------------------*/
+
+                  /* ----------- Traitement  -----------*/
+
+
 
 
   /**********************************************les modals***************************************/
@@ -1826,33 +1941,159 @@ public pdvacueilmenumobilemoneyretour(){
     /********** PostCash-transactions *********/
 
     achatJula(){
-      let depotInfo = {'nom':'PostCash achat jula','operateur':1,'operation':2,'nb_carte':this.nb_carte,'mt_carte':this.mt_carte};
+      let depotInfo = {'nom':'PostCash','operateur':1,'operation':2,'nb_carte':this.nb_carte,'mt_carte':this.mt_carte};
       this.mobileProcessing(JSON.stringify(depotInfo));
       this.reinitialiser();
       this.hidemodalPostCash();
     }
 
     rechargementEspecePostCash(){
-       let depotInfo = {'nom':'PostCash rechargement espece','operateur':1,'operation':1,'num':this.telephone,'montant':this.montant};
+       let depotInfo = {'nom':'PostCash','operateur':1,'operation':1,'num':this.telephone,'montant':this.montant};
        this.mobileProcessing(JSON.stringify(depotInfo));
        this.reinitialiser();
        this.hidemodalPostCash();
     }
 
     retraitEspeceAvecCartePostCash(){
-       let depotInfo = {'nom':'PostCash retait espece avec carte','operateur':1,'operation':3,'type':2,'num':this.telephone,'montant':this.montant};
+       let depotInfo = {'nom':'PostCash','operateur':1,'operation':3,'num':this.telephone,'montant':this.montant};
        this.mobileProcessing(JSON.stringify(depotInfo));
        this.reinitialiser();
        this.hidemodalPostCash();
     }
 
     retraitEspeceSansCartePostCash(){
-      let depotInfo = {'nom':'PostCash retait espece avec carte','operateur':1,'operation':3,'type':1,'num':this.telephone,'montant':this.montant,'codevalidation': this.codevalidation};
+      let depotInfo = {'nom':'PostCash','operateur':1,'operation':3,'num':this.telephone,'montant':this.montant,'codevalidation': this.codevalidation};
        this.mobileProcessing(JSON.stringify(depotInfo));
        this.reinitialiser();
        this.hidemodalPostCash();
     }
 
+    /*-------------- -------- Facturier -------------------------------*/
+
+          /********** TNT-modals ***************/
+          showmodalTnt(){
+            this.modalTnt.show();
+          }
+          hidemodalTnt(){
+            this.modalTnt.hide()
+          }
+
+        /********** TNT-Traitements ***************/
+          validVerifierNum(){
+            this.loading = true ;
+            this.erreur = false ;
+            this._tntService.checkNumber(this.token, this.verifierNumInput.toString()).then( response => {
+                this.singleTntWS = response ;
+                this.noma = this.singleTntWS.nom ;
+                this.prenoma = this.singleTntWS.prenom ;
+                this.telNewClient = Number(this.singleTntWS.tel);
+                this.nchipNewClient = Number(this.singleTntWS.n_chip) ;
+                this.ncarteNewClient = Number(this.singleTntWS.n_carte) ;
+                this.cni = this.singleTntWS.cni;
+
+                if (this.singleTntWS.id_typeabonnement=="1")
+                  this.tbouquet = "Maanaa";
+                if (this.singleTntWS.id_typeabonnement=="2")
+                  this.tbouquet = "Boul Khool";
+                if (this.singleTntWS.id_typeabonnement=="3")
+                  this.tbouquet = "Maanaa + Boul Khool";
+
+                this.verifierNumValide = true;
+                this.verifierNumInputValide = false;
+
+                this.loading = false ;
+            });
+            sessionStorage.removeItem('dataImpression');
+            this.roadTo('nv');
+          }
+
+        validnabonTNT(){
+        
+            let typedebouquet : number ;
+            if(this.tbouquet == "Maanaa") typedebouquet=1;
+            if(this.tbouquet == "Boul khool") typedebouquet=2;
+            if(this.tbouquet == "Maanaa + Boul khool") typedebouquet=3;
+      
+            sessionStorage.setItem('curentProcess',JSON.stringify({'token':this.token,'nom':'Tnt nouvel abonnement','operateur':4,'operation':1,'typedebouquet':typedebouquet,'tel':this.telNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'prenom':this.prenoma,'nomclient':this.noma,'duree':this.nbm,'cni':''}));
+            console.log("Abonnement valider avec success");
+            this.modalTnt.hide();
+            this.reinitialiser();
+        }
+
+        vendreDecodeurTNT(){
+          var typedebouquet : number ;
+         var prix:number ;
+         if(this.tbouquetNewClient == "Sans Abonnement"){
+           typedebouquet=0;
+           prix = 15000 ;
+         }
+         if(this.tbouquetNewClient == "+ 1 Mois"){
+           typedebouquet=1;
+           prix = 19500 ;
+         }
+         if(this.tbouquetNewClient == "+ 3 Mois"){
+           typedebouquet=3;
+           prix = 28000 ;
+         }
+         console.log(JSON.stringify({'token':this.token,'nom':'Tnt vente decodeur','operateur':4,'operation':2,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient,'typedebouquet':typedebouquet,'montant':prix}));
+         sessionStorage.setItem('curentProcess',JSON.stringify({'token':this.token,'nom':'Tnt vente decodeur','operateur':4,'operation':2,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient,'typedebouquet':typedebouquet,'montant':prix}));
+        
+        this.modalTnt.hide();
+         this.reinitialiser() ;
+     
+       }
+     
+       vendreCarteTNT(){
+        console.log({'nom':'Tnt vente carte','operateur':4,'operation':3,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient});
+        //sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Tnt vente carte','operateur':4,'operation':3,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient}));
+        this.modalTnt.hide();
+        this.reinitialiser();
+ 
+       }
+
+      listerAbonnements(){
+          this.loading = true ;
+          this.erreur = false ;
+    
+          this._tntService.listAbonnement(this.token).then( response => {
+            this.retourTntWS = response ;
+            this.loading = false ;
+          });
+      }
+    
+      listerVenteDeco(){
+          this.loading = true ;
+          this.erreur = false ;
+    
+          this._tntService.listeVenteDecods(this.token).then( response => {
+            this.retourTntWS = response.reverse() ;
+            this.loading = false ;
+          });
+      }
+    
+      listerVenteCarte(){
+          this.loading = true ;
+          this.erreur = false ;
+          console.log("*****************listerVenteCarte************")
+          this._tntService.listerVenteCartes(this.token).then( response => {
+            this.retourTntWS = response.reverse() ;
+            this.loading = false ;
+          });
+      }
+
+      retrieveAlerteMessage(){
+        let periodicVerifier = setInterval(()=>{
+          this._utilsService.consulterLanceurDalerte().subscribe(
+            data => {
+              this.message=data.message;
+            },
+            error => alert(error),
+            () => {
+              console.log(3)
+            }
+          )
+        },10000);
+      }
     /*-------------- --------GESTIONREPORTING-------------------------------*/
 
         /********** gestionreporting-variables ***************/
@@ -1861,6 +2102,7 @@ public pdvacueilmenumobilemoneyretour(){
         selectionjour:string;
         selectionintervalledateinit:string;
         selectionintervalleddatefinal:string;
+
         loading = false ;
 
         /********** gestionreporting-modals ***************/
@@ -1872,10 +2114,12 @@ public pdvacueilmenumobilemoneyretour(){
         }
 
         /***********gestionreporting-traitement****************************/
-            historiquejour(){
+
+            histop(){
+              console.log('reportingdate init');
               this.loading = true ;
-              this.selectionintervalledateinit = undefined;
-              this.selectionintervalleddatefinal = undefined;
+              let datenow = ((new Date()).toJSON()).split("T",2)[0];
+              this.selectionjour = datenow;
               this._gestionreportingService.reportingdate({idpdv:10, type:'jour', infotype:this.selectionjour})
                 .subscribe(
                   data => {
@@ -1887,6 +2131,25 @@ public pdvacueilmenumobilemoneyretour(){
                   }
                 )
             }
+            historiquejour(){
+              this.loading = true ;
+              this.selectionintervalledateinit = undefined;
+              this.selectionintervalleddatefinal = undefined;
+              this._gestionreportingService.reportingdate({idpdv:10, type:'jour', infotype:this.selectionjour})
+                .subscribe(
+                  data => {
+                    console.log("resultats recherche");
+                    console.log(data);
+                    this.gestionreporting = data;
+                  },
+                  error => console.log(error),
+                  () => {
+                    this.loading = false ;
+                  }
+                )
+              console.log(JSON.stringify({idpdv:10, type:'jour', infotype: this.selectionjour}));
+            }
+
             historiqueintervalle(){
               console.log('reportingdate intervalle');
               this.loading = true ;
@@ -1894,6 +2157,8 @@ public pdvacueilmenumobilemoneyretour(){
               this._gestionreportingService.reportingdate({idpdv:10, type:'intervalle', infotype:this.selectionintervalledateinit+" "+this.selectionintervalleddatefinal})
                 .subscribe(
                   data => {
+                    console.log("resultats recherche");
+                    console.log(data);
                     this.gestionreporting = data;
                   },
                   error => console.log(error),
@@ -2001,6 +2266,286 @@ public pdvacueilmenumobilemoneyretour(){
               )
           }
 
+          validCharge(){
+            this.loading = true ;
+            console.log(JSON.stringify({libelle:this.libelleCharge, service:this.service, montant:this.montantCharge}));
+            this._gestionreportingService.ajoutdepense({libelle:this.libelleCharge, service:this.service, montant:this.montantCharge})
+              .subscribe(
+                data => {
+                  console.log(data)
+                  this.libelleCharge = "" ;
+                  this.service = "" ;
+                  this.montantCharge = 0 ;
+                },
+                error => console.log(error),
+                () => {
+                  this.loading = false ;
+                }
+              )
+          }
+
+          validvente(){
+              this.loading = true ;
+              if(this.servicevente.toLowerCase()=='assurance'.toLowerCase()){
+                let tempdesignation=this.designation;
+                this.designation=JSON.stringify({desig:tempdesignation, nom:this.noma, prenom:this.prenoma, telephone:this.telephonea, datedebut:this.datedebut.toString(), datefin:this.datefin.toString()})
+                console.log("Obj designé "+this.designation);
+              }
+          
+              console.log(JSON.stringify({servicevente:this.servicevente, designation:this.designation, quantite:this.quantite}));
+              this._gestionreportingService.vente({servicevente:this.servicevente, designation:this.designation, quantite:this.quantite})
+                .subscribe(
+                  data => {
+                    console.log("------ vente -----------")
+                    console.log(data)
+                    this.designation = "" ;
+                    this.servicevente = "" ;
+                    this.quantite=0;
+                    this.datedebut="";
+                    this.datefin="";
+                    this.noma="";
+                    this.telephonea="";
+                    this.prenoma="";
+                  },
+                  error => console.log(error),
+                  () => {
+                    this.loading = false ;
+                  }
+                )
+        
+          }
+
+          validreclamation(){
+            console.log("-------------------------------------------")
+            this.loading = true ;
+            console.log({sujet:this.sujet, nomservice:this.nomservice, message:this.message});
+            this._gestionreportingService.reclamation({sujet:this.sujet, nomservice:this.nomservice, message:this.message})
+              .subscribe(
+                data => {
+                  console.log(data)
+                  this.sujet = "" ;
+                  this.nomservice = "" ;
+                  this.message = "" ;
+                },
+                error => console.log(error),
+                () => {
+                  this.loading = false ;
+                }
+              )
+          }
+
+          validerapprovision(idcaisse){
+            this.loading = true;
+            this._comptabiliteService.validerapprovisionn({idcaisse:idcaisse})
+              .subscribe(
+                data => {
+                  this.caisseEtat.etat =1;
+                  this.caisseEtat.soldeFermet = this.caisseEtat.soldeOuvert;
+                },
+                error => alert(error),
+                () => {
+                  this.loading = false ;
+                }
+              )
+          }
+
+/*-------------- --------SDE------------------------------*/
+        
+     /***********  SDE-Modal  *********** */
+          showmodalsde(){
+            this.modalsde.show();
+            // this.detailfactursde();
+          }
+
+          hidemodalsde(){
+            this.modalsde.hide();
+          }
+
+  /***********  SDE-Traitement   *********** */
+          detailfactursde(){
+            this._facturierService.detailreglementsde(this.refclientsde).then(response =>{
+              if(response.response==null){
+                 this.message=true;
+        
+              }else{
+                 this.etat=true;
+                 this.refFactureSDE=response.response.reference_facture;
+                 this.nomclient=response.reponse.nom;
+                 this.echeance=response.response.date_echeance;
+                 this.statuspayment=response.response.statuspayment;
+                 this.mntsde=response.response.montant;
+              }
+              console.log(response);
+            });
+          }
+
+          paimantsde(){
+            this._facturierService.paimentsde(this.mntsde,this.refclientsde,this.refFactureSDE,'sde').then( response =>{
+               this.hidemodalsde();
+                this.dataImpression = {
+                  apiservice:'postecash',
+                  service:'achatcodewayafal',
+                  infotransaction:{
+                    client:{
+                      transactionPostCash: response.transactionId,
+                      transactionBBS: 'Id BBS',
+                       referenceclient: this.refclientsde,
+                       montant: this.mntsde,
+                       refFacture: this.refFactureSDE,
+                    },
+        
+                  },
+                }
+                sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
+                this.router.navigate(['accueil/impression']);
+            });
+          }
+
+  /*--------------------    Rapido  ----------------------------------- */
+        /************* Rapido-Modal *********/
+        showmodalrapido(){
+            this.modalrapido.show();
+        }
+        
+        hidemodalrapido(){
+           this.modalrapido.hide();
+           this.montant=undefined;
+           this.badge=undefined;
+           this.numclient=undefined;
+        }
+        
+        /************* Rapido-Traitement *********/
+
+        validerrapido(){
+              this._facturierService.validerrapido(this.numclient,this.montant,this.badge).then(response =>{
+                  console.log(response);
+                  this.messagesucce=true;
+                  this.modalrapido.hide();
+                  this.montant=undefined;
+                  this.badge=undefined;
+                  this.numclient=undefined;
+              });
+        }
+
+  
+  /*--------------------    Woyofal  ----------------------------------- */
+        /************* Woyofal- Modal *********/
+
+        showmodalwoyofal(){
+          this.modalwoyofal.show();
+        }
+       
+        hidemodalwoyofal(){
+          this.modalwoyofal.hide();
+        }
+
+         /************* Woyofal- Traitement *********/
+
+        validerwoyofal(){
+          this._facturierService.validerwoyofal(this.api,this.montant,this.compteur).then(response =>{
+            console.log(response);
+            this.modalwoyofal.hide();
+            this.dataImpression = {
+                apiservice:'postecash',
+                service:'achatcodewayafal',
+                infotransaction:{
+                  client:{
+                    transactionPostCash: response.transactionId,
+                    transactionBBS: 'Id BBS',
+                     codewoyafal: response.code,
+                     montant: this.montant,
+                     compteur: this.compteur,
+                  },
+      
+                },
+              }
+              sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
+              this.router.navigate(['accueil/impression']);
+          });
+        }
+
+    /*--------------------    Oolusolar  ----------------------------------- */
+        /************* oolusolar- Modal *********/
+
+        hidemodaloolu(){
+           this.modaloolu.hide();
+        }
+
+        showmodaloolu(){
+           this.modaloolu.show();
+        }
+         /************* oolusolar- Traitement *********/
+          payeroolusolar(){
+                this._facturierService.payeroolusolar("00221"+this.telephone.toString(),this.compte,this.montant).then(response =>{
+                  console.log(response);
+                  this.montant=undefined;
+                  this.compte=undefined;
+                  this.telephone=undefined;
+                });
+          }
+
+
+    /*--------------------   Senelec ----------------------------------- */
+        /************* Senelec- Modal *********/
+          showmodalsenelec(){
+            this.detailfactsenelec();
+          }
+          hidemodalsenelec(){
+            this.modalsenelec.hide();
+          }
+        /************* Senelec- Traitement *********/
+
+          detailfactsenelec(){
+            this._facturierService.detailfacturesenelec(this.police,this.num_facture).then(response =>{
+               if(response.errorCode==0){
+                 this.etat2=true;
+                 this.detailfacturesenelec.police=response.police;
+                 this.detailfacturesenelec.numeroFacture=response.num_facture;
+                 this.detailfacturesenelec.nomclient=response.nom_client;
+                 this.detailfacturesenelec.montant=response.montant;
+                 this.detailfacturesenelec.dateEcheance=response.dateEcheance;
+       
+                 this.modalsenelec.show();
+               }else{
+                 console.log(response);
+                 this.etat1=true;
+                 this.detailfacturesenelec.errorCode=response.errorCode;
+                 this.modalsenelec.show();
+               }
+       
+            });
+          }
+          validerpaimentsenelec(){
+           this._facturierService.validerpaimentsenelec(this.montant,this.police,this.num_facture,this.service).then(response =>{
+             if(response.errorCode==0){
+                this.modalsenelec.hide();
+                this.dataImpression = {
+                   apiservice:'postecash',
+                   service:'reglementsenelec',
+                   infotransaction:{
+                     client:{
+                       transactionPostCash: response.transactionId,
+                       transactionBBS: 'Id BBS',
+                       police: this.police,
+                       facture: this.num_facture,
+                       montant: response.montant_reel,
+       
+                     },
+       
+                   },
+                 }
+                 sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
+                 this.router.navigate(['accueil/impression']);
+                console.log(response);
+             }else{
+               console.log(response);
+               this.modalsenelec.hide();
+             }
+       
+          });
+       
+          }
+
 
   //depotTigoCash
       depotTigoCash(){
@@ -2017,7 +2562,11 @@ public pdvacueilmenumobilemoneyretour(){
        console.log(iziInfo);
      }
   /**************************************************WIZALL****************************************/
- 
+
+   @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
+   @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
+   @ViewChild('modalbondachat') public modalbondachat:ModalDirective;
+
   //Depot
   depotmodalWIZALL(){
      this.modaldepotWIZALL.show();
@@ -2051,7 +2600,7 @@ retirerWIZALL(){
   @ViewChild('modaldepotEMONEY') public modaldepotEMONEY:ModalDirective;
   @ViewChild('modalretraitEMONEY') public modalretraitEMONEY:ModalDirective;
   @ViewChild('modalretraitcodeEMONEY') public modalretraitcodeEMONEY:ModalDirective;
-  @ViewChild('modalbondcash') public modalbondcash:ModalDirective;
+
   @ViewChild('modalretraitConfirmEMONEY') public modalretraitConfirmEMONEY:ModalDirective;
 
   //Depot
@@ -2074,7 +2623,7 @@ fairedepotEMONEY(){
     hidemodalretraitConfirmEMONEY(){
      this.modalretraitConfirmEMONEY.hide()
     }
-faireretraitsimpleConfirmEMONEY(){
+    faireretraitsimpleConfirmEMONEY(){
          let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodalretraitConfirmEMONEY();
@@ -2085,34 +2634,50 @@ faireretraitsimpleConfirmEMONEY(){
     }
     hidemodalretraitEMONEY(){
      this.modalretraitEMONEY.hide()
-    } 
+    }
   faireretraitsimpleEMONEY(){
          let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodalretraitEMONEY();
       }
- 
-//bon cash
- showmboncashmodalWIZALL(){
-     this.modalbondcash.show();
+
+//bon achat
+ showmodalBonbachat(){
+     this.modalbondachat.show();
     }
-  hideboncashmodalWIZALL(){
-     this.modalbondcash.hide()
+    hidemodalBondachat(){
+     this.modalbondachat.hide()
     }
-     faireboncashWIZALL(){
-         let depotInfo = {'nom':'wizall ','operateur':6,'operation':1};
-         this.mobileProcessing(JSON.stringify(depotInfo));
-         this.hideboncashmodalWIZALL();
-      }
 
       //finretraiconfirm
-       public validateretraitespeceWIZALL(){
-      let data = {telephone:this.telephone, montant: this.montant, nationalite:this.nationalite, typedepiece:this.typedepiece, numerocarte:this.numerocarte};
 
-      //
-  }
+      //confirm retrait avec code
+  /*showmodalretraitcodeEMONEY(){
+     this.modalretraitcodeConfirmEMONEY.show();
+    }
+    hidemodalretraitcodeConfirm(){
+     this.modalretraitcodeConfirmEMONEY.hide()
+    }
+  faireretraitaveccodeConfirm(){
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodalretraitcodeConfirm();
+      }
+      //confirm fin retrait avec code
 
-      
+      //retrait avec code
+  showmodalretraitConfirmEMONEY(){
+     this.modalretraitcodeEMONEY.show();
+    }
+    hidemodalretraitcodeEMONEY(){
+     this.modalretraitcodeEMONEY.hide()
+    }
+  faireretraitaveccodeConfirm(){
+         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodalretraitcodeEMONEY();
+      }*/
+
       //fin retrait avec code
 
   public selectretraitespeceaveccarte(){
@@ -2130,6 +2695,5 @@ faireretraitsimpleConfirmEMONEY(){
       let data = {telephone:this.telephone,montant: this.montant};
       //
   }
-
 
 }
