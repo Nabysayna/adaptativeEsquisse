@@ -95,6 +95,10 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
 
 
+  @ViewChild('modaldepotWIZALL') modaldepotWIZALL: ModalDirective;
+  @ViewChild('modalretraitWIZALL') modalretraitWIZALL: ModalDirective;
+  @ViewChild('modalbondachat') modalbondachat: ModalDirective;
+
 /******************************************************************************************************/
 
 
@@ -2013,10 +2017,6 @@ public pdvacueilmenumobilemoneyretour(){
        console.log(iziInfo);
      }
   /**************************************************WIZALL****************************************/
-
-   @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
-   @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
-   @ViewChild('modalbondachat') public modalbondachat:ModalDirective;
  
   //Depot
   depotmodalWIZALL(){
