@@ -59,6 +59,12 @@ export class AccueilComponent implements OnInit {
   nom:string;
   coderetrait:number;
   servicevente:string;
+  telephoneen:string;
+  prenomen:string;
+  prenomben:string;
+  nomben:string;
+  nomen:string;
+
 
   isselectretraitespeceaveccarte:boolean=true
   typerecherchegestion:string = "parmotif";
@@ -137,7 +143,6 @@ export class AccueilComponent implements OnInit {
 
   etat1:boolean=false;
   etat2:boolean=false;
-
   
   detailfacturesenelec:any={errorCode:0,police:12545555,numeroFacture:156665,nom_client:'nom du client',montant:50000,dateEcheance:"12/3/2018"};
   facture_deja_paye:boolean = false;
@@ -2565,7 +2570,7 @@ public pdvacueilmenumobilemoneyretour(){
 
    @ViewChild('modaldepotWIZALL') public modaldepotWIZALL:ModalDirective;
    @ViewChild('modalretraitWIZALL') public modalretraitWIZALL:ModalDirective;
-   @ViewChild('modalbondachat') public modalbondachat:ModalDirective;
+   @ViewChild('modalBonDachat') public modalBonDachat:ModalDirective;
 
   //Depot
   depotmodalWIZALL(){
@@ -2600,7 +2605,7 @@ retirerWIZALL(){
   @ViewChild('modaldepotEMONEY') public modaldepotEMONEY:ModalDirective;
   @ViewChild('modalretraitEMONEY') public modalretraitEMONEY:ModalDirective;
   @ViewChild('modalretraitcodeEMONEY') public modalretraitcodeEMONEY:ModalDirective;
-
+  @ViewChild('modalbonCash') public modalbonCash:ModalDirective;
   @ViewChild('modalretraitConfirmEMONEY') public modalretraitConfirmEMONEY:ModalDirective;
 
   //Depot
@@ -2641,14 +2646,30 @@ fairedepotEMONEY(){
          this.hidemodalretraitEMONEY();
       }
 
-//bon achat
- showmodalBonbachat(){
-     this.modalbondachat.show();
+//bon cash
+ showmodalBonCash(){
+     this.modalbonCash.show();
     }
-    hidemodalBondachat(){
-     this.modalbondachat.hide()
+    hidemodalBonCash(){
+     this.modalbonCash.hide()
     }
-
+faireBonCash(){
+         let depotInfo = {'nom':'WIZALL ','operateur':6,'operation':1};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodalBonCash();
+      }
+      //bon achat
+ showmodalBonDachat(){
+     this.modalBonDachat.show();
+    }
+    hidebondachatmodal(){
+     this.modalBonDachat.hide()
+    }
+fairebondachat(){
+         let depotInfo = {'nom':'WIZALL ','operateur':6,'operation':1};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidebondachatmodal();
+      }
       //finretraiconfirm
 
       //confirm retrait avec code
