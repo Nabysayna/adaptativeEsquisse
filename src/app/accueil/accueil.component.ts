@@ -331,6 +331,7 @@ export class AccueilComponent implements OnInit {
 
 
        case 4:{
+             console.log("session tnt");
              var operation=sesion.data.operation;
 
              switch(operation){
@@ -1673,12 +1674,12 @@ public pdvacueilmenumobilemoneyretour(){
                 switch(operation){
                   case 1:{
                         console.log("PosteCash operation 1");
-                        // this.validrechargementespece(sesion);
+                         this.validrechargementespece(sesion);
                         break;
                   }
                   case 2:{
                     console.log("PosteCash operation 2");
-                        // this.validateachatjula(sesion);
+                        this.validateachatjula(sesion);
                         break;
                   }
                   case 3:{
@@ -1746,14 +1747,17 @@ public pdvacueilmenumobilemoneyretour(){
 
              switch(operation){
               case 1:{
+                   console.log('salut');
                    this.validnabon(sesion);
                    break;
               }
               case 2:{
+                console.log('salut');
                   this.vendreDecodeur(sesion);
                   break;
               }
               case 3:{
+                  console.log('salut');
                   this.vendreCarte(sesion);
                   break;
               }
@@ -1783,14 +1787,15 @@ public pdvacueilmenumobilemoneyretour(){
                  // this.payerSenelecWizall(sesion);
                   break;
               }
+              
               default : break;
              }
        }
 
        case 7 :{
              var operation=sesion.data.operation;
-         console.log(sesion);
-         console.log('EMONEY');
+             console.log(sesion);
+             console.log('EMONEY');
              switch(operation){
               case 1:{
                   // this.cashInWizall(sesion);
@@ -1808,6 +1813,45 @@ public pdvacueilmenumobilemoneyretour(){
               default : break;
              }
        }
+
+        case 8 :{
+              var operation=sesion.data.operation;
+              console.log(sesion);
+              console.log('Facturier');
+              switch(operation){
+                    case 1:{
+                          console.log('SDE');
+                          this.paimantsdeFacturier(sesion);
+                          break;
+                    }
+
+                    case 2:{
+                        console.log('Rapido');
+                        this. rechargeRapido(sesion);
+                        break;
+                    }
+
+                    case 3:{
+                          console.log('Woyofal');
+                          this.payerSDEWizall(sesion);
+                          break;
+                    }
+
+                    case 4:{
+                        console.log('Senelect');
+                        this.paimentsenelec(sesion);
+                        break;
+                    }
+
+                    case 5:{
+                        console.log('Oolu solar');
+                        this.payeroolusolarFacturier(sesion);
+                        break;
+                    }
+
+                    default : break;
+              }
+        }
 
         default:break;
       }
@@ -2013,40 +2057,50 @@ public pdvacueilmenumobilemoneyretour(){
             if(this.tbouquet == "Maanaa") typedebouquet=1;
             if(this.tbouquet == "Boul khool") typedebouquet=2;
             if(this.tbouquet == "Maanaa + Boul khool") typedebouquet=3;
-      
-            sessionStorage.setItem('curentProcess',JSON.stringify({'token':this.token,'nom':'Tnt nouvel abonnement','operateur':4,'operation':1,'typedebouquet':typedebouquet,'tel':this.telNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'prenom':this.prenoma,'nomclient':this.noma,'duree':this.nbm,'cni':''}));
-            console.log("Abonnement valider avec success");
+            
+            let depotInfo = {'token':this.token,'nom':'Tnt','operateur':4,'operation':1,'typedebouquet':typedebouquet,'tel':this.telNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'prenom':this.prenoma,'nomclient':this.noma,'duree':this.nbm,'cni':''};
+            this.mobileProcessing(JSON.stringify(depotInfo));
+            //sessionStorage.setItem('curentProcess',JSON.stringify({'token':this.token,'nom':'Tnt nouvel abonnement','operateur':4,'operation':1,'typedebouquet':typedebouquet,'tel':this.telNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'prenom':this.prenoma,'nomclient':this.noma,'duree':this.nbm,'cni':''}));
+            
             this.modalTnt.hide();
             this.reinitialiser();
         }
 
         vendreDecodeurTNT(){
           var typedebouquet : number ;
-         var prix:number ;
-         if(this.tbouquetNewClient == "Sans Abonnement"){
-           typedebouquet=0;
-           prix = 15000 ;
-         }
-         if(this.tbouquetNewClient == "+ 1 Mois"){
-           typedebouquet=1;
-           prix = 19500 ;
-         }
-         if(this.tbouquetNewClient == "+ 3 Mois"){
-           typedebouquet=3;
-           prix = 28000 ;
-         }
-         console.log(JSON.stringify({'token':this.token,'nom':'Tnt vente decodeur','operateur':4,'operation':2,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient,'typedebouquet':typedebouquet,'montant':prix}));
-         sessionStorage.setItem('curentProcess',JSON.stringify({'token':this.token,'nom':'Tnt vente decodeur','operateur':4,'operation':2,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient,'typedebouquet':typedebouquet,'montant':prix}));
+          var prix:number ;
+
+          this.modalTnt.hide();
+          console.log("operation en cour");
+
+          if(this.tbouquetNewClient == "Sans Abonnement"){
+            typedebouquet=0;
+            prix = 15000 ;
+          }
+          if(this.tbouquetNewClient == "+ 1 Mois"){
+            typedebouquet=1;
+            prix = 19500 ;
+          }
+          if(this.tbouquetNewClient == "+ 3 Mois"){
+            typedebouquet=3;
+            prix = 28000 ;
+          }
+
+         let depotInfo = {'token':this.token,'nom':'Tnt vente decodeur','operateur':4,'operation':2,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient,'typedebouquet':typedebouquet,'montant':prix};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+
+         //sessionStorage.setItem('curentProcess',JSON.stringify({'token':this.token,'nom':'Tnt vente decodeur','operateur':4,'operation':2,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient,'typedebouquet':typedebouquet,'montant':prix}));
         
-        this.modalTnt.hide();
          this.reinitialiser() ;
      
        }
      
        vendreCarteTNT(){
-        console.log({'nom':'Tnt vente carte','operateur':4,'operation':3,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient});
-        //sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Tnt vente carte','operateur':4,'operation':3,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient}));
+        console.log('En cour de traitement');
         this.modalTnt.hide();
+        let depotInfo = {'nom':'Tnt vente carte','operateur':4,'operation':3,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient};
+        this.mobileProcessing(JSON.stringify(depotInfo));
+        //sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Tnt vente carte','operateur':4,'operation':3,'prenom':this.prenomNewClient,'tel':this.telNewClient,adresse:this.adresseNewClient, region:this.regionNewClient, cni:this.cniNewClient,'chip':this.nchipNewClient,'carte':this.ncarteNewClient,'nomclient':this.nomNewClient}));
         this.reinitialiser();
  
        }
@@ -2114,7 +2168,9 @@ public pdvacueilmenumobilemoneyretour(){
         }
 
         /***********gestionreporting-traitement****************************/
-
+            currencyFormat(somme) : String{
+              return Number(somme).toLocaleString() ;
+            }
             histop(){
               console.log('reportingdate init');
               this.loading = true ;
@@ -2354,7 +2410,7 @@ public pdvacueilmenumobilemoneyretour(){
      /***********  SDE-Modal  *********** */
           showmodalsde(){
             this.modalsde.show();
-            // this.detailfactursde();
+            this.detailfactursde();
           }
 
           hidemodalsde(){
@@ -2379,9 +2435,9 @@ public pdvacueilmenumobilemoneyretour(){
             });
           }
 
-          paimantsde(){
-            this._facturierService.paimentsde(this.mntsde,this.refclientsde,this.refFactureSDE,'sde').then( response =>{
-               this.hidemodalsde();
+          paimantsdeFacturier(object){
+            this._facturierService.paimentsde(object.data.mntsde,object.data.refclientsde,object.data.refFactureSDE,object.data.mom).then( response =>{
+                this.hidemodalsde();
                 this.dataImpression = {
                   apiservice:'postecash',
                   service:'achatcodewayafal',
@@ -2389,9 +2445,9 @@ public pdvacueilmenumobilemoneyretour(){
                     client:{
                       transactionPostCash: response.transactionId,
                       transactionBBS: 'Id BBS',
-                       referenceclient: this.refclientsde,
-                       montant: this.mntsde,
-                       refFacture: this.refFactureSDE,
+                       referenceclient: object.data.refclientsde,
+                       montant: object.data.mntsde,
+                       refFacture: object.data.refFactureSDE,
                     },
         
                   },
@@ -2399,6 +2455,11 @@ public pdvacueilmenumobilemoneyretour(){
                 sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
                 this.router.navigate(['accueil/impression']);
             });
+          }
+
+          paimantsde(){
+            let info = {'nom':'sde','operateur':8,'operation':1,'mntsde':this.mntsde,'refclientsde':this.refclientsde,'refFactureSDE':this.refFactureSDE};
+            this.mobileProcessing(JSON.stringify(info));
           }
 
   /*--------------------    Rapido  ----------------------------------- */
@@ -2417,14 +2478,16 @@ public pdvacueilmenumobilemoneyretour(){
         /************* Rapido-Traitement *********/
 
         validerrapido(){
-              this._facturierService.validerrapido(this.numclient,this.montant,this.badge).then(response =>{
-                  console.log(response);
-                  this.messagesucce=true;
-                  this.modalrapido.hide();
-                  this.montant=undefined;
-                  this.badge=undefined;
-                  this.numclient=undefined;
-              });
+              let info = {'nom':'rapido','operateur':8,'operation':2,'numclient':this.numclient,'montant':this.montant,'badge':this.badge};
+              this.mobileProcessing(JSON.stringify(info));
+              this.hidemodalrapido();
+        }
+
+        rechargeRapido(object:any){
+          this._facturierService.validerrapido(object.data.numclient,object.data.montant,object.data.badge).then(response =>{
+              console.log(response);
+              this.messagesucce=true;
+          });
         }
 
   
@@ -2441,8 +2504,9 @@ public pdvacueilmenumobilemoneyretour(){
 
          /************* Woyofal- Traitement *********/
 
-        validerwoyofal(){
-          this._facturierService.validerwoyofal(this.api,this.montant,this.compteur).then(response =>{
+                
+         rechargeWoyofal(object:any){
+          this._facturierService.validerwoyofal(object.data.api,object.data.montant,object.data.compteur).then(response =>{
             console.log(response);
             this.modalwoyofal.hide();
             this.dataImpression = {
@@ -2453,8 +2517,8 @@ public pdvacueilmenumobilemoneyretour(){
                     transactionPostCash: response.transactionId,
                     transactionBBS: 'Id BBS',
                      codewoyafal: response.code,
-                     montant: this.montant,
-                     compteur: this.compteur,
+                     montant: object.data.montant,
+                     compteur: object.data.compteur,
                   },
       
                 },
@@ -2462,6 +2526,12 @@ public pdvacueilmenumobilemoneyretour(){
               sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
               this.router.navigate(['accueil/impression']);
           });
+        }        
+        
+        validerwoyofal(){
+          let info = {'nom':'woyofal','operateur':8,'operation': 3,'api':this.api,'montant':this.montant,'compteur':this.compteur};
+          this.mobileProcessing(JSON.stringify(info));
+          this.hidemodalwoyofal();
         }
 
     /*--------------------    Oolusolar  ----------------------------------- */
@@ -2476,12 +2546,19 @@ public pdvacueilmenumobilemoneyretour(){
         }
          /************* oolusolar- Traitement *********/
           payeroolusolar(){
-                this._facturierService.payeroolusolar("00221"+this.telephone.toString(),this.compte,this.montant).then(response =>{
-                  console.log(response);
-                  this.montant=undefined;
-                  this.compte=undefined;
-                  this.telephone=undefined;
-                });
+              let info = {'nom':'oolu solar','operateur':8,'operation': 5,'telephone':this.telephone,'compte':this.compte,'montant':this.montant};
+              this.mobileProcessing(JSON.stringify(info));
+          }
+
+          payeroolusolarFacturier(object){
+
+              this._facturierService.payeroolusolar("00221"+(object.data.telephone).toString(),object.data.compte,object.data.montant).then(response =>{
+                console.log(response);
+                this.hidemodaloolu();
+                this.montant=undefined;
+                this.compte=undefined;
+                this.telephone=undefined;
+              });
           }
 
 
@@ -2515,35 +2592,42 @@ public pdvacueilmenumobilemoneyretour(){
        
             });
           }
+
           validerpaimentsenelec(){
-           this._facturierService.validerpaimentsenelec(this.montant,this.police,this.num_facture,this.service).then(response =>{
-             if(response.errorCode==0){
-                this.modalsenelec.hide();
-                this.dataImpression = {
-                   apiservice:'postecash',
-                   service:'reglementsenelec',
-                   infotransaction:{
-                     client:{
-                       transactionPostCash: response.transactionId,
-                       transactionBBS: 'Id BBS',
-                       police: this.police,
-                       facture: this.num_facture,
-                       montant: response.montant_reel,
-       
-                     },
-       
-                   },
-                 }
-                 sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
-                 this.router.navigate(['accueil/impression']);
-                console.log(response);
-             }else{
-               console.log(response);
-               this.modalsenelec.hide();
-             }
-       
-          });
-       
+              let info = {'nom':'rapido','operateur':8,'operation':4,'montant':this.montant,'police':this.police,'num_facture':this.num_facture,'service':this.service};
+              this.mobileProcessing(JSON.stringify(info));
+              this.hidemodalsenelec();
+          }
+
+          paimentsenelec(object:any){
+              this._facturierService.validerpaimentsenelec(object.data.montant,object.data.police,object.data.num_facture,object.data.service).then(response =>{
+                if(response.errorCode==0){
+                    this.modalsenelec.hide();
+                    this.dataImpression = {
+                      apiservice:'postecash',
+                      service:'reglementsenelec',
+                      infotransaction:{
+                        client:{
+                          transactionPostCash: response.transactionId,
+                          transactionBBS: 'Id BBS',
+                          police: object.data.police,
+                          facture: object.data.num_facture,
+                          montant: response.montant_reel,
+          
+                        },
+          
+                      },
+                    }
+                    sessionStorage.setItem('dataImpression', JSON.stringify(this.dataImpression));
+                    this.router.navigate(['accueil/impression']);
+                    console.log(response);
+                }else{
+                  console.log(response);
+                  this.modalsenelec.hide();
+                }
+          
+              });
+          
           }
 
 
