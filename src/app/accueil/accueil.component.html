@@ -278,7 +278,8 @@
 <!-- /#page-wrapper -->
 
 <!-- class="mobile"-->
-<div  *ngIf="isMobile==true" style="min-height: -webkit-fill-available;" >
+<div  *ngIf="isMobile==true" style="min-height: -webkit-fill-available; margin:0px; padding:0px;" >
+
 <div class="row" *ngIf="displayedPage=='accueil'" style="background-image: url(assets/background-v.png); opacity: 0.90; background-size: 400px; min-height: -webkit-fill-available;">
         <div class="row"   style="background-color:rgb(255,144, 00);width: 60%;text-align: center; opacity:0.96;    height: 450px; min-height: -webkit-fill-available; padding-top: 2rem;" >
             <div class="col-sm-12 col-xs-12" >
@@ -332,452 +333,8 @@
           </div>
         </div>
     </div>
-<!--Mobile Money-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm'" >
-        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
 
-            <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; margin-right: 7rem;">
-            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 0rem;"/>
-            <div>
-                <img src="">
-            </div>
-            <div>
-                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-18rem; height: 3rem; margin-left: 31rem;" />
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 3rem; margin-left: 31rem;"/>
-            </div>
-            <!--<i class="fa fa-power-off" style="color: white; margin-right: -16rem;">Déconnexion</i>-->
-            <div class="row" style="margin-top: -16px;padding-top: 6rem;">
-                <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('POSTCASH')">
-                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">PostCash</p>
-                </button>
-            </div>
-            <div class="row"  >
-                <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('ORANGEMONEY')">
-                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">Orange Money</p>
-                </button>
-            </div>
-            <div class="row" >
-                <button style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;" (click)="roadTo('TIGOCASH')">Tigo cash</p>
-                </button>
-            </div>
-            <div class="row">
-                <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('WIZALL')">
-                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">WIZALL</p>
-                </button>
-            </div>
-            <div class="row">
-                <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('EMONEY')">
-                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">E money</p>
-                </button>
-            </div>
-            <!--           <button class="btn btn-success" style=" margin-top: 30px; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true" (click)="pdvaccueilsousmenuMobilemoney()" ></i></button> -->
 
-        </div>
-    </div>
-
-<!--  ORANGE MONEY -->
-<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY'" class="col-sm-12">
-    <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
-      <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;padding-top: 1rem;padding:0px">
-             <!-- <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-                  <img src="assets/OM.png" style="width: 40%; opacity:0.96;padding-top: 1rem;margin-right: 5rem;"/>
-                  <img src="assets/retour.png" (click)="pdvacueilretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                  <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-             -->
-             <div  class="row" style="margin:0px; padding:0;">
-                   <div  class="col-sm-3 col-xs-3">
-                       <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
-                   </div>
-                   <div  class="col-sm-6 col-xs-6">
-                       <img  src="assets/OM.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
-                   </div>
-                   <div  class="col-sm-3 col-xs-3">
-                       <div class="row">
-                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
-                       </div>
-                       <div class="row">
-                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
-                       </div>
-                   </div>
-             </div>
-
-             <!-- <div  style="font-family: caviar dreams;font-size: 2.1rem;color: white;border:2px solid white">
-                <button  style="padding-left: 4rem; border: 0px; padding-right: 4rem; border: 0px;" (click)="roadTo('d')"  data-toggle="tab">Depôt</button>
-             </div>
-             <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;">
-                <button  style="padding-left: 4rem; padding-right: 4rem;border: 0px;" (click)="roadTo('r')" data-toggle="tab">Retrait </button>
-             </div>
-             <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;border:2px solid white">
-                <button style="border:0px;" href="#retraitcode" (click)="roadTo('rc')" data-toggle="tab">Retrait avec code</button>
-             </div>
-             <div style="font-family: caviar dreams;font-size: 2.1rem;color: white; padding-top: 1rem;">
-                <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button>
-             </div> -->
-
-             <div class="row" style="margin-top:8rem;">
-                   <div class="col-sm-12 col-xs-12"   style="margin-top:2rem;">
-                           <button type="button" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold'; border: 0rem;" (click)="roadTo('d')"  data-toggle="tab">Depôt</button>
-                   </div>
-                   <div class="col-sm-12 col-xs-12"   style="margin-top:2rem;padding:1rem; border: 2px solid white;">
-                           <button type="button" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold'; border: 0rem;"  (click)="roadTo('r')"  data-toggle="tab">Retrait</button>
-                   </div>
-                   <div class="col-sm-12 col-xs-12" style="margin-top:2rem; ">
-                           <button  type="button" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;" href="#retraitcode" (click)="roadTo('rc')" data-toggle="tab">Retrait avec code</button>
-                   </div>
-                   <div class="col-sm-12 col-xs-12" style="margin-top:2rem;padding:1rem; border: 2px solid white;">
-                           <button type="button" href="#achatcred" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button>
-                   </div>
-             </div>
-       </div>
-
-    </div>
-</div>
-<!--les sous menu d'orangemoney-->
-<!-- Depot orange money -->
-<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
- <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-   <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
-       <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-              <div>
-                <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-              </div>
-    <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
-        <h2 style="color:#36A9E0;">Orange Money</h2>
-        <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-    </div>-->
-          <div  class="row" style="margin:0px; padding:0;">
-                <div  class="col-sm-3 col-xs-3">
-                    <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
-                </div>
-                <div  class="col-sm-6 col-xs-6">
-                    <img  src="assets/OM.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
-                </div>
-                <div  class="col-sm-3 col-xs-3">
-                    <div class="row">
-                         <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
-                    </div>
-                    <div class="row">
-                        <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
-                    </div>
-                </div>
-          </div>
-
-          <div class="row" style="margin-top:5rem;">
-                  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Dépôt</h2>
-          </div>
-          <div class="row">
-              <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
-              <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-          </div>
-          <div class="row">
-               <div class="col-sm-12 col-xs-12">
-                     <form class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-                           <div class="row">
-                               <div class="col-xs-5 col-sm-5">
-                                     <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
-                               </div>
-                               <div class="col-xs-7 col-sm-7">
-                                     <input autocomplete="off" type="text"   autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
-                               </div>
-                           </div>
-                           <div class="row">
-                                   <p *ngIf="mag1" style="color:red">numero incorrect</p>
-                           </div>
-
-                           <div class="row" style="margin-top:2rem;">
-                               <div class="col-xs-5 col-sm-5">
-                                     <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
-                               </div>
-                               <div class="col-xs-7 col-sm-7">
-                                     <input type="text" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
-                               </div>
-                           </div>
-                           <div class="row">
-                               <p *ngIf="mag2" style="color:red">montant incorrect</p>
-                           </div>
-                     </form>
-               </div>
-               <div class="col-sm-12 col-xs-12">
-                     <div class="row" style="margin-top:5rem;">
-                            <div class="col-xs-5 col-sm-5">
-
-                            </div>
-                            <div class="col-xs-2 col-sm-2">
-                                   <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-                            </div>
-                            <div class="col-xs-5 col-sm-5">
-
-                            </div>
-                     </div>
-               </div>
-          </div>
-  </div>
- </div>
-</div>
-<!-- vente credit orange money -->
-<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-vc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
- <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-   <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
-       <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-              <div>
-                <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-              </div>
-    <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
-     <h2 style="color:#36A9E0;">Orange Money</h2>
-      <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-    </div>-->
-        <div class="row">
-                 <div class="col-xs-2 col-sm-2">
-                      <img src="assets/thumbnailphone.png" style="height: 50px;">
-                 </div>
-                 <div class="col-xs-8 col-sm-8" style="padding-top:2em">
-                      <img  src="assets/OM.png" style="width:150px"/>
-                 </div>
-                 <div class="col-xs-2 col-sm-2">
-                    <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
-                    <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
-                 </div>
-         </div>
-
-        <div class="row">
-              <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Vente credit</h2>
-        </div>
-        <div class="row">
-              <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
-              <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-        </div>
-        <form  class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-              <div class="col-sm-12 col-xs-12">
-                      <div class="row">
-                          <div class="col-xs-5 col-sm-5">
-                                <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
-                          </div>
-                          <div class="col-xs-7 col-sm-7">
-                                <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
-                          </div>
-                      </div>
-                      <div class="row">
-                              <p *ngIf="mag1" style="color:red">numero incorrect</p>
-                      </div>
-
-                      <div class="row" style="margin-top:2rem;">
-                          <div class="col-xs-5 col-sm-5">
-                                <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
-                          </div>
-                          <div class="col-xs-7 col-sm-7">
-                                <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
-                          </div>
-                      </div>
-                      <div class="row">
-                          <p *ngIf="mag2" style="color:red">montant incorrect</p>
-                      </div>
-              </div>
-              <div class="col-sm-12 col-xs-12">
-                    <div class="row" style="margin-top:5rem;">
-                           <div class="col-xs-5 col-sm-5">
-
-                           </div>
-                           <div class="col-xs-2 col-sm-2">
-                                  <button type="submit" class="btn btn-success" [disabled]="!buttondepot2"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-                           </div>
-                           <div class="col-xs-5 col-sm-5">
-
-                           </div>
-                    </div>
-              </div>
-
-        </form>
-  </div>
- </div>
-</div>
-<!-- retrait Orange Money -->
-<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
-
- <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-   <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
-    <!--          <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-              <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-              <div>
-                <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-              </div>
-    <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
-      <h2 style="color:#36A9E0;">Orange Money</h2>
-      <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-    </div>-->
-        <div class="row">
-                 <div class="col-xs-2 col-sm-2">
-                      <img src="assets/thumbnailphone.png" style="height: 50px;">
-                 </div>
-                 <div class="col-xs-8 col-sm-8" style="padding-top:2em">
-                      <img  src="assets/OM.png" style="width:150px"/>
-                 </div>
-                 <div class="col-xs-2 col-sm-2">
-                    <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
-                    <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
-                 </div>
-         </div>
-
-        <div class="row">
-              <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait Orange Money</h2>
-        </div>
-        <div class="row">
-              <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
-              <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
-        </div>
-
-        <form class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-          <div class="col-sm-12 col-xs-12">
-                  <div class="row">
-                      <div class="col-xs-5 col-sm-5">
-                            <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
-                      </div>
-                      <div class="col-xs-7 col-sm-7">
-                            <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
-                      </div>
-                  </div>
-                  <div class="row">
-                        <p *ngIf="mag1" style="color:red">numero incorrect</p>
-                  </div>
-
-                  <div class="row" style="margin-top:2rem;">
-                      <div class="col-xs-5 col-sm-5">
-                            <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant  :</label>
-                      </div>
-                      <div class="col-xs-7 col-sm-7">
-                            <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
-                      </div>
-                  </div>
-                  <div class="row">
-                      <p *ngIf="mag2" style="color:red">montant incorrect</p>
-                  </div>
-          </div>
-          <div class="col-sm-12 col-xs-12">
-                <div class="row" style="margin-top:5rem;">
-                       <div class="col-xs-5 col-sm-5">
-
-                       </div>
-                       <div class="col-xs-2 col-sm-2">
-                              <button  type="submit" class="btn btn-success" [disabled]="!buttondepot2" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-                       </div>
-                       <div class="col-xs-5 col-sm-5">
-
-                       </div>
-                </div>
-          </div>
-        </form>
-  </div>
- </div>
-</div>
-<!-- retrait avec code Orange Money -->
-<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
-
- <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-   <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; opacity:0.9;padding-top: 2rem;">
-
-      <div style="text-align:center">
-        <!--   <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-           <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-           <div>
-                  <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                  <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-           </div>-->
-           <div class="row">
-                    <div class="col-xs-2 col-sm-2">
-                         <img src="assets/thumbnailphone.png" style="height: 50px;">
-                    </div>
-                    <div class="col-xs-8 col-sm-8" style="padding-top:2em">
-                         <img  src="assets/OM.png" style="width:150px"/>
-                    </div>
-                    <div class="col-xs-2 col-sm-2">
-                       <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
-                       <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
-                    </div>
-            </div>
-            <div>
-                    <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait avec code Orange Money</h2>
-            </div>
-        </div>
-
-         <div class="row">
-              <div class="col-sm-12 col-xs-12">
-                    <form  class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-
-                          <div class="row" style="margin-top:2rem;">
-                                 <div style="" class="col-xs-5 col-sm-5">
-                                     <label style="color:white;padding:0px;margin:0px" >Code de retrait :</label>
-                                 </div>
-                                 <div style="padding:0px;margin:0px" class="col-xs-7 col-sm-7">
-                                      <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem;"  class="form-control" placeholder="Code de retrait" required >
-                                 </div>
-                          </div>
-
-                          <div class="row" style="margin-top:2rem;">
-                                <div class="col-xs-5 col-sm-5">
-                                       <label style="color:white" >Prénom :</label>
-                                </div>
-                                <div class="col-xs-7 col-sm-7">
-                                      <input type="text" class="btn btn-success" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style=" border-radius:  2rem;padding:0px;margin:0px"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
-                                </div>
-                          </div>
-
-                          <div class="row" style="margin-top:2rem;">
-                                 <div class="col-xs-5 col-sm-5">
-                                       <label style="color:white;" >Date de naissance :</label>
-                                 </div>
-                                 <div class="col-xs-7 col-sm-7" style="padding-top:0px">
-                                       <input type="text" class="btn btn-success" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style=" border-radius: 2rem; padding:0px;margin:0px"  class="form-control" placeholder="Exemple : 03041900" required >
-                                 </div>
-                          </div>
-
-                          <div class="row" style="margin-top:2rem;">
-                                 <div class="col-xs-5 col-sm-5">
-                                     <label style="color:white" >Numéro de piece d'identite :</label>
-                                 </div>
-                                 <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
-                                      <input type="text" class="btn btn-success" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="border-radius: 2rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
-                                 </div>
-                          </div>
-
-                          <div class="row" style="margin-top:2rem;">
-                                <div class="col-xs-5 col-sm-4">
-                                     <label style="color:white">Numéro du client  :</label>
-                                </div>
-                                <div class="col-xs-7 col-sm-7" style="padding-top:0px">
-                                     <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline; border-radius: 2rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
-                                </div>
-                          </div>
-
-                          <div class="row" style="margin-top:2rem;">
-                                <div class="col-xs-5 col-sm-5">
-                                      <label style="color: white;">Montant  :</label>
-                                </div>
-                                <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
-                                      <input type="text" class="btn btn-success" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="border-radius: 2rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
-                                </div>
-                          </div>
-                    </form>
-              </div>
-        </div>
-        <div class="row" style="margin-top:5rem;">
-               <div class="col-xs-5 col-sm-5">
-
-               </div>
-               <div class="col-xs-2 col-sm-2">
-                      <button type="submit" class="btn btn-success" [disabled]="!buttondepot2"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-               </div>
-               <div class="col-xs-5 col-sm-5">
-
-               </div>
-        </div>
-  </div>
- </div>
-</div>
 
 
 <!-- ************************************************************************ -->
@@ -899,37 +456,6 @@
 
         </div>
     </div>
-    <div bsModal #modalsenelec="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-     
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-                    <div class="modal-header">
-                            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalsenelec()">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">Informations Compteur Woyofal</h4>
-                    </div>
-                    <div class="modal-body">
-                
-                        <div *ngIf="etat1">
-                                <p class="alert alert-danger">Erreur de saisie</p>
-                                <p class="alert alert-danger">Veuillez-reverifier les données saisie</p>
-                        </div>
-                       <div *ngIf="etat2">
-                            <p><strong>Police: {{detailfacturesenelec.police}}</strong></p>
-                            <p><strong>Numéro de facture: {{detailfacturesenelec.numeroFacture}}</strong></p>
-                            <p><strong>Client: {{detailfacturesenelec.nom_client}}</strong></p>
-                            <p><strong>Montant: {{detailfacturesenelec.montant}}</strong></p>
-                            <p><strong>Date Echeance: {{detailfacturesenelec.dateEcheance}}</strong></p>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" *ngIf="etat2" value="valider" (click)="validerpaimentsenelec()" class="btn btn-success" />
-                        <input type="button" value="annuler" (click)="hidemodalsenelec()" class="btn btn-danger" />
-                    </div>
-            </div> 
-        </div>  
-    </div>
     <!--  FACTURIER-Woyofal-->
 <!-- Woyofal -->
 <div  *ngIf="displayedPage=='accueil-fact-wf'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -987,43 +513,7 @@
           </div>
         </div>
         </div>
-        <div bsModal #modalwoyofal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
-            <div class="modal-dialog modal-sm">
-               <div class="modal-content" >
-                 <div class="modal-header">
-                   <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalwoyofal()">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-                   <h4 class="modal-title" id="myModalLabel">Informations Compteur Woyofal</h4>
-                </div>
-                <div class="modal-body">
-           
-                    <div *ngIf="etat">
-                        
-                        <form class="form">
-                            
-                            <div class="form-group">
-                                <label >Numero Compteur : {{compteur}}</label>
-                            </div>
-                            <div class="form-group">
-                                    <label >Montant : {{montant}}</label>
-                            </div>
-                            
-                        </form>
-                       
-                    </div>
-                    <div *ngIf="!etat">
-                        <p class="alert alert-danger">facture deja payé ou reference incorrecte</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" value="annuler" (click)="hidemodalwoyofal()" class="btn btn-danger" />
-                    <input type="button" *ngIf="etat" value="valider" (click)="validerwoyofal()" class="btn btn-success" />
-                </div>
-             </div> 
-           </div>  
-        </div>
 <!-- sde -->
 <div  *ngIf="displayedPage=='accueil-fact-sde'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -1072,54 +562,7 @@
           </div>
         </div>
     </div>
-    <div bsModal #modalsde="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
-        <div class="modal-dialog modal-sm">
-           <div class="modal-content" >
-             <div class="modal-header">
-               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalsde()">
-                   <span aria-hidden="true">&times;</span>
-               </button>
-               <h4 class="modal-title" id="myModalLabel">Informations Facture SDE</h4>
-            </div>
-            <div class="modal-body">
-       
-                <div *ngIf="etat">
-                    
-                    <form class="form">
-                        <div class="form-group">
-                            <label *ngIf="statuspayment==false">Status : NON PAYEE</label>
-                            <label *ngIf="statuspayment==true">Status : PAYEE</label>
-                        </div>
-                        <div class="form-group">
-                            <label >Montant : {{mntSDE}}</label>
-                        </div>
-                        <div class="form-group">
-                                <label >Date D'Echéance : {{echeance}}</label>
-                        </div>
-                        <div class="form-group">
-                            <label >Réf. Client : {{refclientsde}}</label>
-                        </div>
-                        <div class="form-group">
-                            <label >Réf. Facture: {{refFactureSDE}}</label>
-                        </div>
-                        <div class="form-group">
-                          <label >Client : {{nomclient}}</label>
-                        </div>
-                    </form>
-                   
-                </div>
-                <div *ngIf="!etat">
-                    <p class="alert alert-danger">facture deja payé ou reference incorrecte</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                 <input type="button" *ngIf="etat" value="valider" (click)="paimantsde()" class="btn btn-success" />
-                 <input type="button" value="annuler" (click)="hidemodalsde()" class="btn btn-danger" />
-            </div>
-         </div> 
-       </div>  
-</div>
     <!-- FACTURIER-RAPIDO -->
 <!-- Rapido-->
 <div  *ngIf="displayedPage=='accueil-fact-rpd'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -1186,37 +629,7 @@
         </div>
     </div>
 
-    <div bsModal #modalrapido="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-                 <div class="modal-header">
-                    <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalrapido()">
-                       <span aria-hidden="true">&times;</span>
-                     </button>
-                     <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation Dépôt.</h4>
-                 </div>
-                <div class="modal-body">
-                     <form class="form">
-                         <div class="form-group">
-                              <label >Telephone : {{this.numclient}}</label>
-                          </div>
-                          <div class="form-group">
-                              <label >Montant  : {{this.montant}}</label>
-                          </div>
-                          <div class="form-group">
-                             <label >Badge  : {{this.badge}}</label>
-                          </div>
-                     </form>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" value="fermer" (click)="hidemodalrapido()"  class="btn btn-danger" />
-                    <input type="button" (click)="validerrapido()" value="valider" class="btn btn-success" />
-                </div>
-           </div> 
-        </div>  
-     </div>
-
-    <!-- FACTURIER-Oolu Solar -->
+<!-- FACTURIER-Oolu Solar -->
 <!-- Oolu Solar-->
 <div *ngIf="displayedPage=='accueil-fact-oos'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -1281,38 +694,7 @@
           </div>
         </div>
     </div>
-<div bsModal #modaloolu="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-     
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content" >
-                    <div class="modal-header">
-                            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaloolu()">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">Informations Compteur Oolu</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <label class="col-lg-3 col-md-3 col-sm-3">telephone : {{this.telephone}}</label>
-                               
-                        </div>
-                        <div class="row">
-                            <label class="col-lg-3 col-md-3 col-sm-3">Compte : {{this.compte}}</label>
-                            
-                        </div>
-                        <div class="row">
-                                <label class="col-lg-3 col-md-3 col-sm-3">Montant : {{this.montant}}</label>
-                                
-                        </div>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" value="annuler" (click)="hidemodaloolu()" class="btn btn-danger" />
-                        <input type="button" *ngIf="etat" value="valider"  class="btn btn-success"  (click)="payeroolusolar()"/>
-                    </div>
-            </div> 
-        </div>  
-    </div>
+
 <!-- Facturier TNT -->
 <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -1902,120 +1284,7 @@
           </div>
 <!-- Modal TNT -->
 
-<div bsModal #modalTnt="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
-    <div class="modal-dialog modal-sm">
-       <div class="modal-content" >
-         <div class="modal-header">
-           <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalTnt()">
-               <span aria-hidden="true">&times;</span>
-           </button>
-           <h4 class="modal-title" id="myModalLabel">Confirmation Détails TNT</h4>
-        </div>
-        <div class="modal-body" style="font-family: 'caviar dreams bold';">
-            
-            <div *ngIf="displayedPage=='accueil-fact-tnt-abn-nv'">
-                <form class="form">
-                    <div class="form-group">
-                        <label >Nom client : {{ this.noma}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label >Prènom client : {{this.prenoma}} </label>
-                    </div>
-                    <div class="form-group">
-                        <label >Telephone client : {{this.telNewClient}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label >Numero chip : {{this.nchipNewClient}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label >Numero carte : {{this.ncarteNewClient}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label > Nombre de mois : {{this.nbm}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label > Type bouquet : {{this.tbouquet}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label > C.N.I : {{this.cni}}</label>
-                    </div>
-                </form>
-
-            </div>
-            <div *ngIf="displayedPage=='accueil-fact-tnt-dcd'">
-                    <form class="form">
-                            <div class="form-group">
-                                <label >Nom client : {{ this.nomNewClient}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label >Prènom client : {{this.prenomNewClient}} </label>
-                            </div>
-                            <div class="form-group">
-                                <label >Telephone client : {{this.telNewClient}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label > Adresse client : {{this.adresseNewClient}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label >Numero chip : {{this.nchipNewClient}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label >Numero carte : {{this.ncarteNewClient}}</label>
-                            </div>
-   
-                            <div class="form-group">
-                                <label > Type bouquet : {{this.tbouquetNewClient}}</label>
-                            </div>
-   
-                    </form>
-            </div>
-
-            <div *ngIf="displayedPage=='accueil-fact-tnt-crt'">
-                    <form class="form">
-                        <div class="form-group">
-                            <label >Nom client : {{ this.nomNewClient}}</label>
-                        </div>
-                        <div class="form-group">
-                            <label >Prènom client : {{this.prenomNewClient}} </label>
-                        </div>
-                        <div class="form-group">
-                            <label >Telephone client : {{this.telNewClient}}</label>
-                        </div>
-                        <div class="form-group">
-                            <label > Adresse client : {{this.adresseNewClient}}</label>
-                        </div>
-                        <div class="form-group">
-                            <label >Numero carte : {{this.ncarteNewClihidemodalTntent}}</label>
-                        </div>
-
-                        <div class="form-group">
-                            <label > C.N.I : {{this.cniNewClient}}</label>
-                        </div>
-                    </form>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div *ngIf="displayedPage=='accueil-fact-tnt-abn-nv'">
-                    <input type="button" value="fermer" (click)="hidemodalTnt()" class="btn btn-danger" />
-                    <input type="button" value="valider" class="btn btn-success" (click)="validnabonTNT()" />
-            </div>
-            <div *ngIf="displayedPage=='accueil-fact-tnt-dcd'">
-                <input type="button" value="fermer" (click)="hidemodalTnt" class="btn btn-danger" />
-                <input type="button" value="valider" (click)="vendreDecodeurTNT()" class="btn btn-success" />
-            </div>
-
-            <div *ngIf="displayedPage=='accueil-fact-tnt-crt'">
-                <input type="button" value="fermer" (click)="hidemodalTnt()" class="btn btn-danger" />
-                <input type="button" value="valider" (click)="vendreCarteTNT()" class="btn btn-success" />
-            </div>
-
-        </div>
-     </div>
-   </div>
-
-
-</div>
 <!-- Facturier TNT  Suivi Cartes -->
 <div *ngIf="displayedPage=='accueil-fact-tnt-sCrt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
                <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -2261,7 +1530,7 @@
                 </div>
         </div>
     </div>
- </div>
+</div>
 <!-- GESTION-HISTOIRE DES OPERATIONS (Resultats) -->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-re-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
@@ -2329,7 +1598,7 @@
                 </div>
         </div>
     </div>
- </div>
+</div>
 <!-- GESTION-Dépense -->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-dep'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
@@ -2407,7 +1676,7 @@
             </div>
         </div>
     </div>
- </div>
+</div>
 <!-- GESTION-Recettes -->
 <div *ngIf="displayedPage=='accueil-ges-gracu-rct'"  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
@@ -2486,7 +1755,7 @@
                 </div>
         </div>
     </div>
- </div>
+</div>
 <!-- GESTION-Reclamations -->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-rcl'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
@@ -2560,7 +1829,7 @@
              </div>
         </div>
     </div>
- </div>
+</div>
 <!-- GESTION-caisse -->
 <div *ngIf="displayedPage=='accueil-ges-gracu-css'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00); height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
@@ -2603,15 +1872,462 @@
             </div>
         </div>
     </div>
- </div>
+</div>
 
-
-    <!--PostCach-->
 
 <!-- ************************************************************************ -->
                               <!-- MOBILE MONEY -->
 <!-- ************************************************************************ -->
 
+<!--Mobile Money - Accueil -->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm'" >
+        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+
+            <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; margin-right: 7rem;">
+            <img src="assets/thumbnail.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 0rem;"/>
+            <div>
+                <img src="">
+            </div>
+            <div>
+                <img src="assets/retour.png" (click)="pdvacueilretour()" style="margin-top:-18rem; height: 3rem; margin-left: 31rem;" />
+                <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 3rem; margin-left: 31rem;"/>
+            </div>
+            <!--<i class="fa fa-power-off" style="color: white; margin-right: -16rem;">Déconnexion</i>-->
+            <div class="row" style="margin-top: -16px;padding-top: 6rem;">
+                <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('POSTCASH')">
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">PostCash</p>
+                </button>
+            </div>
+            <div class="row"  >
+                <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('ORANGEMONEY')">
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">Orange Money</p>
+                </button>
+            </div>
+            <div class="row" >
+                <button style="background-color: transparent;border: 0px; width: 36rem;">
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;" (click)="roadTo('TIGOCASH')">Tigo cash</p>
+                </button>
+            </div>
+            <div class="row">
+                <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('WIZALL')">
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">WIZALL</p>
+                </button>
+            </div>
+            <div class="row">
+                <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('EMONEY')">
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">E money</p>
+                </button>
+            </div>
+            <!--           <button class="btn btn-success" style=" margin-top: 30px; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true" (click)="pdvaccueilsousmenuMobilemoney()" ></i></button> -->
+
+        </div>
+</div>
+<!-- ..........................
+           ORANGE MONEY
+............................. -->
+
+<!--  ORANGE MONEY - Accueil-->
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY'" class="col-sm-12">
+        <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+          <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;padding-top: 1rem;padding:0px">
+                 <!-- <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+                      <img src="assets/OM.png" style="width: 40%; opacity:0.96;padding-top: 1rem;margin-right: 5rem;"/>
+                      <img src="assets/retour.png" (click)="pdvacueilretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                      <img src="assets/deconnet.png" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+                 -->
+                 <div  class="row" style="margin:0px; padding:0;">
+                       <div  class="col-sm-3 col-xs-3">
+                           <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                       </div>
+                       <div  class="col-sm-6 col-xs-6">
+                           <img  src="assets/OM.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                       </div>
+                       <div  class="col-sm-3 col-xs-3">
+                           <div class="row">
+                                <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                           </div>
+                           <div class="row">
+                               <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                           </div>
+                       </div>
+                 </div>
+    
+                 <!-- <div  style="font-family: caviar dreams;font-size: 2.1rem;color: white;border:2px solid white">
+                    <button  style="padding-left: 4rem; border: 0px; padding-right: 4rem; border: 0px;" (click)="roadTo('d')"  data-toggle="tab">Depôt</button>
+                 </div>
+                 <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;">
+                    <button  style="padding-left: 4rem; padding-right: 4rem;border: 0px;" (click)="roadTo('r')" data-toggle="tab">Retrait </button>
+                 </div>
+                 <div style="font-family: caviar dreams;font-size: 2.1rem;color: white;padding-top: 1rem;border:2px solid white">
+                    <button style="border:0px;" href="#retraitcode" (click)="roadTo('rc')" data-toggle="tab">Retrait avec code</button>
+                 </div>
+                 <div style="font-family: caviar dreams;font-size: 2.1rem;color: white; padding-top: 1rem;">
+                    <button href="#achatcred" style="padding-left: 1rem; padding-right: 1rem; border:0px;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button>
+                 </div> -->
+    
+                 <div class="row" style="margin-top:8rem;">
+                       <div class="col-sm-12 col-xs-12"   style="margin-top:2rem;">
+                               <button type="button" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold'; border: 0rem;" (click)="roadTo('d')"  data-toggle="tab">Depôt</button>
+                       </div>
+                       <div class="col-sm-12 col-xs-12"   style="margin-top:2rem;padding:1rem; border: 2px solid white;">
+                               <button type="button" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold'; border: 0rem;"  (click)="roadTo('r')"  data-toggle="tab">Retrait</button>
+                       </div>
+                       <div class="col-sm-12 col-xs-12" style="margin-top:2rem; ">
+                               <button  type="button" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;" href="#retraitcode" (click)="roadTo('rc')" data-toggle="tab">Retrait avec code</button>
+                       </div>
+                       <div class="col-sm-12 col-xs-12" style="margin-top:2rem;padding:1rem; border: 2px solid white;">
+                               <button type="button" href="#achatcred" style="color: white; background-color: transparent; font-size: 2.3rem; font-family: 'caviar dreams bold';border: 0rem;" (click)="roadTo('vc')" data-toggle="tab">Vente crédit</button>
+                       </div>
+                 </div>
+           </div>
+    
+        </div>
+</div>
+    <!--les sous menu d'orangemoney-->
+    <!-- Depot orange money -->
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+     <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+       <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
+           <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+                  <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+                  <div>
+                    <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                    <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+                  </div>
+        <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
+            <h2 style="color:#36A9E0;">Orange Money</h2>
+            <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+        </div>-->
+              <div  class="row" style="margin:0px; padding:0;">
+                    <div  class="col-sm-3 col-xs-3">
+                        <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
+                    </div>
+                    <div  class="col-sm-6 col-xs-6">
+                        <img  src="assets/OM.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                    </div>
+                    <div  class="col-sm-3 col-xs-3">
+                        <div class="row">
+                             <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-right:-1px;">
+                        </div>
+                        <div class="row">
+                            <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-right:-0.5rem;">
+                        </div>
+                    </div>
+              </div>
+    
+              <div class="row" style="margin-top:5rem;">
+                      <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Dépôt</h2>
+              </div>
+              <div class="row">
+                  <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
+                  <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+              </div>
+              <div class="row">
+                   <div class="col-sm-12 col-xs-12">
+                         <form class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+                               <div class="row">
+                                   <div class="col-xs-5 col-sm-5">
+                                         <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                         <input autocomplete="off" type="text"   autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                   </div>
+                               </div>
+                               <div class="row">
+                                       <p *ngIf="mag1" style="color:red">numero incorrect</p>
+                               </div>
+    
+                               <div class="row" style="margin-top:2rem;">
+                                   <div class="col-xs-5 col-sm-5">
+                                         <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
+                                   </div>
+                                   <div class="col-xs-7 col-sm-7">
+                                         <input type="text" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <p *ngIf="mag2" style="color:red">montant incorrect</p>
+                               </div>
+                         </form>
+                   </div>
+                   <div class="col-sm-12 col-xs-12">
+                         <div class="row" style="margin-top:5rem;">
+                                <div class="col-xs-5 col-sm-5">
+    
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+                                       <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-5 col-sm-5">
+    
+                                </div>
+                         </div>
+                   </div>
+              </div>
+      </div>
+     </div>
+</div>
+    <!-- vente credit orange money -->
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-vc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+     <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+       <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
+           <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+                  <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+                  <div>
+                    <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                    <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+                  </div>
+        <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
+         <h2 style="color:#36A9E0;">Orange Money</h2>
+          <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+        </div>-->
+            <div class="row">
+                     <div class="col-xs-2 col-sm-2">
+                          <img src="assets/thumbnailphone.png" style="height: 50px;">
+                     </div>
+                     <div class="col-xs-8 col-sm-8" style="padding-top:2em">
+                          <img  src="assets/OM.png" style="width:150px"/>
+                     </div>
+                     <div class="col-xs-2 col-sm-2">
+                        <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
+                        <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
+                     </div>
+             </div>
+    
+            <div class="row">
+                  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Vente credit</h2>
+            </div>
+            <div class="row">
+                  <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
+                  <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+            </div>
+            <form  class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+                  <div class="col-sm-12 col-xs-12">
+                          <div class="row">
+                              <div class="col-xs-5 col-sm-5">
+                                    <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
+                              </div>
+                              <div class="col-xs-7 col-sm-7">
+                                    <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                              </div>
+                          </div>
+                          <div class="row">
+                                  <p *ngIf="mag1" style="color:red">numero incorrect</p>
+                          </div>
+    
+                          <div class="row" style="margin-top:2rem;">
+                              <div class="col-xs-5 col-sm-5">
+                                    <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
+                              </div>
+                              <div class="col-xs-7 col-sm-7">
+                                    <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <p *ngIf="mag2" style="color:red">montant incorrect</p>
+                          </div>
+                  </div>
+                  <div class="col-sm-12 col-xs-12">
+                        <div class="row" style="margin-top:5rem;">
+                               <div class="col-xs-5 col-sm-5">
+    
+                               </div>
+                               <div class="col-xs-2 col-sm-2">
+                                      <button type="submit" class="btn btn-success" [disabled]="!buttondepot2"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                               </div>
+                               <div class="col-xs-5 col-sm-5">
+    
+                               </div>
+                        </div>
+                  </div>
+    
+            </form>
+      </div>
+     </div>
+</div>
+    <!-- retrait Orange Money -->
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
+    
+     <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+       <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
+        <!--          <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+                  <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+                  <div>
+                    <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                    <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+                  </div>
+        <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
+          <h2 style="color:#36A9E0;">Orange Money</h2>
+          <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+        </div>-->
+            <div class="row">
+                     <div class="col-xs-2 col-sm-2">
+                          <img src="assets/thumbnailphone.png" style="height: 50px;">
+                     </div>
+                     <div class="col-xs-8 col-sm-8" style="padding-top:2em">
+                          <img  src="assets/OM.png" style="width:150px"/>
+                     </div>
+                     <div class="col-xs-2 col-sm-2">
+                        <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
+                        <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
+                     </div>
+             </div>
+    
+            <div class="row">
+                  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait Orange Money</h2>
+            </div>
+            <div class="row">
+                  <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
+                  <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+            </div>
+    
+            <form class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+              <div class="col-sm-12 col-xs-12">
+                      <div class="row">
+                          <div class="col-xs-5 col-sm-5">
+                                <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
+                          </div>
+                          <div class="col-xs-7 col-sm-7">
+                                <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                          </div>
+                      </div>
+                      <div class="row">
+                            <p *ngIf="mag1" style="color:red">numero incorrect</p>
+                      </div>
+    
+                      <div class="row" style="margin-top:2rem;">
+                          <div class="col-xs-5 col-sm-5">
+                                <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant  :</label>
+                          </div>
+                          <div class="col-xs-7 col-sm-7">
+                                <input type="text" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                          </div>
+                      </div>
+                      <div class="row">
+                          <p *ngIf="mag2" style="color:red">montant incorrect</p>
+                      </div>
+              </div>
+              <div class="col-sm-12 col-xs-12">
+                    <div class="row" style="margin-top:5rem;">
+                           <div class="col-xs-5 col-sm-5">
+    
+                           </div>
+                           <div class="col-xs-2 col-sm-2">
+                                  <button  type="submit" class="btn btn-success" [disabled]="!buttondepot2" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                           </div>
+                           <div class="col-xs-5 col-sm-5">
+    
+                           </div>
+                    </div>
+              </div>
+            </form>
+      </div>
+     </div>
+</div>
+    <!-- retrait avec code Orange Money -->
+<div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
+    
+     <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+       <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; opacity:0.9;padding-top: 2rem;">
+    
+          <div style="text-align:center">
+            <!--   <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
+               <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
+               <div>
+                      <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
+                      <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
+               </div>-->
+               <div class="row">
+                        <div class="col-xs-2 col-sm-2">
+                             <img src="assets/thumbnailphone.png" style="height: 50px;">
+                        </div>
+                        <div class="col-xs-8 col-sm-8" style="padding-top:2em">
+                             <img  src="assets/OM.png" style="width:150px"/>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                           <img src="assets/retour.png" (click)="pdvacueilretour()"  style="width:30px;height:30px;"/>
+                           <img src="assets/deconnet.png" (click)="deconnexion()" style="width:30px;height:30px"/>
+                        </div>
+                </div>
+                <div>
+                        <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait avec code Orange Money</h2>
+                </div>
+            </div>
+    
+             <div class="row">
+                  <div class="col-sm-12 col-xs-12">
+                        <form  class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+    
+                              <div class="row" style="margin-top:2rem;">
+                                     <div style="" class="col-xs-5 col-sm-5">
+                                         <label style="color:white;padding:0px;margin:0px" >Code de retrait :</label>
+                                     </div>
+                                     <div style="padding:0px;margin:0px" class="col-xs-7 col-sm-7">
+                                          <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem;"  class="form-control" placeholder="Code de retrait" required >
+                                     </div>
+                              </div>
+    
+                              <div class="row" style="margin-top:2rem;">
+                                    <div class="col-xs-5 col-sm-5">
+                                           <label style="color:white" >Prénom :</label>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7">
+                                          <input type="text" class="btn btn-success" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style=" border-radius:  2rem;padding:0px;margin:0px"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
+                                    </div>
+                              </div>
+    
+                              <div class="row" style="margin-top:2rem;">
+                                     <div class="col-xs-5 col-sm-5">
+                                           <label style="color:white;" >Date de naissance :</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7" style="padding-top:0px">
+                                           <input type="text" class="btn btn-success" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style=" border-radius: 2rem; padding:0px;margin:0px"  class="form-control" placeholder="Exemple : 03041900" required >
+                                     </div>
+                              </div>
+    
+                              <div class="row" style="margin-top:2rem;">
+                                     <div class="col-xs-5 col-sm-5">
+                                         <label style="color:white" >Numéro de piece d'identite :</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
+                                          <input type="text" class="btn btn-success" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="border-radius: 2rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
+                                     </div>
+                              </div>
+    
+                              <div class="row" style="margin-top:2rem;">
+                                    <div class="col-xs-5 col-sm-4">
+                                         <label style="color:white">Numéro du client  :</label>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7" style="padding-top:0px">
+                                         <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline; border-radius: 2rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
+                                    </div>
+                              </div>
+    
+                              <div class="row" style="margin-top:2rem;">
+                                    <div class="col-xs-5 col-sm-5">
+                                          <label style="color: white;">Montant  :</label>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
+                                          <input type="text" class="btn btn-success" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="border-radius: 2rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
+                                    </div>
+                              </div>
+                        </form>
+                  </div>
+            </div>
+            <div class="row" style="margin-top:5rem;">
+                   <div class="col-xs-5 col-sm-5">
+    
+                   </div>
+                   <div class="col-xs-2 col-sm-2">
+                          <button type="submit" class="btn btn-success" [disabled]="!buttondepot2"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                   </div>
+                   <div class="col-xs-5 col-sm-5">
+    
+                   </div>
+            </div>
+      </div>
+     </div>
+</div>
 <!-- POSTCASH -->
 <div *ngIf="displayedPage=='accueil-mm-POSTCASH'" class="row">
     <!-- POSTCASH -->
@@ -2647,10 +2363,11 @@
           </div>
         </div>
      </div>
-    </div>
+
+</div>
 
     <!--  Rechargement espece -->
-    <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'"  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+<div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'"  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
@@ -2711,9 +2428,9 @@
           </div>
           </form>
         </div>
-    </div>
+</div>
     <!--   Retrait espece-->
-    <div *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
+<div *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
@@ -2834,12 +2551,6 @@
                                            </div>
                                     </div>
                               </div>
-
-<!--
-                              <div class="row text-center">
-                                  <button data-toggle="modal" data-target="#myModalCodeValidation" type="submit" class="btn btn-success" [disabled]="!attentevalidateretraitespece.form.valid">Valider</button>
-                                  <button type="reset" class="btn btn-danger" [disabled]="!attentevalidateretraitespece.form.valid" >Annuler</button>
-                              </div> -->
                           </form>
                       </div>
               </div>
@@ -2925,7 +2636,7 @@
                 </form>
           </div>
         </div>
-    </div>
+</div>
 
 <!-- ..........................
                TIGOCASH
@@ -3015,7 +2726,7 @@
 
             </div>
        </div>
-  </div>
+</div>
 
 
                                               <!--Retrait-->
@@ -3150,219 +2861,7 @@
     </div>
 </div>
 
-<!--les modales de TigoCash-->
 
-<!-- Modal depot -->
-<div bsModal #modaldepotTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCash()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-             </div>
-             <div class="modal-body">
-
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >Telephone client : {{this.telephone}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >montant : {{this.montant}}</label>
-                         </div>
-                     </form>
-
-                 </div>
-             </div>
-             <div class="modal-footer">
-                  <input type="button" value="valider" (click)="depotTigoCash()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodaldepotTigoCash()" class="btn btn-danger" />
-             </div>
-          </div>
-        </div>
-</div>
-
-<!--modale bon d'achat-->
-<div bsModal #modalBonDachat="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="hidebondachatmodal()">
-                    <span aria-hidden="true">&times;</span>
-            </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-        </div>
-      <div class="modal-body">
-    <form >
-        <div class="col-xs-12 col-sm-12">
-            <div class="col-sm-5 col-xs-5">
-                <label >Code de validation:</label>
-            </div>
-            <div class="col-sm-6 col-xs-5">
-                <input  style="border-radius: 2rem; height: 25px;  background-color: rgba(255,255,255,0.8);" autocomplete="off" type="number" [(ngModel)]="this.codevalidation" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required />
-            </div>
-        </div>
-    </form>
-      </div>
-    <div class="modal-footer">
-        <input type="button" value="valider" (click)="fairebondachat()" class="btn btn-success" />
-        <input type="button" value="fermer" (click)="hidebondachatmodal()" class="btn btn-danger" />
-    </div>
-    </div>
-  </div>
-</div>
-<!--fin modal de bon d'achat-->
-<!-- modal PostCash -->
-<div bsModal #modalPostCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalPostCash()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-                               <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
-             <div class="modal-body">
-
-                 <div>
-                     <form class="form">
-                         <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
-                                   <div class="form-group">
-                                       <label >Numero client : {{ this.telephone }}</label>
-                                   </div>
-                                   <div class="form-group">
-                                        <label>Montant  : {{ this.montant }}</label>
-                                   </div>
-                         </div>
-                          <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
-                                  <div class="form-group">
-                                      <label >Numero client : {{ this.telephone }}</label>
-                                  </div>
-                                  <div class="form-group">
-                                       <label>Montant  : {{ this.montant }}</label>
-                                  </div>
-                                  <div class="form-group" *ngIf="isselectretraitespeceaveccarte">
-                                      <label >Code validation  : {{ this.codevalidation}}</label>
-                                  </div>
-                          </div>
-                         <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
-                               <div class="form-group">
-                                   <label >Nombre de carte  : {{ this.nb_carte}}</label>
-                               </div>
-                               <div class="form-group">
-                                   <label >Montant Carte : {{ this.mt_carte}}</label>
-                               </div>
-                         </div>
-                     </form>
-
-                 </div>
-             </div>
-             <div class="modal-footer">
-                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
-                          <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
-                          <input type="button" value="valider" class="btn btn-success" (click)="rechargementEspecePostCash()"/>
-                   </div>
-                    <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
-                          <div  *ngIf="isselectretraitespeceaveccarte">
-                              <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
-                              <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceAvecCartePostCash()"/>
-                          </div>
-                          <div  *ngIf="!isselectretraitespeceaveccarte">
-                              <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
-                              <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceSansCartePostCash()"/>
-                          </div>
-                    </div>
-                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
-                        <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
-                        <input type="button" value="valider" class="btn btn-success" (click)="achatJula()"/>
-                   </div>
-             </div>
-          </div>
-        </div>
-</div>
-<!-- modal Gestion Reporting -->
-<div bsModal #modalGestionReporting="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hideGestionReporting()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-             <div class="modal-body">
-               <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
-
-                 <div>
-                     <form class="form">
-
-                        <div class="form-group" *ngIf="this.libelleCharge != undefined">
-                              <label >libelle : {{ this.libelleCharge }}</label>
-                        </div>
-                        <div class="form-group" *ngIf="this.montantCharge != undefined">
-                            <label>Montant  : {{ this.montantCharge }}</label>
-                        </div>
-                        <div class="form-group" *ngIf="this.service != undefined">
-                            <label>Service  : {{ this.service }}</label>
-                        </div>
-                        <div class="form-group" *ngIf="this.designation != undefined">
-                            <label>designation  : {{ this.designation }}</label>
-                        </div>
-                   </form>
-                 </div>
-             </div>
-             <div class="modal-footer">
-                   <div *ngIf="this.designation == undefined">
-                            <input type="button" value="fermer"  class="btn btn-danger" (click)="hideGestionReporting" />
-                            <input type="button" value="valider" class="btn btn-success" (click)="validCharge()" />
-                    </div>
-
-                    <div *ngIf="this.designation != undefined">
-                        <input type="button" value="fermer" (click)="hideGestionReporting" class="btn btn-danger" />
-                        <input type="button" value="valider" class="btn btn-success" (click)="validvente()"/>
-                    </div>    
-             </div>
-          </div>
-        </div>
-</div>
-
-<!--Vendre Izi-->
-<div bsModal #modalvendreizi="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-         <div class="modal-dialog modal-sm">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalvendreizi()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-             </div>
-             <div class="modal-body">
-
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >Numero client : {{this.telephone}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >Montant  : {{this.montant}}</label>
-                         </div>
-
-                     </form>
-
-                 </div>
-             </div>
-             <div class="modal-footer">
-                  <input type="button" value="valider" (click)="izi()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodalvendreizi()" class="btn btn-danger" />
-             </div>
-          </div>
-        </div>
-</div>
 
 <!-- ..........................
                WIZALL
@@ -3404,8 +2903,8 @@
             <div class="col-sm-12 col-xs-12">
                 <button class="WIZALL" href="#senelec" (click)="roadTo('rb')" (click)="reinitialiser()" data-toggle="tab" style="border: 0px;font-family: 'caviar dreams bold';font-size: 2.3rem;color: white;padding-bottom: 1rem;">Retrait de Bon</button>
             </div>
+        </div>
     </div>
-</div>
 </div>
 <!--depôt WIZALL-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-dp'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -3720,8 +3219,7 @@
     </div>
 </div>
 
-<!--fin Bon Cash envoyeur-->
-<!--fin bénéficiaire-->
+
 <!--fin Bon Cash envoyeur-->
 <!--fin Bon d'achat-->
 <div class="row"  *ngIf="displayedPage=='accueil-mm-WIZALL-eb-ba'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -3773,121 +3271,8 @@
     </div>
 </div>
 <!--fin Bon d'achat-->
-<!--Les modales bon Cash-->
-<!--modalboncash-->
-<div bsModal #modalbonCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalBonCash()">
-                    <span aria-hidden="true">&times;</span>
-            </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
-        </div>
-      <div class="modal-body">
- <form  >
-        <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Envoyeur</div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label >Prénom</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input  [(ngModel)]="this.prenomen" name="prenomen" type="text"  style="height: 3.4rem; border-radius:2rem;"/>
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label >Nom</label>
-            </div>
-            <div  class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.nomen" name="nomen" type="text"  style="height: 3.4rem;border-radius: 2rem;">
-          </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label  >Téléphone</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.telephoneen" name="telephoneen" type="text"  style="height: 3.4rem; border-radius: 2rem;" >
-            </div>
-          </div>
-           <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label >Nationalité</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <select class="form-control" style="height: 3.4rem; border-radius: 2rem;">
-                <option selected  >Carte Nationale</option>
-                <option >Nationale</option>
-                <option>Nationale</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label  >Type de piéce</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <select class="form-control" style="height: 3.4rem;border-radius: 2rem;">
-                <option selected>Carte d'identité</option>
-                <option>carte</option>
-                <option>carte</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label >Montant</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.montant" name="montant" type="number" style="height: 3.4rem; border-radius: 2rem;">
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label  >Numéro Carte</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.cni" name="cni" type="number"  style="height:3.4rem; border-radius: 2rem; ">
-            </div>
-          </div>
-           <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Bénéficiaire</div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label >Prénom</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.prenomben" name="prenomben" type="text"  style="height: 3.4rem;border-radius:2rem;">
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label>Nom</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.nomben" name="nomben" type="text"  style="height: 3.4rem; border-radius: 2rem; ">
-            </div>
-          </div>
-          <div class="form-group col-sm-12 col-xs-12">
-            <div class="form-group col-sm-4 col-xs-4">
-                <label >Téléphone</label>
-            </div>
-            <div class="form-group col-sm-7 col-xs-7">
-              <input [(ngModel)]="this.telephoneben" name="telephoneben" type="text"  style="height: 3.4rem; border-radius: 2rem;" >
-            </div>
-          </div>
-          <div class="center">
-                <input type="button" value="valider" (click)="faireBonCash()" class="btn btn-success" />
-          </div>
-        </form>
-      </div>
-    <div class="modal-footer">
-                  <input type="button" value="valider" (click)="faireBonCash()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hidemodalBonCash()" class="btn btn-danger" />
-             </div>
-    </div>
-  </div>
+
 <!--finmodalboncash-->
 <!--retrait de bon-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-rb'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
@@ -4117,12 +3502,17 @@
                     </form>
                 </div>
             </div>
-       </div>
+</div>
+
+
 
 
 <!-- ************************************************************************ -->
                                      <!-- ECOMMERCE -->
 <!-- ************************************************************************ -->
+
+
+
 
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec'">
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -4156,42 +3546,692 @@
 
             <button class="btn btn-success" style=" margin-top: 30px; background-color: white; width: 50px; height: 50px; border-radius: 50%; border: none;"><i class="fa fa-check" style="color : white" aria-hidden="true"></i></button>
         </div>
-    </div>
+</div>
     <!--les interfaces des sous menus-->
 
-<div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ;">
-        <div class="row">
-
-            <div *ngFor="let item of process" class="col-sm-2 col-xs-2 runningTask">
-                <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div>
-            </div>
 
 
-
-        </div>
-
-        <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;">
-            <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process">
-                {{op.data.nom}}
-            </div>
-        </div>
-
-    </div>
-
-</div>
 
 
 <!-- ************************************************************************ -->
                               <!-- Les Modals -->
 <!-- ************************************************************************ -->
 
-<!--  PostCash Modal-->
 
 
-<!-- Modals Gestion & Reporting -->
+
+<!-- ................................ 
+    les modales de TigoCash
+..................................-->
+
+<!-- Modal depot -->
+<div bsModal #modaldepotTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCash()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <form class="form">
+                        <div class="form-group">
+                            <label >Telephone client : {{this.telephone}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >montant : {{this.montant}}</label>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                 <input type="button" value="valider" (click)="depotTigoCash()" class="btn btn-success" />
+                 <input type="button" value="fermer" (click)="hidemodaldepotTigoCash()" class="btn btn-danger" />
+            </div>
+         </div>
+       </div>
+</div>
+
+<!--modale bon d'achat-->
+<div bsModal #modalBonDachat="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-sm">
+   <div class="modal-content">
+       <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="hidebondachatmodal()">
+                   <span aria-hidden="true">&times;</span>
+           </button>
+               <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+       </div>
+     <div class="modal-body">
+   <form >
+       <div class="col-xs-12 col-sm-12">
+           <div class="col-sm-5 col-xs-5">
+               <label >Code de validation:</label>
+           </div>
+           <div class="col-sm-6 col-xs-5">
+               <input  style="border-radius: 2rem; height: 25px;  background-color: rgba(255,255,255,0.8);" autocomplete="off" type="number" [(ngModel)]="this.codevalidation" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required />
+           </div>
+       </div>
+   </form>
+     </div>
+   <div class="modal-footer">
+       <input type="button" value="valider" (click)="fairebondachat()" class="btn btn-success" />
+       <input type="button" value="fermer" (click)="hidebondachatmodal()" class="btn btn-danger" />
+   </div>
+   </div>
+ </div>
+</div>
+<!--fin modal de bon d'achat-->
+<!-- modal PostCash -->
+<div bsModal #modalPostCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalPostCash()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+                              <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
+            <div class="modal-body">
+
+                <div>
+                    <form class="form">
+                        <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
+                                  <div class="form-group">
+                                      <label >Numero client : {{ this.telephone }}</label>
+                                  </div>
+                                  <div class="form-group">
+                                       <label>Montant  : {{ this.montant }}</label>
+                                  </div>
+                        </div>
+                         <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
+                                 <div class="form-group">
+                                     <label >Numero client : {{ this.telephone }}</label>
+                                 </div>
+                                 <div class="form-group">
+                                      <label>Montant  : {{ this.montant }}</label>
+                                 </div>
+                                 <div class="form-group" *ngIf="isselectretraitespeceaveccarte">
+                                     <label >Code validation  : {{ this.codevalidation}}</label>
+                                 </div>
+                         </div>
+                        <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
+                              <div class="form-group">
+                                  <label >Nombre de carte  : {{ this.nb_carte}}</label>
+                              </div>
+                              <div class="form-group">
+                                  <label >Montant Carte : {{ this.mt_carte}}</label>
+                              </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                  <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
+                         <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                         <input type="button" value="valider" class="btn btn-success" (click)="rechargementEspecePostCash()"/>
+                  </div>
+                   <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
+                         <div  *ngIf="isselectretraitespeceaveccarte">
+                             <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                             <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceAvecCartePostCash()"/>
+                         </div>
+                         <div  *ngIf="!isselectretraitespeceaveccarte">
+                             <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                             <input type="button" value="valider" class="btn btn-success" (click)="retraitEspeceSansCartePostCash()"/>
+                         </div>
+                   </div>
+                  <div *ngIf="displayedPage=='accueil-mm-POSTCASH-aj'">
+                       <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
+                       <input type="button" value="valider" class="btn btn-success" (click)="achatJula()"/>
+                  </div>
+            </div>
+         </div>
+       </div>
+</div>
 
 
-<!--  Autes Modals -->
+<!--Vendre Izi-->
+<div bsModal #modalvendreizi="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalvendreizi()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <form class="form">
+                        <div class="form-group">
+                            <label >Numero client : {{this.telephone}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Montant  : {{this.montant}}</label>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                 <input type="button" value="valider" (click)="izi()" class="btn btn-success" />
+                 <input type="button" value="fermer" (click)="hidemodalvendreizi()" class="btn btn-danger" />
+            </div>
+         </div>
+       </div>
+</div>
+
+<!-- ................................ 
+    Woyofal Modal
+..................................-->
+
+<div bsModal #modalwoyofal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalwoyofal()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Informations Compteur Woyofal</h4>
+            </div>
+            <div class="modal-body">
+       
+                <div *ngIf="etat">
+                    
+                    <form class="form">
+                        
+                        <div class="form-group">
+                            <label >Numero Compteur : {{compteur}}</label>
+                        </div>
+                        <div class="form-group">
+                                <label >Montant : {{montant}}</label>
+                        </div>
+                        
+                    </form>
+                   
+                </div>
+                <div *ngIf="!etat">
+                    <p class="alert alert-danger">facture deja payé ou reference incorrecte</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="annuler" (click)="hidemodalwoyofal()" class="btn btn-danger" />
+                <input type="button" *ngIf="etat" value="valider" (click)="validerwoyofal()" class="btn btn-success" />
+            </div>
+         </div> 
+       </div>  
+</div>
+
+<!-- ................................ 
+    Senelec Modal
+..................................-->
+
+<div bsModal #modalsenelec="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+     
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+                    <div class="modal-header">
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalsenelec()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Informations Compteur Woyofal</h4>
+                    </div>
+                    <div class="modal-body">
+                
+                        <div *ngIf="etat1">
+                                <p class="alert alert-danger">Erreur de saisie</p>
+                                <p class="alert alert-danger">Veuillez-reverifier les données saisie</p>
+                        </div>
+                       <div *ngIf="etat2">
+                            <p><strong>Police: {{detailfacturesenelec.police}}</strong></p>
+                            <p><strong>Numéro de facture: {{detailfacturesenelec.numeroFacture}}</strong></p>
+                            <p><strong>Client: {{detailfacturesenelec.nom_client}}</strong></p>
+                            <p><strong>Montant: {{detailfacturesenelec.montant}}</strong></p>
+                            <p><strong>Date Echeance: {{detailfacturesenelec.dateEcheance}}</strong></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" *ngIf="etat2" value="valider" (click)="validerpaimentsenelec()" class="btn btn-success" />
+                        <input type="button" value="annuler" (click)="hidemodalsenelec()" class="btn btn-danger" />
+                    </div>
+            </div> 
+        </div>  
+</div>
+
+
+<!-- ................................ 
+    Wizall Modal
+..................................-->
+
+
+<div bsModal #modalbonCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalBonCash()">
+                          <span aria-hidden="true">&times;</span>
+                  </button>
+                      <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+              </div>
+            <div class="modal-body">
+       <form  >
+              <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Envoyeur</div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label >Prénom</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input  [(ngModel)]="this.prenomen" name="prenomen" type="text"  style="height: 3.4rem; border-radius:2rem;"/>
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label >Nom</label>
+                  </div>
+                  <div  class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.nomen" name="nomen" type="text"  style="height: 3.4rem;border-radius: 2rem;">
+                </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label  >Téléphone</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.telephoneen" name="telephoneen" type="text"  style="height: 3.4rem; border-radius: 2rem;" >
+                  </div>
+                </div>
+                 <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label >Nationalité</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <select class="form-control" style="height: 3.4rem; border-radius: 2rem;">
+                      <option selected  >Carte Nationale</option>
+                      <option >Nationale</option>
+                      <option>Nationale</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label  >Type de piéce</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <select class="form-control" style="height: 3.4rem;border-radius: 2rem;">
+                      <option selected>Carte d'identité</option>
+                      <option>carte</option>
+                      <option>carte</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label >Montant</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.montant" name="montant" type="number" style="height: 3.4rem; border-radius: 2rem;">
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label  >Numéro Carte</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.cni" name="cni" type="number"  style="height:3.4rem; border-radius: 2rem; ">
+                  </div>
+                </div>
+                 <div class="col-sm-12 col-xs-12" style="color: blue; font-family: caviar dreams bold;font-size: 4rem;padding-bottom: 3rem;">Bénéficiaire</div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label >Prénom</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.prenomben" name="prenomben" type="text"  style="height: 3.4rem;border-radius:2rem;">
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label>Nom</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.nomben" name="nomben" type="text"  style="height: 3.4rem; border-radius: 2rem; ">
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-xs-12">
+                  <div class="form-group col-sm-4 col-xs-4">
+                      <label >Téléphone</label>
+                  </div>
+                  <div class="form-group col-sm-7 col-xs-7">
+                    <input [(ngModel)]="this.telephoneben" name="telephoneben" type="text"  style="height: 3.4rem; border-radius: 2rem;" >
+                  </div>
+                </div>
+                <div class="center">
+                      <input type="button" value="valider" (click)="faireBonCash()" class="btn btn-success" />
+                </div>
+              </form>
+            </div>
+          <div class="modal-footer">
+                        <input type="button" value="valider" (click)="faireBonCash()" class="btn btn-success" />
+                        <input type="button" value="fermer" (click)="hidemodalBonCash()" class="btn btn-danger" />
+                   </div>
+          </div>
+        </div>
+</div>
+
+
+<!-- ................................ 
+    TNT Modal
+..................................-->
+
+<div bsModal #modalTnt="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalTnt()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Confirmation Détails TNT</h4>
+            </div>
+            <div class="modal-body" style="font-family: 'caviar dreams bold';">
+                
+                <div *ngIf="displayedPage=='accueil-fact-tnt-abn-nv'">
+                    <form class="form">
+                        <div class="form-group">
+                            <label >Nom client : {{ this.noma}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Prènom client : {{this.prenoma}} </label>
+                        </div>
+                        <div class="form-group">
+                            <label >Telephone client : {{this.telNewClient}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Numero chip : {{this.nchipNewClient}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Numero carte : {{this.ncarteNewClient}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label > Nombre de mois : {{this.nbm}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label > Type bouquet : {{this.tbouquet}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label > C.N.I : {{this.cni}}</label>
+                        </div>
+                    </form>
+    
+                </div>
+                <div *ngIf="displayedPage=='accueil-fact-tnt-dcd'">
+                        <form class="form">
+                                <div class="form-group">
+                                    <label >Nom client : {{ this.nomNewClient}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label >Prènom client : {{this.prenomNewClient}} </label>
+                                </div>
+                                <div class="form-group">
+                                    <label >Telephone client : {{this.telNewClient}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label > Adresse client : {{this.adresseNewClient}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label >Numero chip : {{this.nchipNewClient}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label >Numero carte : {{this.ncarteNewClient}}</label>
+                                </div>
+       
+                                <div class="form-group">
+                                    <label > Type bouquet : {{this.tbouquetNewClient}}</label>
+                                </div>
+       
+                        </form>
+                </div>
+    
+                <div *ngIf="displayedPage=='accueil-fact-tnt-crt'">
+                        <form class="form">
+                            <div class="form-group">
+                                <label >Nom client : {{ this.nomNewClient}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label >Prènom client : {{this.prenomNewClient}} </label>
+                            </div>
+                            <div class="form-group">
+                                <label >Telephone client : {{this.telNewClient}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label > Adresse client : {{this.adresseNewClient}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label >Numero carte : {{this.ncarteNewClihidemodalTntent}}</label>
+                            </div>
+    
+                            <div class="form-group">
+                                <label > C.N.I : {{this.cniNewClient}}</label>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div *ngIf="displayedPage=='accueil-fact-tnt-abn-nv'">
+                        <input type="button" value="fermer" (click)="hidemodalTnt()" class="btn btn-danger" />
+                        <input type="button" value="valider" class="btn btn-success" (click)="validnabonTNT()" />
+                </div>
+                <div *ngIf="displayedPage=='accueil-fact-tnt-dcd'">
+                    <input type="button" value="fermer" (click)="hidemodalTnt" class="btn btn-danger" />
+                    <input type="button" value="valider" (click)="vendreDecodeurTNT()" class="btn btn-success" />
+                </div>
+    
+                <div *ngIf="displayedPage=='accueil-fact-tnt-crt'">
+                    <input type="button" value="fermer" (click)="hidemodalTnt()" class="btn btn-danger" />
+                    <input type="button" value="valider" (click)="vendreCarteTNT()" class="btn btn-success" />
+                </div>
+    
+            </div>
+         </div>
+       </div>
+    
+    
+</div>
+
+
+<!-- ................................ 
+    Rapido Modal
+..................................-->
+
+
+<div bsModal #modalrapido="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+                 <div class="modal-header">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalrapido()">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                     <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation Dépôt.</h4>
+                 </div>
+                <div class="modal-body">
+                     <form class="form">
+                         <div class="form-group">
+                              <label >Telephone : {{this.numclient}}</label>
+                          </div>
+                          <div class="form-group">
+                              <label >Montant  : {{this.montant}}</label>
+                          </div>
+                          <div class="form-group">
+                             <label >Badge  : {{this.badge}}</label>
+                          </div>
+                     </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" value="fermer" (click)="hidemodalrapido()"  class="btn btn-danger" />
+                    <input type="button" (click)="validerrapido()" value="valider" class="btn btn-success" />
+                </div>
+           </div> 
+        </div>  
+     </div>
+
+   
+
+<!-- ................................ 
+    Modals Gestion & Reporting
+..................................-->
+
+<div bsModal #modalGestionReporting="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hideGestionReporting()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+            <div class="modal-body">
+              <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
+
+                <div>
+                    <form class="form">
+
+                       <div class="form-group" *ngIf="this.libelleCharge != undefined">
+                             <label >libelle : {{ this.libelleCharge }}</label>
+                       </div>
+                       <div class="form-group" *ngIf="this.montantCharge != undefined">
+                           <label>Montant  : {{ this.montantCharge }}</label>
+                       </div>
+                       <div class="form-group" *ngIf="this.service != undefined">
+                           <label>Service  : {{ this.service }}</label>
+                       </div>
+                       <div class="form-group" *ngIf="this.designation != undefined">
+                           <label>designation  : {{ this.designation }}</label>
+                       </div>
+                  </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                  <div *ngIf="this.designation == undefined">
+                           <input type="button" value="fermer"  class="btn btn-danger" (click)="hideGestionReporting" />
+                           <input type="button" value="valider" class="btn btn-success" (click)="validCharge()" />
+                   </div>
+
+                   <div *ngIf="this.designation != undefined">
+                       <input type="button" value="fermer" (click)="hideGestionReporting" class="btn btn-danger" />
+                       <input type="button" value="valider" class="btn btn-success" (click)="validvente()"/>
+                   </div>    
+            </div>
+         </div>
+       </div>
+</div>
+
+<!-- ................................ 
+    Modals Oolu solar
+..................................-->
+
+
+<div bsModal #modaloolu="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" >
+                    <div class="modal-header">
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaloolu()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Informations Compteur Oolu</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <label class="col-lg-3 col-md-3 col-sm-3">telephone : {{this.telephone}}</label>
+                               
+                        </div>
+                        <div class="row">
+                            <label class="col-lg-3 col-md-3 col-sm-3">Compte : {{this.compte}}</label>
+                            
+                        </div>
+                        <div class="row">
+                                <label class="col-lg-3 col-md-3 col-sm-3">Montant : {{this.montant}}</label>
+                                
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="annuler" (click)="hidemodaloolu()" class="btn btn-danger" />
+                        <input type="button" *ngIf="etat" value="valider"  class="btn btn-success"  (click)="payeroolusolar()"/>
+                    </div>
+            </div> 
+        </div>  
+</div>
+
+<!-- ................................ 
+    Modals SDE
+..................................-->
+
+<div bsModal #modalsde="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-sm">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalsde()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Informations Facture SDE</h4>
+            </div>
+            <div class="modal-body">
+       
+                <div *ngIf="etat">
+                    
+                    <form class="form">
+                        <div class="form-group">
+                            <label *ngIf="statuspayment==false">Status : NON PAYEE</label>
+                            <label *ngIf="statuspayment==true">Status : PAYEE</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Montant : {{mntSDE}}</label>
+                        </div>
+                        <div class="form-group">
+                                <label >Date D'Echéance : {{echeance}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Réf. Client : {{refclientsde}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Réf. Facture: {{refFactureSDE}}</label>
+                        </div>
+                        <div class="form-group">
+                          <label >Client : {{nomclient}}</label>
+                        </div>
+                    </form>
+                   
+                </div>
+                <div *ngIf="!etat">
+                    <p class="alert alert-danger">facture deja payé ou reference incorrecte</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                 <input type="button" *ngIf="etat" value="valider" (click)="paimantsde()" class="btn btn-success" />
+                 <input type="button" value="annuler" (click)="hidemodalsde()" class="btn btn-danger" />
+            </div>
+         </div> 
+       </div>  
+</div>
+<!-- ................................ 
+    Autes Modals
+..................................-->
+
+
 <div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
          <div class="modal-dialog modal-sm">
@@ -4333,7 +4373,10 @@
         </div>
 </div>
 
-<!--les modales d'EMONEY-->
+<!-- ................................ 
+    les modales d'EMONEY
+..................................-->
+
 <!--depotEMONEY-->
 <div bsModal #modaldepotEMONEY="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
      <div class="modal-dialog modal-sm">
@@ -4490,64 +4533,84 @@
 
                                         <!--Modal WIZALL-->
 <!--ModalsepotWIZALL-->
+</div>
 <div bsModal #modaldepotWIZALL="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-sm">
-        <div class="modal-content" >
-          <div class="modal-header">
-            <button type="button" class="close pull-right" aria-label="Close" (click)="fermermodaldepotWIZALL()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation Dépôt.</h4>
-         </div>
-         <div class="modal-body">
+    <div class="modal-dialog modal-sm">
+       <div class="modal-content" >
+         <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="fermermodaldepotWIZALL()">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation Dépôt.</h4>
+        </div>
+        <div class="modal-body">
 
-             <div>
-                 <form class="form">
-                     <div class="form-group">
-                         <label >Numèro Du Client : {{this.numclient}}</label>
-                     </div>
-                     <div class="form-group">
-                         <label >Montant Transaction : {{this.mnt}}</label>
-                     </div>
-                 </form>
+            <div>
+                <form class="form">
+                    <div class="form-group">
+                        <label >Numèro Du Client : {{this.numclient}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >Montant Transaction : {{this.mnt}}</label>
+                    </div>
+                </form>
 
-             </div>
-         </div>
-         <div class="modal-footer">
-              <input type="button" value="valider" (click)="deposerWIZALL()" class="btn btn-success" />
-              <input type="button" value="fermer" (click)="fermermodaldepotWIZALL()" class="btn btn-danger" />
-         </div>
-      </div>
-    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+             <input type="button" value="valider" (click)="deposerWIZALL()" class="btn btn-success" />
+             <input type="button" value="fermer" (click)="fermermodaldepotWIZALL()" class="btn btn-danger" />
+        </div>
+     </div>
+   </div>
 </div>
 <!--Modalretait-->
 <div bsModal #modalretraitWIZALL="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content" >
-            <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="fermermodalretraitWIZALL()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation Retrait.</h4>
-            </div>
-            <div class="modal-body">
-                <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >Numèro Du Client : {{this.numclient}}</label>
-                         </div>
-                         <div class="form-group">
-                             <label >Montant Transaction : {{this.mnt}}</label>
-                         </div>
-                     </form>
-                 </div>
-            </div>
-            <div class="modal-footer">
-                  <input type="button" value="valider" (click)="retirerWIZALL()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="fermermodalretraitWIZALL()" class="btn btn-danger" />
-            </div>
+   <div class="modal-dialog modal-sm">
+       <div class="modal-content" >
+           <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="fermermodalretraitWIZALL()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation Retrait.</h4>
+           </div>
+           <div class="modal-body">
+               <div>
+                    <form class="form">
+                        <div class="form-group">
+                            <label >Numèro Du Client : {{this.numclient}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label >Montant Transaction : {{this.mnt}}</label>
+                        </div>
+                    </form>
+                </div>
+           </div>
+           <div class="modal-footer">
+                 <input type="button" value="valider" (click)="retirerWIZALL()" class="btn btn-success" />
+                 <input type="button" value="fermer" (click)="fermermodalretraitWIZALL()" class="btn btn-danger" />
+           </div>
+       </div>
+   </div>
+</div>
+
+<div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ; margin-bottom:0px;">
+    <div class="row">
+
+        <div *ngFor="let item of process" class="col-sm-2 col-xs-2 runningTask">
+            <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div>
+        </div>
+
+
+
+    </div>
+
+    <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;">
+        <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process">
+            {{op.data.nom}}
         </div>
     </div>
 </div>
+
 
 </div>
