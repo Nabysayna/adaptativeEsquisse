@@ -280,7 +280,7 @@ export class AccueilComponent implements OnInit {
                         break;
                   }
                   case 4:{
-                        this.validateachatcodewoyofal(sesion);
+                       // this.validateachatcodewoyofal(sesion);
                         break;
                   }
                   default:break;
@@ -297,11 +297,11 @@ export class AccueilComponent implements OnInit {
                        break;
                        }
                 case 2:{
-                       this.retirer(sesion);
+                       this.retirerOM(sesion);
                        break;
                 }
                 case 3:{
-                       this.retraitAvecCode(sesion);
+                       this.retraitAC(sesion);
                        break;
                 }
                 case 4:{
@@ -309,7 +309,7 @@ export class AccueilComponent implements OnInit {
                        break;
                 }
                 case 5:{
-                       this.acheterCredit(sesion);
+                       this.acheterCreditOM(sesion);
                        break;
                 }
                 default :break;
@@ -501,107 +501,122 @@ export class AccueilComponent implements OnInit {
 
 /******************************************************************************************************/
 
-   retirer(objet:any){
-    let requete = "2/"+objet.data.numclient+"/"+objet.data.montant ;
-
-    if (this.repeatedInLastFifteen('om-retrait', requete)==1){
-      objet.etats.etat=true;
-      objet.etats.load='terminated';
-      objet.etats.color='red';
-      objet.etats.errorCode='r';
-      return 0 ;
+    retirer(){
+        let Info = {'nom':'Orange money','operateur':2,'operation':2,'montant':this.mnt,'numclient':this.numclient};
+        this.mobileProcessing(JSON.stringify(Info));
+        this.hideAddChildModal();
     }
 
-    this._omService.requerirControllerOM(requete).then( resp => {
-      if (resp.status==200){
-
-        console.log("For this 'retrait', we just say : "+resp._body) ;
-
-        if(resp._body.trim()=='0'){
-           objet.etats.etat=true;
-           objet.etats.load='terminated';
-           objet.etats.color='red';
-           objet.etats.errorCode='0';
-        }else
-            if(resp._body.match('-12')){
-               objet.etats.etat=true;
-               objet.etats.load='terminated';
-               objet.etats.color='red';
-               objet.etats.errorCode='-12';
-            }
-            else
-
-           setTimeout(()=>{
-
-              this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
-                var donnee=rep._body.trim().toString();
-                console.log("Inside verifier retrait: "+donnee) ;
-                if(donnee=='1'){
-                   objet.etats.etat=true;
-                   objet.etats.load='terminated';
-                   objet.etats.color='green';
-                   clearInterval(periodicVerifier) ;
-                }
-                else{
-                  if(donnee!='-1'){
-                   objet.etats.etat=true;
-                   objet.etats.load='terminated';
-                   objet.etats.color='red';
-                   objet.etats.errorCode=donnee;
-                   clearInterval(periodicVerifier) ;
-                  }else{
-                      var periodicVerifier = setInterval(()=>{
-                        objet.etats.nbtour = objet.etats.nbtour + 1 ;
-                      this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
-                        var donnee=rep._body.trim().toString();
-                        console.log("Inside verifier retrait: "+donnee) ;
-                        if(donnee=='1'){
-                           objet.etats.etat=true;
-                           objet.etats.load='terminated';
-                           objet.etats.color='green';
-                           clearInterval(periodicVerifier) ;
-                        }
-                        else{
-                          if(donnee!='-1'){
-                           objet.etats.etat=true;
-                           objet.etats.load='terminated';
-                           objet.etats.color='red';
-                           objet.etats.errorCode=donnee;
-                           clearInterval(periodicVerifier) ;
-                          }
-                            if(donnee=='-1' && objet.etats.nbtour>=10){
-                              this._omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
-                                var donnee=rep._body.trim().toString();
-                                 if(donnee=="c"){
-                                   objet.etats.etat=true;
-                                   objet.etats.load='terminated';
-                                   objet.etats.color='red';
-                                   objet.etats.errorCode="c";
-                                   clearInterval(periodicVerifier) ;
-                                   }
-                              }) ;
-                            }
-                        }
-                      });
-                      },2000);
-                  }
-                }
-              });
-
-           },20000);
+    retirerOM(objet:any){
+      let requete = "2/"+objet.data.numclient+"/"+objet.data.montant ;
+  
+      if (this.repeatedInLastFifteen('om-retrait', requete)==1){
+        objet.etats.etat=true;
+        objet.etats.load='terminated';
+        objet.etats.color='red';
+        objet.etats.errorCode='r';
+        return 0 ;
       }
-      else{
-        console.log("error") ;
 
+      this._omService.requerirControllerOM(requete).then( resp => {
+        if (resp.status==200){
+
+          console.log("For this 'retrait', we just say : "+resp._body) ;
+
+          if(resp._body.trim()=='0'){
+            objet.etats.etat=true;
+            objet.etats.load='terminated';
+            objet.etats.color='red';
+            objet.etats.errorCode='0';
+          }else
+              if(resp._body.match('-12')){
+                objet.etats.etat=true;
+                objet.etats.load='terminated';
+                objet.etats.color='red';
+                objet.etats.errorCode='-12';
+              }
+              else
+
+            setTimeout(()=>{
+
+                this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                  var donnee=rep._body.trim().toString();
+                  console.log("Inside verifier retrait: "+donnee) ;
+                  if(donnee=='1'){
+                    objet.etats.etat=true;
+                    objet.etats.load='terminated';
+                    objet.etats.color='green';
+                    clearInterval(periodicVerifier) ;
+                  }
+                  else{
+                    if(donnee!='-1'){
+                    objet.etats.etat=true;
+                    objet.etats.load='terminated';
+                    objet.etats.color='red';
+                    objet.etats.errorCode=donnee;
+                    clearInterval(periodicVerifier) ;
+                    }else{
+                        var periodicVerifier = setInterval(()=>{
+                          objet.etats.nbtour = objet.etats.nbtour + 1 ;
+                        this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                          var donnee=rep._body.trim().toString();
+                          console.log("Inside verifier retrait: "+donnee) ;
+                          if(donnee=='1'){
+                            objet.etats.etat=true;
+                            objet.etats.load='terminated';
+                            objet.etats.color='green';
+                            clearInterval(periodicVerifier) ;
+                          }
+                          else{
+                            if(donnee!='-1'){
+                            objet.etats.etat=true;
+                            objet.etats.load='terminated';
+                            objet.etats.color='red';
+                            objet.etats.errorCode=donnee;
+                            clearInterval(periodicVerifier) ;
+                            }
+                              if(donnee=='-1' && objet.etats.nbtour>=10){
+                                this._omService.demanderAnnulationOM(resp._body.trim().toString()).then(rep =>{
+                                  var donnee=rep._body.trim().toString();
+                                  if(donnee=="c"){
+                                    objet.etats.etat=true;
+                                    objet.etats.load='terminated';
+                                    objet.etats.color='red';
+                                    objet.etats.errorCode="c";
+                                    clearInterval(periodicVerifier) ;
+                                    }
+                                }) ;
+                              }
+                          }
+                        });
+                        },2000);
+                    }
+                  }
+                });
+
+            },20000);
         }
-    });
+        else{
+          console.log("error") ;
+
+          }
+      });
 
   }
 
 /******************************************************************************************************/
 
+ retraitAvecCode(){
 
-   retraitAvecCode(objet:any){
+    let info = {'nom':'Orange money retrait','operateur':2,'operation':3,'coderetrait':this.coderetrait,'prenom':this.prenom,'nomclient':this.nom,'num':this.numclient,'date':this.date,'cni':this.cni,'montant':this.mnt};
+    this.mobileProcessing(JSON.stringify(info));
+  //    let requete = "3/"+this.coderetrait+"/"+this.prenom+"/"+this.nom+"/"+this.date+"/"+this.cni+"/"+this.numclient;
+    this.reinitialiser();
+    this.hideAddChildModal();
+
+  }
+
+   retraitAC(objet:any){
     let requete = "3/"+objet.data.coderetrait+"/"+objet.data.prenom+"/"+objet.data.nomclient+"/"+objet.data.date+"/"+objet.data.cni+"/"+objet.data.num+"/"+objet.data.montant;
 
     if (this.repeatedInLastFifteen('om-retraitcode', requete)==1)
@@ -714,7 +729,14 @@ export class AccueilComponent implements OnInit {
 /******************************************************************************************************/
 
 
-  acheterCredit(objet:any){
+
+  acheterCredit(){ 
+    let info = {'nom':'OrangeMoney Vente Crédit','operateur':2,'operation':5,'numclient':this.numclient,'montant':this.mnt};
+    this.mobileProcessing(JSON.stringify(info));
+    this.hideAddChildModal();
+  }
+
+  acheterCreditOM(objet:any){
 
     let requete = "5/"+objet.data.numclient+"/"+objet.data.montant;
     console.log("Achat de crédit avec : "+requete) ;
@@ -1710,19 +1732,19 @@ public pdvacueilmenumobilemoneyretour(){
                        break;
                        }
                 case 2:{
-                      // this.retirer(sesion);
+                      // this.retirerOM(sesion);
                        break;
                 }
                 case 3:{
-                       this.retraitAvecCode(sesion);
+                     // this.retraitAC(sesion);
                        break;
                 }
                 case 4:{
-                       this.retraitCpteRecep(sesion);
+                     // this.retraitCpteRecep(sesion);
                        break;
                 }
                 case 5:{
-                       this.acheterCredit(sesion);
+                     //  this.acheterCreditOM(sesion);
                        break;
                 }
                 default :break;
@@ -1752,18 +1774,15 @@ public pdvacueilmenumobilemoneyretour(){
 
              switch(operation){
               case 1:{
-                   console.log('salut');
-                   this.validnabon(sesion);
+                  // this.validnabon(sesion);
                    break;
               }
               case 2:{
-                console.log('salut');
-                  this.vendreDecodeur(sesion);
+                 // this.vendreDecodeur(sesion);
                   break;
               }
               case 3:{
-                  console.log('salut');
-                  this.vendreCarte(sesion);
+                  //this.vendreCarte(sesion);
                   break;
               }
               default : break;
@@ -1826,31 +1845,31 @@ public pdvacueilmenumobilemoneyretour(){
               switch(operation){
                     case 1:{
                           console.log('SDE');
-                          this.paimantsdeFacturier(sesion);
+                          //this.paimantsdeFacturier(sesion);
                           break;
                     }
 
                     case 2:{
                         console.log('Rapido');
-                        this. rechargeRapido(sesion);
+                       // this. rechargeRapido(sesion);
                         break;
                     }
 
                     case 3:{
                           console.log('Woyofal');
-                          this.payerSDEWizall(sesion);
+                         // this.payerSDEWizall(sesion);
                           break;
                     }
 
                     case 4:{
                         console.log('Senelect');
-                        this.paimentsenelec(sesion);
+                       // this.paimentsenelec(sesion);
                         break;
                     }
 
                     case 5:{
                         console.log('Oolu solar');
-                        this.payeroolusolarFacturier(sesion);
+                       // this.payeroolusolarFacturier(sesion);
                         break;
                     }
 
@@ -1941,6 +1960,14 @@ public pdvacueilmenumobilemoneyretour(){
     this.ncarteNewClient=undefined ;
     this.nbmNewClient=undefined;
     this.tbouquetNewClient=undefined ;
+    this.numclient = undefined ;
+    this.mnt = undefined;
+    this.coderetrait=undefined;
+    this.nom=undefined;
+    this.prenom=undefined;
+    this.date=undefined;
+    this.cni=undefined;
+    this.mnt=undefined;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(event){

@@ -332,16 +332,18 @@
                 </div>
           </div>
         </div>
-    </div>
+</div>
 
 
 
 
-<!-- ************************************************************************ -->
+<!-- ************************************************************************************************************************************************ -->
                               <!-- FACTURIER -->
-<!-- ************************************************************************ -->
+<!-- ********************************************************************************************************************************************** -->
 
-    <!--FACTURIER-Accueil -->
+
+
+<!--FACTURIER-Accueil -->
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-fact'">
         <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             
@@ -1348,11 +1350,15 @@
 
                    </div>
                </div>
-           </div>
+</div>
 
-<!-- ************************************************************************ -->
+
+
+<!-- ***************************************************************************************************************************************** -->
                               <!-- GESTION -->
-<!-- ************************************************************************ -->
+<!-- ******************************************************************************************************************************************** -->
+
+
 
 <!--GESTION-Accueil -->
 <div  *ngIf="displayedPage=='accueil-ges'">
@@ -1875,9 +1881,11 @@
 </div>
 
 
-<!-- ************************************************************************ -->
+<!-- *********************************************************************************************************************************************** -->
                               <!-- MOBILE MONEY -->
-<!-- ************************************************************************ -->
+<!-- ********************************************************************************************************************************************** -->
+
+
 
 <!--Mobile Money - Accueil -->
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm'" >
@@ -1988,16 +1996,6 @@
 <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-d'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px;">
      <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
        <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
-           <!--       <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
-                  <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-                  <div>
-                    <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
-                    <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
-                  </div>
-        <div style="margin-left: 67px;margin-right: 57px;padding:0px text-align: center;">
-            <h2 style="color:#36A9E0;">Orange Money</h2>
-            <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
-        </div>-->
               <div  class="row" style="margin:0px; padding:0;">
                     <div  class="col-sm-3 col-xs-3">
                         <img  src="assets/thumbnailphone.png"  style="height: 50px; padding-left:4rem; ">
@@ -2025,43 +2023,47 @@
               <div class="row">
                    <div class="col-sm-12 col-xs-12">
                          <form class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-                               <div class="row">
-                                   <div class="col-xs-5 col-sm-5">
-                                         <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
-                                   </div>
-                                   <div class="col-xs-7 col-sm-7">
-                                         <input autocomplete="off" type="text"   autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                               <div class="col-sm-12 col-xs-12">
+                                   <div class="row">
+                                        <div class="col-xs-5 col-sm-5">
+                                                <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
+                                          </div>
+                                          <div class="col-xs-7 col-sm-7">
+                                                <input autocomplete="off" type="text"   autocomplete="off" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                          </div>
                                    </div>
                                </div>
-                               <div class="row">
+                               <div class="col-sm-12 col-xs-12">
                                        <p *ngIf="mag1" style="color:red">numero incorrect</p>
                                </div>
     
-                               <div class="row" style="margin-top:2rem;">
-                                   <div class="col-xs-5 col-sm-5">
-                                         <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
-                                   </div>
-                                   <div class="col-xs-7 col-sm-7">
-                                         <input type="text" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                               <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                                   <div class="row">
+                                        <div class="col-xs-5 col-sm-5">
+                                            <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
+                                        </div>
+                                        <div class="col-xs-7 col-sm-7">
+                                            <input type="text" autocomplete="off"  autocomplete="off" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                                        </div>
                                    </div>
                                </div>
-                               <div class="row">
+                               <div class="col-sm-12 col-xs-12">
                                    <p *ngIf="mag2" style="color:red">montant incorrect</p>
                                </div>
+                               <div class="col-sm-12 col-xs-12">
+                                    <div class="row" style="margin-top:5rem;">
+                                           <div class="col-xs-5 col-sm-5">
+               
+                                           </div>
+                                           <div class="col-xs-2 col-sm-2">
+                                                  <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                           </div>
+                                           <div class="col-xs-5 col-sm-5">
+               
+                                           </div>
+                                    </div>
+                              </div>
                          </form>
-                   </div>
-                   <div class="col-sm-12 col-xs-12">
-                         <div class="row" style="margin-top:5rem;">
-                                <div class="col-xs-5 col-sm-5">
-    
-                                </div>
-                                <div class="col-xs-2 col-sm-2">
-                                       <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-                                </div>
-                                <div class="col-xs-5 col-sm-5">
-    
-                                </div>
-                         </div>
                    </div>
               </div>
       </div>
@@ -2101,7 +2103,7 @@
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
                   <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
             </div>
-            <form  class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+            <form  class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
                   <div class="col-sm-12 col-xs-12">
                           <div class="row">
                               <div class="col-xs-5 col-sm-5">
@@ -2133,7 +2135,7 @@
     
                                </div>
                                <div class="col-xs-2 col-sm-2">
-                                      <button type="submit" class="btn btn-success" [disabled]="!buttondepot2"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                      <button type="submit" class="btn btn-success"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                                </div>
                                <div class="col-xs-5 col-sm-5">
     
@@ -2181,7 +2183,7 @@
                   <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
             </div>
     
-            <form class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+            <form class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
               <div class="col-sm-12 col-xs-12">
                       <div class="row">
                           <div class="col-xs-5 col-sm-5">
@@ -2213,7 +2215,7 @@
     
                            </div>
                            <div class="col-xs-2 col-sm-2">
-                                  <button  type="submit" class="btn btn-success" [disabled]="!buttondepot2" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                  <button  type="submit" class="btn btn-success" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                            </div>
                            <div class="col-xs-5 col-sm-5">
     
@@ -2256,14 +2258,14 @@
     
              <div class="row">
                   <div class="col-sm-12 col-xs-12">
-                        <form  class="row" name="transnat" (ngSubmit)="ajout()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+                        <form  class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
     
                               <div class="row" style="margin-top:2rem;">
                                      <div style="" class="col-xs-5 col-sm-5">
                                          <label style="color:white;padding:0px;margin:0px" >Code de retrait :</label>
                                      </div>
                                      <div style="padding:0px;margin:0px" class="col-xs-7 col-sm-7">
-                                          <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem;"  class="form-control" placeholder="Code de retrait" required >
+                                          <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem; width:100%; margin:0px;"  class="form-control" placeholder="Code de retrait" required >
                                      </div>
                               </div>
     
@@ -2271,8 +2273,8 @@
                                     <div class="col-xs-5 col-sm-5">
                                            <label style="color:white" >Prénom :</label>
                                     </div>
-                                    <div class="col-xs-7 col-sm-7">
-                                          <input type="text" class="btn btn-success" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style=" border-radius:  2rem;padding:0px;margin:0px"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
+                                    <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
+                                          <input type="text" class="btn btn-success" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style=" border-radius:  2rem;padding:0px;margin:0px ;width: 100%;"  id="numclient"  class="form-control" placeholder="Prenom du client" required >
                                     </div>
                               </div>
     
@@ -2280,8 +2282,8 @@
                                      <div class="col-xs-5 col-sm-5">
                                            <label style="color:white;" >Date de naissance :</label>
                                      </div>
-                                     <div class="col-xs-7 col-sm-7" style="padding-top:0px">
-                                           <input type="text" class="btn btn-success" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style=" border-radius: 2rem; padding:0px;margin:0px"  class="form-control" placeholder="Exemple : 03041900" required >
+                                     <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
+                                           <input type="text" class="btn btn-success" [(ngModel)]="this.date" name="date" autocomplete="off" (keyup)="verifdate($event)" id="numclient" style=" border-radius: 2rem; padding:0px;width:100%; margin:0px;"  class="form-control" placeholder="Exemple : 03041900" required >
                                      </div>
                               </div>
     
@@ -2290,7 +2292,7 @@
                                          <label style="color:white" >Numéro de piece d'identite :</label>
                                      </div>
                                      <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
-                                          <input type="text" class="btn btn-success" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="border-radius: 2rem;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
+                                          <input type="text" class="btn btn-success" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="border-radius: 2rem; width:100%; margin:0px;"  id="mnttrans"  class="form-control" placeholder="Numero d'identite du client" required >
                                      </div>
                               </div>
     
@@ -2298,8 +2300,8 @@
                                     <div class="col-xs-5 col-sm-4">
                                          <label style="color:white">Numéro du client  :</label>
                                     </div>
-                                    <div class="col-xs-7 col-sm-7" style="padding-top:0px">
-                                         <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline; border-radius: 2rem;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
+                                    <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
+                                         <input autocomplete="off" type="text" (keyup)="verifNumber($event)" autocomplete="off" style="display: inline; border-radius: 2rem; width:100%; margin:0px;" pattern="[0-9]*" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" autofocus >
                                     </div>
                               </div>
     
@@ -2308,22 +2310,22 @@
                                           <label style="color: white;">Montant  :</label>
                                     </div>
                                     <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
-                                          <input type="text" class="btn btn-success" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="border-radius: 2rem;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
+                                          <input type="text" class="btn btn-success" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="border-radius: 2rem; width:100%; margin:0px;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
                                     </div>
                               </div>
+                              <div class="row" style="margin-top:5rem;">
+                                    <div class="col-xs-5 col-sm-5">
+                     
+                                    </div>
+                                    <div class="col-xs-2 col-sm-2">
+                                           <button type="submit" class="btn btn-success"   style="border:none;background-color: transparent; width:100%; margin:0px;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                    </div>
+                                    <div class="col-xs-5 col-sm-5">
+                     
+                                    </div>
+                             </div>
                         </form>
                   </div>
-            </div>
-            <div class="row" style="margin-top:5rem;">
-                   <div class="col-xs-5 col-sm-5">
-    
-                   </div>
-                   <div class="col-xs-2 col-sm-2">
-                          <button type="submit" class="btn btn-success" [disabled]="!buttondepot2"  style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-                   </div>
-                   <div class="col-xs-5 col-sm-5">
-    
-                   </div>
             </div>
       </div>
      </div>
@@ -2366,7 +2368,7 @@
 
 </div>
 
-    <!--  Rechargement espece -->
+<!--  Rechargement espece -->
 <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'"  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -2429,7 +2431,7 @@
           </form>
         </div>
 </div>
-    <!--   Retrait espece-->
+<!--   Retrait espece-->
 <div *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
@@ -3507,9 +3509,9 @@
 
 
 
-<!-- ************************************************************************ -->
+<!-- ********************************************************************************************************** -->
                                      <!-- ECOMMERCE -->
-<!-- ************************************************************************ -->
+<!-- ********************************************************************************************************* -->
 
 
 
@@ -3553,9 +3555,9 @@
 
 
 
-<!-- ************************************************************************ -->
+<!-- ****************************************************************************************************************-->
                               <!-- Les Modals -->
-<!-- ************************************************************************ -->
+<!-- ******************************************************************************************************************-->
 
 
 
@@ -4244,21 +4246,86 @@
              </div>
              <div class="modal-body">
 
-                 <div>
-                     <form class="form">
-                         <div class="form-group">
-                             <label >numero client : {{this.numclient}} </label>
-                         </div>
-                         <div class="form-group">
-                             <label >montant : {{this.mnt}} </label>
-                         </div>
-                     </form>
+                    <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-d'">
+                        <form class="form">
+                            <div class="form-group">
+                                <label >numero client : {{this.numclient}} </label>
+                            </div>
+                            <div class="form-group">
+                                <label >montant : {{this.mnt}} </label>
+                            </div>
+                        </form>
 
-                 </div>
+                    </div>
+                    <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-r'">
+                            <form class="form">
+                                    <div class="form-group">
+                                        <label >numero client : {{this.numclient}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >montant : {{this.mnt}}</label>
+                                    </div>
+                            </form>
+                    </div>
+                    <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'">
+                            <form class="form">
+                                    <div class="form-group">
+                                        <label >Code de retrait : {{this.coderetrait}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Prénom : {{this.prenom}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Nom : {{this.nom}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Date De Naissance: {{this.date}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                      <label >Numéro CNI : {{this.cni}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                      <label >Numéro Client : {{this.numclient}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                      <label >Montant : {{this.mnt}}</label>
+                                    </div>
+                            </form>
+                    </div>
+                    <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-vc'">
+                        <form class="form">
+                                    <div class="form-group">
+                                        <label >Numéro client : {{this.numclient}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Montant : {{this.mnt}}</label>
+                                    </div>
+                        </form>
+                    </div>
+                    
              </div>
              <div class="modal-footer">
-                  <input type="button" value="valider" (click)="Deposer()" class="btn btn-success" />
-                  <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />
+
+                <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-d'">
+                        <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />
+                        <input type="button" value="valider" (click)="Deposer()" class="btn btn-success" />
+                </div>
+
+                <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-r'">
+                        <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />
+                        <input type="button" value="valider" (click)="retirer()" class="btn btn-success" />
+                </div>
+
+                <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'">
+                        <input type="button" value="annuler" (click)="hideAddChildModal()" class="btn btn-danger" />
+                        <input type="button" value="valider" (click)="retraitAvecCode()" class="btn btn-success" />
+                </div>
+
+                <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-vc'">
+                        <input type="button" value="fermer" (click)="hideAddChildModal()" class="btn btn-danger" />      
+                         <input type="button" value="valider" (click)="acheterCredit();hidemodalventecredit()" class="btn btn-success" />
+                </div>
+
              </div>
           </div>
         </div>
