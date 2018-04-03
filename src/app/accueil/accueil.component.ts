@@ -829,9 +829,22 @@ export class AccueilComponent implements OnInit {
 
 
   validrechargementespece(objet:any){
-    this._postCashService.rechargementespece('00221'+objet.data.telephone+'',''+objet.data.montant).then(postcashwebserviceList => {
+    let index = this.process.findIndex(
+      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
 
-      if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
+    this._postCashService.rechargementespece('00221'+objet.data.telephone+'',''+objet.data.montant).then(postcashwebserviceList => {
+          alert(postcashwebserviceList);
+
+          if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
+
+          
+          console.log(this.process[index]);
+
+            this.process[index].etats.pourcentage = 4;
+
             objet.etats.etat=true;
             objet.etats.load='terminated';
             objet.etats.color='green';
@@ -852,6 +865,7 @@ export class AccueilComponent implements OnInit {
             objet.etats.etat=true;
             objet.etats.load='terminated';
             objet.etats.color='red';
+            this.process[index].etats.pourcentage = 5;
       }
     });
 
@@ -862,9 +876,20 @@ export class AccueilComponent implements OnInit {
 
 
   validateachatjula(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
      this._postCashService.achatjula(objet.data.montant+'',objet.data.nbcarte+'').then(postcashwebserviceList => {
+        this.process[index].etats.pourcentage = 0;
+
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
-        let montant = objet.data.nbcarte * objet.data.montant ;
+        
+         this.process[index].etats.pourcentage = 4;
+          
+         let montant = objet.data.nbcarte * objet.data.montant ;
          objet.dataI = {
               apiservice:'postecash',
               service:'achatjula',
@@ -886,6 +911,8 @@ export class AccueilComponent implements OnInit {
              objet.etats.etat=true;
              objet.etats.load='terminated';
              objet.etats.color='red';
+
+             this.process[index].etats.pourcentage = 5;
         }
       });
 
@@ -928,9 +955,18 @@ export class AccueilComponent implements OnInit {
 
   validateachatcodewoyofal(objet:any){
 
+      let index = this.process.findIndex(
+        item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+      ));
+
+      this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
       this._postCashService.achatcodewoyofal(objet.data.montant+'',objet.data.compteur+'').then(postcashwebserviceList => {
+        this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
-        objet.dataI = {
+          this.process[index].etats.pourcentage = 4 ;
+          objet.dataI = {
             apiservice:'postecash',
             service:'achatcodewayafal',
             infotransaction:{
@@ -951,6 +987,7 @@ export class AccueilComponent implements OnInit {
           objet.etats.etat=true;
           objet.etats.load='terminated';
           objet.etats.color='red';
+          this.process[index].etats.pourcentage = 5;
         }
       });
   }
@@ -990,8 +1027,16 @@ export class AccueilComponent implements OnInit {
 
   validnabon(objet:any){
 
+    let index = this.process.findIndex(
+      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
     this._tntService.abonner(objet.data.token, objet.data.prenom,objet.data.nomclient, objet.data.tel,objet.data.cni, objet.data.chip, objet.data.carte, objet.data.duree, objet.data.typedebouquet).then( response =>
       {
+
+        this.process[index].etats.pourcentage = 4;
 
         let typedebouquet = "" ;
         console.log(response);
@@ -1038,6 +1083,7 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode='0';
+           this.process[index].etats.pourcentage = 5;
       }
 
       });
@@ -1049,8 +1095,15 @@ export class AccueilComponent implements OnInit {
 
    vendreDecodeur(objet:any){
 
+    let index = this.process.findIndex(
+      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+    
     this._tntService.vendreDecodeur(objet.data.token, objet.data.prenom,objet.data.nomclient,objet.data.tel, objet.data.adresse, objet.data.region, objet.data.cni,objet.data.chip,objet.data.carte, objet.data.duree, objet.data.typedebouquet, objet.data.montant).then( response =>
       {
+        this.process[index].etats.pourcentage = 4;
         if(response=="ok"){
 
            objet.dataI = {
@@ -1080,6 +1133,7 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode='0';
+           this.process[index].etats.pourcentage = 5;
         }
 
       });
@@ -1090,7 +1144,14 @@ export class AccueilComponent implements OnInit {
 
 
    vendreCarte(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+    
     this._tntService.vendreCarte('55555', objet.data.prenom, objet.data.nomclient,objet.data.tel,objet.data.tel, objet.data.region,objet.data.cni,objet.data.carte, 5000).then( response =>{
+         this.process[index].etats.pourcentage = 4;
         if(response=="ok"){
           objet.dataI = {
             apiservice:'tnt',
@@ -1116,6 +1177,7 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode='0';
+           this.process[index].etats.pourcentage = 5;
         }
     });
   }
@@ -1124,8 +1186,15 @@ export class AccueilComponent implements OnInit {
 /******************************************************************************************************/
 
     cashInWizall(objet : any){
+      let index = this.process.findIndex(
+        item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+      ));
+  
+      this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
       console.log('cashInWizall');
       this._wizallService.intouchCashin("test 1", objet.data.num, objet.data.montant).then( response =>{
+              this.process[index].etats.pourcentage = 4;
               console.log(response)
               if(response.commission!=undefined){
                 objet.dataI = {
@@ -1146,13 +1215,22 @@ export class AccueilComponent implements OnInit {
                  objet.etats.load='terminated';
                  objet.etats.color='red';
                  objet.etats.errorCode=500;
+                 this.process[index].etats.pourcentage = 5;
               }
         });
     }
 
     cashOutWizall(objet : any){
       console.log('cashOutWizall');
+
+      let index = this.process.findIndex(
+        item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+      ));
+  
+      this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
       this._wizallService.intouchCashout("test 1", objet.data.num, objet.data.montant).then( response =>{
+              this.process[index].etats.pourcentage = 4;
               console.log(response) ;
               if(response.status=="PENDING"){
                 objet.dataI = {
@@ -1173,6 +1251,7 @@ export class AccueilComponent implements OnInit {
                  objet.etats.load='terminated';
                  objet.etats.color='red';
                  objet.etats.errorCode=500;
+                 this.process[index].etats.pourcentage = 5;
               }
       });
     }
@@ -1701,7 +1780,8 @@ public pdvacueilmenumobilemoneyretour(){
                 switch(operation){
                   case 1:{
                         console.log("PosteCash operation 1");
-                         this.validrechargementespece(sesion);
+
+                        this.validrechargementespece(sesion);
                         break;
                   }
                   case 2:{
@@ -2827,6 +2907,8 @@ fairebondachat(){
       let data = {telephone:this.telephone,montant: this.montant};
       //
   }
+
+
 
 
 }
