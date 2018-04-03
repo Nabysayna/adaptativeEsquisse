@@ -16,6 +16,11 @@ import { NAbonnementService, LAbonnementService, EFinancierService } from 'app/t
 import { NAbonnement, EFinancier, LAbonnement } from 'app/tnt/tntmodels';
 import { Location }  from '@angular/common';
 import { FacturierService } from 'app/services/facturier.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import { TypeaheadMatch } from 'ng2-bootstrap/typeahead';
+
+import {EcomService} from "../services/ecom.service";
 
 
 
@@ -26,6 +31,16 @@ class Article {
   public description:string;
   public prix:number;
   public quantite:number;
+}
+//E-commerce
+class OrderedArticle{
+  public id:number;
+  public qte:number;
+  public prix:number;
+  public montant:number;
+  public designation:string;
+  public description:string;
+  public nomImg:string;
 }
 
 @Component({
@@ -150,6 +165,7 @@ export class AccueilComponent implements OnInit {
   num_facture:string;
 
   constructor(
+        private _ecomService:EcomService,
         private _facturierService : FacturierService,
         private eFinancierService:EFinancierService,
         private lAbonnementService: LAbonnementService,
@@ -170,6 +186,12 @@ export class AccueilComponent implements OnInit {
               this.isMobile = true ;
           else
               this.isMobile = false ;
+
+            this.dataSource = Observable
+      .create((observer: any) => {
+        observer.next(this.asyncSelected);
+      })
+      .mergeMap((token: string) => this.getStatesAsObservable(token));
   }
 
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
@@ -182,13 +204,19 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modalwoyofal') public modalwoyofal:ModalDirective;
   @ViewChild('modaloolu') public modaloolu:ModalDirective;
   @ViewChild('modalsenelec') public modalsenelec:ModalDirective;
+  @ViewChild('viewMore') public addChildModalecomme:ModalDirective;
 
 /******************************************************************************************************/
 
 
-  ngOnInit() {          
-    
-
+  ngOnInit() { 
+          //E-Commerce
+          this.loading = true ;
+          this._ecomService.listeArticles(this.token, 'catalogue').then( response => {
+            this.listarticles = response.reverse();
+            this.loading = false ;
+          });
+         
           localStorage.removeItem('om-depot') ;
           localStorage.removeItem('om-retrait') ;
 
@@ -2827,6 +2855,52 @@ fairebondachat(){
       let data = {telephone:this.telephone,montant: this.montant};
       //
   }
+  //E-commerce
+  
+  currentArticle : any ;
+  p : any ;
+  listarticles : any[] ;
+  panier:Article[];
 
+  public asyncSelected: string;
+  public typeaheadLoading: boolean;
+  public typeaheadNoResults: boolean;
+  public dataSource: Observable<any>;
+  public filterQuery = "";
+
+ 
+  orderedarticles:OrderedArticle [] = [];
+  alert: boolean = false;
+  
+ public getStatesAsObservable(token: string): Observable<any> {
+    let query = new RegExp(token, 'ig');
+
+    return Observable.of(
+      this.listarticles.filter((state: any) => {
+        return query.test(state.designation);
+      })
+    );
+  }
+ public showAddChildModalecomme(article):void {
+    this.currentArticle=article ;
+    this.addChildModal.show();
+  }
+
+  public hideAddChildModalecomme():void {
+    this.addChildModal.hide();
+  }
+
+  public ajouter_au_panier(article){
+    let articl=new Article();
+    articl.prix=article.prix;
+    articl.designation=article.designation;
+    articl.description=article.description;
+    articl.nomImg=article.nomImg;
+    sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Mon Panier','operateur':5,'prix':articl.prix,'quantite':1,'nomImg':articl.nomImg,'designation':articl.designation,'description':articl.description}));
+    this.addChildModal.hide();
+  }
+ 
+
+   
 
 }
