@@ -164,6 +164,8 @@ export class AccueilComponent implements OnInit {
   police:string;
   num_facture:string;
 
+  public infoRetraitaveccode:any;
+  
   constructor(
         private _ecomService:EcomService,
         private _facturierService : FacturierService,

@@ -9,7 +9,7 @@
                 <app-navbar-top></app-navbar-top>
             </div>
 
-            <div id="horizontalcenter">item.etats.color
+            <div id="horizontalcenter">
                 <ul>
                     <li role="presentation"><a [routerLink]="['/accueil', 'GESTIONREPORTING']" ><!-- <i class="fa fa-calculator fa-2x pull-left"> </i>--> <b>GESTION REPORTING</b> </a></li>
                     <li role="presentation"><a [routerLink]="['/accueil', 'DEMANDEPRET']" > <!-- <img src="assets/menuticker.png" /> --><b>DEMANDE DE PRET</b> </a></li>
@@ -4825,7 +4825,7 @@
 
 <div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ; margin-bottom:0px;">
     <div class="row">
-            <div class="col-sm-2 col-xs-2 runningTask" >
+            <div class="col-sm-2 col-xs-2 runningTask"*ngFor="let item of process" >
                     <div class="runner" [ngStyle]="{'background-color':'red','width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
         </div>
     </div>
@@ -4834,7 +4834,7 @@
         <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process"  >
          
          <span [popover]="popTemplateMobil" popoverTitle="{{op.data.nom}}" triggers="mouseenter:mouseleave" >{{op.data.nom}}</span>
-     
+
         </div>
     </div>
 </div>
