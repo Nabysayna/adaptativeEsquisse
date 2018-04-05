@@ -9,7 +9,7 @@
                 <app-navbar-top></app-navbar-top>
             </div>
 
-            <div id="horizontalcenter">
+            <div id="horizontalcenter">item.etats.color
                 <ul>
                     <li role="presentation"><a [routerLink]="['/accueil', 'GESTIONREPORTING']" ><!-- <i class="fa fa-calculator fa-2x pull-left"> </i>--> <b>GESTION REPORTING</b> </a></li>
                     <li role="presentation"><a [routerLink]="['/accueil', 'DEMANDEPRET']" > <!-- <img src="assets/menuticker.png" /> --><b>DEMANDE DE PRET</b> </a></li>
@@ -72,7 +72,7 @@
                                     </div>
                                     <div *ngIf="item.data.operation==3">
                                         <div>Code Retrait: {{item.data.coderetrait}}</div><br>
-                                        <div>Prènom : {{item.data.prenom}}</div><br>
+                                         <div>Prènom : {{item.data.prenom}}</div><br>
                                         <div>Nom : {{item.data.nomclient}}</div><br>
                                         <div>Date De Naiss. : {{item.data.date}}</div><br>
                                         <div>N° CNI :{{item.data.cni}}</div><br>
@@ -3525,6 +3525,7 @@
 
 <div class="row" *ngIf="displayedPage=='accueil-ec'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:0px; min-height: -webkit-fill-available;" >
         <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
             <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
@@ -4824,18 +4825,227 @@
 
 <div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ; margin-bottom:0px;">
     <div class="row">
-
-        <div *ngFor="let item of process" class="col-sm-2 col-xs-2 runningTask">
-            <div class="runner" [ngStyle]="{'background-color':'white','width':'70%'}"></div>
+            <div class="col-sm-2 col-xs-2 runningTask" >
+                    <div class="runner" [ngStyle]="{'background-color':'red','width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
         </div>
-
-
-
     </div>
 
-    <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;">
-        <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process">
-            {{op.data.nom}}
+    <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;"  >
+        <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process"  >
+         
+         <span [popover]="popTemplateMobil" popoverTitle="{{op.data.nom}}" triggers="mouseenter:mouseleave" >{{op.data.nom}}</span>
+         <ng-template #popTemplateMobil  >
+                         <!-- PostCash-->
+            <div *ngIf="op.data.operateur==1" style="color:black; padding-left:0.5rem; font-family:'caviar dreams bold'; margin-left:2rem;">
+
+                    <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                        {{op.data.nom}}
+                    </div>
+    
+                    <div *ngIf="op.data.operation==1">
+                        <h6>Rechargement Espece</h6>
+                        <div><p>Montant : {{op.data.montant}}</p></div><br>
+                        <div><p>Numéro Client :{{op.data.num}}</p> </div><br>
+                    </div>
+                    <div *ngIf="op.data.operation==2">
+                        <div><p>Montant : {{op.data.montant}}</p></div><br>
+                        <div><p>Numéro Client :{{op.data.numclient}}</p></div><br>
+                    </div>
+                    <div *ngIf="op.data.operation==3">
+                        <div><p>Code Retrait: {{op.data.coderetrait}}</p> </div><br>
+                         <div><p>Prènom : {{op.data.prenom}}</p> </div><br>
+                        <div><p> Nom : {{op.data.nomclient}}</p></div><br>
+                        <div>Date De Naiss. : {{op.data.date}}</div><br>
+                        <div><p>N° CNI :{{op.data.cni}}</p> </div><br>
+                        <div><p> Numéro Client :{{op.data.num}}</p></div><br>
+                        <div><p>Montant:{{op.data.montant}}</p> </div><br>
+                    </div>
+                    <div *ngIf="op.data.operation==5">
+                        <div><p>Montant : {{op.data.montant}}</p> </div><br>
+                        <div><p>Numéro Client :{{op.data.numclient}}</p> </div><br>
+                    </div>
+    
+            </div>
+            <!-- OM -->
+            <div *ngIf="op.data.operateur==2">
+
+                <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                    {{retrieveOperationInfo(op)}}
+                </div>
+
+                <div *ngIf="op.data.operation==1">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==2">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.numclient}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==3">
+                    <div>Code Retrait: {{op.data.coderetrait}}</div><br>
+                     <div>Prènom : {{op.data.prenom}}</div><br>
+                    <div>Nom : {{op.data.nomclient}}</div><br>
+                    <div>Date De Naiss. : {{op.data.date}}</div><br>
+                    <div>N° CNI :{{op.data.cni}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                    <div>Montant:{{op.data.montant}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==5">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.numclient}}</div><br>
+                </div>
+
+            </div>
+            <!--E-commerce -->
+            <div *ngIf="op.data.operateur==5;let j=index" class="row" style="border-radius:10px 0 10px 10px;width:300px;">
+                <div  *ngFor="let article of articles let i=index"  class="col-lg-5 col-md-5 col-xs-5 col-sm-5" [ngStyle]="{'border-right':i%2==0?'4px solid orange':'2px solid white','border-top':i>=2?'4px solid orange':'2px solid white','border-bottom':(i==articles.length-2 && articles.length%2!=0)?'4px solid orange':'2px solid white'}" style="height:180px;border-radius:0px">
+                    <div class="row">
+                        <p style="color:blue;font-size:0.8em;text-align:center">{{getFormatted(article.data.designation)}}</p>
+                    </div>
+                    <div class="row"  style="background-image:url(../../assets/mag-rondell.png);background-repeat:no-repeat;">
+                        <img class="card-img-top  col-lg-8 col-md-8 col-xs-8 col-sm-8 img-circle" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" style="width:90px;height:90px;margin-left:6%;margin-top:5px" alt="Card image cap">
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="max-width:150px"><b style="color:blue;font-size:0.9em">{{currency(article.data.prix)}} fcfa</b></p>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <b class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="color:blue">Total : {{currency(totalpanier())}}</b>
+                </div>
+
+            </div>
+
+            <!-- TNT -->
+            <div *ngIf="op.data.operateur==4">
+                <div *ngIf="op.etats.errorCode=='*'">
+                    <div *ngIf="op.data.operation==1">
+                        <div>Prénom client: {{op.data.prenom}}</div><br>
+                        <div>Nom Client :{{op.data.nom}}</div><br>
+                        <div>Téléphone :{{op.data.tel}}</div><br>
+                        <div>Numéro CNI  :{{op.data.cni}}</div><br>
+                        <div>Numéro CHIP :{{op.data.chip}}</div><br>
+                        <div>Numéro CARTE:{{op.data.carte}}</div><br>
+                        <div>Durée :{{op.data.duree}} mois</div><br>
+                        <div>Bouquet : <a *ngIf="op.data.typedebouquet==1"> Maanaa</a>
+                            <a *ngIf="op.data.typedebouquet==2"> Boul Khool</a>
+                            <a *ngIf="op.data.typedebouquet==3"> Maana + Boul Khool</a>
+                        </div><br>
+                    </div>
+                    <div *ngIf="op.data.operation==2">
+                        <div>Prénom client: {{op.data.prenom}}</div><br>
+                        <div>Nom Client :{{op.data.nomclient}}</div><br>
+                        <div>Téléphone :{{op.data.tel}}</div><br>
+                        <div>Numéro CHIP :{{op.data.chip}}</div><br>
+                        <div>Numéro CARTE:{{op.data.carte}}</div><br>
+                        <div>Bouquet : <a *ngIf="op.data.typedebouquet==0"> Sans Abonnement</a>
+                            <a *ngIf="op.data.typedebouquet==1"> + 1 mois</a>
+                            <a *ngIf="op.data.typedebouquet==3"> + 3 mois</a>
+                        </div><br>
+                    </div>
+
+                    <div *ngIf="op.data.operation==3">
+                        <div>Prénom client: {{op.data.prenom}}</div><br>
+                        <div>Nom Client :{{op.data.nomclient}}</div><br>
+                        <div>Téléphone :{{op.data.tel}}</div><br>
+                        <div>Adresse :{{op.data.adresse}}</div><br>
+                        <div>Numéro CARTE:{{op.data.carte}}</div><br>
+                    </div>
+
+                </div>
+                <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold;">
+                    {{retrieveOperationInfo(op)}}
+                </div>
+
+            </div>
+
+
+            <!-- OM -->
+            <div *ngIf="op.data.operateur==5">
+
+                <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                    {{retrieveOperationInfo(op)}}
+                </div>
+
+                <div *ngIf="op.data.operation==1">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==2">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==3">
+                    <div>Montant:{{op.data.montant}}</div><br>
+                    <div>Réfèrence Client: {{op.data.refclient}}</div><br>
+                    <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==4">
+                    <div>Montant:{{op.data.montant}}</div><br>
+                    <div>Police: {{op.data.police}}</div><br>
+                    <div>Numéro Facture : {{op.data.numfacture}}</div><br>
+                </div>
+            </div>
+
+            <!-- TC -->
+            <div *ngIf="op.data.operateur==3">
+
+                <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                    {{retrieveOperationInfo(op)}}
+                </div>
+
+                <div *ngIf="op.data.operation==1">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==2">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==3">
+                    <div>Montant:{{op.data.montant}}</div><br>
+                    <div>Réfèrence Client: {{op.data.refclient}}</div><br>
+                    <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==4">
+                    <div>Montant:{{op.data.montant}}</div><br>
+                    <div>Police: {{op.data.police}}</div><br>
+                    <div>Numéro Facture : {{op.data.numfacture}}</div><br>
+                </div>
+
+            </div>
+
+            <!-- wizall -->
+            <div *ngIf="op.data.operateur==6">
+
+                <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                    {{retrieveOperationInfo(op)}}
+                </div>
+
+                <div *ngIf="op.data.operation==1">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==2">
+                    <div>Montant : {{op.data.montant}}</div><br>
+                    <div>Numéro Client :{{op.data.num}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==3">
+                    <div>Montant:{{op.data.montant}}</div><br>
+                    <div>Réfèrence Client: {{op.data.refclient}}</div><br>
+                    <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
+                </div>
+                <div *ngIf="op.data.operation==4">
+                    <div>Montant:{{op.data.montant}}</div><br>
+                    <div>Police: {{op.data.police}}</div><br>
+                    <div>Numéro Facture : {{op.data.numfacture}}</div><br>
+                </div>
+            </div>
+
+
+        </ng-template>
         </div>
     </div>
 </div>
