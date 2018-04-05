@@ -11,7 +11,7 @@ import { HttpModule }    from '@angular/http';
 import { LoadersCssModule } from 'angular2-loaders-css';
 
 import {DataTableModule} from "angular2-datatable";
-import { AlertModule, TabsModule, CollapseModule, ProgressbarModule, PopoverModule, ModalModule, TypeaheadModule, PaginationModule, AccordionModule} from 'ng2-bootstrap';
+import { AlertModule, TabsModule, CollapseModule, ProgressbarModule, ModalModule, TypeaheadModule, PaginationModule, AccordionModule} from 'ng2-bootstrap';
 
 import { AgmCoreModule } from '@agm/core';
 import { ChartsModule } from 'ng2-charts';
@@ -187,7 +187,7 @@ import {ExpressocashService} from "./services/expressocash.service";
 import {MapsService} from "./services/maps.service";
 import { PostCashService } from 'app/services/postCash.service';
 
-
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 /*--------------------------------------------------------------------------------------------------------*/
 /*                                            END OF IMPORTS                                              */

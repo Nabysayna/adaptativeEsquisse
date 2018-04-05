@@ -300,33 +300,59 @@
                     <h1 style="color:white; font-family: 'caviar dreams bold'; margin-top: -10px;">SENTOOL</h1>
             </div>
 
-            <div class="col-sm-12 col-xs-12" style="margin-top: 12rem;">
+            <div class="col-sm-12 col-xs-12" style="margin-top: 8rem;">
                 <h5 style="font-family:caviar dreams bold; color: white;">MENU</h5>
             </div>
             <div class="col-sm-12 col-xs-12" style="padding-top: 0rem;">
                 <div class="row">
-                      <div class="col-sm-12 col-xs-12"  style="padding-right:0px;">
-                            <button  (click)="roadTo('mm')" style="background-color: transparent;border: 0px; width:100%;">
-                                <img  src="assets/thumbnailphone.png" style="height:41px; margin-left: -226px;">
-                                <h5  style="font-family:caviar dreams bold; color: white;margin-top: -28px;margin-left: 0px;max-height: 20px; font-size: 2.2rem;">MOBILE MONEY</h5>
+                      <div class="col-sm-12 col-xs-12"  style="padding:0px; margin:0px;">
+                            <button  (click)="roadTo('mm')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
+                                    <div  class="row">
+                                            <div  class="col-sm-3 col-xs-2">
+                                                <img  src="assets/thumbnailphone.png" style="height:35px;">
+                                            </div>
+                                            <div  class="col-sm-10 col-xs-10">
+                                                <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 2rem; text-align:left;">MOBILE MONEY</h5>
+                                            </div>
+                                    </div>
                             </button>
                       </div>
-                      <div class="col-sm-12 col-xs-12"  style="padding-right:0px; margin-top:1rem;">
-                            <button (click)="roadTo('fact')" style="background-color: transparent;border: 0px; width:100%;">
-                                <img  src="assets/facturevv.png" style="height:30px; margin-left: -234px;">
-                                <h5  style="font-family:caviar dreams bold; color: white;margin-top: -25px;    margin-left: 0px;max-height: 20px; font-size: 2.2rem;">FACTURIER</h5>
+                      <div class="col-sm-12 col-xs-12"  style="padding:0px; margin:0px; padding-right:0px; margin-top:1rem;">
+                            <button (click)="roadTo('fact')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
+                                            <div  class="row">
+                                                    <div  class="col-sm-3 col-xs-2">
+                                                        <img  src="assets/facturevv.png" style="height:37px; ">
+                                                    </div>
+                                                    <div  class="col-sm-10 col-xs-10">
+                                                            <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 2rem;text-align:left; ">FACTURIER</h5>
+                                                    </div>
+                                            </div>
                             </button>
                       </div>
-                      <div class="col-sm-12 col-xs-12"  style="padding-right:0px; margin-top:1rem;">
-                            <button (click)="roadTo('ec')" style="background-color: transparent;border: 0px; width:100%;">
-                                <img  src="assets/facturevv.png" style="height:30px; margin-left: -234px;">
-                                <h5  style="font-family:caviar dreams bold; color: white;margin-top: -25px;    margin-left: 0px;max-height: 20px; font-size: 2.2rem;">E-COMMERCE</h5>
+                      <div class="col-sm-12 col-xs-12"  style=" padding:0px; margin:0px; padding-right:0px; margin-top:1rem;">
+                            <button (click)="roadTo('ec')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
+                                    <div  class="row">
+                                            <div  class="col-sm-3 col-xs-2">
+                                                <img  src="assets/facturevv.png" style="height:37px; ">
+                                            </div>
+                                            <div  class="col-sm-10 col-xs-10">
+                                                <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 2rem; text-align:left;">E-COMMERCE</h5>
+                                            </div>
+                                    </div>
                             </button>
                       </div>
-                      <div class="col-sm-12 col-xs-12" style="padding-right:0px; margin-top:1rem;">
+                      <div class="col-sm-12 col-xs-12" style=" padding:0px; margin:0px; padding-right:0px; margin-top:1rem;">
+                            <button (click)="roadTo('ec')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
+                                    <div  class="row">
+                                            <div  class="col-sm-3 col-xs-2">
+                                                <img  src="assets/gestio.png" style="height:35px;">
+                                            </div>
+                                            <div  class="col-sm-10 col-xs-10">
+                                                    <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 2rem; text-align:left;">GESTION</h5>
+                                            </div>
+                                    </div>
+                            </button>
                         <button (click)="roadTo('ges')" style="background-color: transparent;border: 0px; width:100%;">
-                            <img  src="assets/gestio.png" style="height:34px;     margin-left: -234px;">
-                            <h5  style="font-family:caviar dreams bold; color: white;margin-top: -25px;    margin-left: 0px;max-height: 20px; font-size: 2.2rem;">GESTION</h5>
                         </button>
                       </div>
                 </div>
@@ -4825,15 +4851,242 @@
 
 <div class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4rem ; padding-left: 1rem ; margin-bottom:0px;">
     <div class="row">
-            <div class="col-sm-2 col-xs-2 runningTask"*ngFor="let item of process" >
-                    <div class="runner" [ngStyle]="{'background-color':'red','width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
+        <div class="col-sm-2 col-xs-2 runningTask" *ngFor="let item of process">
+            <div class="runner" [ngStyle]="{'background-color':'red','width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
         </div>
     </div>
 
-    <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;"  >
+    <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;color:black;font-family:'caviar dreams bold';"  >
         <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process"  >
-         
-         <span [popover]="popTemplateMobil" popoverTitle="{{op.data.nom}}" triggers="mouseenter:mouseleave" >{{op.data.nom}}</span>
+                <span [popover]="popTemplateMobil" placement="top" (click)="showmodalProcessing()">{{op.data.nom}} </span>
+                
+                <div bsModal #modalProcessing="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'; color:black;font-size: small">
+                           <div class="modal-content" >
+                             <div class="modal-header">
+                               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalProcessing()">
+                                   <span aria-hidden="true">&times;</span>
+                               </button>
+                               <h2>{{op.data.nom}}</h2>
+                             </div>
+                            
+                            <div class="modal-body">
+
+                                <!-- OM -->
+                                <div *ngIf="op.data.operateur==1">
+
+                                        <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                                            {{retrieveOperationInfo(op)}}
+                                        </div>
+    
+                                        <div *ngIf="op.data.operation==1">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==2">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.numclient}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==3">
+                                            <div>Code Retrait: {{op.data.coderetrait}}</div><br>
+                                             <div>Prènom : {{op.data.prenom}}</div><br>
+                                            <div>Nom : {{op.data.nomclient}}</div><br>
+                                            <div>Date De Naiss. : {{op.data.date}}</div><br>
+                                            <div>N° CNI :{{op.data.cni}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==5">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.numclient}}</div><br>
+                                        </div>
+    
+                                </div>
+                                     <!-- OM -->
+                                <div *ngIf="op.data.operateur==2">
+
+                                        <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                                            {{retrieveOperationInfo(op)}}
+                                        </div>
+    
+                                        <div *ngIf="op.data.operation==1">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==2">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.numclient}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==3">
+                                            <div>Code Retrait: {{op.data.coderetrait}}</div><br>
+                                             <div>Prènom : {{op.data.prenom}}</div><br>
+                                            <div>Nom : {{op.data.nomclient}}</div><br>
+                                            <div>Date De Naiss. : {{op.data.date}}</div><br>
+                                            <div>N° CNI :{{op.data.cni}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==5">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.numclient}}</div><br>
+                                        </div>
+    
+                                    </div>
+                                    <!--E-commerce -->
+                                    <div *ngIf="op.data.operateur==5;let j=index" class="row" style="border-radius:10px 0 10px 10px;width:300px;">
+                                        <div  *ngFor="let article of articles let i=index"  class="col-lg-5 col-md-5 col-xs-5 col-sm-5" [ngStyle]="{'border-right':i%2==0?'4px solid orange':'2px solid white','border-top':i>=2?'4px solid orange':'2px solid white','border-bottom':(i==articles.length-2 && articles.length%2!=0)?'4px solid orange':'2px solid white'}" style="height:180px;border-radius:0px">
+                                            <div class="row">
+                                                <p style="color:blue;font-size:0.8em;text-align:center">{{getFormatted(article.data.designation)}}</p>
+                                            </div>
+                                            <div class="row"  style="background-image:url(../../assets/mag-rondell.png);background-repeat:no-repeat;">
+                                                <img class="card-img-top  col-lg-8 col-md-8 col-xs-8 col-sm-8 img-circle" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" style="width:90px;height:90px;margin-left:6%;margin-top:5px" alt="Card image cap">
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="max-width:150px"><b style="color:blue;font-size:0.9em">{{currency(article.data.prix)}} fcfa</b></p>
+                                            </div>
+    
+                                        </div>
+    
+    
+                                        <div class="row">
+                                            <b class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="color:blue">Total : {{currency(totalpanier())}}</b>
+                                        </div>
+    
+                                    </div>
+    
+                                    <!-- TNT -->
+                                    <div *ngIf="op.data.operateur==4">
+                                        <div *ngIf="op.etats.errorCode=='*'">
+                                            <div *ngIf="op.data.operation==1">
+                                                <div>Prénom client: {{op.data.prenom}}</div><br>
+                                                <div>Nom Client :{{op.data.nom}}</div><br>
+                                                <div>Téléphone :{{op.data.tel}}</div><br>
+                                                <div>Numéro CNI  :{{op.data.cni}}</div><br>
+                                                <div>Numéro CHIP :{{op.data.chip}}</div><br>
+                                                <div>Numéro CARTE:{{op.data.carte}}</div><br>
+                                                <div>Durée :{{op.data.duree}} mois</div><br>
+                                                <div>Bouquet : <a *ngIf="op.data.typedebouquet==1"> Maanaa</a>
+                                                    <a *ngIf="op.data.typedebouquet==2"> Boul Khool</a>
+                                                    <a *ngIf="op.data.typedebouquet==3"> Maana + Boul Khool</a>
+                                                </div><br>
+                                            </div>
+                                            <div *ngIf="op.data.operation==2">
+                                                <div>Prénom client: {{op.data.prenom}}</div><br>
+                                                <div>Nom Client :{{op.data.nomclient}}</div><br>
+                                                <div>Téléphone :{{op.data.tel}}</div><br>
+                                                <div>Numéro CHIP :{{op.data.chip}}</div><br>
+                                                <div>Numéro CARTE:{{op.data.carte}}</div><br>
+                                                <div>Bouquet : <a *ngIf="op.data.typedebouquet==0"> Sans Abonnement</a>
+                                                    <a *ngIf="op.data.typedebouquet==1"> + 1 mois</a>
+                                                    <a *ngIf="op.data.typedebouquet==3"> + 3 mois</a>
+                                                </div><br>
+                                            </div>
+    
+                                            <div *ngIf="op.data.operation==3">
+                                                <div>Prénom client: {{op.data.prenom}}</div><br>
+                                                <div>Nom Client :{{op.data.nomclient}}</div><br>
+                                                <div>Téléphone :{{op.data.tel}}</div><br>
+                                                <div>Adresse :{{op.data.adresse}}</div><br>
+                                                <div>Numéro CARTE:{{op.data.carte}}</div><br>
+                                            </div>
+    
+                                        </div>
+                                        <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold;">
+                                            {{retrieveOperationInfo(op)}}
+                                        </div>
+    
+                                    </div>
+    
+    
+                                    <!-- OM -->
+                                    <div *ngIf="op.data.operateur==5">
+    
+                                        <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                                            {{retrieveOperationInfo(op)}}
+                                        </div>
+    
+                                        <div *ngIf="op.data.operation==1">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==2">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==3">
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                            <div>Réfèrence Client: {{op.data.refclient}}</div><br>
+                                            <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==4">
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                            <div>Police: {{op.data.police}}</div><br>
+                                            <div>Numéro Facture : {{op.data.numfacture}}</div><br>
+                                        </div>
+                                    </div>
+    
+                                    <!-- TC -->
+                                    <div *ngIf="op.data.operateur==3">
+    
+                                        <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                                            {{retrieveOperationInfo(op)}}
+                                        </div>
+    
+                                        <div *ngIf="op.data.operation==1">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==2">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==3">
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                            <div>Réfèrence Client: {{op.data.refclient}}</div><br>
+                                            <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==4">
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                            <div>Police: {{op.data.police}}</div><br>
+                                            <div>Numéro Facture : {{op.data.numfacture}}</div><br>
+                                        </div>
+    
+                                    </div>
+    
+                                    <!-- wizall -->
+                                    <div *ngIf="op.data.operateur==6">
+    
+                                        <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                                            {{retrieveOperationInfo(op)}}
+                                        </div>
+    
+                                        <div *ngIf="op.data.operation==1">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==2">
+                                            <div>Montant : {{op.data.montant}}</div><br>
+                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==3">
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                            <div>Réfèrence Client: {{op.data.refclient}}</div><br>
+                                            <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
+                                        </div>
+                                        <div *ngIf="op.data.operation==4">
+                                            <div>Montant:{{op.data.montant}}</div><br>
+                                            <div>Police: {{op.data.police}}</div><br>
+                                            <div>Numéro Facture : {{op.data.numfacture}}</div><br>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                    <button  type="button" (click)="closeTrasaction(op)" class="btn btn-danger"  style="border:none;"><i class="fa fa-times-circle" style="font-size:2rem; color:red; margin-rigth:0.5rem;" ></i>Arreter</button>
+                            </div>
+                         </div>
+                       </div>
+                </div>
         </div>
     </div>
 </div>

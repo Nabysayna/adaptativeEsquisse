@@ -165,7 +165,6 @@ export class AccueilComponent implements OnInit {
   num_facture:string;
 
   public infoRetraitaveccode:any;
-  
   constructor(
         private _ecomService:EcomService,
         private _facturierService : FacturierService,
@@ -199,6 +198,7 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
   @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
   @ViewChild('modalPostCash') modalPostCash: ModalDirective;
+  @ViewChild('modalProcessing') modalProcessing: ModalDirective;
   @ViewChild('modalTnt') modalTnt: ModalDirective;
   @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
   @ViewChild('modalsde') public modalsde:ModalDirective;
@@ -2703,6 +2703,23 @@ public pdvacueilmenumobilemoneyretour(){
               });
           }
 
+      /* **********************ProcessingMobile*******************/
+
+      public showmodalProcessing(){
+        this.modalProcessing.show();
+      }
+      public hidemodalProcessing(){
+        this.modalProcessing.hide()
+      }
+
+      public closeTrasaction(objet:any){
+        alert(objet);
+        let index = this.process.findIndex(
+          item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+        ));
+
+        this.process.splice(index,1);
+      }
 
     /*--------------------   Senelec ----------------------------------- */
         /************* Senelec- Modal *********/
@@ -2983,7 +3000,7 @@ fairebondachat(){
   }
  
 
-   
+
 
 
 
