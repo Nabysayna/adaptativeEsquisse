@@ -204,7 +204,8 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modalwoyofal') public modalwoyofal:ModalDirective;
   @ViewChild('modaloolu') public modaloolu:ModalDirective;
   @ViewChild('modalsenelec') public modalsenelec:ModalDirective;
-  @ViewChild('viewMore') public addChildModalecomme:ModalDirective;
+  @ViewChild('viewMore') public addChildModalEcomme:ModalDirective;
+  @ViewChild('modalretraitcodeConfirmEMONEY') public modalretraitcodeConfirmEMONEY:ModalDirective;
 
 /******************************************************************************************************/
 
@@ -2892,7 +2893,7 @@ fairebondachat(){
       //finretraiconfirm
 
       //confirm retrait avec code
-  /*showmodalretraitcodeEMONEY(){
+  showmodalretraitcodeEMONEY(){
      this.modalretraitcodeConfirmEMONEY.show();
     }
     hidemodalretraitcodeConfirm(){
@@ -2906,7 +2907,7 @@ fairebondachat(){
       //confirm fin retrait avec code
 
       //retrait avec code
-  showmodalretraitConfirmEMONEY(){
+  /*showmodalretraitConfirmEMONEY(){
      this.modalretraitcodeEMONEY.show();
     }
     hidemodalretraitcodeEMONEY(){
@@ -2961,13 +2962,22 @@ fairebondachat(){
       })
     );
   }
- public showAddChildModalecomme(article):void {
+ public showChildModalCommand(article):void {
     this.currentArticle=article ;
-    this.addChildModal.show();
+    this.addChildModalEcomme.show();
   }
 
-  public hideAddChildModalecomme():void {
-    this.addChildModal.hide();
+  public hideAddChildModaleCommand():void {
+    this.addChildModalEcomme.hide();
+  }
+
+   public showAddChildModalCommand(article):void {
+    this.currentArticle=article ;
+    this.addChildModalEcomme.show();
+  }
+
+  public hideAddChildModalCommand():void {
+    this.addChildModalEcomme.hide();
   }
 
   public ajouter_au_panier(article){
