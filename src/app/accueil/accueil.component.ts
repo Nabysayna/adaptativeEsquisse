@@ -122,6 +122,7 @@ export class AccueilComponent implements OnInit {
   nbmNewClient: number;
   tbouquetNewClient : string = 'Sans Abonnement';
   nbm:number;
+   email: string;
   public retourTntWS: {}[] ;
 
   nAbonnement:NAbonnement;
@@ -206,7 +207,7 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modalwoyofal') public modalwoyofal:ModalDirective;
   @ViewChild('modaloolu') public modaloolu:ModalDirective;
   @ViewChild('modalsenelec') public modalsenelec:ModalDirective;
-  @ViewChild('viewMore') public addChildModalEcomme:ModalDirective;
+  @ViewChild('viewMore') public viewMore:ModalDirective;
   @ViewChild('modalretraitcodeConfirmEMONEY') public modalretraitcodeConfirmEMONEY:ModalDirective;
 
 /******************************************************************************************************/
@@ -2964,23 +2965,28 @@ fairebondachat(){
       })
     );
   }
- public showChildModalCommand(article):void {
+@ViewChild('childModalCommandviewMore') public childModalCommandviewMore:ModalDirective;
+
+  public showChildModalCommandviewMore():void {
+    this.childModalCommandviewMore.show();
+  }
+
+  public hideChildModalCommandviewMore():void {  this.childModalCommandviewMore.hide();
+    this.nom = null;
+    this.prenom = null;
+    this.telephone = null;
+    this.email = null;
+  }
+
+
+  public showAddChildModalviewMore(article):void {
     this.currentArticle=article ;
-    this.addChildModalEcomme.show();
+    this.viewMore.show();
   }
 
-  public hideAddChildModaleCommand():void {
-    this.addChildModalEcomme.hide();
-  }
-
-   public showAddChildModalCommand(article):void {
-    this.currentArticle=article ;
-    this.addChildModalEcomme.show();
-  }
-
-  public hideAddChildModalCommand():void {
-    this.addChildModalEcomme.hide();
-  }
+  public hideAddChildModalviewMore():void {
+    this.viewMore.hide();
+  } 
 
   public ajouter_au_panier(article){
     let articl=new Article();
@@ -2989,7 +2995,7 @@ fairebondachat(){
     articl.description=article.description;
     articl.nomImg=article.nomImg;
     sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Mon Panier','operateur':5,'prix':articl.prix,'quantite':1,'nomImg':articl.nomImg,'designation':articl.designation,'description':articl.description}));
-    this.addChildModal.hide();
+    this.viewMore.hide();
   }
  
 
