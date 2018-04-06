@@ -114,7 +114,7 @@
 <!-- class="mobile" --> <!-- background-image: url(assets/interface1.png); -->
 
 <div *ngIf="isMobile==true" style="background-color: white;background-attachment:fixed;">
-    <div class="row" *ngIf="page==1" style="margin: 0; text-align: center; min-height: -webkit-fill-available; margin-right: 0rem; background-repeat: no-repeat; height: 540px; background-size: contain;" (click)="accueilmobil()">
+    <div class="row" *ngIf="page==1" style="margin: 0; text-align: center; min-height: -webkit-fill-available; margin-right: 0rem; background-repeat: no-repeat;  background-size: contain;" (click)="accueilmobil()">
 
         <img src="assets/interface1.png" style="width : 70%;" />
         <!--       <button class="btn btn-success" style=" margin-top: 400px; background-color: orange; width: 50px; height: 50px; border-radius: 50%; border: none; margin-right: 60px;"><i class="fa fa-check" style="color : white" (click)="accueilmobil()" aria-hidden="true"></i></button> -->
@@ -123,15 +123,43 @@
     <div class="row" *ngIf="phase1 && (page==2)" style=" padding-top: 7rem;margin:0; text-align: center; min-height: -webkit-fill-available;">
         <img src="assets/iconmobile.png" style="width: 70%; "/>
         <h2 style="color: orange; padding-top: 3rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
-        <form class="form form-inline pull-right" style="position: relative;z-index: 1;padding-top: 15rem; margin-right:30%;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
+        <form class="form form-inline col-sm-12 col-xs-12 " style="padding-top: 8rem;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
+            <div class="row">
+                <br *ngIf="this.fakevalues==false"><label style="color: red ;" *ngIf="this.fakevalues==false">Login ou Mot de pass invalide!</label><br *ngIf="this.fakevalues==false">
+            </div>
+            <div class="row">
+                    <div  class="col-sm-12 col-xs-12 ">
+                            <label style="font-size: 18px;color:#36A9E0; text-align:center;">Identifiant</label>
+                    </div>
+                    <div  class="col-sm-12  col-xs-12 ">
+                        <div class="row">
+                             <div class="col-sm-2  col-xs-2">
+    
+                             </div>
+                             <div class="col-sm-8  col-xs-8">
+                                    <input class="form-control" type="text" [(ngModel)]="this.userName" required autofocus id="userName" name="userName"  placeholder="identifiant" style="border-radius: 5rem; height: 35px;"/> <br>
+                             </div>
+                        </div>
+                    </div>
+             </div>
+            <div class="row">
+                <div  class="col-sm-12 col-xs-12 ">
+                    <label style="font-size: 18px; color:#36A9E0;  text-align:center;">Password</label>
+                </div>
+                <div  class="col-sm-12  col-xs-12 ">
+                    <div class="row">
+                         <div class="col-sm-2  col-xs-2">
 
-            <br *ngIf="this.fakevalues==false"><label style="color: red ;" *ngIf="this.fakevalues==false">Login ou Mot de pass invalide!</label><br *ngIf="this.fakevalues==false">
-
-            <label style="margin-left: 11%; font-size: 18px;color:#36A9E0;">Identifiant</label>
-            <input class="form-group form-control" type="text" [(ngModel)]="this.userName" required autofocus id="userName" name="userName"  placeholder="identifiant" style="border-radius: 5rem; height: 35px;"/> <br>
-            <label style="margin-left: 11%; font-size: 18px; color:#36A9E0;">Password</label>
-            <input class="form-group form-control" type="password" [(ngModel)]="this.userPwd" required id="userPwd" name="userPwd" placeholder="password" style="border-radius: 5rem; height: 35px;"/>
-            <button class="btn btn-success" [disabled]="!loginForm.valid" style=" margin-top: 30px; background-color: orange; width: 50px; height: 50px; border-radius: 50% !important; border: none; margin-left: 7%;"><i class="fa fa-check fa-2x" style="color : white" aria-hidden="true"></i></button>
+                         </div>
+                         <div class="col-sm-8  col-xs-8">
+                                <input class="form-control" type="password" [(ngModel)]="this.userPwd" required id="userPwd" name="userPwd" placeholder="password" style="border-radius: 5rem; height: 35px;"/>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn btn-success" [disabled]="!loginForm.valid" style="width: 50px; height: 50px; background-color : white; font: caviar bold;  border: none; margin-top: 20px;"><i  aria-hidden="true" class="fa fa-check-circle fa-2x" style="color : orange; font-size:6rem; margin:0px; padding:0px;"></i></button>
+            </div>
 
         </form>
     </div>
@@ -139,15 +167,32 @@
     <div class="row" *ngIf="!phase1 && (page==2)" style="padding-top: 7rem; margin:0;text-align: center; min-height: -webkit-fill-available;">
         <img src="assets/iconmobile.png" style="width: 70%; "/>
         <h2 style="color: orange; padding-top: 3rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
-        <form class="form form-inline pull-right" style="position: relative;z-index: 1;padding-top: 15rem; margin-right:25%;" (ngSubmit)="authentificateBySMS()" #loginNextForm="ngForm">
+        <form  class="form form-inline col-sm-12 col-xs-12 " style="padding-top: 8rem;" (ngSubmit)="authentificateBySMS()" #loginNextForm="ngForm">
 
-            <br *ngIf="this.phase2fakevalues==false"><label style="color: red ;" *ngIf="this.phase2fakevalues==false">Code incorrect!</label><br *ngIf="this.phase2fakevalues==false">
-
-            <label style="font-size: 14px; color:orange;"> Code Sms</label>
-            <input type="text" [(ngModel)]="this.fromSMS" name="fromSMS" id="fromSMS" style="border-radius: 5rem; height: 35px;"  class="form-group form-control" placeholder="SMS code" required autofocus >
-            <div class="row"><img src="assets/envelop.png" style="height: 40px; width: 20%; ;"/></div>
-
-            <button class="btn btn-success" style="width: 50px; height: 50px; background: orange; font: caviar bold; border-radius: 50% !important; border: none; margin-top: 20px;" [disabled]="!loginNextForm.form.valid"><i class="fa fa-check fa-2x" style="color : white" aria-hidden="true"></i></button>
+                <div class="row">
+                        <br *ngIf="this.phase2fakevalues==false"><label style="color: red ;" *ngIf="this.phase2fakevalues==false">Code incorrect!</label><br *ngIf="this.phase2fakevalues==false">
+                </div>
+                <div class="row">
+                        <div  class="col-sm-12 col-xs-12 ">
+                                <label style="font-size: 14px; color:orange;"> Code Sms</label>
+                        </div>
+                        <div  class="col-sm-12  col-xs-12 ">
+                            <div class="row">
+                                 <div class="col-sm-2  col-xs-2">
+        
+                                 </div>
+                                 <div class="col-sm-8  col-xs-8">
+                                        <input type="text" [(ngModel)]="this.fromSMS" name="fromSMS" id="fromSMS" style="border-radius: 5rem; height: 35px;"  class="form-group form-control" placeholder="SMS code" required autofocus >
+                                 </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="row"><img src="assets/envelop.png" style="height: 40px; width: 20%; ;"/></div>
+                </div>
+                <div class="row">
+                    <button class="btn btn-success" style="background-color : white; font: caviar bold;  border: none; margin-top: 20px;" [disabled]="!loginNextForm.form.valid"><i  aria-hidden="true" class="fa fa-check-circle fa-2x" style="color : orange; font-size:6rem; margin:0px; padding:0px;"></i></button>
+                </div>            
         </form>
     </div>
 </div>
