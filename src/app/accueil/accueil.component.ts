@@ -52,12 +52,24 @@ class OrderedArticle{
 
 
 export class AccueilComponent implements OnInit {
+  //
+  codecmd = "" ;
+  infosCommande : any ;
+  inforecvd = false ;
+  postcmd = false ;
+  orderedArticles : string ;
+  //
 
+  //
+  clients=[{'prenom':'magor','nom':'sy','telephone':779013878,'adress':'Mbour'}];
+  adress:string="";
+  estclient:boolean=false;
+  //
 
   articles=[];
   process=[];
-   quinzeMinutes = 900000;
-  registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'E-MONEY', 'TIGOCASH', 'WIZALL'] ;
+  quinzeMinutes = 900000;
+  registredAPIs : string [] = ['POSTECASH', 'ORANGEMONEY', 'E-MONEY', 'TIGOCASH', 'WIZALL', 'TNT BY EXCAF'] ;
 
 
   authorisedToUseCRM = false ;
@@ -1673,18 +1685,6 @@ export class AccueilComponent implements OnInit {
 /*********************************/
 
 
-
-  annulerOperation(){
-    console.log("Opèration annulée ...") ;
-  }
-  color(i:number):string{
-     if(i%2==0){
-       return "border-left:2px solid green";
-     }
-     else{
-       return "border-left:2px solid blue";
-     }
-  }
   getFormatted( designation) : string {
     if(designation.length>16)
       return designation.substring(0, 13)+'...' ;
@@ -1695,8 +1695,6 @@ export class AccueilComponent implements OnInit {
    return Number(prix).toLocaleString();
   }
 public pdvaccueilpage:number = 1;
-
-
 public pdvaccueilsousmenumobilemoney:number = 0
 public pdvaccueilsousmenumobilemoneyClick:number = 0
 
@@ -3014,7 +3012,197 @@ fairebondachat(){
     sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Mon Panier','operateur':5,'prix':articl.prix,'quantite':1,'nomImg':articl.nomImg,'designation':articl.designation,'description':articl.description}));
     this.viewMore.hide();
   }
+
+  selectionnerarticle(article: Article){
+    let existe = this.orderedarticles.find(function(item){
+      return article.id == item.id;
+    })
+    if(existe == undefined){
+      let orderedarticle:OrderedArticle = {
+        id:article.id,
+        qte:1,
+        prix:article.prix,
+        montant:article.prix,
+        designation:article.designation,
+        description:article.description,
+        nomImg: article.nomImg,
+      };
+      this.orderedarticles.push(orderedarticle);
+      this.recalculmontant();
+    }
+    else{
+      this.orderedarticles = this.orderedarticles.filter(item => item.id!==article.id);
+      this.recalculmontant();
+
+    }
+  }
+
+  supprimerarticle(article){
+    this.orderedarticles = this.orderedarticles.filter(item => item.id!==article.id);
+    this.recalculmontant();
+  }
+  augmenterqte(i){
+    if(this.orderedarticles[i].qte) {
+      this.orderedarticles[i].qte++;
+      this.recalculmontant();
+    }
+    else {
+      this.orderedarticles[i].qte++;
+      this.recalculmontant();
+    }
+  }
+  diminuerqte(i){
+    if(this.orderedarticles[i].qte>1){
+      this.orderedarticles[i].qte--;
+      this.recalculmontant();
+    }
+  }
+  recalculmontant(){
+    this.montant = 0;
+    for (var i = 0; i < this.orderedarticles.length; i++) {
+      this.orderedarticles[i].montant = this.orderedarticles[i].qte * this.orderedarticles[i].prix;
+      this.montant += this.orderedarticles[i].montant;
+    }
+  }
+
+
+  @ViewChild('childModalCommand') public childModalCommand:ModalDirective;
+
+  public showChildModalCommand():void {
+    this.childModalCommand.show();
+  }
+
+  public hideChildModalCommand():void {  this.childModalCommand.hide();
+    this.nom = null;
+    this.prenom = null;
+    this.telephone = null;
+    this.email = null;
+  }
+
+  public commander():void {
+    let params = {
+      token: this.token ,
+      orderedarticles:""+JSON.stringify(this.orderedarticles),
+      montant: this.montant,
+      prenomclient: this.prenom,
+      nomclient: this.nom,
+      telephoneclient: this.telephone,
+      emailclient: this.email
+    };
+    this.loading = true ;
+    this._ecomService.commander(params).then( response => {
+      this.loading = false ;
+    });
+    this.hideChildModalCommand();
+    this.orderedarticles = [];
+  }
+
+  public viderordered(){
+    this.orderedarticles = [];
+  }
+
+  public initialiserreseach(){
+    this.filterQuery = this.asyncSelected = "";
+    this.typeaheadNoResults = this.typeaheadLoading = false;
+  }
+//Mon panier
+/******************************************************************************************************/
+
+
+//ngOnInit panier//
+
+
+  
+
+  @ViewChild('modalcommande') public modalcommande:ModalDirective;
+  annulerOperation(){
+    console.log("Opèration annulée ...") ;
+  }
+  color(i:number):string{
+     if(i%2==0){
+       return "border-left:2px solid green";
+     }
+     else{
+       return "border-left:2px solid blue";
+     }
+  }
  
+  showmodalcommande(){
+    this.prenom="";
+    this.nom="";
+    this.adress="";
+    this.telephone=undefined;
+    this.estclient=false;
+    this.modalcommande.show();
+  }
+  hidemodalcommande(){
+     this.prenom="";
+     this.nom="";
+     this.adress="";
+     this.telephone=undefined;
+     this.estclient=false;
+     this.modalcommande.hide();
+  }
+  chercherclient(tel:number){
+
+      for(let i=0;i<this.clients.length;i++){
+         if(this.clients[i].telephone==tel){
+            this.prenom=this.clients[i].prenom;
+            this.nom=this.clients[i].nom;
+            this.adress=this.clients[i].adress;
+            this.telephone=this.clients[i].telephone;
+         }
+      }
+      this.estclient=true;
+  }
+//fin de mon panier
+//detail commande
+recupInfosCmd(){
+    console.log("Récupèration des informations relatives à la présente commande...") ;
+    this.loading = true ;
+    let requiredInfo = "infocmd#"+this.codecmd ;
+    let paramObj={token : this.token, article : requiredInfo} ;
+    this._ecomService.prendreCommande(paramObj).then( response =>
+      {
+
+       this.infosCommande = JSON.parse(response)[0] ;
+        this.prenom = this.infosCommande.prenomclient ;
+        this.nom  = this.infosCommande.nomclient ;
+        this.orderedArticles = this.infosCommande.orderedArticles ;
+        this.montant = this.infosCommande.montant ;
+
+        this.loading = false ;
+        this.inforecvd = true ;
+      });
+  }
+
+  prendreCommande(){
+    console.log("Récupèration des informations relatives à la présente commande...") ;
+    this.loading = true ;
+    let requiredInfo = "takecmd#"+this.codecmd ;
+    let paramObj={token : this.token, article : requiredInfo} ;
+    this._ecomService.prendreCommande(paramObj).then( response =>
+      {
+        console.log("Reponse serveur :::: "+response) ;
+        this.codecmd = "";
+        this.loading = false ;
+        this.postcmd = true ;
+      });
+  }
+
+  @ViewChild('childModalCOMMANDE') public childModalCOMMANDE:ModalDirective;
+
+  public showChildModalCOMMANDE():void {
+    this.childModalCOMMANDE.show();
+  }
+
+  public hideChildModalCOMMANDE():void {
+    this.childModalCOMMANDE.hide();
+  }
+
+
+
+
 
 
 
