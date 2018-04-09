@@ -116,14 +116,14 @@
 <div *ngIf="isMobile==true" style="background-color: white;background-attachment:fixed;">
     <div class="row" *ngIf="page==1" style="margin: 0; text-align: center; min-height: -webkit-fill-available; margin-right: 0rem; background-repeat: no-repeat;  background-size: contain;" (click)="accueilmobil()">
 
-        <img src="assets/interface1.png" style="width : 70%;" />
+        <img src="assets/interface1.png" style="width : 70%; margin-top:2rem;" />
         <!--       <button class="btn btn-success" style=" margin-top: 400px; background-color: orange; width: 50px; height: 50px; border-radius: 50%; border: none; margin-right: 60px;"><i class="fa fa-check" style="color : white" (click)="accueilmobil()" aria-hidden="true"></i></button> -->
     </div>
 
-    <div class="row" *ngIf="phase1 && (page==2)" style=" padding-top: 7rem;margin:0; text-align: center; min-height: -webkit-fill-available;">
+    <div class="row" *ngIf="phase1 && (page==2)" style="margin:0; text-align: center; min-height: -webkit-fill-available;">
         <img src="assets/iconmobile.png" style="width: 70%; "/>
         <h2 style="color: orange; padding-top: 3rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
-        <form class="form form-inline col-sm-12 col-xs-12 " style="padding-top: 8rem;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
+        <form class="form form-inline col-sm-12 col-xs-12 " style="padding-top: 6rem;" (ngSubmit)="authentificate()" #loginForm="ngForm" *ngIf="phase1">
             <div class="row">
                 <br *ngIf="this.fakevalues==false"><label style="color: red ;" *ngIf="this.fakevalues==false">Login ou Mot de pass invalide!</label><br *ngIf="this.fakevalues==false">
             </div>
@@ -164,10 +164,10 @@
         </form>
     </div>
 
-    <div class="row" *ngIf="!phase1 && (page==2)" style="padding-top: 7rem; margin:0;text-align: center; min-height: -webkit-fill-available;">
+    <div class="row" *ngIf="!phase1 && (page==2)" style="margin:0;text-align: center; min-height: -webkit-fill-available;">
         <img src="assets/iconmobile.png" style="width: 70%; "/>
-        <h2 style="color: orange; padding-top: 3rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
-        <form  class="form form-inline col-sm-12 col-xs-12 " style="padding-top: 8rem;" (ngSubmit)="authentificateBySMS()" #loginNextForm="ngForm">
+        <h2 style="color: orange; margin-top: 2rem; font-family: caviar dreams bold;">Bienvenue dans le futur</h2>
+        <form  class="form form-inline col-sm-12 col-xs-12 " style="padding-top: 4rem;" (ngSubmit)="authentificateBySMS()" #loginNextForm="ngForm">
 
                 <div class="row">
                         <br *ngIf="this.phase2fakevalues==false"><label style="color: red ;" *ngIf="this.phase2fakevalues==false">Code incorrect!</label><br *ngIf="this.phase2fakevalues==false">
