@@ -3583,6 +3583,7 @@
             </div>
         </div>
 </div>
+
 <!--catalogue ecommerce-->
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 0px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-cat'">
         <div class="row" style="background-color:rgb(255,144, 00);height: 0px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -3602,68 +3603,10 @@
                 <h3 style="font-family:'caviard dreams bold';color: white;font-size: 2.5rem;">PRODUITS</h3>
 
                 <p *ngIf="commandevalidee" class="alert alert-success">commande validée</p>
-                 <i  style="text-align: end ; position: absolute;top: 21px; color:white;right: 34px;" class="fa fa-shopping-cart fa-2x pull-right" *ngIf="articles.length>0"></i>
+                <button (click)="roadTo('cart')" ><i style="text-align: end ; position: absolute;top: 21px; color:white;right: 34px;" class="fa fa-shopping-cart fa-2x pull-right" *ngIf="articles.length>0"></i></button>
             </div>
 
-             <div  class="col-lg-offset-1 col-lg-offset-1 col-sm-12 col-md-12 col-lg-12" class="height:200px" *ngFor="let article of articles;let i=index"  >
-                     <div class="well-sm row" >
-                          <div *ngIf="i%2==0" class="row" >  
-                            <p class="" style="color:blue"><b><i>{{article.data.designation}}</i></b></p>
-                            <div class="col-md-9 col-lg-9 col-md-9 backgroundivleft" >
-                              <div class="row" >
-                                   <div class="col-md-1 col-lg-1">
-                                        <img  class="" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" alt="Card image cap" height="150px" width="50">
-                                   </div>
-                                   <div class="col-lg-offset-4 col-md-offset-4 col-md-7 col-lg-7" style="margin-top:2px" >
-                                       <div class="row" >
-                                           <p  class="col-md-10 col-lg-10 couleur"><b><i>Designation : {{article.data.designation}}</i></b></p>
-                                       </div>
-                                       <div class="row" >
-                                           <p  class="col-md-10 col-lg-10 couleur"><b><i>Prix : {{currency(article.data.prix)}}.FCFA</i></b></p>
-                                       </div>
-                                       <div class="row" >
-                                           <p  class="col-md-10 col-lg-10 couleur"><b><i>Quantite : 1</i></b></p>
-                                       </div>
-                                       <div class="row"> 
-                                           <p   class="col-md-10 col-lg-10 couleur"><b><i>Prix Total: {{currency(article.data.prix)}}.FCFA</i></b></p>
-                                       </div>
-                                   </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div *ngIf="i%2!=0" class="row" >
-                            <p class="col-lg-offset-1" style="color:blue"><b><i>{{article.data.designation}}</i></b></p>
-                            <div class="col-lg-offset-2 col-md-offset-2 col-md-8 col-lg-8 backgroundiv" >
-                             <div class="row">
-                                 <div class="col-md-10 col-lg-10" style="margin-top:2px">
-                                   <div class="row" >
-                                       <p  class="col-md-10 col-lg-10 couleur"><b><i>Designation : {{article.data.designation}}</i></b></p>
-                                   </div>
-                                   <div class="row" >
-                                       <p  class="col-md-10 col-lg-10 couleur"><b><i>Prix : {{currency(article.data.prix)}}.FCFA</i></b></p>
-                                   </div>
-                                   <div class="row" > 
-                                       <p  class="col-md-10 col-lg-10 couleur"><b><i>Quantite : 1</i></b></p>
-                                   </div>
-                                   <div class="row"> 
-                                       <p   class="col-md-10 col-lg-10 couleur"><b><i>Prix Total: {{currency(article.data.prix)}}.FCFA</i></b></p>
-                                   </div>
-                               </div>
-                               <div class="pull-right col-lg-1">
-                                  <img  class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" alt="Card image cap" height="150px" width="50px">
-                               </div>
-                              </div>
-                            </div>
-                            
-                          </div>
-                      </div>
-                        
-                  </div><br>
-                 
-
-
-
-
+ 
 
             <div class="panel-body" style="padding: 0rem !important;">
                 <div class="row">
@@ -3814,7 +3757,100 @@
             <h2 style="text-align: center ; color: #337ab7">La commande a bien été enregistrée et un code de suivi a été envoyé au client. Merci!</h2>
         </div>
 </div>
+<!--Cart-->
+<div class="row" *ngIf="displayedPage=='accueil-ec-cat-cart'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:0px; min-height: -webkit-fill-available;" >
+        <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-xs-10 col-sm-10">
+            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mon Panier</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12" style=" padding-top: 2rem;">
+                <carousel>
+                      <slide  *ngFor="let article of articles">
+                        <img src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}" alt="First slide" style="width: 80%;min-height:250px; max-height:250px; ">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3>Designation : {{article.designation}}</h3>
+                          <p>Prix : {{currency(article.prix)}}.FCFA </p>
+                          <p> Quantite : 1 </p>
+                          <p>Prix Total: {{currency(article.prix)}}.FCFA</p>
+                        </div>
+                      </slide>
+                </carousel>
+              <!--   <div class="well-sm row" >
+                    <div *ngIf="i%2==0" class="row" >  
+                        <p class="" style="color:blue">
+                            <b><i>{{article.data.designation}}</i></b>
+                        </p>
+                            <div class="col-xs-12 col-sm-12" >
+                                <img  class="" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" alt="Card image cap" height="150px" width="50">
+                            </div>
+                            <div class="col-sm-12 col-xs-12" style="margin-top:2px" >
+                               <div class="row" >
+                                   <p  style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" class="col-md-10 col-lg-10 couleur">
+                                    <b><i>Designation : {{article.data.designation}}</i></b>
+                                   </p>
+                               </div>
+                               <div class="row" >
+                                   <h5 style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix : {{currency(article.data.prix)}}.FCFA</i></b></h5>
+                               
+                                   <h5 style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Quantite : 1</i></b></h5>
+                               </div>
+                               <div class="row"> 
+                                   <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix Total: {{currency(article.data.prix)}}.FCFA</i></b></p>
+                               </div>
+                            </div>
+                    </div>
+                  <div *ngIf="i%2!=0" class="row" >
+                        <p class="col-lg-offset-1" style="color:blue"><b><i>{{article.data.designation}}</i></b></p>
+                        <div class="col-xs-12 col-sm-12" >
+                           <div class="row" >
+                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Designation : {{article.data.designation}}</i></b></p>
+                            </div>
+                           <div class="row" >
+                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix : {{currency(article.data.prix)}}.FCFA</i></b></p>
+                           </div>
+                           <div class="row" > 
+                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Quantite : 1</i></b></p>
+                           </div>
+                           <div class="row"> 
+                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix Total: {{currency(article.data.prix)}}.FCFA</i></b></p>
+                           </div>
+                        </div>
+                       <div class="col-sm-6 col-xs-8">
+                          <img  class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" alt="Card image cap" height="150px" width="50px">
+                       </div>
+                    </div>
+                      </div>  -->
+        <div class="col-sm-12 col-xs-12">
+            <p *ngIf="articles.length<1" class="alert alert-danger">Votre panier est vide veuillez choisir des produits</p>
+            <form *ngIf="articles.length>=1" style="width:80%" class="form-inline pull-left">
+               <p> <label style="color:white;border:0px; font-size: 2.5rem; font-family: 'caviard dreams bold;'">Total Panier : {{currency(totalpanier())}}</label></p>
+                <p><button (click)="viderpanier()" type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                </button>
+                    <button (click)="showmodalcommande()" type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                    </button>
+                </p>
+                
+                       
+            </form>
+        </div>
+    
+</div>
+            
+
+        </div>
+</div>
+<!--fin Cart-->
 <!--espace ecommerce-->
+
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp'">
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
@@ -5292,14 +5328,13 @@
   </div>
   <!--modal panier-->
   <div bsModal #modalcommande="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
          <div class="modal-dialog modal-md">
             <div class="modal-content" >
               <div class="modal-header">
                 <button type="button" class="close pull-right" aria-label="Close" >
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+                <h4 class="modal-title" id="myModalLabel">Fenêtre du panier.</h4>
              </div>
              <div class="modal-body">
                  <form class="form-inline">

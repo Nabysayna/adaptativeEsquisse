@@ -3009,6 +3009,7 @@ fairebondachat(){
     articl.designation=article.designation;
     articl.description=article.description;
     articl.nomImg=article.nomImg;
+    this.articles.push(articl);
     sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Mon Panier','operateur':5,'prix':articl.prix,'quantite':1,'nomImg':articl.nomImg,'designation':articl.designation,'description':articl.description}));
     this.viewMore.hide();
   }
