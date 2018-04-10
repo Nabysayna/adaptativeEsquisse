@@ -131,6 +131,7 @@ export class EspacePersoComponent implements OnInit {
       this.categories = response;
     });
   }
+  
   deleteArticle(article:Article) {
     for(var j=0; j<this.articles.length; j++){
       var ligne=this.articles[j];
