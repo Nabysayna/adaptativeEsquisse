@@ -188,7 +188,7 @@ import {MapsService} from "./services/maps.service";
 import { PostCashService } from 'app/services/postCash.service';
 
 import { PopoverModule } from 'ngx-bootstrap/popover';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 /*--------------------------------------------------------------------------------------------------------*/
 /*                                            END OF IMPORTS                                              */
 /*--------------------------------------------------------------------------------------------------------*/
@@ -308,6 +308,7 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
     ChartsModule,
     LoadersCssModule,
     TabsModule.forRoot(),
+    CarouselModule.forRoot(),
     ModalModule.forRoot(),
     CollapseModule.forRoot(),
     ProgressbarModule.forRoot(),
