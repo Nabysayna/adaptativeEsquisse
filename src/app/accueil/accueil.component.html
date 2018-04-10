@@ -456,7 +456,7 @@
                                 <label style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numero de Police</label>
                          </div>
                          <div class="col-xs-7 col-sm-7">
-                            <input type="number" autocomplete="off" [(ngModel)]="this.police" name="verifiernuminput" id="numclient"   placeholder="Numéro du client" required autofocus class="form-control" placeholder="Numero de Police" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
+                            <input type="number" autocomplete="off" [(ngModel)]="this.police" name="verifiernuminput" id="numclient"   placeholder="" required autofocus class="form-control" placeholder="" style="border-radius:2rem; background-color: rgba(255,255,255,0.8);">
                          </div>
                   </div>
                   <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
@@ -3583,7 +3583,7 @@
             <div class="col-sm-12 col-xs-12" style="background-color: white; margin-top:3em; ">
                     <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">E-commerce</h2>
             </div>
-            <div class="col-xs-12 col-sm-12" style="padding-top: 16rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-top: 4rem;">
                 <button  (click)="roadTo('cat')" style="background-color: transparent;border: 0px; width: 36rem;">
                     <p style="color:white;font-family: 'caviard dreams bold'; font-size: 3rem;" (click)="reinitialiser()" >Catalogue</p>
                 </button>
@@ -3620,11 +3620,8 @@
                 <h3 style="font-family:'caviard dreams bold';color: white;font-size: 2.5rem;">PRODUITS</h3>
 
                 <p *ngIf="commandevalidee" class="alert alert-success">commande validée</p>
-                <button (click)="roadTo('cart')" ><i style="text-align: end ; position: absolute;top: 21px; color:white;right: 34px;" class="fa fa-shopping-cart fa-2x pull-right" *ngIf="articles.length>0"></i></button>
+                <i (click)="roadTo('cart')" style="text-align: end ; position: absolute;top: 21px; color:white;right: 34px;" class="fa fa-shopping-cart fa-2x pull-right" *ngIf="articles.length>0"></i>
             </div>
-
- 
-
             <div class="panel-body" style="padding: 0rem !important;">
                 <div class="row">
                     <div class="text-center" *ngIf="alert">
@@ -3794,76 +3791,28 @@
                       <slide  *ngFor="let article of articles">
                         <img src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}" alt="First slide" style="width: 80%;min-height:250px; max-height:250px; ">
                         <div class="carousel-caption d-none d-md-block">
-                          <h3>Designation : {{article.designation}}</h3>
-                          <p>Prix : {{currency(article.prix)}}.FCFA </p>
+                          <h3>{{article.designation}}</h3>
+                          <p>Prix : {{article.prix}}.FCFA </p>
                           <p> Quantite : 1 </p>
-                          <p>Prix Total: {{currency(article.prix)}}.FCFA</p>
+                          <p>Prix Total: {{article.prix}}.FCFA</p>
                         </div>
                       </slide>
                 </carousel>
-              <!--   <div class="well-sm row" >
-                    <div *ngIf="i%2==0" class="row" >  
-                        <p class="" style="color:blue">
-                            <b><i>{{article.data.designation}}</i></b>
-                        </p>
-                            <div class="col-xs-12 col-sm-12" >
-                                <img  class="" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" alt="Card image cap" height="150px" width="50">
-                            </div>
-                            <div class="col-sm-12 col-xs-12" style="margin-top:2px" >
-                               <div class="row" >
-                                   <p  style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" class="col-md-10 col-lg-10 couleur">
-                                    <b><i>Designation : {{article.data.designation}}</i></b>
-                                   </p>
-                               </div>
-                               <div class="row" >
-                                   <h5 style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix : {{currency(article.data.prix)}}.FCFA</i></b></h5>
-                               
-                                   <h5 style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Quantite : 1</i></b></h5>
-                               </div>
-                               <div class="row"> 
-                                   <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix Total: {{currency(article.data.prix)}}.FCFA</i></b></p>
-                               </div>
-                            </div>
-                    </div>
-                  <div *ngIf="i%2!=0" class="row" >
-                        <p class="col-lg-offset-1" style="color:blue"><b><i>{{article.data.designation}}</i></b></p>
-                        <div class="col-xs-12 col-sm-12" >
-                           <div class="row" >
-                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Designation : {{article.data.designation}}</i></b></p>
-                            </div>
-                           <div class="row" >
-                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix : {{currency(article.data.prix)}}.FCFA</i></b></p>
-                           </div>
-                           <div class="row" > 
-                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Quantite : 1</i></b></p>
-                           </div>
-                           <div class="row"> 
-                               <p style="color:white; font-size: 2rem;font-family: 'caviard dreams bold;'" ><b><i>Prix Total: {{currency(article.data.prix)}}.FCFA</i></b></p>
-                           </div>
-                        </div>
-                       <div class="col-sm-6 col-xs-8">
-                          <img  class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" alt="Card image cap" height="150px" width="50px">
-                       </div>
-                    </div>
-                      </div>  -->
         <div class="col-sm-12 col-xs-12">
             <p *ngIf="articles.length<1" class="alert alert-danger">Votre panier est vide veuillez choisir des produits</p>
-            <form *ngIf="articles.length>=1" style="width:80%" class="form-inline pull-left">
+            <form class="form-inline pull-left"  style="width:80%" *ngIf="articles.length>=1" >
                <p> <label style="color:white;border:0px; font-size: 2.5rem; font-family: 'caviard dreams bold;'">Total Panier : {{currency(totalpanier())}}</label></p>
                 <p><button (click)="viderpanier()" type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i class="fa fa-times fa-2x" style="color:orange;"></i>
                 </button>
                     <button (click)="showmodalcommande()" type="submit" class="btn btn-success" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"><i style="color: orange;" class="fa fa-check fa-2x"></i>
                     </button>
-                </p>
-                
-                       
+                </p>           
             </form>
         </div>
     
 </div>
             
-
-        </div>
+</div>
 </div>
 <!--fin Cart-->
 <!--espace ecommerce-->
@@ -3886,19 +3835,19 @@
         <div class="panel-body">
                 <div class="row" style="">
                     <div class="col-sm-12 col-xs-12" style=" padding-top: 6rem;">
-                        <button href="#ajout" style="padding-top:8px;color: white;font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;" (click)="showAddChildModal()"   data-toggle="tab">Ajouter</button>
+                        <button href="#ajout" style="padding-top:8px;color: white;font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;" (click)="showAddChildModalecommerce()"   data-toggle="tab">Ajouter</button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button href="#waitingCmd" style="padding-top:8px;color: white;    font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab">Commandes Attendues</button>
+                        <button (click)="roadTo('CA')" href="#waitingCmd" style="padding-top:8px;color: white;    font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab">Commandes Attendues</button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button  style="padding-top:8px;color: white;    font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;" href="#cmdToDeliver" (click)="chargerCommandes('toDeliver')" data-toggle="tab">Commandes à Livrer</button>
+                        <button  (click)="roadTo('CL')" style="padding-top:8px;color: white;    font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;" href="#cmdToDeliver" (click)="chargerCommandes('toDeliver')" data-toggle="tab">Commandes à Livrer</button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button href="#articles" style="padding-top:8px;color: white;font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;"  data-toggle="tab">Mes Articles</button>
+                        <button (click)="roadTo('MA')" href="#articles" style="padding-top:8px;color: white;font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;"  data-toggle="tab">Mes Articles</button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button href="#ventes" style="padding-top:8px;color: white; font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;" (click)="chargerVentes()" data-toggle="tab">Mes Ventes</button>
+                        <button (click)="roadTo('MV')"  href="#ventes" style="padding-top:8px;color: white; font-size: 2.5rem;font-family: 'caviard dreams bold';border: 2rem;" (click)="chargerVentes()" data-toggle="tab">Mes Ventes</button>
                     </div>
                 </div>
         </div>
@@ -3908,7 +3857,250 @@
 
     <!--les interfaces des sous menus-->
 
+<!--Commandes Attendues-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CA'">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-xs-10 col-sm-10">
+            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+            </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Attendues</h2>
+            </div>
+    <div class="col-xs-12 col-sm-12">
+      <div class="row tab-pane col-sm-12 col-xs-12 fade" id="waitingCmd" style="">
+          <div style="border-radius:20px 20px 20px 20px;border:2px solid orange;padding:0px;max-width: 98%;min-width: 98%;overflow-x: auto;padding-top: 3rem;">
+            <table style="max-width: 98%;min-width: 98%;overflow-x: auto;" class="table table-responsive  table-striped" [mfData]="listeCommande | pipeCommande : filtre" #listCmdswtg="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="designation" [(mfSortOrder)]="asc" style="width: 100%;">
+              <thead>
+              <tr style="border:0px solid white">
+                <th style="" colspan="6" style="padding-right: 3rem ;">
+                  <div class="col-sm-12 col-xs-12" >
+                    <div style="padding-top:15px" class="col-sm-6 col-xs-4">
+                      <b>Rechercher </b>
+                    </div>
+                    <div  class="col-sm-6 col-xs-8">
+                      <input  style="border-radius:10px 0px 10px 10px;border:2px solid #36A9E0" [(ngModel)]="filtre"/>
+                    </div>
+                  </div>
+                </th>
+              </tr>
 
+              <tr>
+                <th><mfDefaultSorter by="index">#</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange"><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange">Réception</th>
+              </tr>
+
+              </thead>
+              <tbody  *ngIf="this.listeCommande" >
+              <tr *ngFor="let commande of listCmdswtg.data ; let i = index; ">
+                <td>{{i+1}}</td>
+                <td style="border-left:2px solid orange">{{commande.montant}}</td>
+                <td style="border-left:2px solid orange">{{commande.dateCommande}}</td>
+                <td style="border-left:2px solid orange">{{commande.fullName}}</td>
+                <td style="border-left:2px solid orange">{{commande.tel}}</td>
+                <td style="border-left:2px solid orange">
+                  <button *ngIf="!receivedCmd(commande.id)" class="btn btn-success" (click)="receptionner(commande.id)">Reception</button>
+                  <span *ngIf="receivedCmd(commande.id)"><i class="fa fa-check" aria-hidden="true"></i></span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+  </div>
+
+    </div>
+</div>
+
+<!--Commandes à livrer-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CL'">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-xs-10 col-sm-10">
+            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+            </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Livrer</h2>
+            </div>
+    <div class="col-xs-12 col-sm-12">
+
+      <div class="row tab-pane col-sm-12 col-xs-12 fade" id="cmdToDeliver">
+      <div style="border-radius:20px 20px 20px 20px;border:2px solid orange;padding:0px;max-width: 98%;min-width: 98%;overflow-x: auto;padding-top: 3rem;">
+        <table class="table table-responsive table-striped" [mfData]="listeCommande | pipeCommande : filtre | suppliedarticles : smart" #listCmdsincoming="mfDataTable"  [(mfSortBy)]="designation" [(mfSortOrder)]="asc" style="width: 100%;">
+          <thead >
+
+          <tr style="border:0px solid white">
+            <th colspan="6" style="padding-right: 3rem ;">
+              <div class="col-sm-12 col-xs-12">
+                <div style="padding-top:15px;" class="col-sm-6 col-xs-4">
+                  <b> Rechercher </b>
+                </div>
+                <div class="col-sm-6 col-xs-8">
+                  <input style="border-radius:10px 0px 10px 10px;border:2px solid #36A9E0" class="form-control" [(ngModel)]="filtre"/>
+                </div>
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th><mfDefaultSorter by="index">#</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange color:white"><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange color:white"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange color:white"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange color:white"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange color:white">Réception</th>
+          </tr>
+
+          </thead>
+          <tbody *ngIf="this.listeCommande" >
+          <tr *ngFor="let commande of listCmdsincoming.data ; let i = index; ">
+            <td>{{i+1}}</td>
+            <td style="border-left:2px solid orange">{{commande.montant}}</td>
+            <td style="border-left:2px solid orange">{{commande.dateCommande.date.substring(0,19)}}</td>
+            <td style="border-left:2px solid orange">{{commande.prenomclient + " "+ commande.nomclient}}</td>
+            <td style="border-left:2px solid orange">{{commande.telephoneclient}}</td>
+            <td style="border-left:2px solid orange">
+              <button *ngIf="!cmdFournis(commande.id)" class="btn btn-success" (click)="fournir(commande.id)">Fourni</button>
+              <span *ngIf="cmdFournis(commande.id)"><i class="fa fa-check" aria-hidden="true"></i></span>
+
+              <button  class="btn btn-success" (click)="showChildModal(commande.orderedArticles)">Détails</button>
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+
+<!--MES ARTICLES-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MA'">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-xs-10 col-sm-10">
+            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+            </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Articles</h2>
+            </div>
+    <div class="col-xs-12 col-sm-12">
+        <div class="row tab-pane fade in active" id="articles">
+          <div class="row" style="padding-top: 3rem;">
+            <input type="search" style="width:300px;border:2px solid #36A9E0;border-radius:20px 0px 20px 20px" class=""
+                   [(ngModel)]="this.filtre"
+                   [typeahead]="this.listarticles"
+                   typeaheadOptionField="designation"
+                   typeaheadGroupField="prix"
+                   placeholder="Rechercher" aria-controls="dataTables-example">
+          </div>
+          <div *ngFor="let ligneArticle of filtrerCatalogue()" >
+            <div class="row col-lg-offset-1 col-md-offset-1">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 card border" style="padding:0px;padding-bottom:5px;margin:10px;width:200px" *ngFor="let article of ligneArticle">
+                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}"  alt="Card image cap" width="190" height="200">
+                <input type="file"  *ngIf="this.modif==article.nomImg" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
+                <div class="card-block" style="text-align: center ;">
+                  <h4 class="card-title">{{article.designation}}</h4>
+                  <input type="text" *ngIf="this.modif==article.nomImg" [(ngModel)]="article.designation">
+                  <p class="card-text">Prix:{{article.prix}}.FCFA</p>
+                  <input type="number" *ngIf="this.modif==article.nomImg" [(ngModel)]="article.prix">
+                  <button  class="btn-sm btn-success" *ngIf="this.modifart!='record'+article.nomImg"  type="button"(click)="showmodaldif(article)">Modifier</button>
+                  <button  class="btn-sm btn-success" *ngIf="this.modifart=='record'+article.nomImg" type="button"(click)="enregArticle(article)">Enregistrer</button>
+                  <button  class="btn-sm btn-danger" type="button" *ngIf="this.modifart!='record'+article.nomImg" (click)="deleteArticle(article)" >Supprimer </button>
+                  <button  class="btn-sm btn-danger" type="button" *ngIf="this.modifart=='record'+article.nomImg" (click)="annulArticle()" >Annuler </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+   
+  </div>
+
+</div>
+</div>
+
+
+<!--MES VENTE-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MV'">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-xs-10 col-sm-10">
+            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+            </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Ventes</h2>
+            </div>
+    <div class="col-xs-12 col-sm-12">
+
+    <div class="row tab-pane col-sm-12 col-xs-12 fade" id="ventes">
+      <div class="panel-body" style="border-radius:20px 20px 20px 20px;border:2px solid orange;padding:0px;max-width: 98%;min-width: 98%;overflow-x: auto;padding-top: 3rem;">
+        <table class="table table-responsive table-striped" [mfData]="listeVentes" #listVentes="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="id" [(mfSortOrder)]="asc" style="width: 100%;">
+          <thead>
+          <tr style="border:0px solid white">
+            <th colspan="6" style="padding-right: 3rem ;">
+              <div class="col-sm-12 col-xs-12">
+                <div style="padding-top:15px;" class="col-sm-6 col-xs-4">
+                  <b> Rechercher </b>
+                </div>
+                <div class="col-sm-6 col-xs-8" style="width: 50%!important">
+                  <input style="border-radius:20px 0px 20px 20px;border:2px solid #36A9E0" class="form-control" [(ngModel)]="filtre"/>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <th><mfDefaultSorter by="id">Désignation</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange; color: white;"><mfDefaultSorter by="prixUnitaire">Montant</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange; color: white;"><mfDefaultSorter by="quantite">Détails</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange; color: white;"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange; color: white;"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
+            <th style="border-left:2px solid orange ; color: white;"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
+          </tr>
+          </thead>
+          <tbody *ngIf="this.listVentes" >
+          <tr *ngFor="let vente of listVentes.data">
+            <td>VCL{{vente.id}}</td>
+            <td style="border-left:2px solid orange">{{vente.montant}}</td>
+            <td style="border-left:2px solid orange"> <button class="btn btn-success">Détails</button><!-- {{vente.infovente}} --></td>
+            <td style="border-left:2px solid orange">{{vente.datevente}}</td>
+            <td style="border-left:2px solid orange">  --- </td>
+            <td style="border-left:2px solid orange"> --- </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
 
@@ -5386,8 +5578,9 @@
                 
              </div>
              <div class="modal-footer" style="background-color:blue">
-                  <input type="button" value="valider" (click)="validercommande()"  class="btn btn-success" />
-                  <input type="button" value="annuler" (click)="hidemodalcommande()" class="btn btn-danger" />
+                <input type="button" value="annuler" (click)="hidemodalcommande()" class="btn btn-danger" />
+                <input type="button" value="valider" (click)="validercommande()"  class="btn btn-success" />
+                  
              </div>
           </div> 
         </div>
@@ -5395,6 +5588,294 @@
   
      </div>
   <!--fin modal panier-->
+  <!--espace perso modale d'ajout-->
+<div bsModal #addChildModalecommerce="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+      <div class="modal-header" style="background-color:orange;color:white">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideAddChildModalecommerce()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"  id="myModalLabel">Fenêtre d'ajout.</h4>
+      </div>
+      <div class="modal-body" style="height : 37rem">
+
+        <div  class="col-sm-12 col-xs-12" style="margin-bottom:1rem" *ngIf="addtype==''">
+          <button class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviard dreams bold';" type="button" (click)="addtype='venteecom'">Article E-commerce</button>
+          <button type="reset" class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviard dreams bold';" (click)="addtype='ptiteannonce'">Petite Annonce</button>
+        </div>
+
+        <div  *ngIf="addtype=='venteecom'">
+          <div class="row">
+            <div  class="col-sm-12 col-xs-12 badge" *ngIf="prixa&&prixa!=0" style="margin-bottom:1rem">
+              <div  class="col-sm-3 col-xs-12">
+                Prix de base : {{prixa}}
+              </div>
+              <div  class="col-sm-3 col-xs-12">
+                Prix affiché : {{prixa - customerReduct}}
+              </div>
+              <div  class="col-sm-3 col-xs-12">
+                Part  partenaires : {{ roundedValueOf(prixa*tauxreduc(prixa)*0.5) }}
+              </div>
+              <div  class="col-sm-3 col-xs-12">
+                Réduction client :  {{customerReduct}}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-xs-12">
+            <div class="col-sm-6 col-xs-6">
+              <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="160" height="160" />
+              
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <select *ngIf="categoriea!='Autre'" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="margin-left: 1rem ;" [(ngModel)]="categoriea" >
+                <option >--- Catégorie ---</option>
+                <option *ngFor="let categorie of categories">{{categorie}}</option>
+                <option >Autre</option>
+              </select>
+              <input class="form-control border input-sm" *ngIf="categoriea=='Autre'"  placeholder="Entrez la catégorie de l'article" required />
+              <input type="text" [(ngModel)]="this.designationa"   name="designationa" id="designationa" class="form-control border" placeholder="designation de l'article" required />
+              <div class="row" *ngIf="Bcosmetique">
+                <div class="col-md-4 col-xs-4">
+                  <input   type="text" [(ngModel)]="provenance" name="provenance" placeholder="provenance" class="form-control border"/>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <input   type="text" [(ngModel)]="maque" name="marque" placeholder="marque" class="form-control border" />
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <input    type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur" class="form-control border" />
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <input  type="text" [(ngModel)]="origine" name="origine" placeholder="origine" class="form-control border" />
+                </div>
+              </div>
+              <div class="row" *ngIf="Bvetement">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="origine" name="origine" placeholder="origine"/>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border"  type="text" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="taille" name="taille" placeholder="taille" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="sexe" name="sexe" placeholder="sexe"  />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="tendances" name="tendances" placeholder="tendances"  />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur"  />
+                </div>
+              </div>
+              <div class="row" *ngIf="Bchaussure">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input style="border:2px solid blue" type="text" class="form-control" [(ngModel)]="tendance" placeholder="tendance" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="sexe" name="sexe" placeholder="sexe" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="taille" name="taille" placeholder="taille" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="pointure" name="pointure" placeholder="pointure" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="couleur" name="couleur" placeholder="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" [(ngModel)]="origine" name="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
+                </div>
+              </div>
+
+              <div class="row" *ngIf="Bsac">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="tendance" [(ngModel)]="tendance" placeholder="tendance" />
+                </div>
+              </div>
+
+              <div class="row" *ngIf="Belectronique">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="mode" [(ngModel)]="mode" placeholder="mode" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="dimension" [(ngModel)]="dimension" placeholder="dimension" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="fonctions" [(ngModel)]="fonctions" placeholder="fonctions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input style="border:2px solid blue" class="form-control" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="marque" [(ngModel)]="marque" placeholder="marque" />
+                </div>
+              </div>
+              <div class="row" *ngIf="Baccessoire">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="qualite" [(ngModel)]="qualite" placeholder="qualite" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" name="poids" [(ngModel)]="poids" placeholder="poids" />
+                </div>
+              </div>
+              <div *ngIf="Bbureau">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="mode" class="form-control border" placeholder="mode" [(ngModel)]="mode" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="dimensions" class="form-control border" placeholder="demensions" [(ngModel)]="dimensions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="origine" class="form-control border" placeholder="origine" [(ngModel)]="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="fonctions" class="form-control border" placeholder="fonctions" [(ngModel)]="fonctions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="couleur" class="form-control border" placeholder="couleur" [(ngModel)]="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="marque" class="form-control border" placeholder="marque" [(ngModel)]="marque" />
+                </div>
+              </div>
+              <div *ngIf="Belectromenager">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="modele" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="capacite" placeholder="capacite" [(ngModel)]="capacite" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="modele" placeholder="utilisateur" [(ngModel)]="modele" />
+                </div>
+              </div>
+
+              <div *ngIf="Bmaison">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="utilisateur" placeholder="utilisateur" [(ngModel)]="utilisateur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="fonctions" placeholder="fonctions" [(ngModel)]="fontions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="origine" />
+                </div>
+              </div>
+
+              <div *ngIf="Bautre">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="autre" class="form-control border" placeholder="autre" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <input type="text" class="form-control border" placeholder="Autre Description" name="infosup" [(ngModel)]="infosup" />
+                </div>
+              </div>
+              
+                <div class="col-xs-12 col-sm-12">
+                  <input type="number"  [(ngModel)]="this.prixa"   name="prixa" id="prixa" class="form-control border" placeholder="prix de l'article" required><!--<button (click)="reduirePrix(prixa)" class="btn btn-success">Appliquer tarif réductionnel</button>-->
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                  <input type="number" [(ngModel)]="this.stocka"   name="stocka" id="stocka" class="form-control border" placeholder="Quantité en stock" required>
+                </div>
+                <div>
+                  
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg" />
+            </div>
+             <div class="modal-footer">
+                <a type="reset" class="btn btn-danger"  (click)="annulerecommerce()">Annuler</a>
+                <a class="btn btn-success" type="button" (click)="ajouter()">Ajouter</a>
+            </div>
+                <!--petite annonce
+            <div  *ngIf="addtype=='ptiteannonce'">
+
+              <div class="col-sm-4 col-xs-12">
+                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="200" height="200">
+                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
+
+
+              </div>
+
+              <div class="col-sm-6 col-xs-12" >
+
+                <select *ngIf="categoriepta!='Autre'" class="form-control input-sm" style="margin-left: 1rem ;" [(ngModel)]="categoriepta" >
+                  <option>--- Catégorie ---</option>
+                  <option *ngFor="let categorie of categories">{{categorie}}</option>
+                  <option>Location voitures</option>
+                  <option>Immobilier</option>
+                  <option>Autre</option>
+                </select>
+                <input style="border:2px solid blue" type="text" *ngIf="categoriepta=='Autre'" class="form-control input-sm" placeholder="Entrez la catégorie de l'annonce" required>
+
+                <input style="border:2px solid blue" type="text" [(ngModel)]="this.designationpta"   name="designationa" id="designationa" class="form-control" placeholder="designation de l'annonce" required>
+
+                <input style="border:2px solid blue" type="text" [(ngModel)]="this.descriptionpta"   name="descriptiona" id="descriptiona" class="form-control" placeholder="Petite description de l'annonce" required>
+
+                <input style="border:2px solid blue" type="number" style="display : initial; max-width: 15rem;" [(ngModel)]="this.prixpta"   name="prixa" id="prixa" class="form-control" placeholder="prix de l'article" required>  <input type="number" style="display : initial; max-width: 19rem;" [(ngModel)]="this.telpta"   name="prixa" id="tela" class="form-control" placeholder="Téléphone Annonceur" required>
+
+                <input style="border:2px solid blue" type="number" [(ngModel)]="this.stockpta"   name="stocka" id="stocka" class="form-control" placeholder="Quantité en stock" required>
+
+                <a class="btn btn-success" type="button" (click)="ajouterpta()">Ajouter</a>
+
+                <a type="reset" class="btn btn-danger"  (click)="annuler()">Annuler</a>
+              </div>
+            </div>
+        -->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--finespace perso modale d'ajout-->
 
 
 </div>

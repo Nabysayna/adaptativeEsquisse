@@ -19,7 +19,7 @@ import { FacturierService } from 'app/services/facturier.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead';
-
+import {Commande} from "../services/ecom.service";
 import {EcomService} from "../services/ecom.service";
 
 
@@ -32,6 +32,27 @@ class Article {
   public prix:number;
   public quantite:number;
 }
+export class Vente {
+  public id:number;
+  public quantite:number;
+  public designation:string;
+  public prixUnitaire:number ;
+  public tel:number;
+  public fullName:string;
+  public dateVente:string;
+}
+
+export class newCommande{
+  public idarticle:number ;
+  public qte: number ;
+  public prix: number ;
+  public montant:number ;
+  public designation: string ;
+  public description: string ;
+  public imagelink: string ;
+  public pourvoyeur: number
+}
+
 //E-commerce
 class OrderedArticle{
   public id:number;
@@ -91,6 +112,71 @@ export class AccueilComponent implements OnInit {
   prenomben:string;
   nomben:string;
   nomen:string;
+  //le code que je veus ajouter
+  coderecept : string ;
+  listeVentes : any[] ;
+  listeCommande : Commande[] ;
+ 
+  newImage = "imagevide.jpg" ;
+  articlemodif:any={};
+
+  shownPrice : number ;
+  partenairesParts : number ;
+  customerReduct : number = 0 ;
+  addtype = '' ;
+  id : any ;
+
+  
+  nomImage : string ;
+  categoriea : string ;
+  designationa: string;
+  descriptiona: string ;
+  prixa:number;
+  stocka:number;
+  Bcosmetique:boolean=false;
+  Bvetement:boolean=false;
+  Bchaussure:boolean=false;
+  Belectronique:boolean=false;
+  Bbureau:boolean=false;
+  Belectromenager:boolean=false;
+  Baccessoire:boolean=false;
+  Bmaison:boolean=false;
+  Bsac:boolean=false;
+  Bautre:boolean=false;
+  categoriepta : string ;
+  designationpta: string;
+  descriptionpta: string ;
+  prixpta:number;
+  stockpta:number;
+  provenance:string;
+  marque:string;
+  couleur:string;
+  origine:string;
+  tendence:string;
+  sexe:string;
+  mode:string;
+  utilisation:string;
+  fonctions:string;
+  modele:string;
+  capacite:string;
+  matiere:string;
+  tendances:string;
+  categorie:string;
+  infosup:string;
+  prix:string;
+
+  modif:string="-";
+  modifart:string;
+  nbrePieds : number ;
+  smart : string ;
+  descriptionsvalues=[];
+
+  //zone: NgZone;
+
+  receivedArticles = "" ;
+  articlesFournis = "" ;
+  categories  : string[] = [] ;
+  // fin du code
 
 
   isselectretraitespeceaveccarte:boolean=true
@@ -180,6 +266,8 @@ export class AccueilComponent implements OnInit {
   public infoRetraitaveccode:any;
   constructor(
         private _ecomService:EcomService,
+        //private http:Http,
+        private ecomCaller:EcomService,
         private _facturierService : FacturierService,
         private eFinancierService:EFinancierService,
         private lAbonnementService: LAbonnementService,
@@ -271,6 +359,21 @@ export class AccueilComponent implements OnInit {
                     }
            )
            /* --------------Autes parties----------------*/
+           /* --------------ngOnInit Espace perso d'E-commerce----------------*/
+
+    this.loading = true ;
+    this.ecomCaller.listeArticles(this.token, 'perso').then( response =>
+    {
+      
+      this.listarticles = response;
+      this.loading = false ;
+    });
+
+    this.ecomCaller.listerCategorie(this.token).then( response =>
+    {
+      this.categories = response;
+    })
+
 
   }
 
@@ -2078,6 +2181,19 @@ public pdvacueilmenumobilemoneyretour(){
     this.date=undefined;
     this.cni=undefined;
     this.mnt=undefined;
+    this.provenance=undefined;
+    this.marque=undefined;
+    this.couleur=undefined;
+    this.origine=undefined;
+    this.tendence=undefined;
+    this.sexe=undefined;
+    this.mode=undefined;
+    this.utilisation=undefined;
+    this.fonctions=undefined;
+    this.modele=undefined;
+    this.capacite=undefined;
+    this.matiere=undefined;
+    this.tendances=undefined;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(event){
@@ -3156,6 +3272,11 @@ fairebondachat(){
       }
       this.estclient=true;
   }
+  validercommande(){
+         let depotInfo = {};
+         this.mobileProcessing(JSON.stringify(depotInfo));
+         this.hidemodalcommande();
+      }
 //fin de mon panier
 //detail commande
 recupInfosCmd(){
@@ -3200,6 +3321,215 @@ recupInfosCmd(){
   public hideChildModalCOMMANDE():void {
     this.childModalCOMMANDE.hide();
   }
+
+  //espace perso
+  chargerCommandes(typeListe : string){
+    console.log('azertrytuyiuokyjtrgez chargerCommandes azertrytuyiuokyjtrgez')
+    this.loading = true ;
+    this.ecomCaller.listerCommandes(this.token, typeListe).then( response =>
+    {
+      console.log('azertrytuyiuokyjtrgez')
+      console.log(response)
+      this.listeCommande = null ;
+      if(typeListe=='toDeliver'){
+        this.smart =  response.borom;
+        this.listeCommande = response.order;
+      }
+      else
+        this.listeCommande =  response;
+      this.loading = false ;
+    });
+  }
+ receivedCmd(idCommande : number){
+    return ( this.receivedArticles.indexOf("-"+idCommande.toString()+"-")>-1 ) ;
+  }
+   chargerVentes(){
+    this.loading = true ;
+    this.ecomCaller.listerVentes(this.token).then( response =>
+    {
+      this.listeVentes = [] ;
+      this.listeVentes =  response ;
+      this.loading = false ;
+    });
+  }
+
+    receptionner(idCommande : number){
+    let params = {token: this.token, idCommande: idCommande};
+    this.loading = true ;
+    this.ecomCaller.receptionnerCommandes(params).then( response =>
+    {
+      if(response=="ok")
+        this.receivedArticles = this.receivedArticles + "-"+idCommande.toString()+"-" ;
+      this.loading = false ;
+    });
+  }
+
+  fournir(idCommande : number){
+    let params = {token: this.token, idCommande: idCommande};
+    this.loading = true ;
+    this.ecomCaller.fournirCommandes(params).then( response =>
+    {
+      if(response=="ok")
+        this.articlesFournis = this.articlesFournis + "-"+idCommande.toString()+"-" ;
+      this.loading = false ;
+    });
+  }
+
+  cmdFournis(idCommande : number){
+    return ( this.articlesFournis.indexOf("-"+idCommande.toString()+"-")>-1 ) ;
+  }
+
+  modifArticle(article:Article){
+    this.modif=article.nomImg;
+    this.modifart="record"+article.nomImg;
+  }
+
+  enregArticle(article: Article){
+    this.modif="";
+    this.modifart="";
+
+    this.loading = true ;
+
+    for(var j=0; j<this.articles.length; j++){
+      var ligne=this.articles[j];
+      for (var i=0; i<ligne.length; i++)
+        if (ligne[i].nomImg==article.nomImg)
+        {
+          if(!(this.uploadFile === undefined)){
+            ligne[i].nomImg = this.uploadFile.generatedName ;
+          }
+          let artcle = JSON.stringify(ligne[i]) ;
+          let params = { article: artcle ,token: this.token } ;
+          this.ecomCaller.modifierArticle(params).then( response =>
+          {
+            this.loading = false ;
+          });
+          break;
+        }
+    }
+  }
+
+  annulArticle(){
+    this.loading = true ;
+    this.ecomCaller.listeArticles(this.token, 'perso').then( response =>
+    {
+      //this.articles = _.chunk(response, 5) ;
+      this.listarticles = response;
+      this.loading = false ;
+    });
+    this.modif="";
+    this.modifart="";
+
+  }
+
+   filtrerCatalogue() : Article[][] {
+
+    let catalogueApresFiltre : Article[][] = [] ;
+    if (this.filtre=="" || this.filtre==null)
+      return this.articles ;
+    else
+      for(var j=0; j<this.articles.length; j++){
+        var ligne=this.articles[j] ;
+        let ligneCopy : Article[] = [] ;
+        let k : number = 0 ;
+        for (var i=0; i<ligne.length; i++)
+          if (this.repondAuFiltre(ligne[i]))
+          {
+            ligneCopy[k]=ligne[i];
+            k=k+1 ;
+          }
+        catalogueApresFiltre.push(ligneCopy) ;
+      }
+    return catalogueApresFiltre ;
+  }
+
+  repondAuFiltre(article : Article) : boolean {
+    if (this.filtre=="" || this.filtre==null)
+      return true ;
+    else
+    
+      return false ;
+  }
+
+
+
+  detailsCurrentCommande() : newCommande[]{
+    if(this.orderedArticles){
+      let tabOrder : newCommande[] = JSON.parse(this.orderedArticles) ;
+      return tabOrder ;
+    }
+    return [] ;
+  }
+
+  uploadFile: any;
+
+ @ViewChild('addChildModalecommerce') public addChildModalecommerce:ModalDirective;
+  public showAddChildModalecommerce():void {
+    this.descriptionsvalues=[];
+    this.addChildModalecommerce.show();
+  }
+
+  public hideAddChildModalecommerce():void {
+    this.addChildModalecommerce.hide();
+    this.categoriea = "--- Catégorie ---" ;
+    this.addtype = '' ;
+    this.prixa = 0 ;
+  }
+
+  annulerecommerce(){
+    this.hideAddChildModalecommerce() ;
+    this.newImage = "imagevide.jpg" ;
+    this.categoriea = "--- Catégorie ---" ;
+  }
+
+   ajouterecommerce(){
+    this.loading = true ;
+    var data=(JSON.stringify({categorie:this.categorie,provenance:this.provenance,marque:this.marque,couleur:this.couleur,origine:this.origine,model:this.modele,capacite:this.capacite,fonctions:this.fonctions,matiere:this.matiere,tendance:this.tendances,mode:this.mode,sexe:this.sexe,infosup:this.infosup})).toString();
+    //let params = { token: this.token , designation: this.designationa, description:this.descriptiona, prix: this.prixa, stock:this.stocka, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriea, type:'ecom'}) };
+    let params = { token: this.token , designation: this.designationa, description:data, prix: this.prixa, stock:this.stocka, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriea, type:'ecom'}) };
+    console.log(params);
+    this.ecomCaller.ajouterArticle(params).then( response =>
+    {
+      console.log('fi la yamme');
+      this.loading = false ;
+      this.designationa=undefined;
+      this.descriptiona=undefined;
+      this.prixa=undefined ;
+      this.stocka=undefined;
+      this.uploadFile.generatedName = null ;
+      this.uploadFile.originalName = null ;
+      this.newImage = "imagevide.jpg" ;
+      this.prixa = undefined ;
+      this.categoriea = "--- Catégorie ---" ;
+      this.hideAddChildModalecommerce();
+    });
+  }
+
+  ajouterpta(){
+    this.loading = true ;
+
+    let params = { token: this.token , designation: this.designationpta, description:this.descriptionpta, prix: this.prixpta, stock:this.stockpta, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriepta, type:'petiteannonce'}) }
+    this.ecomCaller.ajouterArticle(params).then( response =>
+    {
+      this.designationpta=undefined;
+      this.descriptionpta=undefined;
+      this.prixpta=undefined ;
+      this.stockpta=undefined;
+      this.uploadFile.generatedName = null ;
+      this.uploadFile.originalName = null ;
+      this.newImage = "imagevide.jpg" ;
+      this.prixpta = undefined ;
+      this.loading = false ;
+      this.categoriepta = "--- Catégorie ---" ;
+    });
+  }
+
+
+
+
+
+
+
 
 
 
