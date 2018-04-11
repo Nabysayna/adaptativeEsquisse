@@ -3853,7 +3853,7 @@
     </div>
 </div>
 
-    <!--les interfaces des sous menus-->
+   
 
 <!--Commandes Attendues-->
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CA'">
@@ -3890,11 +3890,11 @@
 
               <tr>
                 <th><mfDefaultSorter by="index">#</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange"><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange">Réception</th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;">Réception</th>
               </tr>
 
               </thead>
@@ -3968,7 +3968,7 @@
           <tr *ngFor="let commande of listCmdsincoming.data ; let i = index; ">
             <td>{{i+1}}</td>
             <td style="border-left:2px solid orange">{{commande.montant}}</td>
-            <td style="border-left:2px solid orange">{{commande.dateCommande.date.substring(0,19)}}</td>
+            <td style="border-left:2px solid orange">{{commande.dateCommande}}</td>
             <td style="border-left:2px solid orange">{{commande.prenomclient + " "+ commande.nomclient}}</td>
             <td style="border-left:2px solid orange">{{commande.telephoneclient}}</td>
             <td style="border-left:2px solid orange">
@@ -4016,7 +4016,7 @@
           </div>
           <div *ngFor="let ligneArticle of filtrerCatalogue()" >
             <div class="row col-lg-offset-1 col-md-offset-1">
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 card border" style="padding:0px;padding-bottom:5px;margin:10px;width:200px" *ngFor="let article of ligneArticle">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 card border" style="padding:0px;padding-bottom:5px;margin:10px;width:200px" *ngFor="let article of ligneArticle.data">
                 <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}"  alt="Card image cap" width="190" height="200">
                 <input type="file"  *ngIf="this.modif==article.nomImg" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
                 <div class="card-block" style="text-align: center ;">
@@ -5540,7 +5540,7 @@
             <div class="modal-content" >
               <div class="modal-header">
                 <button type="button" class="close pull-right" aria-label="Close" >
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" (click)="hidemodalcommande" >&times;</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">Fenêtre du panier.</h4>
              </div>
@@ -5613,7 +5613,7 @@
                 Prix affiché : {{prixa - customerReduct}}
               </div>
               <div  class="col-sm-3 col-xs-12">
-                Part  partenaires : {{ roundedValueOf(prixa*tauxreduc(prixa)*0.5) }}
+                Part  partenaires : {{roundedValueOf(prixa*tauxreduc(prixa)*0.5) }}
               </div>
               <div  class="col-sm-3 col-xs-12">
                 Réduction client :  {{customerReduct}}
@@ -5626,9 +5626,9 @@
               
             </div>
             <div class="col-xs-6 col-sm-6">
-              <select *ngIf="categoriea!='Autre'" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="margin-left: 1rem ;" [(ngModel)]="categoriea" >
+              <select *ngIf="categoriea!='Autre'" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="margin-left: 1rem ;" [(ngModel)]="this.categoriea" >
                 <option >--- Catégorie ---</option>
-                <option *ngFor="let categorie of categories">{{categorie}}</option>
+                <option *ngFor="let categorie of categories.string">{{categorie}}</option>
                 <option >Autre</option>
               </select>
               <input class="form-control border input-sm" *ngIf="categoriea=='Autre'"  placeholder="Entrez la catégorie de l'article" required />
@@ -5828,9 +5828,9 @@
             </div>
              <div class="modal-footer">
                 <a type="reset" class="btn btn-danger"  (click)="annulerecommerce()">Annuler</a>
-                <a class="btn btn-success" type="button" (click)="ajouter()">Ajouter</a>
+                <a class="btn btn-success" type="button" (click)="ajouterecommerce()">Ajouter</a>
             </div>
-                <!--petite annonce
+              
             <div  *ngIf="addtype=='ptiteannonce'">
 
               <div class="col-sm-4 col-xs-12">
@@ -5844,7 +5844,7 @@
 
                 <select *ngIf="categoriepta!='Autre'" class="form-control input-sm" style="margin-left: 1rem ;" [(ngModel)]="categoriepta" >
                   <option>--- Catégorie ---</option>
-                  <option *ngFor="let categorie of categories">{{categorie}}</option>
+                  <option *ngFor="let categorie of categories.string">{{categorie}}</option>
                   <option>Location voitures</option>
                   <option>Immobilier</option>
                   <option>Autre</option>
@@ -5864,7 +5864,7 @@
                 <a type="reset" class="btn btn-danger"  (click)="annuler()">Annuler</a>
               </div>
             </div>
-        -->
+        
 
           </div>
 
