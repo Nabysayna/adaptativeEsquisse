@@ -21,6 +21,8 @@ import 'rxjs/add/observable/of';
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead';
 import {Commande} from "../services/ecom.service";
 import {EcomService} from "../services/ecom.service";
+import { Http, RequestOptions, RequestMethod, Headers  } from '@angular/http';
+import * as _ from "lodash";
 
 
 
@@ -240,8 +242,7 @@ export class AccueilComponent implements OnInit {
 
   noma="";
   asc="";
-  filtre:"";
-
+  filtre : string = "" ;
   message:any=false;
   mntsde:number;
   echeance:any;
@@ -266,7 +267,7 @@ export class AccueilComponent implements OnInit {
   public infoRetraitaveccode:any;
   constructor(
         private _ecomService:EcomService,
-        //private http:Http,
+        private http:Http,
         private ecomCaller:EcomService,
         private _facturierService : FacturierService,
         private eFinancierService:EFinancierService,
@@ -547,7 +548,7 @@ export class AccueilComponent implements OnInit {
    totalpanier(){
 		  let total=0;
 		  for(let i=0;i<this.articles.length;i++){
-			 total+=this.articles[i].data.prix*this.articles[i].data.quantite;
+			 total+=this.articles[i].prix*this.articles[i].quantite;
 			 }
 			return total;
       }
@@ -3142,7 +3143,7 @@ fairebondachat(){
         montant:article.prix,
         designation:article.designation,
         description:article.description,
-        nomImg: article.nomImg,
+        nomImg:article.nomImg,
       };
       this.orderedarticles.push(orderedarticle);
       this.recalculmontant();
@@ -3409,11 +3410,29 @@ recupInfosCmd(){
     }
   }
 
+deleteArticle(article:Article) {
+    for(var j=0; j<this.articles.length; j++){
+      var ligne=this.articles[j];
+      for (var i=0; i<ligne.length; i++)
+        if (ligne[i].nomImg==article.nomImg)
+        {
+          this.loading = true ;
+          let artcle = JSON.stringify(ligne[i]) ;
+          let params = { article: artcle ,token: this.token } ;
+          this.ecomCaller.supprimerArticle(params).then( response =>
+          {
+            ligne.splice(i,1);
+            this.loading = false ;
+          });
+          break;
+        }
+    }
+  }
   annulArticle(){
     this.loading = true ;
     this.ecomCaller.listeArticles(this.token, 'perso').then( response =>
     {
-      //this.articles = _.chunk(response, 5) ;
+      this.articles = _.chunk(response, 5) ;
       this.listarticles = response;
       this.loading = false ;
     });
@@ -3422,7 +3441,7 @@ recupInfosCmd(){
 
   }
 
-   filtrerCatalogue() : Article[][] {
+ filtrerCatalogue() : Article[][] {
 
     let catalogueApresFiltre : Article[][] = [] ;
     if (this.filtre=="" || this.filtre==null)
@@ -3447,10 +3466,11 @@ recupInfosCmd(){
     if (this.filtre=="" || this.filtre==null)
       return true ;
     else
-    
+    if ( (article.nomImg.toLowerCase().match( this.filtre.toLowerCase() )!=null) || (article.designation.toLowerCase().match( this.filtre.toLowerCase() )!=null) )
+      return true ;
+    else
       return false ;
   }
-
 
 
   detailsCurrentCommande() : newCommande[]{
@@ -3461,9 +3481,39 @@ recupInfosCmd(){
     return [] ;
   }
 
-  uploadFile: any;
+  uploadFile: any = null;
 
  @ViewChild('addChildModalecommerce') public addChildModalecommerce:ModalDirective;
+ @ViewChild('modalmodif') public modalmodif:ModalDirective;
+  public showmodaldif(article){
+    this.articlemodif=article;
+    console.log(this.articlemodif);
+    this.modalmodif.show();
+    //modifArticle(article)
+  }
+  hidemodalmodif(){
+    this.modalmodif.hide();
+  }
+
+  validermodif(article){
+    // modifArticle(article);
+    let data=(JSON.stringify({provenance:this.provenance,marque:this.marque,couleur:this.couleur,origine:this.origine,tendance:this.tendances,mode:this.mode,sexe:this.sexe})).toString();
+    let params=JSON.stringify({'article':{description:data,prix:this.prix,designation:this.designation,id:article.id,nomImg:article.nomImg,token:this.token}});
+    console.log(params);
+    this.ecomCaller.modifierArticle(params).then( response =>
+    {
+      console.log(response);
+      // this.loading = false ;
+      this.hidemodalmodif();
+      this.reinitialiser();
+    });
+
+  }
+
+
+  
+
+
   public showAddChildModalecommerce():void {
     this.descriptionsvalues=[];
     this.addChildModalecommerce.show();
@@ -3482,27 +3532,63 @@ recupInfosCmd(){
     this.categoriea = "--- Catégorie ---" ;
   }
 
+ apiEndPoint = 'https://sentool.bbstvnet.com/sslayer/server-backend-upload/index.php' ;
+
+    fileChange(event) {
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+      let file: File = fileList[0];
+      let formData:FormData = new FormData();
+      formData.append('file', file, file.name);
+      let headers = new Headers();
+
+      /** No need to include Content-Type in Angular 4 */
+      //Applying content-type in the current case leads to an impossible upload
+
+      // headers.append('Content-Type', 'multipart/form-data');
+
+      headers.append('Accept', 'application/json');
+      let options = new RequestOptions({
+        headers: headers
+      });
+
+      this.http.post(`${this.apiEndPoint}`, formData, options)
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+          data => {
+            let newData = data;
+            this.uploadFile = newData;
+            this.newImage = this.uploadFile.generatedName ;
+          },
+          error => {}
+        )
+    }
+  }
+
    ajouterecommerce(){
-    this.loading = true ;
-    var data=(JSON.stringify({categorie:this.categorie,provenance:this.provenance,marque:this.marque,couleur:this.couleur,origine:this.origine,model:this.modele,capacite:this.capacite,fonctions:this.fonctions,matiere:this.matiere,tendance:this.tendances,mode:this.mode,sexe:this.sexe,infosup:this.infosup})).toString();
-    //let params = { token: this.token , designation: this.designationa, description:this.descriptiona, prix: this.prixa, stock:this.stocka, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriea, type:'ecom'}) };
-    let params = { token: this.token , designation: this.designationa, description:data, prix: this.prixa, stock:this.stocka, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriea, type:'ecom'}) };
-    console.log(params);
-    this.ecomCaller.ajouterArticle(params).then( response =>
-    {
-      console.log('fi la yamme');
-      this.loading = false ;
-      this.designationa=undefined;
-      this.descriptiona=undefined;
-      this.prixa=undefined ;
-      this.stocka=undefined;
-      this.uploadFile.generatedName = null ;
-      this.uploadFile.originalName = null ;
-      this.newImage = "imagevide.jpg" ;
-      this.prixa = undefined ;
-      this.categoriea = "--- Catégorie ---" ;
-      this.hideAddChildModalecommerce();
-    });
+    if(this.uploadFile!=null){
+          this.loading = true ;
+          var data=(JSON.stringify({categorie:this.categorie,provenance:this.provenance,marque:this.marque,couleur:this.couleur,origine:this.origine,model:this.modele,capacite:this.capacite,fonctions:this.fonctions,matiere:this.matiere,tendance:this.tendances,mode:this.mode,sexe:this.sexe,infosup:this.infosup})).toString();
+          //let params = { token: this.token , designation: this.designationa, description:this.descriptiona, prix: this.prixa, stock:this.stocka, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriea, type:'ecom'}) };
+          let params = { token: this.token , designation: this.designationa, description:data, prix: this.prixa, stock:this.stocka, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriea, type:'ecom'}) };
+          console.log(params);
+          this.ecomCaller.ajouterArticle(params).then( response =>
+          {
+            console.log('fi la yamme');
+            this.loading = false ;
+            this.designationa=undefined;
+            this.descriptiona=undefined;
+            this.prixa=undefined ;
+            this.stocka=undefined;
+            this.uploadFile = null ;
+
+            this.newImage = "imagevide.jpg" ;
+            this.prixa = undefined ;
+            this.categoriea = "--- Catégorie ---" ;
+            this.hideAddChildModalecommerce();
+          });
+    }
   }
 
   ajouterpta(){
@@ -3511,6 +3597,7 @@ recupInfosCmd(){
     let params = { token: this.token , designation: this.designationpta, description:this.descriptionpta, prix: this.prixpta, stock:this.stockpta, img_link: this.uploadFile.generatedName, categorie:JSON.stringify({categorie : this.categoriepta, type:'petiteannonce'}) }
     this.ecomCaller.ajouterArticle(params).then( response =>
     {
+      console.log('ayy');
       this.designationpta=undefined;
       this.descriptionpta=undefined;
       this.prixpta=undefined ;
@@ -3522,6 +3609,183 @@ recupInfosCmd(){
       this.loading = false ;
       this.categoriepta = "--- Catégorie ---" ;
     });
+  }
+
+   tauxreduc(basicPrice){
+    if (basicPrice<=10000){
+      return 0.1 ;
+    }
+    if (basicPrice>10000 && basicPrice<=50000){
+      return 0.085 ;
+    }
+    if (basicPrice>50000 && basicPrice<=100000){
+      return 0.095 ;
+    }
+    if (basicPrice>100000 && basicPrice<=250000){
+      return 0.09 ;
+    }
+    if (basicPrice>250000 && basicPrice<=500000){
+      return 0.07 ;
+    }
+    if (basicPrice>500000 && basicPrice<=750000){
+      return 0.05 ;
+    }
+    if (basicPrice>750000 && basicPrice<=1000000){
+      return 0.04 ;
+    }
+    else{
+      return 0.035 ;
+    }
+  }
+
+
+  reduirePrix(basicPrice){
+    if (basicPrice<=10000){
+      this.customerReduct = Math.round((basicPrice*0.1)*0.5) ;
+    }
+    if (basicPrice>10000 && basicPrice<=50000){
+      this.customerReduct = Math.round((basicPrice*0.085)*0.5) ;
+    }
+    if (basicPrice>50000 && basicPrice<=100000){
+      this.customerReduct = Math.round((basicPrice*0.095)*0.5) ;
+    }
+    if (basicPrice>100000 && basicPrice<=250000){
+      this.customerReduct = Math.round((basicPrice*0.09)*0.5) ;
+    }
+    if (basicPrice>250000 && basicPrice<=500000){
+      this.customerReduct = Math.round((basicPrice*0.07)*0.5) ;
+    }
+    if (basicPrice>500000 && basicPrice<=750000){
+      this.customerReduct = Math.round((basicPrice*0.05)*0.5) ;
+    }
+    if (basicPrice>750000 && basicPrice<=1000000){
+      this.customerReduct = Math.round((basicPrice*0.04)*0.5) ;
+    }
+    else{
+      this.customerReduct = Math.round((basicPrice*0.035)*0.5) ;
+    }
+
+  }
+
+  roundedValueOf(decimal){
+    return Math.round(decimal) ;
+  }
+
+  descriptionarticle(categorie){
+    if(categorie=="--- Catégorie ---"){
+      this.descriptionsvalues=[];
+    }
+    //for(let i=0;i<this.descriptions.length;i++){
+    //if(this.descriptions[i].description==categorie){
+    // this.descriptionsvalues=this.descriptions[i].value;
+    switch(categorie){
+      case 'Cosmetiques':{
+        this.categorie='cosmetiques';
+        this.reinitialiser();
+        this.Bcosmetique=true;
+        this.Bvetement=false;
+        this.Bchaussure=false;
+        this.Belectronique=false;
+        this.Bbureau=false;
+        this.Belectromenager=false;
+        this.Baccessoire=false;
+        this.Bsac=false;
+        break;
+      }
+      case 'Accessoires':{
+        this.categorie='accessoires';
+        this.reinitialiser();
+        this.Bcosmetique=false;
+        this.Bvetement=false;
+        this.Bchaussure=false;
+        this.Belectronique=false;
+        this.Bbureau=false;
+        this.Belectromenager=false;
+        this.Bsac=false;
+        this.Baccessoire=true;
+        break;
+      }
+      case 'Vêtements':{
+        this.categorie='vetements';
+        this.reinitialiser();
+        this.Bvetement=true;
+        this.Bcosmetique=false;
+        this.Belectronique=false;
+        this.Bchaussure=false;
+        this.Baccessoire=false;
+        this.Bbureau=false;
+        this.Belectromenager=false;
+        this.Bsac=false;
+        break;
+      }
+      case 'Chaussures':{
+        this.categorie='chaussures';
+        this.reinitialiser();
+        this.Bvetement=false;
+        this.Bcosmetique=false;
+        this.Belectronique=false;
+        this.Bchaussure=true;
+        this.Baccessoire=false;
+        this.Bbureau=false;
+        this.Belectromenager=false;
+        this.Bsac=false;
+        break;
+      }
+      case 'Electronique':{
+        this.categorie='electronique';
+        this.reinitialiser();
+        this.Bvetement=false;
+        this.Bcosmetique=false;
+        this.Bchaussure=false;
+        this.Baccessoire=false;
+        this.Belectronique=false;
+        this.Bbureau=false;
+        this.Belectromenager=false;
+        this.Bsac=false;
+        break;
+      }
+      case 'Outils de bureau':{
+        this.categorie='bureau';
+        this.reinitialiser();
+        this.Bvetement=false;
+        this.Bcosmetique=false;
+        this.Bchaussure=false;
+        this.Belectronique=false;
+        this.Baccessoire=false;
+        this.Bbureau=true;
+        this.Belectromenager=false;
+        this.Bsac=false;
+        break;
+      }
+      case 'Electromenager':{
+        this.categorie='electromenager';
+        this.reinitialiser();
+        this.Bvetement=false;
+        this.Bcosmetique=false;
+        this.Bchaussure=false;
+        this.Belectronique=false;
+        this.Bbureau=false;
+        this.Belectromenager=true;
+        this.Baccessoire=false;
+        this.Bsac=false;
+        break;
+      }
+      case 'Sacs':{
+        this.categorie='sacs';
+        this.reinitialiser();
+        this.Bvetement=false;
+        this.Bcosmetique=false;
+        this.Bchaussure=false;
+        this.Belectronique=false;
+        this.Bbureau=false;
+        this.Belectromenager=false;
+        this.Baccessoire=false;
+        this.Bsac=true;
+        break;
+      }
+      default:break;
+    }
+
   }
 
 
