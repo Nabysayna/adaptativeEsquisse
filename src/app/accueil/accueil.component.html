@@ -321,7 +321,7 @@
                             <button (click)="roadTo('fact')"  style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
                                             <div  class="row">
                                                     <div  class="col-sm-3 col-xs-2">
-                                                        <img  src="assets/facturevv.png" style="height:30px; ">
+                                                        <img  src="assets/facturier.png" style="height:30px; ">
                                                     </div>
                                                     <div  class="col-sm-10 col-xs-10">
                                                             <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem;text-align:left; ">FACTURIER</h5>
@@ -333,7 +333,7 @@
                             <button (click)="roadTo('ec')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
                                     <div  class="row">
                                             <div  class="col-sm-3 col-xs-2">
-                                                <img  src="assets/facturevv.png" style="height:32px; ">
+                                                <img  src="assets/pannier.png" style="height: 4rem;margin-left: -13px; padding-left: 0px; ">
                                             </div>
                                             <div  class="col-sm-10 col-xs-10">
                                                 <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem; text-align:left;">E-COMMERCE</h5>
@@ -373,20 +373,20 @@
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;max-width: -webkit-fill-available;min-width:  -webkit-fill-available;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-fact'">
         <div class="col-sm-12 col-xs-12" style="max-width: -webkit-fill-available;min-width:  -webkit-fill-available; background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             
-            <div  class="row" style="margin-top: 2rem;padding:0;">
+            <div  class="row" style="margin-top: 1rem;padding:0;">
                         <div  class="col-sm-3 col-xs-3">
                              <div class="row">
-                                    <img  src="assets/facturevv.png" style="height: 50px; margin-right:3rem; ">
+                                    <img  src="assets/thumbnail.png" (click)="retunrHome()" style="height: 4rem; margin-right:3rem; " >
                              </div>
                         </div>
                         <div  class="col-sm-6 col-xs-6">
-                            <img  src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;">
+                            <img  src="assets/facturevv.png" style="width: 80%;padding-top: 1rem;">
                         </div>
                         <div  class="col-sm-3 col-xs-3">
                             <div class="row">
                                  <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;" style="margin-top:1rem;">
                                 <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                             </div>
                         </div>
@@ -430,18 +430,18 @@
 <!-- FACTURIER-SENELEC-->
 <div *ngIf="displayedPage=='accueil-fact-senelec'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="col-sm-12 col-xs-12" style="margin-top: 2rem;padding:0;">
+            <div  class="col-sm-12 col-xs-12" style="margin-top: 1rem;padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem;margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/icoservice-senelec.png" style="width: 100%; padding-top: 5rem;">
+                      <img  src="assets/icoservice-senelec.png" style="width: 100%; padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                       </div>
                   </div>
@@ -488,18 +488,18 @@
 <!-- Woyofal -->
 <div  *ngIf="displayedPage=='accueil-fact-wf'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="col-sm-12 col-xs-12" style="margin-top: 2rem;padding:0;">
+            <div  class="col-sm-12 col-xs-12" style="margin-top: 1rem;padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 50px; margin-right:3rem; ">
+                     <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/icoservice-woyofal.png" style="width: 100%;padding-top: 5rem;">
+                      <img  src="assets/icoservice-woyofal.png" style="width: 100%;padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                       </div>
                   </div>
@@ -545,18 +545,18 @@
 <!-- sde -->
 <div  *ngIf="displayedPage=='accueil-fact-sde'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="col-sm-12 col-xs-12" style="margin-top: 2rem;padding:0;">
+            <div  class="col-sm-12 col-xs-12" style="margin-top: 1rem;padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 50px; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/icoservice-sde.png" style="width: 70%; padding-top: 5rem;">
+                      <img  src="assets/icoservice-sde.png" style="width: 70%; padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                       </div>
                   </div>
@@ -595,18 +595,18 @@
 
 <div  *ngIf="displayedPage=='accueil-fact-rpd'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="col-sm-12 col-xs-12" style="margin-top: 2rem;padding:0;">
+            <div  class="col-sm-12 col-xs-12" style="margin-top: 1rem;padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/icoservice-rapido.png" style="width: 100%;padding-top: 5rem;">
+                      <img  src="assets/icoservice-rapido.png" style="width: 100%;padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                       </div>
                   </div>
@@ -661,18 +661,18 @@
 <!-- Oolu Solar-->
 <div *ngIf="displayedPage=='accueil-fact-oos'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="col-sm-12 col-xs-12" style="margin-top: 2rem;padding:0;">
+            <div  class="col-sm-12 col-xs-12" style="margin-top: 1rem;padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/ooluLogo.png" style="width: 100%; padding-top: 5rem;">
+                      <img  src="assets/ooluLogo.png" style="width: 100%; padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                       </div>
                   </div>
@@ -726,9 +726,9 @@
 <!-- Facturier TNT -->
 <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="col-sm-12 col-xs-12" style="margin-top: 2rem;padding:0;">
+            <div  class="col-sm-12 col-xs-12" style="margin-top: 1rem;padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
                       <img  src="assets/tntLogo.png" style="width: 90%; padding-top: 4rem;">
@@ -737,7 +737,7 @@
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                       </div>
                   </div>
@@ -785,7 +785,7 @@
          <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;overflow-y: scroll;overflow-y: scroll;overflow-y: scroll;overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
              <div  class="col-sm-12 col-xs-12" style="margin-top:2rem; padding:0;">
                    <div  class="col-sm-3 col-xs-3">
-                       <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                    </div>
                    <div  class="col-sm-6 col-xs-6">
                        <img  src="assets/tntLogo.png" style="width: 90%; padding-top: 4rem;">
@@ -794,7 +794,7 @@
                        <div class="row">
                             <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem; ">
                        </div>
-                       <div class="row">
+                       <div class="row" style="margin-top:1rem;">
                            <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                        </div>
                    </div>
@@ -839,7 +839,7 @@
           <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll;padding-bottom:4rem;">
               <div  class="col-sm-12 col-xs-12" style="margin-top:2rem; padding:0;">
                     <div  class="col-sm-3 col-xs-3">
-                        <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                     </div>
                     <div  class="col-sm-6 col-xs-6">
                         <img  src="assets/tntLogo.png" style="width: 90%;padding-top: 4rem;">
@@ -848,7 +848,7 @@
                         <div class="row">
                              <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:1rem;">
                             <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                         </div>
                     </div>
@@ -948,7 +948,7 @@
            <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
                <div  class="col-sm-12 col-xs-12" style="margin-top:2rem; padding:0;">
                      <div  class="col-sm-3 col-xs-3">
-                         <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                      <div  class="col-sm-6 col-xs-6">
                          <img  src="assets/tntLogo.png" style="width: 90%;padding-top: 4rem;">
@@ -957,7 +957,7 @@
                          <div class="row">
                               <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                          </div>
-                         <div class="row">
+                         <div class="row" style="margin-top:1rem;">
                              <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                          </div>
                      </div>
@@ -1026,7 +1026,7 @@
             <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available;overflow-y: scroll; text-align: center; opacity:0.96; overflow-y: scroll;padding-bottom:4rem;">
                 <div  class="col-sm-12 col-xs-12" style="margin-top:2rem; padding:0;">
                       <div  class="col-sm-3 col-xs-3">
-                          <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                            <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                       </div>
                       <div  class="col-sm-6 col-xs-6">
                           <img  src="assets/tntLogo.png" style="width: 90%;padding-top: 4rem;">
@@ -1035,7 +1035,7 @@
                           <div class="row">
                                <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                           </div>
-                          <div class="row">
+                          <div class="row" style="margin-top:1rem;">
                               <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                           </div>
                       </div>
@@ -1147,7 +1147,7 @@
              <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
                  <div  class="col-sm-12 col-xs-12" style="margin-top:2rem; padding:0;">
                        <div  class="col-sm-3 col-xs-3">
-                           <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                            <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                        </div>
                        <div  class="col-sm-6 col-xs-6">
                            <img  src="assets/tntLogo.png" style="width: 90%; padding-top: 4rem;">
@@ -1156,7 +1156,7 @@
                            <div class="row">
                                 <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem">
                            </div>
-                           <div class="row">
+                           <div class="row" style="margin-top:1rem;">
                                <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem">
                            </div>
                        </div>
@@ -1214,7 +1214,7 @@
               <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll; padding-bottom:4rem;">
                   <div  class="col-sm-12 col-xs-12" style="margin-top:2rem; padding:0;">
                         <div  class="col-sm-3 col-xs-3">
-                            <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                            <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                         </div>
                         <div  class="col-sm-6 col-xs-6">
 
@@ -1224,7 +1224,7 @@
                             <div class="row">
                                  <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;  margin-left:3rem; ">
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;">
                                 <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;  margin-left:3rem; ">
                             </div>
                         </div>
@@ -1318,7 +1318,7 @@
                <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
                    <div  class="col-sm-12 col-xs-12" style="-top:2rem; padding:0;">
                          <div  class="col-sm-3 col-xs-3">
-                             <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                                <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                          </div>
                          <div  class="col-sm-6 col-xs-6">
                              <img  src="assets/tntLogo.png" style="width: 90%;padding-top:4rem;">
@@ -1327,7 +1327,7 @@
                              <div class="row">
                                   <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;  margin-left:3rem; ">
                              </div>
-                             <div class="row">
+                             <div class="row" style="margin-top:1rem;">
                                  <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;  margin-left:3rem; ">
                              </div>
                          </div>
@@ -1390,18 +1390,18 @@
 <div  *ngIf="displayedPage=='accueil-ges'">
     <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;" >
         <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 5rem;  width:100%;margin:0px; padding:0px;">
-            <div  class="row" style="margin-top:2rem; padding:0;">
+            <div  class="row" style="margin-top:1rem; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                       <img src="assets/gestio.png" style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6" style="margin-top:3rem;">
-                          <img src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;"/>
+                          <img src="assets/gestio.png" style="width: 90%;"/>
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem">
                       </div>
                   </div>
@@ -1427,18 +1427,18 @@
 <!-- GESTION-GESTION-HISTOIRE-Accueil -->
 <div *ngIf="displayedPage=='accueil-ges-gracu'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-            <div  class="row" style="margin-top:2rem; padding:0;">
+            <div  class="row" style="margin-top:1rem; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png"  style="height: 4rem;margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                          <img src="assets/thumbnail.png" style="width: 100%; padding-top: 5rem;"/>
+                          <img src="assets/gestio.png" style="width: 90%;"/>
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left:3rem;;">
                       </div>
                   </div>
@@ -1468,18 +1468,18 @@
 <!--  GESTION-HISTOIRE DES OPERATIONS (formulaire de recherche)-->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-re'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-        <div  class="row" style="margin-top:2rem; padding:0;">
+        <div  class="row" style="margin-top: 1rem; padding:0;">
               <div  class="col-sm-3 col-xs-3">
-                  <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;"/>
+                      <img src="assets/gestio.png" style="width: 90%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3" >
                   <div class="row">
                        <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-top:1rem;">
                       <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                   </div>
               </div>
@@ -1566,18 +1566,18 @@
 <!-- GESTION-HISTOIRE DES OPERATIONS (Resultats) -->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-re-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-        <div  class="row" style="margin-top:2rem; padding:0;">
+        <div  class="row" style="margin-top:1rem; padding:0;">
               <div  class="col-sm-3 col-xs-3">
-                  <img  src="assets/thumbnailphone.png"  style="height: 4rem;; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/thumbnail.png" style="width: 100%; padding-top: 5rem;"/>
+                      <img src="assets/thumbnail.png"  (click)="returnHome()" style="width: 90%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
                        <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-top:1rem;">
                       <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                   </div>
               </div>
@@ -1634,18 +1634,18 @@
 <!-- GESTION-Dépense -->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-dep'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-        <div  class="row" style="margin-top:2rem; padding:0;">
+        <div  class="row" style="margin-top:1rem; padding:0;">
               <div  class="col-sm-3 col-xs-3">
-                  <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;"/>
+                      <img src="assets/gestio.png" style="width: 90%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
                        <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-top:1rem;">
                       <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                   </div>
               </div>
@@ -1712,18 +1712,18 @@
 <!-- GESTION-Recettes -->
 <div *ngIf="displayedPage=='accueil-ges-gracu-rct'"  class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-        <div  class="row" style="margin-top:2rem; padding:0;">
+        <div  class="row" style="margin-top:1rem; padding:0;">
               <div  class="col-sm-3 col-xs-3">
-                  <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6" >
-                      <img src="assets/thumbnail.png" style="width: 100%; ;padding-top: 5rem;"/>
+                      <img src="assets/gestio.png" style="width: 90%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
                        <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-top:1rem;">
                       <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                   </div>
               </div>
@@ -1791,18 +1791,18 @@
 <!-- GESTION-Reclamations -->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-rcl'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-        <div  class="row" style="margin-top: 2rem; padding:0;">
+        <div  class="row" style="margin-top: 1rem; padding:0;">
               <div  class="col-sm-3 col-xs-3">
-                  <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                 <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;"/>
+                      <img src="assets/gestio.png" style="width: 90%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
                        <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-top:1rem;">
                       <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                   </div>
               </div>
@@ -1846,7 +1846,7 @@
                   </div>
 
              </div>
-             <div class="col-xs-12 col-sm-12" style="margin-top:10rem;">
+             <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
                      <div class="row">
                             <div class="col-xs-5 col-sm-5">
 
@@ -1865,18 +1865,18 @@
 <!-- GESTION-caisse -->
 <div *ngIf="displayedPage=='accueil-ges-gracu-css'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
-        <div  class="row" style="margin-top:2rem; padding:0;">
+        <div  class="row" style="margin-top:1rem; padding:0;">
               <div  class="col-sm-3 col-xs-3">
-                  <img  src="assets/thumbnailphone.png"  style="height: 4rem;margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;"/>
+                      <img src="assets/gestio.png" style="width: 90%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
                        <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                   </div>
-                  <div class="row">
+                  <div class="row" style="margin-top:1rem;">
                       <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                   </div>
               </div>
@@ -1889,7 +1889,7 @@
               <p style=" color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Nouvel approvisionnement de {{currencyFormat(caisseEtat.soldeOuvert - caisseEtat.soldeFermet)}}</p>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-12" style="margin-top:10rem;">
+            <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
                 <div class="row">
                        <div class="col-xs-5 col-sm-5">
 
@@ -1916,25 +1916,25 @@
 <!--Mobile Money - Accueil -->
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-mm'" >
         <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
-            <div  class="row" style="margin-top:2rem; padding:0;">
+            <div  class="row" style="margin-top:1rem; padding:0;">
                 <div  class="col-sm-3 col-xs-3">
-                    <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                 </div>
                 <div  class="col-sm-6 col-xs-6">
-                        <img src="assets/thumbnail.png" style="width: 100%;padding-top: 5rem;"/>
+                        <img src="assets/thumbnailphone.png" style="width: 80%;padding-top: 1rem; margin-left:20%;"/>
                 </div>
                 <div  class="col-sm-3 col-xs-3">
                     <div class="row">
                          <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top:1rem;">
                         <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
                     </div>
                 </div>
           </div>
 
             <!--<i class="fa fa-power-off" style="color: white; margin-right: -16rem;">Déconnexion</i>-->
-            <div class="row" style="margin-top: -16px;padding-top: 5rem;">
+            <div class="row" style="margin-top: -16px;padding-top: 4rem;">
                 <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('POSTCASH')">
                     <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">PostCash</p>
                 </button>
@@ -1978,16 +1978,16 @@
                  -->
                  <div  class="row" style="margin:0px; padding:0;">
                        <div  class="col-sm-3 col-xs-3">
-                           <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                            <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                        </div>
                        <div  class="col-sm-6 col-xs-6">
-                           <img  src="assets/OM.png" style="width: 100%; padding-top: 5rem;">
+                           <img  src="assets/OM.png" style="width: 100%; padding-top: 1rem;">
                        </div>
                        <div  class="col-sm-3 col-xs-3">
                            <div class="row">
                                 <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left: 3rem;">
                            </div>
-                           <div class="row">
+                           <div class="row" style="margin-top:1rem;">
                                <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                            </div>
                        </div>
@@ -2031,16 +2031,16 @@
        <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.9;padding-top: 2rem;">
               <div  class="row" style="margin:0px; padding:0;">
                     <div  class="col-sm-3 col-xs-3">
-                        <img  src="assets/thumbnailphone.png"  style="height: 4rem;margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                     </div>
                     <div  class="col-sm-6 col-xs-6">
-                        <img  src="assets/OM.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                        <img  src="assets/OM.png" style="width: 100%;padding-top: 2rem;">
                     </div>
                     <div  class="col-sm-3 col-xs-3">
                         <div class="row">
                              <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:1rem;">
                             <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                         </div>
                     </div>
@@ -2118,13 +2118,13 @@
         </div>-->
             <div class="row">
                      <div class="col-xs-2 col-sm-2">
-                          <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem;" >
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
-                     <div class="col-xs-8 col-sm-8" style="padding-top:5em">
+                     <div class="col-xs-8 col-sm-8" style="padding-top:2em">
                           <img  src="assets/OM.png" style="width:150px"/>
                      </div>
                      <div class="col-xs-2 col-sm-2">
-                        <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height:4rem; margin-left:0rem;"/>
+                        <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height:4rem; margin-left:0rem;margin-top:1rem;"/>
                         <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:0rem;"/>
                      </div>
              </div>
@@ -2197,13 +2197,13 @@
         </div>-->
             <div class="row">
                      <div class="col-xs-2 col-sm-2">
-                          <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
-                     <div class="col-xs-8 col-sm-8" style="padding-top:5rem">
+                     <div class="col-xs-8 col-sm-8" style="padding-top:2rem">
                           <img  src="assets/OM.png" style="width:150px"/>
                      </div>
                      <div class="col-xs-2 col-sm-2">
-                        <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left:0rem; "/>
+                        <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left:0rem;margin-top:1rem;"/>
                         <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:0rem;"/>
                      </div>
              </div>
@@ -2274,13 +2274,13 @@
                </div>-->
                <div class="row">
                         <div class="col-xs-2 col-sm-2">
-                             <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem;">
+                            <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                         </div>
-                        <div class="col-xs-8 col-sm-8" style="padding-top:5em">
+                        <div class="col-xs-8 col-sm-8" style="padding-top:2em">
                              <img  src="assets/OM.png" style="width:150px"/>
                         </div>
                         <div class="col-xs-2 col-sm-2">
-                           <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left:0rem;"/>
+                           <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left:0rem; margin-top:1rem;"/>
                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height:4rem; margin-left:0rem;"/>
                         </div>
                 </div>
@@ -2370,16 +2370,16 @@
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png"  style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left: 3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                       </div>
                   </div>
@@ -2406,16 +2406,16 @@
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left: 3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                       </div>
                   </div>
@@ -2469,16 +2469,16 @@
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left: 3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                       </div>
                   </div>
@@ -2602,16 +2602,16 @@
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                   <div  class="col-sm-3 col-xs-3">
-                      <img  src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 5rem;">
+                      <img  src="assets/PC.png" style="width: 100%; opacity:0.96;padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left: 3rem;">
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top:1rem;">
                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                       </div>
                   </div>
@@ -2682,16 +2682,16 @@
         <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; padding-top: 1rem;">
             <div  class="col-sm-12 col-xs-12" style="margin:0px; padding:0;">
                 <div  class="col-sm-3 col-xs-3">
-                    <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;">
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                 </div>
                 <div  class="col-sm-6 col-xs-6">
-                    <img src="assets/TC-icone.png" style="width: 100%; padding-top: 2rem;"/>
+                    <img src="assets/TC-icone.png" style="width: 100%;"/>
                 </div>
                 <div  class="col-sm-3 col-xs-3">
                     <div class="row">
                          <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left: 3rem;">
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top:1rem;">
                         <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                     </div>
                 </div>
@@ -2728,16 +2728,16 @@
              <div class="col-xs-12 col-sm-12" style="margin-top:0rem; padding:0px; ">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/TC-icone.png" style="width: 100%; padding-top:2rem; "/>
+                            <img src="assets/TC-icone.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                             <div class="row">
                                 <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;">
                                 <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                             </div>
                      </div>
@@ -2788,16 +2788,16 @@
              <div class="col-xs-12 col-sm-12" style="padding:0rem;margin-top:0rem;">
                 <div class="row" >
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/TC-icone.png" style="width: 100%; padding-top:2rem;"/>
+                            <img src="assets/TC-icone.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                             <div class="row">
                                 <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;">
                                 <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                             </div>
                      </div>
@@ -2825,16 +2825,16 @@
              <div class="col-xs-12 col-sm-12" style="padding: 0; margin-top:0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                     </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/TC-icone.png" style="width: 100%;padding-top: 2rem;" />
+                            <img src="assets/TC-icone.png" style="width: 100%;" />
                     </div>
                     <div class="col-xs-3 col-sm-3">
                             <div class="row">
                                 <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;"/>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;">
                                 <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;"/>
                             </div>
                      </div>
@@ -2862,16 +2862,16 @@
              <div class="col-xs-12 col-sm-12" style="padding: 0rem; margin-top:0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem; ">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/TC-icone.png"  style="width: 100%;padding-top: 2rem;"/>
+                            <img src="assets/TC-icone.png"  style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                             <div class="row">
                                 <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;"/>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;">
                                 <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;"/>
                             </div>
                      </div>
@@ -2912,9 +2912,6 @@
             </div>
     </div>
 </div>
-
-
-
 <!-- ..........................
                WIZALL
 ............................. -->
@@ -2926,17 +2923,17 @@
              <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; margin-top:1rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem;"/>
+                            <img src="assets/wizall-m.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                             <div class="row">
-                                <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                                <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 3rem;"/>
                             </div>
-                            <div class="row">
-                                <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                            <div class="row" style="margin-top:1rem;">
+                                <img src="assets/deconnet.png" (click)="deconnexion()" style="height:4rem;margin-left: 3rem;"/>
                             </div>
                      </div>
                 </div>
@@ -2964,17 +2961,17 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; margin-top:0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem; "/>
+                            <img src="assets/wizall-m.png" style="width: 100%;  "/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
                 </div>
@@ -3020,17 +3017,17 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; margin-top:0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem; "/>
+                            <img src="assets/wizall-m.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
                 </div>
@@ -3076,17 +3073,17 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; margin-top:0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem; "/>
+                            <img src="assets/wizall-m.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
                 </div>
@@ -3109,17 +3106,17 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; margin-top:0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem; "/>
+                            <img src="assets/wizall-m.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height:4rem; margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
                 </div>
@@ -3212,17 +3209,17 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem; "/>
+                            <img src="assets/wizall-m.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 3rem;"/>
                         </div>
                     </div>
                 </div>
@@ -3279,17 +3276,17 @@
         <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem;"/>
+                            <img src="assets/wizall-m.png" style="width: 100%;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
                 </div>
@@ -3332,17 +3329,17 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 5rem; margin-right: 7rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/wizall-m.png" style="width: 100%; margin-top:4rem; "/>
+                            <img src="assets/wizall-m.png" style="width: 100%; "/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
-                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 3rem;margin-left: 2rem;"/>
+                            <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
-                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 3rem;margin-left: 2rem;"/>
+                        <div class="row" style="margin-top:1rem;">
+                            <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
 
                     </div>
@@ -3368,16 +3365,16 @@
              <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/express-logo.png" style="width: 100%; padding-top:5rem;"/>
+                            <img src="assets/express-logo.png" style="width: 100%; padding-top:2rem;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                             <div class="row">
                                 <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:1rem;">
                                 <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                             </div>
                      </div>
@@ -3402,16 +3399,16 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                            <img src="assets/express-logo.png" style="width: 100%; margin-top: 5rem;"/>
+                            <img src="assets/express-logo.png" style="width: 100%; margin-top: 2rem;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
                             <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:1rem;">
                             <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
@@ -3456,16 +3453,16 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                        <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                        <img src="assets/express-logo.png" style="width: 100%; margin-top:5rem;"/>
+                        <img src="assets/express-logo.png" style="width: 100%; margin-top:2rem;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
                             <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:1rem;">
                             <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
@@ -3513,16 +3510,16 @@
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
-                        <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;">
+                        <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                      </div>
                     <div class="col-xs-6 col-sm-6">
-                        <img src="assets/express-logo.png" style="width: 100%;  margin-top:5rem;"/>
+                        <img src="assets/express-logo.png" style="width: 100%;  margin-top:2rem;"/>
                      </div>
                     <div class="col-xs-3 col-sm-3">
                         <div class="row">
                             <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:1rem;">
                             <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
                         </div>
                     </div>
@@ -3571,11 +3568,12 @@
 
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+            <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height:4rem; margin-right: 3rem;">
+            <!-- <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/> -->
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left:3rem;"/>
+                <img src="assets/deconnet.png" style="height: 4rem;margin-top:1rem;margin-left:3rem; "/>
             </div>
             </div>
             
@@ -3606,11 +3604,11 @@
         <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
            <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                    <img  src="assets/thumbnail.png"  (click)="returnHome()" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem; margin-left: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 4rem; margin-top:1rem; margin-left: 3rem;"/>
             </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -3721,11 +3719,11 @@
         <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div class="col-sm-12 col-xs-12">
                 <div class="col-xs-10 col-sm-10">
-                <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                        <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
                 </div>
                 <div class="col-sm-2 col-xs-2">
-                    <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                    <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                    <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem;  margin-left: 3rem; "/>
+                    <img src="assets/deconnet.png" style="height: 3.5rem;margin-top:1rem;  margin-left: 3rem;"/>
                 </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -3776,11 +3774,11 @@
         <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                    <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;  margin-left: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 3.5rem;margin-top:1rem;  margin-left: 3rem;"/>
             </div>
         </div>
         <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -3821,11 +3819,11 @@
     <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                    <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left: 3rem; "/>
+                <img src="assets/deconnet.png" style="height: 4rem;margin-top:1rem; margin-left: 3rem;"/>
             </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -3862,11 +3860,11 @@
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                    <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 4rem;margin-top:1rem; margin-left:3rem;"/>
             </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -3926,11 +3924,11 @@
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                    <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 4rem; margin-top:1rem; margin-left: 3rem;"/>
             </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -3996,11 +3994,11 @@
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                    <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left: 3rem;"/>
+                <img src="assets/deconnet.png" style="height: 4rem; margin-top:1rem; margin-left: 3rem;"/>
             </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
@@ -4048,11 +4046,11 @@
     <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="col-xs-10 col-sm-10">
-            <img src="assets/pannier.png" style="width: 54%; opacity:0.96;margin-left: 5rem;"/>
+                <img  src="assets/thumbnail.png" style="height:4rem; margin-right: 3rem;">
             </div>
             <div class="col-sm-2 col-xs-2">
-                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 3rem;"/>
-                <img src="assets/deconnet.png" style="height: 3.5rem;"/>
+                <img src="assets/retour.png" (click)="pdvacueilretour()"  style="height: 4rem; margin-left:3rem;"/>
+                <img src="assets/deconnet.png" style="height: 4rem; margin-top:1rem;  margin-left:3rem;"/>
             </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">

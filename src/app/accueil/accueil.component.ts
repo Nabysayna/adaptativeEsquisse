@@ -1844,6 +1844,10 @@ public pdvacueilretour(){
   this.displayedPage = this.displayedPage.substring(0, this.displayedPage.lastIndexOf("-")) ;
 }
 
+public returnHome(){
+  this.displayedPage = 'accueil';
+}
+
 public roadTo(choosedRoad){
 
  this.displayedPage = this.displayedPage + "-" + choosedRoad ;
