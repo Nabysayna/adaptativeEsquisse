@@ -92,7 +92,7 @@
                                             <p style="color:blue;font-size:0.8em;text-align:center">{{getFormatted(article.data.designation)}}</p>
                                         </div>
                                         <div class="row"  style="background-image:url(../../assets/mag-rondell.png);background-repeat:no-repeat;">
-                                            <img class="card-img-top  col-lg-8 col-md-8 col-xs-8 col-sm-8 img-circle" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" style="width:90px;height:90px;margin-left:6%;margin-top:5px" alt="Card image cap">
+                                            <img class="card-img-top  col-lg-8 col-md-8 col-xs-8 col-sm-8 img-circle" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{article.data.nomImg}}" style="width:90px;height:90px;margin-left:6%;margin-top:5px" alt="Card image cap">
                                         </div>
                                         <div class="row">
                                             <p class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="max-width:150px"><b style="color:blue;font-size:0.9em">{{currency(article.data.prix)}} fcfa</b></p>
@@ -3629,7 +3629,7 @@
                                 <tr *ngFor="let ordered of orderedarticles;let i=index;" >
                                     <td class="cart_product">
 
-                                        <a><img src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{ordered.nomImg}}" alt="" height="150" ></a>
+                                        <a><img src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{ordered.nomImg}}" alt="" height="150" ></a>
 
                                     </td>
                                     <td class="cart_description">
@@ -3681,7 +3681,7 @@
                                 <div class="well well-sm" style="padding: 0rem; width: 12rem;">
                                 <!--
                                   <h4 class="card-title">{{getFormatted(article.designation) }}</h4>-->
-                                    <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}" alt="Card image cap" height="120" width="120;" style="" (click)="showAddChildModalviewMore(article)">
+                                    <img class="card-img-top" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{article.nomImg}}" alt="Card image cap" height="120" width="120;" style="" (click)="showAddChildModalviewMore(article)">
                                 </div>
                                  <!--<div class="text-center">
                                     <p class="card-text">{{article.prix}}.FCFA</p>
@@ -3772,7 +3772,7 @@
         <div class="col-xs-12 col-sm-12" style=" padding-top: 2rem;">
                 <carousel>
                       <slide  *ngFor="let article of articles">
-                        <img src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}" alt="First slide" style="width: 80%;min-height:250px; max-height:250px; ">
+                        <img src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{article.nomImg}}" alt="First slide" style="width: 80%;min-height:250px; max-height:250px; ">
                         <div class="carousel-caption d-none d-md-block">
                           <h3>{{article.designation}}</h3>
                           <p>Prix : {{article.prix}}.FCFA </p>
@@ -4002,7 +4002,7 @@
           <div *ngFor="let ligneArticle of filtrerCatalogue()" >
             <div class="row col-lg-offset-1 col-md-offset-1">
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 card border" style="padding:0px;padding-bottom:5px;margin:10px;width:200px" *ngFor="let article of ligneArticle.data">
-                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}"  alt="Card image cap" width="190" height="200">
+                <img class="card-img-top" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{article.nomImg}}"  alt="Card image cap" width="190" height="200">
                 <input type="file"  *ngIf="this.modif==article.nomImg" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
                 <div class="card-block" style="text-align: center ;">
                   <h4 class="card-title">{{article.designation}}</h4>
@@ -5284,7 +5284,7 @@
                                                 <p style="color:blue;font-size:0.8em;text-align:center">{{getFormatted(article.data.designation)}}</p>
                                             </div>
                                             <div class="row"  style="background-image:url(../../assets/mag-rondell.png);background-repeat:no-repeat;">
-                                                <img class="card-img-top  col-lg-8 col-md-8 col-xs-8 col-sm-8 img-circle" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.data.nomImg}}" style="width:90px;height:90px;margin-left:6%;margin-top:5px" alt="Card image cap">
+                                                <img class="card-img-top  col-lg-8 col-md-8 col-xs-8 col-sm-8 img-circle" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{article.data.nomImg}}" style="width:90px;height:90px;margin-left:6%;margin-top:5px" alt="Card image cap">
                                             </div>
                                             <div class="row">
                                                 <p class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="max-width:150px"><b style="color:blue;font-size:0.9em">{{currency(article.data.prix)}} fcfa</b></p>
@@ -5474,7 +5474,7 @@
         <div class="col-xs-12 col-sm-12">
             <div class="col-sm-6 col-xs-6">
                 <!--<h4 class="card-title" style="width: 108.3%">{{getFormatted(currentArticle.designation) }}</h4>-->
-            <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{currentArticle.nomImg}}" alt="Card image cap" height="150" width="150">
+            <img class="card-img-top" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{currentArticle.nomImg}}" alt="Card image cap" height="150" width="150">
             </div>
             <div class="col-sm-6 col-xs-6 commandeur" >
                 <img style="margin-top:10px;width:100%" class="col-lg-8 col-md-8" src=".././assets/bar-mag.png" alt="image" />
@@ -5606,7 +5606,7 @@
           </div>
           <div class="col-sm-12 col-xs-12">
             <div class="col-sm-6 col-xs-6">
-              <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="160" height="160" />
+              <img class="card-img-top" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="160" height="160" />
               
             </div>
             <div class="col-xs-6 col-sm-6">
@@ -5818,7 +5818,7 @@
             <div  *ngIf="addtype=='ptiteannonce'">
 
               <div class="col-sm-4 col-xs-12">
-                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="200" height="200">
+                <img class="card-img-top" src="https://sentool.bbstvnet.com/sslayer/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="200" height="200">
                 <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
 
 
