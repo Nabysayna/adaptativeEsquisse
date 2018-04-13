@@ -3536,8 +3536,8 @@ deleteArticle(article:Article) {
     this.categoriea = "--- Catégorie ---" ;
   }
 
- apiEndPoint = 'https://sentool.bbstvnet.com/sslayer/server-backend-upload/index.php' ;
-
+ apiEndPoint = 'http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/index.php' ;
+ 
     fileChange(event) {
     let fileList: FileList = event.target.files;
     if(fileList.length > 0) {
