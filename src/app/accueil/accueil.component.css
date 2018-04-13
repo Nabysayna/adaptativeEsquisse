@@ -703,7 +703,12 @@ color: rgb(225,145,00);
     border-radius:10px;
     height:150px
 }
-
+..ngx-pagination .show-for-sr ul li a span{
+    color: white;
+}
+.ngx-pagination .disabled{
+    color: white;
+}
 
 
 }
