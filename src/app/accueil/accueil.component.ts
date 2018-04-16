@@ -23,7 +23,7 @@ import {Commande} from "../services/ecom.service";
 import {EcomService} from "../services/ecom.service";
 import { Http, RequestOptions, RequestMethod, Headers  } from '@angular/http';
 import * as _ from "lodash";
-
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 
 class Article {
@@ -71,8 +71,6 @@ class OrderedArticle{
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-
-
 
 export class AccueilComponent implements OnInit {
   //
@@ -242,7 +240,7 @@ export class AccueilComponent implements OnInit {
 
   noma="";
   asc="";
-  filtre : string = "" ;
+ // filtre : string = "" ;
   message:any=false;
   mntsde:number;
   echeance:any;
@@ -362,10 +360,12 @@ export class AccueilComponent implements OnInit {
            /* --------------Autes parties----------------*/
            /* --------------ngOnInit Espace perso d'E-commerce----------------*/
 
-    this.loading = true ;
+  
+
+  this.loading = true ;
     this.ecomCaller.listeArticles(this.token, 'perso').then( response =>
     {
-      
+      this.articles = _.chunk(response, 3) ;
       this.listarticles = response;
       this.loading = false ;
     });
@@ -373,8 +373,7 @@ export class AccueilComponent implements OnInit {
     this.ecomCaller.listerCategorie(this.token).then( response =>
     {
       this.categories = response;
-    })
-
+    });
 
   }
 
@@ -3445,7 +3444,9 @@ deleteArticle(article:Article) {
 
   }
 
- filtrerCatalogue() : Article[][] {
+filtre : string = "" ;
+
+  filtrerCatalogue() : Article[][] {
 
     let catalogueApresFiltre : Article[][] = [] ;
     if (this.filtre=="" || this.filtre==null)
@@ -3466,7 +3467,7 @@ deleteArticle(article:Article) {
     return catalogueApresFiltre ;
   }
 
-  repondAuFiltre(article : Article) : boolean {
+ repondAuFiltre(article : Article) : boolean {
     if (this.filtre=="" || this.filtre==null)
       return true ;
     else
@@ -3790,19 +3791,19 @@ deleteArticle(article:Article) {
       default:break;
     }
 
-  }
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
+    // Pagination 
+/*      contentArray = new Array(90).fill('');
+      returnedArray: string[];
+*/
+pageChanged(event: PageChangedEvent){
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    // this.returnedArray = this.contentArray.slice(startItem, endItem);
+}
 
 
 
