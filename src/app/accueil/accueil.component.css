@@ -706,9 +706,7 @@ color: rgb(225,145,00);
 ..ngx-pagination .show-for-sr ul li a span{
     color: white;
 }
-.ngx-pagination .disabled{
-    color: white;
-}
+
 
 
 }

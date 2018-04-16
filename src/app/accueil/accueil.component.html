@@ -3572,8 +3572,8 @@
 
 
 
-<div class="row" *ngIf="displayedPage=='accueil-ec'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:0px; min-height: -webkit-fill-available; max-height: -webkit-fill-available;" >
-        <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" *ngIf="displayedPage=='accueil-ec'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:0px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" >
+        <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         
         <div class="col-sm-12 col-xs-12">
             <div class="row">
@@ -3607,29 +3607,29 @@
             
 
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                    <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">E-commerce</h2>
+                    <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">E-commerce</h2>
             </div>
             <div class="col-xs-12 col-sm-12" style="padding-top: 4rem;">
                 <button  (click)="roadTo('cat')" style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white;font-family: 'caviard dreams bold'; font-size: 3rem;" (click)="reinitialiser()" >Catalogue</p>
+                    <p style="color:white;font-family: 'caviar dreams bold'; font-size: 3rem;" (click)="reinitialiser()" >Catalogue</p>
                 </button>
             </div>
             <div class="col-xs-12 col-sm-12">
                 <button (click)="roadTo('com')" style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white;font-family: 'caviard dreams bold'; font-size: 3rem;" (click)="reinitialiser()" >Commande</p>
+                    <p style="color:white;font-family: 'caviar dreams bold'; font-size: 3rem;" (click)="reinitialiser()" >Commande</p>
                 </button>
             </div>
             <div class="col-xs-12 col-sm-12">
                 <button (click)="roadTo('esp')" style="background-color: transparent;border: 0px; width: 36rem;">
-                    <p style="color:white;font-family: 'caviard dreams bold'; font-size: 3rem;" (click)="reinitialiser()">Espace Perso</p>
+                    <p style="color:white;font-family: 'caviar dreams bold'; font-size: 3rem;" (click)="reinitialiser()">Espace Perso</p>
                 </button>
             </div>
         </div>
 </div>
 
 <!--catalogue ecommerce-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 0px; min-height: -webkit-fill-available; max-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-cat'">
-        <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 0px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-cat'">
+        <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
            <div class="col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
@@ -3649,10 +3649,10 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">CATALOGUE</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">CATALOGUE</h2>
             </div>
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; width: 100% !important;">
-                <h3 style="font-family:'caviard dreams bold';color: white;font-size: 2.5rem;">Rechercher</h3>
+                <h3 style="font-family:'caviar dreams bold';color: white;font-size: 2.5rem;">Rechercher</h3>
 
                 <p *ngIf="commandevalidee" class="alert alert-success">commande validée</p>
                 <i (click)="roadTo('cart')" style="text-align: end ; position: absolute;top: 21px; color:white;right: 34px;" class="fa fa-shopping-cart fa-2x pull-right" *ngIf="articles.length>0"></i>
@@ -3780,8 +3780,8 @@
     </div>
 </div>
 <!--commande ecommerce-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-com'">
-        <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-com'">
+        <div class="row" style="background-color:rgb(255,144, 00); mmin-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div class="col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
@@ -3801,12 +3801,12 @@
                 </div>
             </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">COMMANDES</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">COMMANDES</h2>
             </div>
             <div class="row" *ngIf="!inforecvd&&!postcmd">
                 
             <div class="col-sm-3 col-xs-12" style=" padding-top : 7.5rem ;">
-                <label class=" control-label" style="color: white; font-family: 'caviard dreams bold'; font-size: 2rem;">Code du client </label>
+                <label class=" control-label" style="color: white; font-family: 'caviar dreams bold'; font-size: 2rem;">Code du client </label>
             </div>
             <div class="col-xs-12 col-sm-12">
                     <i class="fa fa-2x fa-envelope" style="color: white;"></i>
@@ -3844,8 +3844,8 @@
         </div>
 </div>
 <!--Cart-->
-<div class="row" *ngIf="displayedPage=='accueil-ec-cat-cart'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:0px; min-height: -webkit-fill-available; max-height: -webkit-fill-available;" >
-        <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" *ngIf="displayedPage=='accueil-ec-cat-cart'" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size:0px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" >
+        <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-xs-3 col-sm-3">
@@ -3865,7 +3865,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-xs-12" style="background-color: white;">
-            <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mon Panier</h2>
+            <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mon Panier</h2>
         </div>
         <div class="col-xs-12 col-sm-12" style=" padding-top: 2rem;">
                 <carousel>
@@ -3898,8 +3898,8 @@
 <!--fin Cart-->
 <!--espace ecommerce-->
 
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp'">
-    <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp'">
+    <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-xs-3 col-sm-3">
@@ -3919,25 +3919,25 @@
             </div>
         </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">ESPACE PERSO</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">ESPACE PERSO</h2>
             </div>
 
         <div class="panel-body">
                 <div class="row" style="">
                     <div class="col-sm-12 col-xs-12" style=" padding-top: 6rem;">
-                        <button href="#ajout" style="padding-top:8px;border: 2rem;" (click)="showAddChildModalecommerce()"   data-toggle="tab"><p style="color: white;font-size: 3rem;font-family: 'caviard dreams bold';">Ajouter</p></button>
+                        <button href="#ajout" style="padding-top:8px;border: 2rem;" (click)="showAddChildModalecommerce()"   data-toggle="tab"><p style="color: white;font-size: 3rem;font-family: 'caviar dreams bold';">Ajouter</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button (click)="roadTo('CA')" href="#waitingCmd" style="padding-top:8px;border: 2rem;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab"><p style="color: white;    font-size: 3rem;font-family: 'caviard dreams bold';">Commandes Attendues</p></button>
+                        <button (click)="roadTo('CA')" href="#waitingCmd" style="padding-top:8px;border: 2rem;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab"><p style="color: white;    font-size: 3rem;font-family: 'caviar dreams bold';">Commandes Attendues</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button  (click)="roadTo('CL')" style="padding-top:8px;border: 2rem;" href="#cmdToDeliver" (click)="chargerCommandes('toDeliver')" data-toggle="tab"><p style="color: white;    font-size: 3rem;font-family: 'caviard dreams bold';">Commandes à Livrer</p></button>
+                        <button  (click)="roadTo('CL')" style="padding-top:8px;border: 2rem;" href="#cmdToDeliver" (click)="chargerCommandes('toDeliver')" data-toggle="tab"><p style="color: white;    font-size: 3rem;font-family: 'caviar dreams bold';">Commandes à Livrer</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button (click)="roadTo('MA')" href="#articles" style="padding-top:8px;border: 2rem;"  data-toggle="tab"><p style="color: white;font-size: 3rem;font-family: 'caviard dreams bold';">Mes Articles</p></button>
+                        <button (click)="roadTo('MA')" href="#articles" style="padding-top:8px;border: 2rem;"  data-toggle="tab"><p style="color: white;font-size: 3rem;font-family: 'caviar dreams bold';">Mes Articles</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button (click)="roadTo('MV')"  href="#ventes" style="padding-top:8px;border: 2rem;" (click)="chargerVentes()" data-toggle="tab"><p style="color: white; font-size: 3rem;font-family: 'caviard dreams bold';">Mes Ventes</p></button>
+                        <button (click)="roadTo('MV')"  href="#ventes" style="padding-top:8px;border: 2rem;" (click)="chargerVentes()" data-toggle="tab"><p style="color: white; font-size: 3rem;font-family: 'caviar dreams bold';">Mes Ventes</p></button>
                     </div>
                 </div>
         </div>
@@ -3946,8 +3946,8 @@
 </div>
   
 <!--Commandes Attendues-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CA'">
-    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CA'">
+    <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-xs-3 col-sm-3">
@@ -3967,7 +3967,7 @@
             </div>
         </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Attendues</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Attendues</h2>
             </div>
     <div class="col-xs-12 col-sm-12">
       <div class="row tab-pane col-sm-12 col-xs-12 fade" id="waitingCmd" style="">
@@ -3989,11 +3989,11 @@
 
               <tr>
                 <th><mfDefaultSorter by="index">#</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
-                <th style="border-left:2px solid orange;color: white;font-family: 'caviard dreams bold';font-size: 2rem;">Réception</th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviar dreams bold';font-size: 2rem;"><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviar dreams bold';font-size: 2rem;"><mfDefaultSorter by="dateCommande">Date</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviar dreams bold';font-size: 2rem;"><mfDefaultSorter by="fullName">Client</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviar dreams bold';font-size: 2rem;"><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
+                <th style="border-left:2px solid orange;color: white;font-family: 'caviar dreams bold';font-size: 2rem;">Réception</th>
               </tr>
 
               </thead>
@@ -4019,8 +4019,8 @@
 </div>
 
 <!--Commandes à livrer-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CL'">
-    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-CL'">
+    <div class="row" style="background-color:rgb(255,144, 00);min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-xs-3 col-sm-3">
@@ -4040,7 +4040,7 @@
             </div>
         </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Livrer</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Livrer</h2>
             </div>
     <div class="col-xs-12 col-sm-12">
 
@@ -4097,8 +4097,8 @@
 </div>
 
 <!--MES ARTICLES-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MA'">
-    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MA'">
+    <div class="row" style="background-color:rgb(255,144, 00);height:px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-xs-3 col-sm-3">
@@ -4118,8 +4118,10 @@
             </div>
         </div>
             <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Articles</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Articles</h2>
             </div>
+
+
     <div class="col-xs-12 col-sm-12">
         <div class="row tab-pane fade in active" id="articles">
           <div class="row" style="padding-top: 3rem;">
@@ -4128,26 +4130,20 @@
                    [typeahead]="this.listarticles"
                    typeaheadOptionField="designation"
                    typeaheadGroupField="prix"
-                   placeholder="Rechercher" aria-controls="dataTables-example">
+                   placeholder="khadyndiaye" aria-controls="dataTables-example">
           </div>
-          <div *ngFor="let ligneArticle of filtrerCatalogue()" >
-            <div class="row col-lg-offset-1 col-md-offset-1">
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 card border" style="padding:0px;padding-bottom:5px;margin:10px;width:200px" *ngFor="let article of ligneArticle.data">
-                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}"  alt="Card image cap" width="190" height="200">
-                <input type="file"  *ngIf="this.modif==article.nomImg" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
-                <div class="card-block" style="text-align: center ;">
-                  <h4 class="card-title">{{article.designation}}</h4>
-                  <input type="text" *ngIf="this.modif==article.nomImg" [(ngModel)]="article.designation">
-                  <p class="card-text">Prix:{{article.prix}}.FCFA</p>
-                  <input type="number" *ngIf="this.modif==article.nomImg" [(ngModel)]="article.prix">
-                  <button  class="btn-sm btn-success" *ngIf="this.modifart!='record'+article.nomImg"  type="button"(click)="showmodaldif(article)">Modifier</button>
-                  <button  class="btn-sm btn-success" *ngIf="this.modifart=='record'+article.nomImg" type="button"(click)="enregArticle(article)">Enregistrer</button>
-                  <button  class="btn-sm btn-danger" type="button" *ngIf="this.modifart!='record'+article.nomImg" (click)="deleteArticle(article)" >Supprimer </button>
-                  <button  class="btn-sm btn-danger" type="button" *ngIf="this.modifart=='record'+article.nomImg" (click)="annulArticle()" >Annuler </button>
+        <div *ngFor="let ligneArticle of filtrerCatalogue()">
+            <div class="col-sm-4" *ngFor="let article of ligneArticle| paginate: { itemsPerPage: 1, currentPage: p };"  style="width: 24rem;margin: auto;">
+                <div class="well well-sm">
+                    <img  class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{article.nomImg}}" alt="Card image cap" height="200" width="180" >
                 </div>
-              </div>
             </div>
-          </div>
+            <input type="file"  *ngIf="this.modif==article.nomImg" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
+
+            <div class="row text-center">
+                <pagination-controls style="color: white;" class="my-pagination" previousLabel=" " nextLabel=" " (pageChange)="p = $event"></pagination-controls>
+             </div>
+        </div>
         </div>
 
    
@@ -4157,8 +4153,8 @@
 </div>
 
 <!--MES VENTE-->
-<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MV'">
-    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 400px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MV'">
+    <div class="row" style="background-color:rgb(255,144, 00);height: 450px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
         <div class="col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-xs-3 col-sm-3">
@@ -4178,7 +4174,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-xs-12" style="background-color: white;">
-                <h2 style="color: #36A9E0; font-family:'caviard dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Ventes</h2>
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Ventes</h2>
         </div>
     <div class="col-xs-12 col-sm-12">
 
@@ -5723,8 +5719,8 @@
       <div class="modal-body" style="height : 37rem">
 
         <div  class="col-sm-12 col-xs-12" style="margin-bottom:1rem" *ngIf="addtype==''">
-          <button class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviard dreams bold';" type="button" (click)="addtype='venteecom'">Article E-commerce</button>
-          <button type="reset" class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviard dreams bold';" (click)="addtype='ptiteannonce'">Petite Annonce</button>
+          <button class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviar dreams bold';" type="button" (click)="addtype='venteecom'">Article E-commerce</button>
+          <button type="reset" class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviar dreams bold';" (click)="addtype='ptiteannonce'">Petite Annonce</button>
         </div>
 
         <div  *ngIf="addtype=='venteecom'">

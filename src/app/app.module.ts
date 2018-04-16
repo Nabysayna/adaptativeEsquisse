@@ -307,6 +307,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     DataTableModule,
     ChartsModule,
     LoadersCssModule,
+    PaginationModule.forRoot(),
     TabsModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
@@ -314,7 +315,6 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ProgressbarModule.forRoot(),
     TypeaheadModule.forRoot(),
     PopoverModule.forRoot(),
-    PaginationModule.forRoot(),
     AccordionModule.forRoot(),
     AlertModule.forRoot(),
     AgmCoreModule.forRoot({
