@@ -380,7 +380,7 @@
                              </div>
                         </div>
                         <div  class="col-sm-6 col-xs-6">
-                            <img  src="assets/facturevv.png" style="width: 80%;padding-top: 1rem;">
+                            <img  src="assets/facturevv.png" style="width: 70%;padding-top: 1rem;">
                         </div>
                         <div  class="col-sm-3 col-xs-3">
                             <div class="row">
@@ -550,7 +550,7 @@
                         <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                      <img  src="assets/icoservice-sde.png" style="width: 70%; padding-top: 1rem;">
+                      <img  src="assets/icoservice-sde.png" style="width: 60%; padding-top: 1rem;">
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
@@ -678,10 +678,10 @@
                   </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12" style="border: 2px solid white; background-color:white; margin-top:5rem; padding: 1rem;">
+            <div class="col-xs-12 col-sm-12" style="border: 2px solid white; background-color:white; margin-top:2rem; padding: 1rem;">
                 <h2 style="color:#36A9E0;font-family:'caviar dreams bold';" class="row">Paiement Oolu Solar</h2>
             </div>
-            <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
+            <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                   <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
                          <div class="col-xs-5 col-sm-5">
                                 <label style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone</label>
@@ -707,7 +707,7 @@
                          </div>
                   </div>
           </div>
-          <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+          <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
               <div class="row">
                      <div class="col-xs-5 col-sm-5">
 
@@ -801,19 +801,18 @@
              </div>
 
              <div class="col-xs-12 col-sm-12" style="border: 2px solid white; background-color:white; margin-top:4rem; padding: 1rem;">
-                 <h2 style="color:#36A9E0;font-family:'caviar dreams bold';" class="row">TNT By Excaf</h2>
+                 <h2 style="color:#36A9E0;font-family:'caviar dreams bold';" class="row">ABONNEMENT</h2>
              </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
                     <form name="validVerifierNum" (ngSubmit)="validVerifierNum()" #verifiernum="ngForm" autocomplete="on" >
-                        <div class="row">
-                            <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Abonnement</h4>
-                        </div>
+
+
                         <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
                                 <div class="col-xs-12 col-sm-12">
                                     <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Chip, Numéro Carte Ou Téléphone</label>
                                 </div>
-                                <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
-                                    <input  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Chip, Numéro Carte Ou Téléphone" type="number" [(ngModel)]="this.verifierNumInput" name="verifiernuminput" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
+                                    <input  class="form-control ng-dirty ng-valid ng-touched" type="number" [(ngModel)]="this.verifierNumInput" name="verifiernuminput" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                 </div>
                         </div>
                         <div class="row" style="margin-top:2rem;">
@@ -1042,13 +1041,10 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-12" style="border: 2px solid white; background-color:white; margin-top:4rem; padding: 1rem;">
-                    <h2 style="color:#36A9E0;font-family:'caviar dreams bold';" class="row">TNT By Excaf</h2>
+                    <h2 style="color:#36A9E0;font-family:'caviar dreams bold';" class="row">VENTE DÉCODEUR</h2>
                 </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
-                        <div class="row">
-                            <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Decodeur</h4>
-                        </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==1" >
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Du Client</label>
                                </div>
@@ -1056,7 +1052,7 @@
                                      <input  name="nomNewClientDeco" id="nomNewClientDeco" [(ngModel)]="this.nomNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Nom Du Client" required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==1">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom du Client</label>
                                </div>
@@ -1064,7 +1060,7 @@
                                      <input type="text" name="prenomNewClientDeco" id="prenomNewClientDeco" [(ngModel)]="this.prenomNewClient"  class="form-control ng-dirty ng-valid ng-touched"  placeholder="Prénom du Client" required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==1">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone du Client</label>
                                </div>
@@ -1072,7 +1068,7 @@
                                      <input  name="telNewClient" id="telNewClientDeco" [(ngModel)]="this.telNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Téléphone du Client" required="" type="number" ng-reflect-required="te" ng-reflect-name="telephone" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==2">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Région Du Client</label>
                                </div>
@@ -1080,7 +1076,7 @@
                                      <input  name="regionNewClient" id="regionNewClientDeco" [(ngModel)]="this.regionNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Région Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="Chip" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==2">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Adresse Du Client</label>
                                </div>
@@ -1088,7 +1084,7 @@
                                       <textarea  name="adresseNewClientDeco"  id="adresseNewClientDeco" [(ngModel)]="this.adresseNewClient" class="form-control ng-pristine ng-invalid ng-touched"  placeholder="Adresse Du Client" required="" rows="3" type="text" ng-reflect-required="" ng-reflect-name="descrip" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;"></textarea>
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==2">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro CNI Du Client</label>
                                </div>
@@ -1096,7 +1092,7 @@
                                      <input  name="cniNewClientDeco" id="cniNewClientDeco" [(ngModel)]="this.cniNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro CNI Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==3">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Chip Du Client</label>
                                </div>
@@ -1104,7 +1100,7 @@
                                      <input  name="nchipNewClientDeco" id="nchipNewClientDeco" [(ngModel)]="this.nchipNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Chip Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==3">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Carte Du Client</label>
                                </div>
@@ -1112,7 +1108,7 @@
                                      <input  name="ncarteNewClientDeco" id="ncarteNewClientDeco" [(ngModel)]="this.ncarteNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Carte Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                </div>
                         </div>
-                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                        <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventedecodeurpagination==3">
                                <div class="col-xs-5 col-sm-5">
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Type</label>
                                </div>
@@ -1124,17 +1120,25 @@
                                       </select>
                                </div>
                         </div>
-                        <div class="row" style="margin-top:4rem;">
+
+                        <div class="row" >
                                <div class="col-xs-4 col-sm-4">
 
                                </div>
-                               <div class="col-xs-2 col-sm-2">
-                                      <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                               <div class="col-xs-2 col-sm-2" style="padding-top:2rem;">
+                                      <button *ngIf="ventedecodeurpagination==3"  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
                                </div>
-                               <div class="col-xs-2 col-sm-2">
-                                      <button (click)="showmodalTnt()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                               <div class="col-xs-2 col-sm-2"style="padding-top:2rem;">
+                                      <button *ngIf="ventedecodeurpagination==3"  (click)="showmodalTnt()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                                </div>
-                               <div class="col-xs-4 col-sm-4">
+                                                        
+                               <div class="col-xs-1 col-sm-1" >
+                                        <button *ngIf="ventedecodeurpagination==2 || ventedecodeurpagination==3"   type="button" (click)="ventedecodeurpaginationBack()" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-arrow-left" style="font-size:3rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-1 col-sm-1" >
+                                        <button *ngIf="ventedecodeurpagination==1 || ventedecodeurpagination==2" (click)="ventedecodeurpaginationNext()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-arrow-right" style="font-size:3rem; color:white;" ></i></button>
+                                </div>
+                               <div class="col-xs-2 col-sm-2">
 
                                </div>
                         </div>
@@ -1230,14 +1234,11 @@
                         </div>
                   </div>
 
-                  <div class="col-xs-12 col-sm-12" style="border: 2px solid white;  background-color:white; margin-top: 4rem; padding: 1rem;">
-                      <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">TNT By Excaf</h2>
+                  <div class="col-xs-12 col-sm-12" style="border: 2px solid white;  background-color:white; margin-top: 2rem; padding: 1rem;">
+                      <h2 style="color:#36A9E0; font-family:'caviar dreams bold';" class="row">Vente Carte</h2>
                   </div>
-                  <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
-                          <div class="row">
-                              <h4 style="color:#36A9E0;  font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Carte</h4>
-                          </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                  <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==1">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Du Client</label>
                                  </div>
@@ -1245,7 +1246,7 @@
                                        <input  name="nomNewClient" id="nomNewClient" [(ngModel)]="this.nomNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Nom Du Client" required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                  </div>
                           </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==1">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom du Client</label>
                                  </div>
@@ -1253,7 +1254,7 @@
                                        <input  name="prenomNewClient" id="prenomNewClient" [(ngModel)]="this.prenomNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Prénom du Client" required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                  </div>
                           </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==1">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone du Client</label>
                                  </div>
@@ -1261,7 +1262,7 @@
                                        <input  name="telNewClient" id="telNewClient" [(ngModel)]="this.telNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Téléphone du Client" required="" type="number" ng-reflect-required="te" ng-reflect-name="telephone" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                  </div>
                           </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==2">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Région Du Client</label>
                                  </div>
@@ -1269,7 +1270,7 @@
                                        <input  name="regionNewClient" id="regionNewClient" [(ngModel)]="this.regionNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Région Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="Chip" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                  </div>
                           </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==2">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Adresse Du Client</label>
                                  </div>
@@ -1277,7 +1278,7 @@
                                         <textarea  name="adresseNewClient" id="adresseNewClient" [(ngModel)]="this.adresseNewClient" class="form-control ng-pristine ng-invalid ng-touched" placeholder="Adresse Du Client" required="" rows="3" type="text" ng-reflect-required="" ng-reflect-name="descrip" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;"></textarea>
                                  </div>
                           </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==2">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro CNI Du Client</label>
                                  </div>
@@ -1285,7 +1286,7 @@
                                        <input  name="cniNewClient" id="cniNewClient" [(ngModel)]="this.cniNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro CNI Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                  </div>
                           </div>
-                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                          <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="ventecatepagination==3">
                                  <div class="col-xs-5 col-sm-5">
                                         <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Carte Du Client</label>
                                  </div>
@@ -1293,20 +1294,28 @@
                                        <input  name="ncarteNewClient" id="ncarteNewClient" [(ngModel)]="this.ncarteNewClient" class="form-control ng-dirty ng-valid ng-touched"  placeholder="Numéro Carte Du Client" required="" type="text" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                                  </div>
                           </div>
-                          <div class="row" style="margin-top:4rem;">
-                                 <div class="col-xs-4 col-sm-4">
 
-                                 </div>
-                                 <div class="col-xs-2 col-sm-2">
-                                        <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
-                                 </div>
-                                 <div class="col-xs-2 col-sm-2">
-                                        <button type="button"  (click)="showmodalTnt()" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
-                                 </div>
-                                 <div class="col-xs-4 col-sm-4">
+                            <div class="row" >
+                                <div class="col-xs-4 col-sm-4">
 
-                                 </div>
-                          </div>
+                                </div>
+                                <div class="col-xs-2 col-sm-2" style="padding-top:2rem;">
+                                    <button *ngIf="ventecatepagination==3"  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-2 col-sm-2"style="padding-top:2rem;">
+                                    <button *ngIf="ventecatepagination==3"  (click)="showmodalTnt()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                </div>
+                                                        
+                                <div class="col-xs-1 col-sm-1" >
+                                        <button *ngIf="ventecatepagination==2 || ventecatepagination==3"   type="button" (click)="ventecatepaginationBack()" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-arrow-left" style="font-size:3rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-1 col-sm-1" >
+                                        <button *ngIf="ventecatepagination==1 || ventecatepagination==2" (click)="ventecatepaginationNext()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-arrow-right" style="font-size:3rem; color:white;" ></i></button>
+                                </div>
+                                <div class="col-xs-2 col-sm-2">
+
+                                </div>
+                            </div>
                   </div>
               </div>
           </div>
@@ -1395,7 +1404,7 @@
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                          <img src="assets/gestio.png" style="width: 90%;"/>
+                          <img src="assets/gestio.png" style="width: 80%;"/>
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
@@ -1411,12 +1420,12 @@
                     <p style="color:white; font-size: 30px; padding-top: 0rem;">Gestion Reporting</p>
                 </button>
             </div>
-            <div class="row" style="margin-top:2rem;">
+            <div class="row" style="">
                 <button (click)="roadTo('dmp')" style="background-color: transparent;border: 0px; width: 36rem;" >
                     <p style="color:white; font-size: 30px; padding-top: 0rem;">Demande De Pret</p>
                 </button>
             </div>
-            <div class="row" style="margin-top:2rem;">
+            <div class="row" >
                 <button (click)="roadTo('gu')" style="background-color: transparent;border: 0px; width: 36rem;">
                     <p style="color:white; font-size: 30px; padding-top: 0rem;">Guide D'utilisation</p>
                 </button>
@@ -1432,7 +1441,7 @@
                         <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                   </div>
                   <div  class="col-sm-6 col-xs-6">
-                          <img src="assets/gestio.png" style="width: 90%;"/>
+                          <img src="assets/gestio.png" style="width: 80%;"/>
                   </div>
                   <div  class="col-sm-3 col-xs-3">
                       <div class="row">
@@ -1443,23 +1452,23 @@
                       </div>
                   </div>
             </div>
-            <div  class="row" style="margin-top:3.5rem;">
-                <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">GESTION & REPORTING</h2>
+            <div  class="row" style="margin-top:2rem;">
+                <h3 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">GESTION & REPORTING</h3>
             </div>
-            <div class="row" style="margin-top:4rem;">
+            <div class="row" style="margin-top:2rem;">
                   <div class="col-sm-12 col-xs-12"   style="margin-top:2rem;">
                           <button (click)="roadTo('re')" style="color: white; background-color: transparent; font-size: 30px; font-family: 'caviar dreams bold'; border: 0rem;">Histoire Des Operations</button>
                   </div>
-                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                  <div class="col-sm-12 col-xs-12">
                           <button (click)="roadTo('dep')"  style="color: white; background-color: transparent; font-size: 30px; font-family: 'caviar dreams bold'; border: 0rem;">Dépense</button>
                   </div>
-                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                  <div class="col-sm-12 col-xs-12">
                           <button (click)="roadTo('rct')"  style="color: white; background-color: transparent; font-size: 30px; font-family: 'caviar dreams bold';border: 0rem;">Recettes</button>
                   </div>
-                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                  <div class="col-sm-12 col-xs-12" >
                           <button (click)="roadTo('rcl')"  style="color: white; background-color: transparent; font-size: 30px; font-family: 'caviar dreams bold';border: 0rem;">Reclamations</button>
                   </div>
-                  <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                  <div class="col-sm-12 col-xs-12" >
                           <button (click)="roadTo('css')"  style="color: white; background-color: transparent; font-size: 30px; font-family: 'caviar dreams bold';border: 0rem;">Caisse</button>
                   </div>
             </div>
@@ -1473,7 +1482,7 @@
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/gestio.png" style="width: 90%;"/>
+                      <img src="assets/gestio.png" style="width: 80%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3" >
                   <div class="row">
@@ -1484,14 +1493,14 @@
                   </div>
               </div>
         </div>
-        <div  class="row" style="margin-top:3.5rem;">
-            <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">HISTOIRE DES OPERATIONS</h2>
+        <div  class="row" style="margin-top:2rem; background-color:white; padding:1rem;">
+            <h3 style="color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">HISTOIRE DES OPERATIONS</h3>
         </div>
-        <div class="row" style="margin-top:2.5rem;">
+        <div class="row" style="margin-top:1rem;">
                 <button type="button" class="btn btn-info"  (click)="typerecherchegestion='parjour'" style="border-color:white; background-color:rgb(255,144, 00); font-family: 'caviar dreams bold';">par jour</button>
                 <button type="button" class="btn btn-info"  (click)="typerecherchegestion='parinterval'" style="border-color:white; background-color:rgb(255,144, 00); font-family: 'caviar dreams bold';">par interval</button>
         </div>
-        <div class="row" style="margin-top:4rem;" *ngIf="typerecherchegestion == 'parjour'">
+        <div class="row" style="margin-top:2rem;" *ngIf="typerecherchegestion == 'parjour'">
                 <div class="col-xs-12 col-sm-12">
                        <div class="row">
                            <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Recherche par jour</h4>
@@ -1505,7 +1514,7 @@
                               </div>
                        </div>
                 </div>
-                <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+                <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                     <div class="row">
                            <div class="col-xs-4 col-sm-4">
 
@@ -1522,12 +1531,12 @@
                     </div>
                 </div>
         </div>
-        <div class="row" style="margin-top:4rem;" *ngIf="typerecherchegestion == 'parinterval'">
+        <div class="row" style="margin-top:1rem;" *ngIf="typerecherchegestion == 'parinterval'">
                 <div class="col-xs-12 col-sm-12">
                        <div class="row">
                            <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">Recherche par interval</h4>
                        </div>
-                       <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                       <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                               <div class="col-xs-5 col-sm-5">
                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">De </label>
                               </div>
@@ -1535,7 +1544,7 @@
                                  <input  type="date" name="intervalledateinit" [(ngModel)]="selectionintervalledateinit"  style="border-radius:2rem; width:100%; margin-left:0px; margin-right:0px;" class="ng-pristine ng-valid ng-touched">
                               </div>
                        </div>
-                       <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                       <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                               <div class="col-xs-5 col-sm-5">
                                      <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">A </label>
                               </div>
@@ -1544,7 +1553,7 @@
                               </div>
                        </div>
                 </div>
-                <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+                <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
                     <div class="row">
                            <div class="col-xs-4 col-sm-4">
 
@@ -1571,7 +1580,7 @@
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src=""  (click)="returnHome()" style="width: 90%;"/>
+                      <img src=""  (click)="returnHome()" style="width: 80%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
@@ -1639,7 +1648,7 @@
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/gestio.png" style="width: 90%;"/>
+                      <img src="assets/gestio.png" style="width: 80%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
@@ -1653,9 +1662,9 @@
         <div  class="row" style="margin-top:3.5rem;">
             <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Dépense</h2>
         </div>
-        <div class="row" style="margin-top:4rem;">
+        <div class="row" style="margin-top:2rem;">
               <div class="col-xs-12 col-sm-12">
-                    <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                    <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                            <div class="col-xs-5 col-sm-5">
                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Libelle charge </label>
                            </div>
@@ -1663,7 +1672,7 @@
                                   <input   [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control ng-pristine ng-invalid ng-touched" id="libelle" name="libelle" placeholder="Libelle charge" required="" type="text" ng-reflect-required="" ng-reflect-name="libelle" style="border-radius:2rem; width:100%; margin-left:0px; margin-right:0px;">
                            </div>
                     </div>
-                    <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                    <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                            <div class="col-xs-5 col-sm-5">
                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant de la dépense</label>
                            </div>
@@ -1671,7 +1680,7 @@
                               <input [(ngModel)]="montantCharge"   name="montant" id="montant" class="form-control ng-dirty ng-valid ng-touched" id="montant" name="montant" placeholder="Montant de la dépense" required="" type="number" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                            </div>
                     </div>
-                    <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                    <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                            <div class="col-xs-5 col-sm-5">
                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">service concerné</label>
                            </div>
@@ -1690,7 +1699,7 @@
               </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+            <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
               <div class="row">
                      <div class="col-xs-4 col-sm-4">
 
@@ -1717,7 +1726,7 @@
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6" >
-                      <img src="assets/gestio.png" style="width: 90%;"/>
+                      <img src="assets/gestio.png" style="width: 80%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
@@ -1728,12 +1737,12 @@
                   </div>
               </div>
         </div>
-        <div  class="row" style="margin-top:3.5rem;">
+        <div  class="row" style="margin-top:2rem;">
             <h2 style="background-color:white; color: blue ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;" class="row">Recettes</h2>
         </div>
-        <div class="row" style="margin-top:4rem;">
+        <div class="row" style="margin-top:2rem;">
                 <div class="col-xs-12 col-sm-12">
-                      <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
                              <div class="col-xs-5 col-sm-5">
                                     <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">service</label>
                              </div>
@@ -1749,7 +1758,7 @@
                                     </select>
                              </div>
                       </div>
-                      <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                              <div class="col-xs-5 col-sm-5">
                                     <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Désignation</label>
                              </div>
@@ -1759,7 +1768,7 @@
                                     </select>
                              </div>
                       </div>
-                      <div class="row" style="width:98%; margin-left:1%; margin-top: 4rem;">
+                      <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;">
                              <div class="col-xs-5 col-sm-5">
                                     <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">quantité</label>
                              </div>
@@ -1769,7 +1778,7 @@
                       </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+                <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                       <div class="row">
                              <div class="col-xs-4 col-sm-4">
 
@@ -1796,7 +1805,7 @@
                  <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/gestio.png" style="width: 90%;"/>
+                      <img src="assets/gestio.png" style="width: 80%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
@@ -1870,7 +1879,7 @@
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
               </div>
               <div  class="col-sm-6 col-xs-6">
-                      <img src="assets/gestio.png" style="width: 90%;"/>
+                      <img src="assets/gestio.png" style="width: 80%;"/>
               </div>
               <div  class="col-sm-3 col-xs-3">
                   <div class="row">
@@ -2046,8 +2055,8 @@
                     </div>
               </div>
     
-              <div class="row" style="margin-top:2rem;">
-                      <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Dépôt</h2>
+              <div class="row" style="margin-top:1rem; padding:1rem; background-color: white;">
+                      <h2 style="color: #36a9e0;font-family: caviar dreams; font-weight: 800">Dépôt</h2>
               </div>
               <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
@@ -2070,7 +2079,7 @@
                                        <p *ngIf="mag1" style="color:red">numero incorrect</p>
                                </div>
     
-                               <div class="col-sm-12 col-xs-12" style="margin-top:2rem;">
+                               <div class="col-sm-12 col-xs-12" >
                                    <div class="row">
                                         <div class="col-xs-5 col-sm-5">
                                             <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
@@ -2132,9 +2141,9 @@
                     </div>
                 </div>
             </div>
-    
-            <div class="row">
-                  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Vente credit</h2>
+     
+            <div class="row" style="background-color:white;">
+                  <h2 style="color:#36a9e0;font-family: caviar dreams; font-weight: 800">Vente credit</h2>
             </div>
             <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
@@ -2154,7 +2163,7 @@
                                   <p *ngIf="mag1" style="color:red">numero incorrect</p>
                           </div>
     
-                          <div class="row" style="margin-top:2rem;">
+                          <div class="row" >
                               <div class="col-xs-5 col-sm-5">
                                     <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
                               </div>
@@ -2167,7 +2176,7 @@
                           </div>
                   </div>
                   <div class="col-sm-12 col-xs-12">
-                        <div class="row" style="margin-top:5rem;">
+                        <div class="row" style="margin-top:2rem;">
                                <div class="col-xs-5 col-sm-5">
     
                                </div>
@@ -2216,8 +2225,8 @@
                 </div>
         </div>
     
-            <div class="row">
-                  <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait</h2>
+            <div class="row" style="background-color:white; padding:1rem;">
+                  <h2 style="color:#36a9e0;font-family: caviar dreams; font-weight: 800">Retrait</h2>
             </div>
             <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
@@ -2296,8 +2305,8 @@
                         </div>
                     </div>
                </div>
-                <div>
-                        <h2 style="color: white;font-family: caviar dreams; font-weight: 800">Retrait avec code</h2>
+                <div style="padding:1rem; background-color:white;">
+                        <h2 style="color: #36A9e0;font-family: caviar dreams; font-weight: 800">Retrait avec code</h2>
                 </div>
             </div>
     
@@ -2314,7 +2323,7 @@
                                      </div>
                               </div>
     
-                              <div class="row" style="margin-top:2rem;">
+                              <div class="row" >
                                     <div class="col-xs-5 col-sm-5">
                                            <label style="color:white" >Prénom :</label>
                                     </div>
@@ -2323,7 +2332,7 @@
                                     </div>
                               </div>
     
-                              <div class="row" style="margin-top:2rem;">
+                              <div class="row" >
                                      <div class="col-xs-5 col-sm-5">
                                            <label style="color:white;" >Date de naissance :</label>
                                      </div>
@@ -2332,7 +2341,7 @@
                                      </div>
                               </div>
     
-                              <div class="row" style="margin-top:2rem;">
+                              <div class="row" >
                                      <div class="col-xs-5 col-sm-5">
                                          <label style="color:white" >Numéro de piece d'identite :</label>
                                      </div>
@@ -2350,7 +2359,7 @@
                                     </div>
                               </div>
     
-                              <div class="row" style="margin-top:2rem;">
+                              <div class="row" >
                                     <div class="col-xs-5 col-sm-5">
                                           <label style="color: white;">Montant  :</label>
                                     </div>
@@ -2358,7 +2367,7 @@
                                           <input type="text" class="btn btn-success" autocomplete="off" (keyup)="verifMontant($event)" autocomplete="off" style="border-radius: 2rem; width:100%; margin:0px;" [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus >
                                     </div>
                               </div>
-                              <div class="row" style="margin-top:5rem;">
+                              <div class="row" style="margin-top:2rem;">
                                     <div class="col-xs-5 col-sm-5">
                      
                                     </div>
@@ -2398,7 +2407,7 @@
                   </div>
             </div>
 
-          <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+          <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                 <div class="row"   style="margin-top:1rem;">
                         <button (click)="roadTo('re')" style="color: white; background-color: transparent; font-size: 30px; font-family: 'caviar dreams bold'; border: 0rem;">Recharge Espece</button>
                 </div>
@@ -2435,8 +2444,8 @@
             </div>
 
 
-          <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row"> Rechargement espece</h2>
+          <div class="col-xs-12 col-sm-12" style="background-color:white; padding:1rem;">
+                <h2 style="color:#36A9E0 ; font-family:'caviar dreams bold';" class="row"> Rechargement espece</h2>
           </div>
           <form (ngSubmit)="validrechargementespece()" #rechargementespece="ngForm" autocomplete="on">
 
@@ -2556,9 +2565,6 @@
                           </form>
                       </div>
                       <div style="margin-top: 2rem" *ngIf="!isselectretraitespeceaveccarte">
-                          <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-                              <h4 style="color:white ; font-family:'caviar dreams bold';"> Avec carte</h4>
-                          </fieldset>
                           <form (ngSubmit)="showmodalPostCash()" #attentevalidateretraitespece="ngForm" autocomplete="on" class="row">
                               <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
                                     <div class="row" style="width:98%; margin-left:1%;">
@@ -2627,10 +2633,10 @@
                   </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row">Achat JULA</h2>
+            <div class="col-xs-12 col-sm-12 " style="background-color:white; padding:1rem;">
+                <h2 style="color: #36a9E0 ; font-family:'caviar dreams bold';" class="row">Achat JULA</h2>
             </div>
-          <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
+          <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                 <form (ngSubmit)="showmodalPostCash()" #achatjula="ngForm" autocomplete="on" class="row">
                     <div class="col-xs-12 col-sm-12">
                         <div class="row" >
@@ -2641,7 +2647,7 @@
                                   <input class="form-control input-sm" type="number" [(ngModel)]="this.nb_carte"   name="nb_carte" id="nb_carte" class="form-control" placeholder="nombre de carte" required style="border-radius:2rem; ">
                             </div>
                         </div>
-                        <div class="row"style=" margin-top:2rem;">
+                        <div class="row">
                               <div class="col-xs-5 col-sm-5">
                                     <label for="mt_carte" style="margin-top: 0.8rem;color:white ;font-size: 1.5rem;">Montant Carte</label>
                               </div>
@@ -2656,7 +2662,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-12" style="margin-top:4rem;">
+                    <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                         <div class="row">
                                <div class="col-xs-4 col-sm-4">
 

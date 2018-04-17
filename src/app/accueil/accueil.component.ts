@@ -263,6 +263,11 @@ export class AccueilComponent implements OnInit {
   num_facture:string;
 
   public infoRetraitaveccode:any;
+
+
+  ventedecodeurpagination:number = 1;
+  ventecatepagination:number = 1;
+
   constructor(
         private _ecomService:EcomService,
         private http:Http,
@@ -1842,6 +1847,8 @@ public pdvaccueilsousmenuMobilemoney(){
 
 public pdvacueilretour(){
   this.displayedPage = this.displayedPage.substring(0, this.displayedPage.lastIndexOf("-")) ;
+  this.ventedecodeurpagination=1;
+  this.ventecatepagination=1;
 }
 
 public returnHome(){
@@ -3792,6 +3799,29 @@ filtre : string = "" ;
     }
 
 
+}
+
+
+//vente decodeur pagination
+
+ventedecodeurpaginationNext(){
+  if(this.ventedecodeurpagination < 3)
+      this.ventedecodeurpagination = this.ventedecodeurpagination + 1 ;
+}
+
+ventedecodeurpaginationBack(){
+  if(this.ventedecodeurpagination > 1)
+      this.ventedecodeurpagination = this.ventedecodeurpagination - 1 ;
+}
+
+ventecatepaginationNext(){
+  if(this.ventecatepagination < 3)
+      this.ventecatepagination = this.ventecatepagination + 1 ;
+}
+
+ventecatepaginationBack(){
+  if(this.ventecatepagination > 1)
+      this.ventecatepagination = this.ventecatepagination - 1 ;
 }
 
 
