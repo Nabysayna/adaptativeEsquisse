@@ -3602,10 +3602,10 @@
         </div> -->
             
 
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                     <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">E-commerce</h2>
             </div>
-            <div class="col-xs-12 col-sm-12" style="padding-top: 4rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-top: 9rem;">
                 <button  (click)="roadTo('cat')" style="background-color: transparent;border: 0px; width: 36rem;">
                     <p style="color:white;font-family: 'caviar dreams bold'; font-size: 3rem;" (click)="reinitialiser()" >Catalogue</p>
                 </button>
@@ -3644,7 +3644,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">CATALOGUE</h2>
             </div>
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem; width: 100% !important;">
@@ -3753,7 +3753,7 @@
                 <div class="row text-center">
                     <pagination-controls style="color: white;" class="my-pagination" previousLabel=" " nextLabel=" " (pageChange)="p = $event"></pagination-controls>
                 </div>
-                        <!--<div class="col-sm-12 col-xs-12" style=" margin:29px; padding:0px; width: 79% !important;">
+                <!--<div class="col-sm-12 col-xs-12" style=" margin:29px; padding:0px; width: 79% !important;">
                             <div class="col-sm-12 col-xs-12" style="" *ngFor="let article of listarticles | filtrecataloguecommande : filterQuery | paginate: { itemsPerPage: 1, currentPage: p } ; let i=index" id="art-{{i}}" style="">
                                 <div class="well well-sm" style="padding: 0rem; width: 12rem;">
                                 
@@ -3767,7 +3767,7 @@
                             <div class="col-sm-12 col-xs-12 text-center">
                                 <pagination-controls class="my-pagination" previousLabel=" " nextLabel=" " (pageChange)="p = $event"></pagination-controls>
                             </div>
-                        </div>-->
+                    </div>-->
                      </div>
                 </div>
         <div *ngIf="this.loading">
@@ -3777,7 +3777,7 @@
 </div>
 <!--commande ecommerce-->
 <div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-com'">
-        <div class="row" style="background-color:rgb(255,144, 00); mmin-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="row" style="background-color:rgb(255,144, 00); min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
             <div class="col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
@@ -3796,7 +3796,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="background-color: white; padding: 1rem;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">COMMANDES</h2>
             </div>
             <div class="row" *ngIf="!inforecvd&&!postcmd">
@@ -3860,7 +3860,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-xs-12" style="background-color: white;">
+        <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
             <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mon Panier</h2>
         </div>
         <div class="col-xs-12 col-sm-12" style=" padding-top: 2rem;">
@@ -3914,26 +3914,26 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">ESPACE PERSO</h2>
             </div>
 
         <div class="panel-body">
                 <div class="row" style="">
                     <div class="col-sm-12 col-xs-12" style=" padding-top: 6rem;">
-                        <button href="#ajout" style="padding-top:8px;border: 2rem;" (click)="showAddChildModalecommerce()"   data-toggle="tab"><p style="color: white;font-size: 3rem;font-family: 'caviar dreams bold';">Ajouter</p></button>
+                        <button href="#ajout" style="border: none;" (click)="showAddChildModalecommerce()"   data-toggle="tab"><p style="color: white;font-size: 2.7rem;font-family: 'caviar dreams bold';">Ajouter</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button (click)="roadTo('CA')" href="#waitingCmd" style="padding-top:8px;border: 2rem;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab"><p style="color: white;    font-size: 3rem;font-family: 'caviar dreams bold';">Commandes Attendues</p></button>
+                        <button (click)="roadTo('CA')" href="#waitingCmd" style="border: none;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab"><p style="color: white;    font-size: 2.7rem;font-family: 'caviar dreams bold';">Commandes Attendues</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button  (click)="roadTo('CL')" style="padding-top:8px;border: 2rem;" href="#cmdToDeliver" (click)="chargerCommandes('toDeliver')" data-toggle="tab"><p style="color: white;    font-size: 3rem;font-family: 'caviar dreams bold';">Commandes à Livrer</p></button>
+                        <button  (click)="roadTo('CL')" style="border: none;" href="#cmdToDeliver" (click)="chargerCommandes('toDeliver')" data-toggle="tab"><p style="color: white;    font-size: 2.7rem;font-family: 'caviar dreams bold';">Commandes à Livrer</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button (click)="roadTo('MA')" href="#articles" style="padding-top:8px;border: 2rem;"  data-toggle="tab"><p style="color: white;font-size: 3rem;font-family: 'caviar dreams bold';">Mes Articles</p></button>
+                        <button (click)="roadTo('MA')" href="#articles" style="border: none;"  data-toggle="tab"><p style="color: white;font-size: 2.7rem;font-family: 'caviar dreams bold';">Mes Articles</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
-                        <button (click)="roadTo('MV')"  href="#ventes" style="padding-top:8px;border: 2rem;" (click)="chargerVentes()" data-toggle="tab"><p style="color: white; font-size: 3rem;font-family: 'caviar dreams bold';">Mes Ventes</p></button>
+                        <button (click)="roadTo('MV')"  href="#ventes" style="border: none;" (click)="chargerVentes()" data-toggle="tab"><p style="color: white; font-size: 2.7rem;font-family: 'caviar dreams bold';">Mes Ventes</p></button>
                     </div>
                 </div>
         </div>
@@ -3962,7 +3962,7 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Attendues</h2>
             </div>
     <div class="col-xs-12 col-sm-12">
@@ -4035,7 +4035,7 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Commandes Livrer</h2>
             </div>
     <div class="col-xs-12 col-sm-12">
@@ -4113,7 +4113,7 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-12 col-xs-12" style="background-color: white;">
+            <div class="col-sm-12 col-xs-12" style="padding: 1rem;background-color: white;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Articles</h2>
             </div>
 
@@ -4180,7 +4180,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-xs-12" style="background-color: white;">
+        <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                 <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Mes Ventes</h2>
         </div>
     <div class="col-xs-12 col-sm-12">
