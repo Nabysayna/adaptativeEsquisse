@@ -2497,19 +2497,16 @@
                   </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12">
-                <h2 style="color:white ; font-family:'caviar dreams bold';" class="row"> Retrait espece</h2>
+            <div class="col-xs-12 col-sm-12" style="padding:1rem; background-color:white;">
+                <h2 style="color:#36A9E0 ; font-family:'caviar dreams bold';" class="row"> Retrait espece</h2>
             </div>
-          <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
+          <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
               <div class="row">
                     <button type="button" class="btn btn-info" (click)="isselectretraitespeceaveccarte = true; selectretraitespeceaveccarte();" style="border-color:white; background-color:rgb(255,144, 00);">Retrait sans carte</button>
                     <button type="button" class="btn btn-info" (click)="isselectretraitespeceaveccarte = false; selectretraitespeceaveccarte();" style="border-color:white; background-color:rgb(255,144, 00);">Retrait avec carte</button>
               </div>
               <div class="row">
-                      <div style="margin-top: 2rem" *ngIf="isselectretraitespeceaveccarte">
-                          <fieldset style="margin-top: 2rem;margin-bottom: 2rem;">
-                              <h4 style="color:white ; font-family:'caviar dreams bold';" > Sans carte</h4>
-                          </fieldset>
+                      <div  *ngIf="isselectretraitespeceaveccarte">
                           <form (ngSubmit)="showmodalPostCash()" #retraitespece="ngForm" autocomplete="on" class="row">
                               <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
                                     <div class="row" style="width:98%; margin-left:1%;">
