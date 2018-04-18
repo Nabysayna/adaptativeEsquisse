@@ -2038,6 +2038,7 @@ public pdvacueilmenumobilemoneyretour(){
               
               default : break;
              }
+            break;
        }
 
        case 7 :{
@@ -2046,20 +2047,21 @@ public pdvacueilmenumobilemoneyretour(){
              console.log('EMONEY');
              switch(operation){
               case 1:{
-                  // this.cashInWizall(sesion);
+                   this.cashInWizall(sesion);
                    break;
               }
               case 2:{
-                  //this.cashOutWizall(sesion);
+                  this.cashOutWizall(sesion);
                   break;
               }
               case 3:{
-                 // this.payerSDEWizall(sesion);
+                 this.payerSDEWizall(sesion);
                   break;
               }
 
               default : break;
              }
+              break;
        }
 
         case 8 :{
@@ -2099,6 +2101,7 @@ public pdvacueilmenumobilemoneyretour(){
 
                     default : break;
               }
+               break;
         }
 
         default:break;
@@ -2938,27 +2941,32 @@ public pdvacueilmenumobilemoneyretour(){
    @ViewChild('modalBonDachat') public modalBonDachat:ModalDirective;
 
   //Depot
-  depotmodalWIZALL(){
+  deposerWIZALL(){
+        let depotInfoWIZALL = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+        this.mobileProcessing(JSON.stringify(depotInfoWIZALL));
+        this.fermermodalretraitWIZALL();
+      }
+
+    public depotmodalWIZALL(){
      this.modaldepotWIZALL.show();
     }
-    fermermodaldepotWIZALL(){
+
+    public fermermodaldepotWIZALL(){
      this.modaldepotWIZALL.hide()
     }
 
 
-deposerWIZALL(){
-         let depotInfo = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
-         this.mobileProcessing(JSON.stringify(depotInfo));
-         this.fermermodalretraitWIZALL();
-      }
+
+
+
 //retrait
-retirerWIZALL(){
-         let retraitInfo = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
-         this.mobileProcessing(JSON.stringify(retraitInfo));
+public retirerWIZALL(){
+         let retraitInfoWIZALL = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         this.mobileProcessing(JSON.stringify(retraitInfoWIZALL));
          this.fermermodalretraitWIZALL();
       }
 
-  retirermodalWIZALL(){
+  public retirermodalWIZALL(){
      this.modalretraitWIZALL.show();
     }
     fermermodalretraitWIZALL(){
@@ -2974,6 +2982,12 @@ retirerWIZALL(){
   @ViewChild('modalretraitConfirmEMONEY') public modalretraitConfirmEMONEY:ModalDirective;
 
   //Depot
+  fairedepotEMONEY(){
+     let depotInfoEMONEY = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
+     this.mobileProcessing(JSON.stringify(depotInfoEMONEY));
+     this.hidemodaldepotEMONEY();
+      }
+
   showmodaldepotEMONEY(){
      this.modaldepotEMONEY.show();
     }
@@ -2981,11 +2995,7 @@ retirerWIZALL(){
      this.modaldepotEMONEY.hide()
     }
 
-fairedepotEMONEY(){
-         let depotInfo = {'nom':'EMONEY ','operateur':7,'operation':1,'num':this.telephone,'montant':this.montant};
-         this.mobileProcessing(JSON.stringify(depotInfo));
-         this.hidemodaldepotEMONEY();
-      }
+
   //retrait
   showmodalretraitEMONEY(){
      this.modalretraitConfirmEMONEY.show();

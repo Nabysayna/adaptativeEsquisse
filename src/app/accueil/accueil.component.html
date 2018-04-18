@@ -300,14 +300,12 @@
                     <h1 style="color:white; font-family: 'caviar dreams bold'; margin-top: -10px;">SENTOOL</h1>
             </div>
 
-            <div class="col-sm-12 col-xs-12" style="margin-top: 2rem;">
-                <h5 style="font-family:caviar dreams bold; color: white;">MENU</h5>
-            </div>
+            
             <div  class="col-sm-12 col-xs-12" style="padding-top: 0rem;">
-                <div  class="row">
+                <div  class="row" >
                       <div  class="col-sm-12 col-xs-12" style="padding:0px; margin:0px;">
                             <button  (click)="roadTo('mm')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
-                                    <div  class="row">
+                                    <div  class="row" style="margin-top: 4rem;">
                                             <div  class="col-sm-3 col-xs-2">
                                                 <img  src="assets/thumbnailphone.png" style="height:35px;">
                                             </div>
@@ -2225,9 +2223,10 @@
                 </div>
         </div>
     
-            <div class="row" style="background-color:white; padding:1rem;">
-                  <h2 style="color:#36a9e0;font-family: caviar dreams; font-weight: 800">Retrait</h2>
-            </div>
+            
+            <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait</h2>
+                </div>
             <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
                   <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
@@ -3347,7 +3346,7 @@
 <!--retrait de bon-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-WIZALL-rb'" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; ">
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 1rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
                         <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
@@ -3369,12 +3368,13 @@
             <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                     <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait de Bon</h2>
             </div>
-            <div class="col-sm-12 col-xs-12" style="padding-top: 4rem;">
-                <h2 class="WIZALL" href="#depot"data-toggle="tab" style="border-radius: 2rem;font-family: 'caviar dreams bold'; font-size: 30px;color: white;padding-bottom: 1rem;">Code du Bon</h2>
-            </div>
-             <div class="col-sm-12 col-xs-12">
+            
+             <div class="col-sm-12 col-xs-12" style="text-align: center,">
               <form  class="form-inline ng-untouched ng-pristine ng-valid" novalidate="">
-                <div class="row" style="text-align: center;width: 95%;">
+                <div class="row" style="padding-top: 4rem;">
+                <h2 class="WIZALL" href="#depot"data-toggle="tab" style="border-radius: 2rem;font-family: 'caviar dreams bold'; font-size: 30px;color: white;padding-bottom: 1rem;">Code du Bon</h2>
+                </div>
+                <div class="row" style="text-align: center;width: 90%;">
                     <input  name="codebon" style="border-radius:2rem;" type="text" class="form-control">
                 </div>
                 <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" class="" type="button" value="Vérifier">
@@ -3445,29 +3445,31 @@
                         </div>
                     </div>
                 </div>
-                 <div class="tab-pane fade col-sm-12 col-xs-12" id="retrait">
-                <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;">
-                    <h2 style="color: white;border: 2px solid white; padding: 0.6rem;">Retrait sur compte principal</h2>
+                <div class="tab-pane fade col-sm-12 col-xs-12" id="retrait"  style="padding-top: 3rem;">
+                <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait</h2>
                 </div>
                     <h3 *ngIf="retraitreussi" class="alert alert-success">Retrait reussi!</h3>
                     <h3 *ngIf="echecretrait" class="alert alert-success">Echec de l'operation reussi!</h3>
                     <form name="transnat" (ngSubmit)="showmodalretraitEMONEY()" #formretrait="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-                      <div class="col-sm-12 col-xs-12">
-                        <div class="col-sm-4 col-xs-4">
-                            <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;">Numéro du client :</label>
+                    <div class="col-sm-12 col-xs-12" style="padding-top: 4rem;"> 
+                      <div class="row">
+                        <div class="col-sm-5 col-xs-5">
+                            <label style="color: white;font-family:'caviar dreams bold'; font-size: 1.7rem;margin: 1.5rem;">Numéro :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                        <input  style="border-radius: 2rem; height: 25px; " type="text" autocomplete="off"  [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="Numéro du client" required autofocus>
+                        <input  style="border-radius: 2rem; " type="text" autocomplete="off"  [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control" placeholder="" required autofocus>
                       </div>
                       </div>
-                      <div class="col-sm-12 col-xs-12">
-                        <div class="col-sm-4 col-xs-4">
-                        <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Montant à retirer :</label>
+                      <div class="row">
+                        <div class="col-sm-5 col-xs-5">
+                        <label style="color: white;font-family: 'caviar dreams bold';margin: 1.5rem; font-size: 1.7rem;" >Montant :</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                        <input style="border-radius: 2rem; height: 25px;"  type="number" autocomplete="off"  [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="Montant du transfert" required autofocus>
+                        <input style="border-radius: 2rem;"  type="number" autocomplete="off"  [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control" placeholder="" required autofocus>
                       </div>
                       </div>
+                    </div>
                       <div  class="col-sm-12 col-xs-12" style="padding-top: 5rem;">
                             <button  class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" type="reset"><i  class="fa fa-times fa-2x" style="color:orange;"></i></button>
                             <button  class="btn btn-success" style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" type="submit" [disabled]="numclient==undefined || mnt<1"><i  class="fa fa-check fa-2x" style="color: orange;"></i></button>
@@ -3481,7 +3483,7 @@
 <!--depotEMONEY-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-EMONEY-dp'" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; ">
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 4rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
                         <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
@@ -3500,29 +3502,29 @@
                 </div>
             </div>
             <div class="row">
-               <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;">
-                    <h2 style="color: white;border: 2px solid white; padding: 0.6rem;">Dépôt</h2>
-            </div>
+                <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Dépôt</h2>
+                </div>
                 <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
                 <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
             </div>
-            <div class="col-xs-12 col-sm-12">
+            <div class="col-xs-12 col-sm-12" >
                 <form name="transnat" (ngSubmit)="showmodaldepotEMONEY()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
-                    <div class="col-md-12 col-xs-12">
-                        <div class="col-sm-4 col-xs-4">
-                            <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Numéro du client  :</label>
+                    <div class="col-md-12 col-xs-12" style="padding-top: 4rem;">
+                        <div class="col-sm-5 col-xs-5">
+                            <label style="color: white;font-family:'caviar dreams bold'; font-size: 1.7rem;margin: 1.5rem;" >Numéro:</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                            <input autocomplete="off"  style="border-radius: 2rem; height: 25px;     "  type="number"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="numclient" name="verifiernuminput" id="numclientdepot"  class="form-control" placeholder="Numéro du client" autofocus>
+                            <input autocomplete="off"  style="border-radius: 2rem;     "  type="number"  autocomplete="off" pattern="[0-9]*" [(ngModel)]="numclient" name="verifiernuminput" id="numclientdepot"  class="form-control"  autofocus>
                              <p *ngIf="mag1" style="color:red">numero incorrect</p>
                         </div>
                     </div>
                     <div class="col-md-12 col-xs-12">
-                        <div class="col-sm-4 col-xs-4">
-                             <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Montant dépot :</label>
+                        <div class="col-sm-5 col-xs-5">
+                             <label style="color: white;font-family: 'caviar dreams bold'; font-size: 1.7rem;margin: 1.5rem;" >Montant:</label>
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                            <input type="number"  style="border-radius: 2rem; height: 25px;     " autocomplete="off" autocomplete="off" [(ngModel)]="mnt" name="verifiernuminput" id="mnttransdepot"  class="form-control" placeholder="Montant du transfert" required autofocus>
+                            <input type="number"  style="border-radius: 2rem; " autocomplete="off" autocomplete="off" [(ngModel)]="mnt" name="verifiernuminput" id="mnttransdepot"  class="form-control" placeholder="" required autofocus>
                             <p *ngIf="mag2" style="color:red">montant incorrect</p>
                         </div>
                     </div>
@@ -3537,7 +3539,7 @@
 <!--retaitaveccodeMONEY-->
 <div class="row" *ngIf="displayedPage=='accueil-mm-EMONEY-rac'" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; ">
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 0rem;">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 3rem;">
                 <div class="row">
                     <div class="col-xs-3 col-sm-3">
                         <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
@@ -3555,22 +3557,22 @@
                     </div>
                 </div>
             </div>
-                <div class="col-sm-12 col-xs-12" id="retrait">
-                    <div class="col-sm-12 col-xs-12" style="padding-bottom: 3rem;" >
-                         <h2 style="color:white; font-family:'caviar dreams bold';font-size: 2.3rem;border: 2px solid white; padding: 0.6rem;">Retrait avec code</h2>
+                <div class="col-sm-12 col-xs-12" id="retrait" >
+                    <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                        <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait avec code</h2>
                     </div>
-                          <h3 *ngIf="retraitcodereussi" class="alert alert-success">Retrait avec code reussi!</h3>
-                          <h3 *ngIf="echecretraitcode" class="alert alert-success">Echec de l'operation reussi!</h3>
+                        <h3 *ngIf="retraitcodereussi" class="alert alert-success">Retrait avec code reussi!</h3>
+                        <h3 *ngIf="echecretraitcode" class="alert alert-success">Echec de l'operation reussi!</h3>
 
                     <form name="transnat" (ngSubmit)="showmodalretraitcodeEMONEY()" #formretraitcode="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;" class="">
 
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="col-sm-5 col-xs-5">
-                            <label style="color: white;font-family: caviar dreams bold; font-size: 12.3px;" >Code de retrait :</label>
+                    <div class="row" style="padding-top: 9rem; text-align: -webkit-center;">
+                        <div class="col-sm-12 col-xs-12">
+                            <label style="color: white;font-family: 'caviar dreams bold'; font-size: 1.7rem;font-size: 2.7rem;padding-bottom: 2rem;" >Code de retrait :</label>
                         </div>
 
-                        <div class="col-sm-6 col-xs-5">
-                             <input  style="border-radius: 2rem; height: 25px;  " autocomplete="off" type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="Code de retrait" required >
+                        <div class="row">
+                             <input  style="border-radius: 2rem;width: 90%;" autocomplete="off" type="number" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclientretraitcode" name="coderetrait"  class="form-control col-lg-5" placeholder="" required >
                         </div>
                     </div>
 
@@ -3946,7 +3948,7 @@
         <div class="panel-body">
                 <div class="row" style="">
                     <div class="col-sm-12 col-xs-12" style=" padding-top: 6rem;">
-                        <button href="#ajout" style="border: none;" (click)="showAddChildModalecommerce()"   data-toggle="tab"><p style="color: white;font-size: 2.7rem;font-family: 'caviar dreams bold';">Ajouter</p></button>
+                        <button href="#ajout" style="border: none;" (click)="roadTo('ajout')"   data-toggle="tab"><p style="color: white;font-size: 2.7rem;font-family: 'caviar dreams bold';">Ajouter</p></button>
                     </div>
                     <div class="col-sm-12 col-xs-12">
                         <button (click)="roadTo('CA')" href="#waitingCmd" style="border: none;"  (click)="chargerCommandes('toReceive')"  data-toggle="tab"><p style="color: white;    font-size: 2.7rem;font-family: 'caviar dreams bold';">Commandes Attendues</p></button>
@@ -3962,6 +3964,363 @@
                     </div>
                 </div>
         </div>
+  
+    </div>
+</div>
+
+<!--ajout commandes-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-ajout'">
+    <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3">
+                    <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+                 </div>
+                <div class="col-xs-6 col-sm-6">
+                    <img src="assets/pannier.png" style="width: 100%;"/>
+                 </div>
+                <div class="col-xs-3 col-sm-3">
+                    <div class="row">
+                        <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                    <div class="row" style="margin-top:1rem;">
+                        <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+            <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Fenêtre d'ajout</h2>
+        </div>
+        <div class="col-sm-12 col-xs-12" style=" padding-top: 6rem;">
+            <button href="#ajout" style="border: none;" (click)="roadTo('ae')"   data-toggle="tab"><p style="color: white;font-size: 2.7rem;font-family: 'caviar dreams bold';">Article E-commerce</p></button>
+            <button href="#ajout" style="border: none;" (click)="roadTo('pn')"   data-toggle="tab"><p style="color: white;font-size: 2.7rem;font-family: 'caviar dreams bold';">Petite Annonce</p></button>
+        </div>
+    </div>
+</div>
+
+  <!--Article E-commerce-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-ajout-ae'">
+    <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3">
+                    <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+                 </div>
+                <div class="col-xs-6 col-sm-6">
+                    <img src="assets/pannier.png" style="width: 100%;"/>
+                 </div>
+                <div class="col-xs-3 col-sm-3">
+                    <div class="row">
+                        <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                    <div class="row" style="margin-top:1rem;">
+                        <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Article E-commerce</h2>
+            </div>
+           <!--<div  *ngIf="addtype=='venteecom'">-->
+            <div >
+              <div class="row">
+                <div  class="col-sm-12 col-xs-12 badge" *ngIf="prixa&&prixa!=0" style="margin-bottom:1rem">
+                  <div  class="col-sm-3 col-xs-12">
+                    Prix de base : {{prixa}}
+                  </div>
+                  <div  class="col-sm-3 col-xs-12">
+                    Prix affiché : {{prixa - customerReduct}}
+                  </div>
+                  <div  class="col-sm-3 col-xs-12">
+                    Part  partenaires : {{roundedValueOf(prixa*tauxreduc(prixa)*0.5) }}
+                  </div>
+                  <div  class="col-sm-3 col-xs-12">
+                    Réduction client :  {{customerReduct}}
+                  </div>
+                </div>
+              </div>
+          <div class="col-sm-12 col-xs-12">
+            <div class="col-sm-6 col-xs-6">
+              <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="160" height="160" />
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <select *ngIf="categoriea!='Autre'" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="margin-left: 1rem ;" [(ngModel)]="this.categoriea" >
+                <option >--- Catégorie ---</option>
+                <option *ngFor="let categorie of categories.string">{{categorie}}</option>
+                <option >Autre</option>
+              </select>
+              <input class="form-control border input-sm" *ngIf="categoriea=='Autre'"  placeholder="Entrez la catégorie de l'article" required />
+              <input type="text" [(ngModel)]="this.designationa"   name="designationa" id="designationa" class="form-control border" placeholder="designation de l'article" required />
+              <div class="row" *ngIf="Bcosmetique">
+                <div class="col-md-4 col-xs-4">
+                  <input   type="text" [(ngModel)]="provenance" name="provenance" placeholder="provenance" class="form-control border"/>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <input   type="text" [(ngModel)]="maque" name="marque" placeholder="marque" class="form-control border" />
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <input    type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur" class="form-control border" />
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <input  type="text" [(ngModel)]="origine" name="origine" placeholder="origine" class="form-control border" />
+                </div>
+              </div>
+              <div class="row" *ngIf="Bvetement">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="origine" name="origine" placeholder="origine"/>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border"  type="text" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="taille" name="taille" placeholder="taille" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="sexe" name="sexe" placeholder="sexe"  />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="tendances" name="tendances" placeholder="tendances"  />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border"  type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur"  />
+                </div>
+              </div>
+              <div class="row" *ngIf="Bchaussure">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input style="border:2px solid blue" type="text" class="form-control" [(ngModel)]="tendance" placeholder="tendance" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="sexe" name="sexe" placeholder="sexe" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="taille" name="taille" placeholder="taille" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="pointure" name="pointure" placeholder="pointure" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" [(ngModel)]="couleur" name="couleur" placeholder="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" [(ngModel)]="origine" name="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
+                </div>
+              </div>
+
+              <div class="row" *ngIf="Bsac">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  class="form-control border" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="tendance" [(ngModel)]="tendance" placeholder="tendance" />
+                </div>
+              </div>
+
+              <div class="row" *ngIf="Belectronique">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="mode" [(ngModel)]="mode" placeholder="mode" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="dimension" [(ngModel)]="dimension" placeholder="dimension" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="fonctions" [(ngModel)]="fonctions" placeholder="fonctions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input style="border:2px solid blue" class="form-control" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="marque" [(ngModel)]="marque" placeholder="marque" />
+                </div>
+              </div>
+              <div class="row" *ngIf="Baccessoire">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" class="form-control border" name="qualite" [(ngModel)]="qualite" placeholder="qualite" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input  type="text" class="form-control border" name="poids" [(ngModel)]="poids" placeholder="poids" />
+                </div>
+              </div>
+              <div *ngIf="Bbureau">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="mode" class="form-control border" placeholder="mode" [(ngModel)]="mode" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="dimensions" class="form-control border" placeholder="demensions" [(ngModel)]="dimensions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="origine" class="form-control border" placeholder="origine" [(ngModel)]="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="fonctions" class="form-control border" placeholder="fonctions" [(ngModel)]="fonctions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="couleur" class="form-control border" placeholder="couleur" [(ngModel)]="couleur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="marque" class="form-control border" placeholder="marque" [(ngModel)]="marque" />
+                </div>
+              </div>
+              <div *ngIf="Belectromenager">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="modele" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="capacite" placeholder="capacite" [(ngModel)]="capacite" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="modele" placeholder="utilisateur" [(ngModel)]="modele" />
+                </div>
+              </div>
+
+              <div *ngIf="Bmaison">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="utilisateur" placeholder="utilisateur" [(ngModel)]="utilisateur" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="fonctions" placeholder="fonctions" [(ngModel)]="fontions" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="origine" />
+                </div>
+              </div>
+
+              <div *ngIf="Bautre">
+                <div class="col-lg-4 col-md-4 col-xs-4">
+                  <input type="text" name="autre" class="form-control border" placeholder="autre" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <input type="text" class="form-control border" placeholder="Autre Description" name="infosup" [(ngModel)]="infosup" />
+                </div>
+              </div>
+              
+                <div class="col-xs-12 col-sm-12">
+                  <input type="number"  [(ngModel)]="this.prixa"   name="prixa" id="prixa" class="form-control border" placeholder="prix de l'article" required><!--<button (click)="reduirePrix(prixa)" class="btn btn-success">Appliquer tarif réductionnel</button>-->
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                  <input type="number" [(ngModel)]="this.stocka"   name="stocka" id="stocka" class="form-control border" placeholder="Quantité en stock" required>
+                </div>
+                <div>
+                  
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg" />
+            </div>
+             <div class="modal-footer">
+                <a type="reset" class="btn btn-danger"  (click)="annulerecommerce()">Annuler</a>
+                <a class="btn btn-success" type="button" (click)="ajouterecommerce()">Ajouter</a>
+            </div>
+              
+            <div  *ngIf="addtype=='ptiteannonce'">
+
+              <div class="col-sm-4 col-xs-12">
+                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="200" height="200">
+                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
+
+
+              </div>
+
+              <div class="col-sm-6 col-xs-12" >
+
+                <select *ngIf="categoriepta!='Autre'" class="form-control input-sm" style="margin-left: 1rem ;" [(ngModel)]="categoriepta" >
+                  <option>--- Catégorie ---</option>
+                  <option *ngFor="let categorie of categories.string">{{categorie}}</option>
+                  <option>Location voitures</option>
+                  <option>Immobilier</option>
+                  <option>Autre</option>
+                </select>
+                <input style="border:2px solid blue" type="text" *ngIf="categoriepta=='Autre'" class="form-control input-sm" placeholder="Entrez la catégorie de l'annonce" required>
+
+                <input style="border:2px solid blue" type="text" [(ngModel)]="this.designationpta"   name="designationa" id="designationa" class="form-control" placeholder="designation de l'annonce" required>
+
+                <input style="border:2px solid blue" type="text" [(ngModel)]="this.descriptionpta"   name="descriptiona" id="descriptiona" class="form-control" placeholder="Petite description de l'annonce" required>
+
+                <input style="border:2px solid blue" type="number" style="display : initial; max-width: 15rem;" [(ngModel)]="this.prixpta"   name="prixa" id="prixa" class="form-control" placeholder="prix de l'article" required>  <input type="number" style="display : initial; max-width: 19rem;" [(ngModel)]="this.telpta"   name="prixa" id="tela" class="form-control" placeholder="Téléphone Annonceur" required>
+
+                <input style="border:2px solid blue" type="number" [(ngModel)]="this.stockpta"   name="stocka" id="stocka" class="form-control" placeholder="Quantité en stock" required>
+
+                <a class="btn btn-success" type="button" (click)="ajouterpta()">Ajouter</a>
+
+                <a type="reset" class="btn btn-danger"  (click)="annuler()">Annuler</a>
+              </div>
+            </div>
+        
+
+          </div>
+
+        </div>
+
+     
+  
+    </div>
+</div>
+
+  <!--Petite annonce-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-ajout-pn'">
+    <div class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3">
+                    <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+                 </div>
+                <div class="col-xs-6 col-sm-6">
+                    <img src="assets/pannier.png" style="width: 100%;"/>
+                 </div>
+                <div class="col-xs-3 col-sm-3">
+                    <div class="row">
+                        <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                    <div class="row" style="margin-top:1rem;">
+                        <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Petite annonce</h2>
+            </div>
+            Petite annonce
+     
   
     </div>
 </div>
@@ -5035,7 +5394,7 @@
          <div class="modal-dialog modal-sm">
             <div class="modal-content" >
               <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretrait()">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalretraitConfirmEMONEY()">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
@@ -5181,7 +5540,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content" >
       <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitConfirm()">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalretraitConfirmEMONEY()">
           <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="modal-title" id="myModalLabelretraitConfirm">Fenêtre de validation .</h4>
@@ -5315,7 +5674,7 @@
             <div>
                 <form class="form">
                     <div class="form-group">
-                        <label >Numèro Du Client : {{this.numclient}}</label>
+                        <label style="font-family: 'caviar dreams bold';">Numèro Du Client : {{this.numclient}}</label>
                     </div>
                     <div class="form-group">
                         <label >Montant Transaction : {{this.mnt}}</label>
@@ -5326,7 +5685,8 @@
         </div>
         <div class="modal-footer">
              <input type="button" value="fermer" (click)="fermermodaldepotWIZALL()" class="btn btn-danger" />
-             <input type="button" value="valider" (click)="deposerWIZALL()" class="btn btn-success" />
+             <input type="button" value="valider" (click)="deposerWIZALL();fermermodaldepotWIZALL()" class="btn btn-success" />
+
         </div>
      </div>
    </div>
