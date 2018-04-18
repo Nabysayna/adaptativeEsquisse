@@ -180,7 +180,7 @@ export class AccueilComponent implements OnInit {
 
 
   isselectretraitespeceaveccarte:boolean=true
-  typerecherchegestion:string = "parmotif";
+  typerecherchegestion:string = "parjour";
   public servicepoint:Servicepoint[];
 
   public montant:any;
@@ -267,6 +267,7 @@ export class AccueilComponent implements OnInit {
 
   ventedecodeurpagination:number = 1;
   ventecatepagination:number = 1;
+  retraitaveccodeom:number = 1;
 
   constructor(
         private _ecomService:EcomService,
@@ -556,6 +557,7 @@ export class AccueilComponent implements OnInit {
 			 }
 			return total;
       }
+
   deposer(objet:any){
 
     let requete = "1/"+objet.data.montant+"/"+objet.data.num ;
@@ -650,7 +652,103 @@ export class AccueilComponent implements OnInit {
 
   }
 
+  nombre=["0","1","2","3","4","5","6","7","8","9"];
+  keycode=[{'code':97,'value':1},{'code':98,'value':2},{'code':99,'value':3},{'code':100,'value':4},{'code':101,'value':5},{'code':102,'value':6},{'code':103,'value':7},{'code':104,'value':8},{'code':105,'value':9},{'code':96,'value':0},{'code':48,'value':0},{'code':49,'value':1},{'code':50,'value':2},{'code':51,'value':3},{'code':52,'value':4},{'code':53,'value':5},{'code':54,'value':6},{'code':55,'value':7},{'code':56,'value':8},{'code':57,'value':9}];
+  mag1=false;
+  mag2=false;
+  buttondepot1=false;
+  buttondepot2=false;
+  buttondepot3=false;
 
+  verifNumber(event:any){
+    if(event.keyCode!=16 && event.keyCode!=20 && event.keyCode!=9 && event.keyCode!=37 && event.keyCode!=38 && event.keyCode!=39 && event.keyCode!=40){
+    //console.log(event);
+     var nb=event.target.value.length;
+     var val=event.target.value.split('');
+     var j=0,k=0;
+     for(j=0;j<this.nombre.length;j++){
+       if(val[event.target.value.length-1]==this.nombre[j]){
+         k=1;
+       }
+     }
+    if(k==0 && event.target.value!=""){
+        this.mag1=true;
+        this.numclient=undefined;
+    }
+    // console.log(val);
+     if(nb==2){
+       if(event.target.value!=77 && event.target.value!=78){
+           this.numclient=undefined;
+       }
+
+     }
+
+     else{
+        this.buttondepot1=false;
+     }
+     var i=0,v=0;
+     for(i=0;i<this.keycode.length;i++){
+        if(event.keyCode==this.keycode[i].code){
+            this.mag1=false;
+            v=1;
+        }
+     }
+     if(v==0 && event.keyCode!=8 && event.keyCode!=16 && event.target.value!=""){
+        this.mag1=true;
+        this.numclient=undefined;
+     }
+     if(nb==9){
+        this.buttondepot1=true;
+     }
+     else{
+        this.buttondepot1=false;
+        this.buttondepot2=false;
+     }
+    }
+
+   }
+
+  /*************verif montant**************************/
+  verifMontant(event:any){
+
+	  //console.log(event.target.value);
+      if(event.keyCode!=16 && event.keyCode!=20 && event.keyCode!=9 && event.keyCode!=37 && event.keyCode!=38 && event.keyCode!=39 && event.keyCode!=40){
+
+		 var nb=event.target.value.length;
+		 var val=event.target.value.split('');
+		 var j=0,k=0;
+		 for(j=0;j<this.nombre.length;j++){
+		   if(val[event.target.value.length-1]==this.nombre[j]){
+			 k=1;
+		   }
+		 }
+		if(k==0 && event.target.value!=""){
+			this.mag2=true;
+			this.mnt=undefined;
+			return ;
+		}
+		 //console.log(val);
+		 var i=0,v=0;
+		 for(i=0;i<this.keycode.length;i++){
+			if(event.keyCode==this.keycode[i].code){
+				this.mag2=false;
+				v=1;
+			}
+		 }
+		 if(v==0 && event.keyCode!=8 && event.keyCode!=16 && event.target.value!=""){
+			this.mag2=true;
+			this.mnt=undefined;
+			return  ;
+		 }
+
+		 if(this.buttondepot1==true && parseInt(val[0])>=1){
+           this.buttondepot2=true;
+           }
+         else{
+            this.buttondepot2=false;
+         }
+     }
+   }
 /******************************************************************************************************/
 
     retirer(){
@@ -978,7 +1076,6 @@ export class AccueilComponent implements OnInit {
 
 
 /******************************************************************************************************/
-
 
   validrechargementespece(objet:any){
     let index = this.process.findIndex(
@@ -1849,6 +1946,7 @@ public pdvacueilretour(){
   this.displayedPage = this.displayedPage.substring(0, this.displayedPage.lastIndexOf("-")) ;
   this.ventedecodeurpagination=1;
   this.ventecatepagination=1;
+  this.retraitaveccodeom=1;
 }
 
 public returnHome(){
@@ -1952,24 +2050,24 @@ public pdvacueilmenumobilemoneyretour(){
               switch(operation){
                 case 1:{
                       
-                      // this.deposer(sesion);
+                       this.deposer(sesion);
                        break;
                        }
                 case 2:{
-                      // this.retirerOM(sesion);
-                       break;
+                      this.retirerOM(sesion);
+                        break;
                 }
                 case 3:{
-                     // this.retraitAC(sesion);
-                       break;
+                      this.retraitAC(sesion);
+                        break;
                 }
                 case 4:{
-                     // this.retraitCpteRecep(sesion);
-                       break;
+                      this.retraitCpteRecep(sesion);
+                        break;
                 }
                 case 5:{
-                     //  this.acheterCreditOM(sesion);
-                       break;
+                      this.acheterCreditOM(sesion);
+                        break;
                 }
                 default :break;
               }
@@ -1981,12 +2079,16 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
-                       //this.deposertc(sesion);
+                       this.deposertc(sesion);
                        break;
-                       }
+                }
                 case 2:{
-                       //this.retirertc(sesion);
+                       this.retirertc(sesion);
                        break;
+                }
+                case 5:{
+                      //VENTE IZI
+                      break;
                 }
                 default :break;
               }
@@ -2071,31 +2173,31 @@ public pdvacueilmenumobilemoneyretour(){
               switch(operation){
                     case 1:{
                           console.log('SDE');
-                          //this.paimantsdeFacturier(sesion);
+                          this.paimantsdeFacturier(sesion);
                           break;
                     }
 
                     case 2:{
-                        console.log('Rapido');
-                       // this. rechargeRapido(sesion);
-                        break;
+                          console.log('Rapido');
+                          this. rechargeRapido(sesion);
+                          break;
                     }
 
                     case 3:{
                           console.log('Woyofal');
-                         // this.payerSDEWizall(sesion);
+                          this.payerSDEWizall(sesion);
                           break;
                     }
 
                     case 4:{
                         console.log('Senelect');
-                       // this.paimentsenelec(sesion);
+                        this.paimentsenelec(sesion);
                         break;
                     }
 
                     case 5:{
                         console.log('Oolu solar');
-                       // this.payeroolusolarFacturier(sesion);
+                        this.payeroolusolarFacturier(sesion);
                         break;
                     }
 
@@ -2120,7 +2222,7 @@ public pdvacueilmenumobilemoneyretour(){
    @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;
 
 
-  Deposer(){
+  deposerOM(){
          // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
           let data=JSON.stringify({'nom':'OrangeMoney','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient});
           this.mobileProcessing(data);
@@ -2128,8 +2230,8 @@ public pdvacueilmenumobilemoneyretour(){
          // this.depotreussi=true;
           //this.numclient = undefined ;
           //this.mnt = undefined;
-
   }
+
   public showAddChildModal():void {
     this.addChildModal.show();
     //this.verifnumber();
@@ -3833,6 +3935,17 @@ ventecatepaginationBack(){
   if(this.ventecatepagination > 1)
       this.ventecatepagination = this.ventecatepagination - 1 ;
 }
+
+retraitaveccodeomNext(){
+  if(this.retraitaveccodeom < 2)
+      this.retraitaveccodeom = this.retraitaveccodeom + 1 ;
+}
+
+retraitaveccodeomBack(){
+  if(this.retraitaveccodeom > 1)
+      this.retraitaveccodeom = this.retraitaveccodeom - 1 ;
+}
+
 
 
     // Pagination 
