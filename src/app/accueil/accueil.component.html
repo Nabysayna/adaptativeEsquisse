@@ -1560,7 +1560,7 @@
                                   <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-arrow-left" style="font-size:6rem; color:white;" ></i></button>
                            </div>
                            <div class="col-xs-2 col-sm-2">
-                                  <button   type="button" class="btn btn-primary btn-sm" (click)="roadT('r'); historiqueintervalle()" [disabled]="selectionintervalledateinit>selectionintervalleddatefinal || selectionintervalledateinit==undefined || selectionintervalleddatefinal==undefined " style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                  <button   type="button" class="btn btn-primary btn-sm" (click)="roadTo('r'); historiqueintervalle()" [disabled]="selectionintervalledateinit>selectionintervalleddatefinal || selectionintervalledateinit==undefined || selectionintervalleddatefinal==undefined " style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                            </div>
                            <div class="col-xs-4 col-sm-4">
 
@@ -2053,8 +2053,8 @@
                     </div>
               </div>
     
-              <div class="row" style="margin-top:1rem;background-color: white;">
-                      <h2 style="color: #36a9e0;font-family: caviar dreams;">Dépôt</h2>
+              <div class="row" style="padding:1rem;background-color: white;">
+                      <h2 style="color: #36a9e0;font-family: caviar dreams; margin: 0px;">Dépôt</h2>
               </div>
               <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
@@ -2140,8 +2140,8 @@
                 </div>
             </div>
      
-            <div class="row" style="background-color:white;">
-                  <h2 style="color:#36a9e0;font-family: caviar dreams; font-weight: 800">Vente credit</h2>
+            <div class="row" style="background-color:white; padding:1rem;">
+                  <h2 style="color:#36a9e0;font-family: caviar dreams; margin: 0px;">Vente credit</h2>
             </div>
             <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
@@ -2206,7 +2206,7 @@
           <h2 style="color:#36A9E0;">Orange Money</h2>
           <img src="assets/OM.png" style="width: 50%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
         </div>-->
-        <div  class="row" style="margin:0px; padding:0;">
+            <div  class="row" style="margin:0px; padding:0;">
                 <div  class="col-sm-3 col-xs-3">
                     <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                 </div>
@@ -2221,14 +2221,12 @@
                         <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
                     </div>
                 </div>
-        </div>
+            </div>
  
             <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
-                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait</h2>
-                </div>
-            <div class="row" style="background-color:white;">
-                  <h2 style="color:#36a9e0;font-family: caviar dreams;">Retrait</h2>
+                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin: 0px;">Retrait</h2>
             </div>
+
             <div class="row">
                   <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
                   <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
@@ -2281,16 +2279,15 @@
 <div *ngIf="displayedPage=='accueil-mm-ORANGEMONEY-rc'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 500px;">
     
      <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
-       <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; opacity:0.9;padding-top: 2rem;">
-    
-          <div style="text-align:center">
+       <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; opacity:0.9;">
+
             <!--   <img src="assets/thumbnailphone.png" style="height: 50px; margin-left: -80px; padding-top: 1rem; margin-right: 5rem; margin-top: -20px; margin-right: 40px;">
                <img src="assets/OM.png" style="width: 30%; opacity:0.96;padding-top: 3rem;margin-right: 5rem;"/>
                <div>
                       <img src="assets/retour.png" (click)="cheminretour()"  style="margin-top:-20rem; height: 4rem; margin-left: 23rem;"/>
                       <img src="assets/deconnet.png" (click)="deconnexion()" style="margin-top:-16rem; height: 4rem; margin-left: 23rem;"/>
                </div>-->
-               <div  class="row" style="margin:0px; padding:0;">
+               <div  class="row" style="margin:0px; padding:0; text-align:center;">
                     <div  class="col-sm-3 col-xs-3">
                         <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
                     </div>
@@ -2306,9 +2303,11 @@
                         </div>
                     </div>
                </div>
-                <div style="padding:1rem; background-color:white;">
-                        <h2 style="color: #36A9e0;font-family: caviar dreams;">Retrait avec code</h2>
-                </div>
+
+            
+
+            <div class="row" style="background-color:white; text-align:center;">
+                <h3 style="color: #36A9e0;font-family: caviar dreams; margin: 0px;">Retrait avec code</h3>
             </div>
     
              <div class="row" >
@@ -2457,9 +2456,9 @@
 
 
           <div class="col-xs-12 col-sm-12" style="background-color:white; padding:1rem;">
-                <h2 style="color:#36A9E0 ; font-family:'caviar dreams bold';" class="row"> Rechargement espece</h2>
+                <h2 style="color:#36A9E0 ; font-family:'caviar dreams bold'; margin: 0px;" class="row"> Rechargement espece</h2>
           </div>
-          <form (ngSubmit)="validrechargementespece()" #rechargementespece="ngForm" autocomplete="on">
+          <form (ngSubmit)="showmodalPostCash()" #rechargementespece="ngForm" autocomplete="on">
 
           <div class="col-xs-12 col-sm-12" style="margin-top:5rem;">
                 <div class="row" style="width:98%; margin-left:1%;">
@@ -2519,7 +2518,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12" style="padding:1rem; background-color:white;">
-                <h2 style="color:#36A9E0 ; font-family:'caviar dreams bold';" class="row"> Retrait espece</h2>
+                <h2 style="color:#36A9E0 ; font-family:'caviar dreams bold'; margin: 0px;" class="row"> Retrait espece</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
               <div class="row">
@@ -2642,8 +2641,8 @@
                   </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 " style="background-color:white;">
-                <h2 style="color: #36a9E0 ; font-family:'caviar dreams bold';" class="row">Achat JULA</h2>
+            <div class="col-xs-12 col-sm-12 " style="background-color:white; padding:1rem;">
+                <h2 style="color: #36a9E0 ; font-family:'caviar dreams bold'; margin: 0px;" class="row">Achat JULA</h2>
             </div>
           <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
                 <form (ngSubmit)="showmodalPostCash()" #achatjula="ngForm" autocomplete="on" class="row">
@@ -4760,7 +4759,7 @@
             <div class="modal-footer">
                   <div *ngIf="displayedPage=='accueil-mm-POSTCASH-re'">
                          <input type="button" value="fermer" (click)="hidemodalPostCash()" class="btn btn-danger" />
-                         <input type="button" value="valider" class="btn btn-success" (click)="rechargementEspecePostCash()"/>
+                         <input type="button" value="valider" class="btn btn-success" (click)="showmodalPostCash()"/>
                   </div>
                    <div  *ngIf="displayedPage=='accueil-mm-POSTCASH-rte'">
                          <div  *ngIf="isselectretraitespeceaveccarte">
