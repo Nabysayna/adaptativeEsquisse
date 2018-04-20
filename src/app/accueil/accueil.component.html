@@ -2223,6 +2223,7 @@
                 </div>
             </div>
  
+
             <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
                     <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin: 0px;">Retrait</h2>
             </div>
@@ -3468,8 +3469,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade col-sm-12 col-xs-12" id="retrait"  style="padding-top: 3rem;">
-                <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
-                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait</h2>
+                <div  class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                    <h2  style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait</h2>
                 </div>
                     <h3 *ngIf="retraitreussi" class="alert alert-success">Retrait reussi!</h3>
                     <h3 *ngIf="echecretrait" class="alert alert-success">Echec de l'operation reussi!</h3>
@@ -3524,8 +3525,8 @@
                 </div>
             </div>
             <div class="row">
-                <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
-                    <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Dépôt</h2>
+                <div  class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                    <h2  style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Dépôt</h2>
                 </div>
                 <h3 *ngIf="depotreussi"  class="alert alert-success">Depot reussi!</h3>
                 <h3 *ngIf="echecdepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
@@ -3580,8 +3581,8 @@
                 </div>
             </div>
                 <div class="col-sm-12 col-xs-12" id="retrait" >
-                    <div _ngcontent-c1="" class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
-                        <h2 _ngcontent-c1="" style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait avec code</h2>
+                    <div  class="col-sm-12 col-xs-12" style="background-color: white;padding: 1rem;">
+                        <h2  style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Retrait avec code</h2>
                     </div>
                         <h3 *ngIf="retraitcodereussi" class="alert alert-success">Retrait avec code reussi!</h3>
                         <h3 *ngIf="echecretraitcode" class="alert alert-success">Echec de l'operation reussi!</h3>
@@ -4063,214 +4064,216 @@
                   </div>
                 </div>
               </div>
-          <div class="col-sm-12 col-xs-12">
-            <div class="col-sm-6 col-xs-6">
+          <div class="col-sm-12 col-xs-12" style="margin-left: 1rem;">
+            <form  (ngSubmit)="showAddChildModalecommerce()" #formdepot="ngForm" >
+             <div class="col-xs-12 col-sm-12">
+                <input style="font-size: 1.6rem;color: white;font-family: 'caviar dreams bold';" type="file"(change)="fileChange($event)"  placeholder="" accept=".png,.jpg" />
+            </div>
+            <div class="row" style="padding-top: 1rem;padding-bottom: 1rem;">
               <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="160" height="160" />
             </div>
-            <div class="col-xs-6 col-sm-6">
-              <select *ngIf="categoriea!='Autre'" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="margin-left: 1rem ;" [(ngModel)]="this.categoriea" >
+            <div class="row" style=" text-align: -webkit-center;">
+              <select *ngIf="categoriea!='Autre'" name="categoriea" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="width: 70%;border-radius: 2rem;" [(ngModel)]="this.categoriea" >
                 <option >--- Catégorie ---</option>
                 <option *ngFor="let categorie of categories.string">{{categorie}}</option>
                 <option >Autre</option>
               </select>
-              <input class="form-control border input-sm" *ngIf="categoriea=='Autre'"  placeholder="Entrez la catégorie de l'article" required />
-              <input type="text" [(ngModel)]="this.designationa"   name="designationa" id="designationa" class="form-control border" placeholder="designation de l'article" required />
+              <input class="form-control border input-sm" *ngIf="categoriea=='Autre'" style="width: 70%;"  placeholder="Entrez la catégorie de l'article" required />
+              <input type="text" [(ngModel)]="this.designationa" style="width: 70%;border-radius: 2rem;"  name="designationa" id="designationa" class="form-control border" placeholder="designation de l'article" required />
               <div class="row" *ngIf="Bcosmetique">
                 <div class="col-md-4 col-xs-4">
-                  <input   type="text" [(ngModel)]="provenance" name="provenance" placeholder="provenance" class="form-control border"/>
+                  <input   type="text" style="width: 70%;border-radius: 2rem;" [(ngModel)]="provenance" name="provenance" placeholder="provenance" class="form-control border"/>
                 </div>
                 <div class="col-md-4 col-xs-4">
-                  <input   type="text" [(ngModel)]="maque" name="marque" placeholder="marque" class="form-control border" />
+                  <input   type="text" [(ngModel)]="maque" style="border-radius: 2rem;width: 70%;"  name="marque" placeholder="marque" class="form-control border" />
                 </div>
                 <div class="col-md-4 col-xs-4">
-                  <input    type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur" class="form-control border" />
+                  <input    type="text" [(ngModel)]="couleur" style="border-radius: 2rem;width: 70%;"  name="couleur" placeholder="couleur" class="form-control border" />
                 </div>
                 <div class="col-md-4 col-xs-4">
-                  <input  type="text" [(ngModel)]="origine" name="origine" placeholder="origine" class="form-control border" />
+                  <input  type="text" [(ngModel)]="origine" style="width: 70%;border-radius: 2rem;" name="origine" placeholder="origine" class="form-control border" />
                 </div>
               </div>
               <div class="row" *ngIf="Bvetement">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="origine" name="origine" placeholder="origine"/>
+                  <input  class="form-control border"  style="width: 70%;border-radius: 2rem;" type="text" [(ngModel)]="origine" name="origine" placeholder="origine"/>
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border"  type="text" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;"  type="text" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="taille" name="taille" placeholder="taille" />
+                  <input  class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" [(ngModel)]="taille" name="taille" placeholder="taille" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="sexe" name="sexe" placeholder="sexe"  />
+                  <input  class="form-control border" style="width: 70%;border-radius: 2rem;"  type="text" [(ngModel)]="sexe" name="sexe" placeholder="sexe"  />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="tendances" name="tendances" placeholder="tendances"  />
+                  <input  class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" [(ngModel)]="tendances" name="tendances" placeholder="tendances"  />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur"  />
+                  <input  class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur"  />
                 </div>
               </div>
               <div class="row" *ngIf="Bchaussure">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input style="border:2px solid blue" type="text" class="form-control" [(ngModel)]="tendance" placeholder="tendance" />
+                  <input style="border:2px solid blue" style="width: 70%;border-radius: 2rem;" type="text" class="form-control" [(ngModel)]="tendance" placeholder="tendance" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="sexe" name="sexe" placeholder="sexe" />
+                  <input  type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" [(ngModel)]="sexe" name="sexe" placeholder="sexe" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="taille" name="taille" placeholder="taille" />
+                  <input  type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" [(ngModel)]="taille" name="taille" placeholder="taille" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="pointure" name="pointure" placeholder="pointure" />
+                  <input  type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" [(ngModel)]="pointure" name="pointure" placeholder="pointure" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="couleur" name="couleur" placeholder="couleur" />
+                  <input  type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" [(ngModel)]="couleur" name="couleur" placeholder="couleur" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" [(ngModel)]="origine" name="origine" placeholder="origine" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" [(ngModel)]="origine" name="origine" placeholder="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
                 </div>
               </div>
 
               <div class="row" *ngIf="Bsac">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
+                  <input class="form-control border" style="border-radius: 2rem;width: 70%;" type="text" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
+                  <input  class="form-control border" type="text" style="border-radius: 2rem;width: 70%;" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                  <input class="form-control border" type="text" style="border-radius: 2rem;width: 70%;" name="origine" [(ngModel)]="origine" placeholder="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
+                  <input class="form-control border" type="text" style="width: 70%;border-radius: 2rem;"  name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="tendance" [(ngModel)]="tendance" placeholder="tendance" />
+                  <input class="form-control border" type="text" style="width: 70%;border-radius: 2rem;" name="tendance" [(ngModel)]="tendance" placeholder="tendance" />
                 </div>
               </div>
 
               <div class="row" *ngIf="Belectronique">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="mode" [(ngModel)]="mode" placeholder="mode" />
+                  <input class="form-control border" type="text" style="width: 70%;border-radius: 2rem;"  name="mode" [(ngModel)]="mode" placeholder="mode" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="dimension" [(ngModel)]="dimension" placeholder="dimension" />
+                  <input class="form-control border" type="text" style="width: 70%;border-radius: 2rem;"  name="dimension" [(ngModel)]="dimension" placeholder="dimension" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;"  type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="fonctions" [(ngModel)]="fonctions" placeholder="fonctions" />
+                  <input class="form-control border" type="text" style="width: 70%;border-radius: 2rem;"  name="fonctions" [(ngModel)]="fonctions" placeholder="fonctions" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input style="border:2px solid blue" class="form-control" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
+                  <input style="border:2px solid blue" class="form-control" type="text" style="width: 70%;border-radius: 2rem;"  name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="marque" [(ngModel)]="marque" placeholder="marque" />
+                  <input class="form-control border" type="text" style="width: 70%;border-radius: 2rem;"  name="marque" [(ngModel)]="marque" placeholder="marque" />
                 </div>
               </div>
               <div class="row" *ngIf="Baccessoire">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="origine" [(ngModel)]="origine" placeholder="origine" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" name="origine" [(ngModel)]="origine" placeholder="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="qualite" [(ngModel)]="qualite" placeholder="qualite" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" name="qualite" [(ngModel)]="qualite" placeholder="qualite" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" name="poids" [(ngModel)]="poids" placeholder="poids" />
+                  <input  type="text" class="form-control border" style="width: 70%;border-radius: 2rem;" name="poids" [(ngModel)]="poids" placeholder="poids" />
                 </div>
               </div>
               <div *ngIf="Bbureau">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="mode" class="form-control border" placeholder="mode" [(ngModel)]="mode" />
+                  <input type="text" name="mode" style="width: 70%;border-radius: 2rem;" class="form-control border" placeholder="mode" [(ngModel)]="mode" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="dimensions" class="form-control border" placeholder="demensions" [(ngModel)]="dimensions" />
+                  <input type="text" name="dimensions" style="width: 70%;border-radius: 2rem;" class="form-control border" placeholder="demensions" [(ngModel)]="dimensions" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="origine" class="form-control border" placeholder="origine" [(ngModel)]="origine" />
+                  <input type="text" name="origine" style="width: 70%;border-radius: 2rem;" class="form-control border" placeholder="origine" [(ngModel)]="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="fonctions" class="form-control border" placeholder="fonctions" [(ngModel)]="fonctions" />
+                  <input type="text" name="fonctions" style="width: 70%;border-radius: 2rem;" class="form-control border" placeholder="fonctions" [(ngModel)]="fonctions" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="couleur" class="form-control border" placeholder="couleur" [(ngModel)]="couleur" />
+                  <input type="text" name="couleur" style="width: 70%;border-radius: 2rem;" class="form-control border" placeholder="couleur" [(ngModel)]="couleur" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="marque" class="form-control border" placeholder="marque" [(ngModel)]="marque" />
+                  <input type="text" name="marque" style="width: 70%;border-radius: 2rem;" class="form-control border" placeholder="marque" [(ngModel)]="marque" />
                 </div>
               </div>
               <div *ngIf="Belectromenager">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="modele" />
+                  <input class="form-control border" style=";width: 70%;border-radius: 2rem;" type="text" name="modele" placeholder="modele" [(ngModel)]="modele" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;"  type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="capacite" placeholder="capacite" [(ngModel)]="capacite" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;"  type="text" name="capacite" placeholder="capacite" [(ngModel)]="capacite" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="modele" placeholder="utilisateur" [(ngModel)]="modele" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" name="modele" placeholder="utilisateur" [(ngModel)]="modele" />
                 </div>
               </div>
 
               <div *ngIf="Bmaison">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;"  type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="utilisateur" placeholder="utilisateur" [(ngModel)]="utilisateur" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" name="utilisateur" placeholder="utilisateur" [(ngModel)]="utilisateur" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="fonctions" placeholder="fonctions" [(ngModel)]="fontions" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" name="fonctions" placeholder="fonctions" [(ngModel)]="fontions" />
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="origine" />
+                  <input class="form-control border" style="width: 70%;border-radius: 2rem;" type="text" name="modele" placeholder="modele" [(ngModel)]="origine" />
                 </div>
               </div>
 
               <div *ngIf="Bautre">
                 <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="autre" class="form-control border" placeholder="autre" />
+                  <input type="text" name="autre" style="width: 70%;border-radius: 2rem;"  class="form-control border" placeholder="autre" />
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <input type="text" class="form-control border" placeholder="Autre Description" name="infosup" [(ngModel)]="infosup" />
+                  <input type="text" class="form-control border" style="width: 70%;border-radius: 2rem;"  placeholder="Autre Description" name="infosup" [(ngModel)]="infosup" />
                 </div>
               </div>
               
                 <div class="col-xs-12 col-sm-12">
-                  <input type="number"  [(ngModel)]="this.prixa"   name="prixa" id="prixa" class="form-control border" placeholder="prix de l'article" required><!--<button (click)="reduirePrix(prixa)" class="btn btn-success">Appliquer tarif réductionnel</button>-->
+                  <input type="number"  [(ngModel)]="this.prixa" style="width: 70%;border-radius: 2rem;"   name="prixa" id="prixa" class="form-control border" placeholder="prix de l'article" required><!--<button (click)="reduirePrix(prixa)" class="btn btn-success">Appliquer tarif réductionnel</button>-->
                 </div>
                 <div class="col-xs-12 col-sm-12">
-                  <input type="number" [(ngModel)]="this.stocka"   name="stocka" id="stocka" class="form-control border" placeholder="Quantité en stock" required>
+                  <input type="number" [(ngModel)]="this.stocka" style="width: 70%;border-radius: 2rem;"   name="stocka" id="stocka" class="form-control border" placeholder="Quantité en stock" required>
                 </div>
                 <div>
                   
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12">
-                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg" />
-            </div>
-             <div class="modal-footer">
-                <a type="reset" class="btn btn-danger"  (click)="annulerecommerce()">Annuler</a>
-                <a class="btn btn-success" type="button" (click)="ajouterecommerce()">Ajouter</a>
+             <div class="row">
+                <button  class="btn btn-danger"   style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" type="reset"><i  class="fa fa-times fa-2x" style="color:orange;"></i></button>
+                <button  class="btn btn-success"  style="width: 50px;background-color: white! important; height: 50px;font: bold 13px Arial;border-radius: 50% !important;border:none;">
+                  <i  class="fa fa-check fa-2x" style="color: orange;"></i></button>
             </div>
               
             <div  *ngIf="addtype=='ptiteannonce'">
@@ -4307,7 +4310,7 @@
               </div>
             </div>
         
-
+        </form>
           </div>
 
         </div>
@@ -4545,7 +4548,9 @@
                       <input type="text" *ngIf="this.modif==article.nomImg" [(ngModel)]="article.designation">
                       <p class="card-text">Prix:{{article.prix}}.FCFA</p>
                       <input type="number" *ngIf="this.modif==article.nomImg" [(ngModel)]="article.prix">
-                      <button  class="btn-sm btn-success" *ngIf="this.modifart!='record'+article.nomImg"  type="button"(click)="showmodaldif(article)">Modifier</button>
+
+                      <button  class="btn-sm btn-success" *ngIf="this.modifart!='record'+article.nomImg"  type="button"(click)="roadTo('modifar')">Modifier</button>
+
                       <button  class="btn-sm btn-success" *ngIf="this.modifart=='record'+article.nomImg" type="button"(click)="enregArticle(article)">Enregistrer</button>
                       <button  class="btn-sm btn-danger" type="button" *ngIf="this.modifart!='record'+article.nomImg" (click)="deleteArticle(article)" >Supprimer </button>
                       <button  class="btn-sm btn-danger" type="button" *ngIf="this.modifart=='record'+article.nomImg" (click)="annulArticle()" >Annuler </button>
@@ -4561,6 +4566,81 @@
 
    
   </div>
+
+</div>
+</div>
+
+<!--Modifier un article-->
+<div class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; background-size: 600px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available;" *ngIf="displayedPage=='accueil-ec-esp-MA-modifar'">
+    <div class="row" style="background-color:rgb(255,144, 00);height:px; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available; max-width: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3">
+                    <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+                 </div>
+                <div class="col-xs-6 col-sm-6">
+                    <img src="assets/pannier.png" style="width: 100%;"/>
+                 </div>
+                <div class="col-xs-3 col-sm-3">
+                    <div class="row">
+                        <img src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                    <div class="row" style="margin-top:1rem;">
+                        <img src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem;margin-left: 3rem;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-12 col-xs-12" style="padding: 1rem;background-color: white;">
+                <h2 style="color: #36A9E0; font-family:'caviar dreams bold';font-size: 2.7rem;margin-top: 0.3rem!important; margin-bottom: 0rem!important;">Details de Commandes</h2>
+            </div>
+    <div class="col-sm-12 col-xs-12">
+        <form  (ngSubmit)="showmodaldif(articlemodif)" #formdmodif="ngForm">
+            <div class="row" style="text-align: -webkit-center;" style="padding-top: 1rem;padding-bottom: 1rem;">
+                <img alt="" width="170" height="170" class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{this.articlemodif.nomImg}}" />
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-6 col-xs-6">
+                   <div class="row" style="padding-right: 10px!important;padding-left: 10px!important;">
+                        <input type="text" placeholder="description" name="description" value="{{this.articlemodif.description}}" class="form-control border" />
+                    </div>
+                    <div class="row" style="padding-right: 10px !important;padding-left: 10px !important;" >
+                           <input type="text" placeholder="prix" name="prix" value="{{this.articlemodif.prix}}" class="form-control border" />
+                    </div>
+                    <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                            <input type="text"  placeholder="couleur" name="couleur" value="{{this.articlemodif.couleur}}" class="form-control border" />
+                    </div>
+                    <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                           <input type="text"  placeholder="sexe" name="sexe" value="{{this.articlemodif.sexe}}" class="form-control border" />
+                    </div>
+                    <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                            <input type="text"  placeholder="quantite en stock" name="quantite" value="{{this.articlemodif.quantite}}" class="form-control border" />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                        <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                            <input type="text"  placeholder="designation" name="designation" value="{{this.articlemodif.designation}}" class="form-control border" />
+                        </div>
+                        <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                                <input type="text" placeholder="provenance" name="provenance" value="{{this.articlemodif.provenance}}" class="form-control border" />
+                        </div>
+                        <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                            <input type="text" placeholder="marque" name="sexe" value="{{this.articlemodif.marque}}" class="form-control border" />
+                        </div>
+                        <div class="row" style="padding-right: 10px !important;padding-left: 10px!important;">
+                               <input type="text"  placeholder="taille" name="taille" value="{{this.articlemodif.taille}}" class="form-control border" />
+                       </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12" style="padding-top: 3rem;">
+                 <button style="width: 50px;background-color: white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;"  class="btn btn-success" ><i style="color: orange;" class="fa fa-check fa-2x"></i>
+                </button>
+                <button type="reset" class="btn btn-danger" style="width: 50px;background-color:white! important;height: 50px;font: bold 13px Arial;border-radius: 50% !important;border: none;" ><i class="fa fa-times fa-2x" style="color:orange;"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+   
 
 </div>
 </div>
@@ -6121,7 +6201,30 @@
   
      </div>
   <!--fin modal panier-->
-  <!--espace perso modale d'ajout-->
+
+  <!--Modifier article-->
+<div bsModal #modalmodif="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+      <div class="modal-header" style="background-color:#F39200">
+        <button type="button" class="close pull-right" (click)="validermodif()" aria-label="Close" >
+          <span aria-hidden="true" (click)="hidemodalmodif()">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Validation de la modification</h4>
+      </div>
+      <div class="modal-body">
+        
+          Voulez vous modifier??
+        <div class="modal-footer">
+          <input type="button" value="oui" (click)="validermodif(this.articlemodif)" class="btn btn-success" />
+          <input type="button" value="non" (click)="hidemodalmodif()" class="btn btn-danger" />
+        </div>
+      
+    </div>
+  </div>
+</div>
+  <!--fin modification-->
+    <!--espace perso modale d'ajout-->
 <div bsModal #addChildModalecommerce="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" >
@@ -6131,360 +6234,34 @@
         </button>
         <h4 class="modal-title"  id="myModalLabel">Fenêtre d'ajout.</h4>
       </div>
-      <div class="modal-body" style="height : 37rem">
-
-        <div  class="col-sm-12 col-xs-12" style="margin-bottom:1rem" *ngIf="addtype==''">
-          <button class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviar dreams bold';" type="button" (click)="addtype='venteecom'">Article E-commerce</button>
-          <button type="reset" class="btn btn-primary" style="background-color:blue !important; font-size: 1.6rem; font-family: 'caviar dreams bold';" (click)="addtype='ptiteannonce'">Petite Annonce</button>
-        </div>
-
-        <div  *ngIf="addtype=='venteecom'">
+      <div class="modal-body">
+        <div >
           <div class="row">
-            <div  class="col-sm-12 col-xs-12 badge" *ngIf="prixa&&prixa!=0" style="margin-bottom:1rem">
-              <div  class="col-sm-3 col-xs-12">
+            <div  class="col-sm-12 col-xs-12 badge" *ngIf="prixa&&prixa!=0" style="margin-bottom:1rem;font-size: 1.7rem;font-family: 'caviar dreams bold';color: currentColor;background-color: transparent;">
+              <div  class="col-sm-3 col-xs-12" style="margin: 0.3rem;">
                 Prix de base : {{prixa}}
               </div>
-              <div  class="col-sm-3 col-xs-12">
+              <div  class="col-sm-3 col-xs-12" style="margin: 0.3rem;">
                 Prix affiché : {{prixa - customerReduct}}
               </div>
-              <div  class="col-sm-3 col-xs-12">
+              <div  class="col-sm-3 col-xs-12" style="margin: 0.3rem;">
                 Part  partenaires : {{roundedValueOf(prixa*tauxreduc(prixa)*0.5) }}
               </div>
-              <div  class="col-sm-3 col-xs-12">
+              <div  class="col-sm-3 col-xs-12" style="margin: 0.3rem;">
                 Réduction client :  {{customerReduct}}
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-xs-12">
-            <div class="col-sm-6 col-xs-6">
-              <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="160" height="160" />
-              
-            </div>
-            <div class="col-xs-6 col-sm-6">
-              <select *ngIf="categoriea!='Autre'" (change)="descriptionarticle(categoriea)" class="form-control border input-sm" style="margin-left: 1rem ;" [(ngModel)]="this.categoriea" >
-                <option >--- Catégorie ---</option>
-                <option *ngFor="let categorie of categories.string">{{categorie}}</option>
-                <option >Autre</option>
-              </select>
-              <input class="form-control border input-sm" *ngIf="categoriea=='Autre'"  placeholder="Entrez la catégorie de l'article" required />
-              <input type="text" [(ngModel)]="this.designationa"   name="designationa" id="designationa" class="form-control border" placeholder="designation de l'article" required />
-              <div class="row" *ngIf="Bcosmetique">
-                <div class="col-md-4 col-xs-4">
-                  <input   type="text" [(ngModel)]="provenance" name="provenance" placeholder="provenance" class="form-control border"/>
-                </div>
-                <div class="col-md-4 col-xs-4">
-                  <input   type="text" [(ngModel)]="maque" name="marque" placeholder="marque" class="form-control border" />
-                </div>
-                <div class="col-md-4 col-xs-4">
-                  <input    type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur" class="form-control border" />
-                </div>
-                <div class="col-md-4 col-xs-4">
-                  <input  type="text" [(ngModel)]="origine" name="origine" placeholder="origine" class="form-control border" />
-                </div>
-              </div>
-              <div class="row" *ngIf="Bvetement">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="origine" name="origine" placeholder="origine"/>
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border"  type="text" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="taille" name="taille" placeholder="taille" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="sexe" name="sexe" placeholder="sexe"  />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="tendances" name="tendances" placeholder="tendances"  />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border"  type="text" [(ngModel)]="couleur" name="couleur" placeholder="couleur"  />
-                </div>
-              </div>
-              <div class="row" *ngIf="Bchaussure">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input style="border:2px solid blue" type="text" class="form-control" [(ngModel)]="tendance" placeholder="tendance" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="sexe" name="sexe" placeholder="sexe" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="taille" name="taille" placeholder="taille" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="pointure" name="pointure" placeholder="pointure" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" [(ngModel)]="couleur" name="couleur" placeholder="couleur" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" [(ngModel)]="origine" name="origine" placeholder="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" [(ngModel)]="matiere" name="matiere" placeholder="matiere" />
-                </div>
-              </div>
-
-              <div class="row" *ngIf="Bsac">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  class="form-control border" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="tendance" [(ngModel)]="tendance" placeholder="tendance" />
-                </div>
-              </div>
-
-              <div class="row" *ngIf="Belectronique">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="mode" [(ngModel)]="mode" placeholder="mode" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="dimension" [(ngModel)]="dimension" placeholder="dimension" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" [(ngModel)]="origine" placeholder="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="fonctions" [(ngModel)]="fonctions" placeholder="fonctions" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input style="border:2px solid blue" class="form-control" type="text" name="couleur" [(ngModel)]="couleur" placeholder="couleur" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="marque" [(ngModel)]="marque" placeholder="marque" />
-                </div>
-              </div>
-              <div class="row" *ngIf="Baccessoire">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="origine" [(ngModel)]="origine" placeholder="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="matiere" [(ngModel)]="matiere" placeholder="matiere" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="sexe" [(ngModel)]="sexe" placeholder="sexe" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" class="form-control border" name="qualite" [(ngModel)]="qualite" placeholder="qualite" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input  type="text" class="form-control border" name="poids" [(ngModel)]="poids" placeholder="poids" />
-                </div>
-              </div>
-              <div *ngIf="Bbureau">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="mode" class="form-control border" placeholder="mode" [(ngModel)]="mode" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="dimensions" class="form-control border" placeholder="demensions" [(ngModel)]="dimensions" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="origine" class="form-control border" placeholder="origine" [(ngModel)]="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="fonctions" class="form-control border" placeholder="fonctions" [(ngModel)]="fonctions" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="couleur" class="form-control border" placeholder="couleur" [(ngModel)]="couleur" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="marque" class="form-control border" placeholder="marque" [(ngModel)]="marque" />
-                </div>
-              </div>
-              <div *ngIf="Belectromenager">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="modele" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="capacite" placeholder="capacite" [(ngModel)]="capacite" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="modele" placeholder="utilisateur" [(ngModel)]="modele" />
-                </div>
-              </div>
-
-              <div *ngIf="Bmaison">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="origine" placeholder="origine" [(ngModel)]="origine" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="utilisateur" placeholder="utilisateur" [(ngModel)]="utilisateur" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="marque" placeholder="marque" [(ngModel)]="marque" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="fonctions" placeholder="fonctions" [(ngModel)]="fontions" />
-                </div>
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input class="form-control border" type="text" name="modele" placeholder="modele" [(ngModel)]="origine" />
-                </div>
-              </div>
-
-              <div *ngIf="Bautre">
-                <div class="col-lg-4 col-md-4 col-xs-4">
-                  <input type="text" name="autre" class="form-control border" placeholder="autre" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <input type="text" class="form-control border" placeholder="Autre Description" name="infosup" [(ngModel)]="infosup" />
-                </div>
-              </div>
-              
-                <div class="col-xs-12 col-sm-12">
-                  <input type="number"  [(ngModel)]="this.prixa"   name="prixa" id="prixa" class="form-control border" placeholder="prix de l'article" required><!--<button (click)="reduirePrix(prixa)" class="btn btn-success">Appliquer tarif réductionnel</button>-->
-                </div>
-                <div class="col-xs-12 col-sm-12">
-                  <input type="number" [(ngModel)]="this.stocka"   name="stocka" id="stocka" class="form-control border" placeholder="Quantité en stock" required>
-                </div>
-                <div>
-                  
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12">
-                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg" />
-            </div>
-             <div class="modal-footer">
+        </div>
+      </div>
+      <div class="modal-footer">
                 <a type="reset" class="btn btn-danger"  (click)="annulerecommerce()">Annuler</a>
                 <a class="btn btn-success" type="button" (click)="ajouterecommerce()">Ajouter</a>
             </div>
-              
-            <div  *ngIf="addtype=='ptiteannonce'">
-
-              <div class="col-sm-4 col-xs-12">
-                <img class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{newImage}}"  alt="Card image cap" width="200" height="200">
-                <input type="file" (change)="fileChange($event)" placeholder="Uploader Image" accept=".png,.jpg">
-
-
-              </div>
-
-              <div class="col-sm-6 col-xs-12" >
-
-                <select *ngIf="categoriepta!='Autre'" class="form-control input-sm" style="margin-left: 1rem ;" [(ngModel)]="categoriepta" >
-                  <option>--- Catégorie ---</option>
-                  <option *ngFor="let categorie of categories.string">{{categorie}}</option>
-                  <option>Location voitures</option>
-                  <option>Immobilier</option>
-                  <option>Autre</option>
-                </select>
-                <input style="border:2px solid blue" type="text" *ngIf="categoriepta=='Autre'" class="form-control input-sm" placeholder="Entrez la catégorie de l'annonce" required>
-
-                <input style="border:2px solid blue" type="text" [(ngModel)]="this.designationpta"   name="designationa" id="designationa" class="form-control" placeholder="designation de l'annonce" required>
-
-                <input style="border:2px solid blue" type="text" [(ngModel)]="this.descriptionpta"   name="descriptiona" id="descriptiona" class="form-control" placeholder="Petite description de l'annonce" required>
-
-                <input style="border:2px solid blue" type="number" style="display : initial; max-width: 15rem;" [(ngModel)]="this.prixpta"   name="prixa" id="prixa" class="form-control" placeholder="prix de l'article" required>  <input type="number" style="display : initial; max-width: 19rem;" [(ngModel)]="this.telpta"   name="prixa" id="tela" class="form-control" placeholder="Téléphone Annonceur" required>
-
-                <input style="border:2px solid blue" type="number" [(ngModel)]="this.stockpta"   name="stocka" id="stocka" class="form-control" placeholder="Quantité en stock" required>
-
-                <a class="btn btn-success" type="button" (click)="ajouterpta()">Ajouter</a>
-
-                <a type="reset" class="btn btn-danger"  (click)="annuler()">Annuler</a>
-              </div>
-            </div>
-        
-
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
 </div>
   <!--finespace perso modale d'ajout-->
-  <!--Modifier article-->
-  <div bsModal #modalmodif="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" >
-      <div class="modal-header" style="background-color:#F39200">
-        <button type="button" class="close pull-right" (click)="validermodif()" aria-label="Close" >
-          <span aria-hidden="true" (click)="hidemodalmodif()">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Détails de la commande.</h4>
-      </div>
-      <div class="modal-body" style="height : 37rem;min-height: min-content;">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12" style="text-align: -webkit-center;">
-              <img alt="" width="200" height="200" class="card-img-top" src="http://51.254.200.129/backendprod/EsquisseBackEnd/server-backend-upload/uploads/{{this.articlemodif.nomImg}}" />
-            </div>
-            <div class="col-sm-12 col-xs-12">
-                <div class="col-sm-6 col-xs-6">
-                   <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                            <input type="text" [(ngModel)]="description" placeholder="description" name="description" value="{{this.articlemodif.description}}" class="form-control border" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                           <input type="text" [(ngModel)]="prix" placeholder="prix" name="prix" value="{{this.articlemodif.prix}}" class="form-control border" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                            <input type="text" [(ngModel)]="couleur" placeholder="couleur" name="couleur" value="{{this.articlemodif.couleur}}" class="form-control border" />
-                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                           <input type="text" [(ngModel)]="sexe" placeholder="sexe" name="sexe" value="{{this.articlemodif.sexe}}" class="form-control border" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5">
-                            <input type="text" [(ngModel)]="quantite" placeholder="quantite en stock" name="quantite" value="{{this.articlemodif.quantite}}" class="form-control border" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                    <div class="row">
-                      <div class="col-lg-9 col-md-9">
-                        <input type="text" [(ngModel)]="designation" placeholder="designation" name="designation" value="{{this.articlemodif.designation}}" class="form-control border" />
-                      </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                            <input type="text" [(ngModel)]="provenance" placeholder="provenance" name="provenance" value="{{this.articlemodif.provenance}}" class="form-control border" />
-                        </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-9 col-md-9">
-                        <input type="text" [(ngModel)]="marque" placeholder="marque" name="sexe" value="{{this.articlemodif.marque}}" class="form-control border" />
-                      </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9">
-                           <input type="text" [(ngModel)]="taille" placeholder="taille" name="taille" value="{{this.articlemodif.taille}}" class="form-control border" />
-                        </div>
-                   </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" value="valider" (click)="validermodif(this.articlemodif)" class="btn btn-success" />
-          <input type="button" value="annuler" (click)="hidemodalmodif()" class="btn btn-danger" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <!--fin modification-->
 
 
 </div>
