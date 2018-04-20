@@ -416,6 +416,7 @@ export class AccueilComponent implements OnInit {
       console.log(sesion.etats.id);
       sessionStorage.removeItem('curentProcess');
       var operateur=sesion.data.operateur;
+
       switch(operateur){
         case 1:{
                 var operation=sesion.data.operation;
@@ -1099,7 +1100,7 @@ export class AccueilComponent implements OnInit {
           
           console.log(this.process[index]);
 
-            this.process[index].etats.pourcentage = 4;
+            this.process[index].etats.pourcentage = 5;
 
             objet.etats.etat=true;
             objet.etats.load='terminated';
@@ -1121,7 +1122,7 @@ export class AccueilComponent implements OnInit {
             objet.etats.etat=true;
             objet.etats.load='terminated';
             objet.etats.color='red';
-            this.process[index].etats.pourcentage = 5;
+            this.process[index].etats.pourcentage = 4;
       }
     });
 
@@ -1145,7 +1146,7 @@ export class AccueilComponent implements OnInit {
 
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
         
-         this.process[index].etats.pourcentage = 4;
+         this.process[index].etats.pourcentage = 5;
         
          let mt_carte = objet.data.nb_carte * objet.data.mt_carte ;
          objet.dataI = {
@@ -1225,7 +1226,7 @@ export class AccueilComponent implements OnInit {
         this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
-          this.process[index].etats.pourcentage = 4 ;
+          this.process[index].etats.pourcentage = 5 ;
           objet.dataI = {
             apiservice:'postecash',
             service:'achatcodewayafal',
@@ -1247,7 +1248,7 @@ export class AccueilComponent implements OnInit {
           objet.etats.etat=true;
           objet.etats.load='terminated';
           objet.etats.color='red';
-          this.process[index].etats.pourcentage = 5;
+          this.process[index].etats.pourcentage = 4;
         }
       });
   }
@@ -1296,11 +1297,12 @@ export class AccueilComponent implements OnInit {
     this._tntService.abonner(objet.data.token, objet.data.prenom,objet.data.nomclient, objet.data.tel,objet.data.cni, objet.data.chip, objet.data.carte, objet.data.duree, objet.data.typedebouquet).then( response =>
       {
 
-        this.process[index].etats.pourcentage = 4;
+       
 
         let typedebouquet = "" ;
         console.log(response);
         if(response.response=="ok"){
+          this.process[index].etats.pourcentage = 4;
 
            objet.etats.etat=true;
            objet.etats.load='terminated';
@@ -1363,9 +1365,9 @@ export class AccueilComponent implements OnInit {
     
     this._tntService.vendreDecodeur(objet.data.token, objet.data.prenom,objet.data.nomclient,objet.data.tel, objet.data.adresse, objet.data.region, objet.data.cni,objet.data.chip,objet.data.carte, objet.data.duree, objet.data.typedebouquet, objet.data.montant).then( response =>
       {
-        this.process[index].etats.pourcentage = 4;
+        
         if(response=="ok"){
-
+          this.process[index].etats.pourcentage = 4;
            objet.dataI = {
             apiservice:'tnt',
             service:'ventedecodeur',
@@ -1411,8 +1413,9 @@ export class AccueilComponent implements OnInit {
     this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
     
     this._tntService.vendreCarte('55555', objet.data.prenom, objet.data.nomclient,objet.data.tel,objet.data.tel, objet.data.region,objet.data.cni,objet.data.carte, 5000).then( response =>{
-         this.process[index].etats.pourcentage = 4;
+         
         if(response=="ok"){
+          this.process[index].etats.pourcentage = 4;
           objet.dataI = {
             apiservice:'tnt',
             service:'ventecarte',
@@ -1454,9 +1457,10 @@ export class AccueilComponent implements OnInit {
 
       console.log('cashInWizall');
       this._wizallService.intouchCashin("test 1", objet.data.num, objet.data.montant).then( response =>{
-              this.process[index].etats.pourcentage = 4;
+              
               console.log(response)
               if(response.commission!=undefined){
+                this.process[index].etats.pourcentage = 4;
                 objet.dataI = {
                   apiservice:'wizall',
                   service:'senelec',
@@ -1490,9 +1494,10 @@ export class AccueilComponent implements OnInit {
       this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
       this._wizallService.intouchCashout("test 1", objet.data.num, objet.data.montant).then( response =>{
-              this.process[index].etats.pourcentage = 4;
+              
               console.log(response) ;
               if(response.status=="PENDING"){
+                this.process[index].etats.pourcentage = 4;
                 objet.dataI = {
                   apiservice:'wizall',
                   service:'senelec',
@@ -1518,8 +1523,16 @@ export class AccueilComponent implements OnInit {
 
     payerSDEWizall(objet : any){
       console.log('payerSDEWizall');
+
+      let index = this.process.findIndex(
+        item => (item.data.montant === objet.data.montant && item.data.refclient === objet.data.refclient && item.data.refFacture === objet.data.refFacture && item.data.nom === objet.data.nom
+      ));
+  
+      this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
       this._wizallService.intouchPayerFactureSde(objet.data.montant, objet.data.refclient, objet.data.refFacture).then( response =>{
         if(response=="ok"){
+          this.process[index].etats.pourcentage = 4;
           objet.dataI = {
             apiservice:'wizall',
             service:'senelec',
@@ -1538,14 +1551,23 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode=response.code;
+           this.process[index].etats.pourcentage = 5;
         }
       });
     }
 
     payerSenelecWizall(objet : any){
       console.log('payerSenelecWizall');
+
+      let index = this.process.findIndex(
+        item => (item.data.montant === objet.data.montant && item.data.police === objet.data.police && item.data.numfacture === objet.data.numfacture
+      ));
+  
+      this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
       this._wizallService.intouchPayerFactureSenelec(objet.data.montant, objet.data.police, objet.data.numfacture).then( response =>{
         if(response=="ok"){
+          this.process[index].etats.pourcentage  = 4;
           objet.dataI = {
             apiservice:'wizall',
             service:'senelec',
@@ -1564,6 +1586,7 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode=response.code;
+           this.process[index].etats.pourcentage = 5;
         }
 
       });
@@ -1727,9 +1750,15 @@ export class AccueilComponent implements OnInit {
       return 0 ;
     }
 
+    let index = this.process.findIndex(
+      item => (item.data.montant === objet.data.montant && item.data.police === objet.data.police && item.data.numfacture === objet.data.numfacture
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
     this._tcService.requerirControllerTC(requete).then( resp => {
       if (resp.status==200){
+           this.process[index].etats.pourcentage = 4;
            console.log("For this 'depot', we just say : "+resp._body) ;
             if(resp._body.trim()=='0'){
                objet.etats.etat=true;
@@ -1802,6 +1831,7 @@ export class AccueilComponent implements OnInit {
            },5000);
       }
       else{
+        this.process[index].etats.pourcentage = 5;
         console.log("error") ;
 
         }
@@ -2735,6 +2765,7 @@ public pdvacueilmenumobilemoneyretour(){
           }
 
           validvente(){
+              
               this.loading = true ;
               if(this.servicevente.toLowerCase()=='assurance'.toLowerCase()){
                 let tempdesignation=this.designation;
@@ -2830,8 +2861,16 @@ public pdvacueilmenumobilemoneyretour(){
           }
 
           paimantsdeFacturier(object){
+            
+            let index = this.process.findIndex(
+              item => (item.data.num === object.data.num && item.data.montant === object.data.montant && item.data.nom === object.data.nom
+            ));
+
+            this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+
             this._facturierService.paimentsde(object.data.mntsde,object.data.refclientsde,object.data.refFactureSDE,object.data.mom).then( response =>{
                 this.hidemodalsde();
+                this.process[index].etats.pourcentage = 4;
                 this.dataImpression = {
                   apiservice:'postecash',
                   service:'achatcodewayafal',
@@ -2900,7 +2939,15 @@ public pdvacueilmenumobilemoneyretour(){
 
                 
          rechargeWoyofal(object:any){
+
+          let index = this.process.findIndex(
+            item => (item.data.api === object.data.api && item.data.compteur === object.data.compteur && item.data.nom === object.data.nom
+          ));
+
+          this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+
           this._facturierService.validerwoyofal(object.data.api,object.data.montant,object.data.compteur).then(response =>{
+            this.process[index].etats.pourcentage = 4;
             console.log(response);
             this.modalwoyofal.hide();
             this.dataImpression = {
@@ -2945,9 +2992,16 @@ public pdvacueilmenumobilemoneyretour(){
           }
 
           payeroolusolarFacturier(object){
+            
+              let index = this.process.findIndex(
+                item => (item.data.telephone === object.data.telephone && item.data.compte === object.data.compte && item.data.montant === object.data.montant
+              ));
+    
+              this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
 
               this._facturierService.payeroolusolar("00221"+(object.data.telephone).toString(),object.data.compte,object.data.montant).then(response =>{
                 console.log(response);
+                this.process[index].etats.pourcentage = 4;
                 this.hidemodaloolu();
                 this.montant=undefined;
                 this.compte=undefined;
@@ -2996,6 +3050,7 @@ public pdvacueilmenumobilemoneyretour(){
                  this.modalsenelec.show();
                }else{
                  console.log(response);
+
                  this.etat1=true;
                  this.detailfacturesenelec.errorCode=response.errorCode;
                  this.modalsenelec.show();
@@ -3011,8 +3066,16 @@ public pdvacueilmenumobilemoneyretour(){
           }
 
           paimentsenelec(object:any){
+                          
+              let index = this.process.findIndex(
+                item => (item.data.montant === object.data.montant && item.data.police === object.data.police && item.data.num_facture === object.data.num_facture && item.data.service === object.data.service
+              ));
+    
+              this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+
               this._facturierService.validerpaimentsenelec(object.data.montant,object.data.police,object.data.num_facture,object.data.service).then(response =>{
                 if(response.errorCode==0){
+                  this.process[index].etats.pourcentage = 4;
                     this.modalsenelec.hide();
                     this.dataImpression = {
                       apiservice:'postecash',
