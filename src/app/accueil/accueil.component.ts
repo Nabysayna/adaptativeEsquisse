@@ -421,7 +421,7 @@ export class AccueilComponent implements OnInit {
                 var operation=sesion.data.operation;
                 switch(operation){
                   case 1:{
-                        this.validrechargementespece(sesion);
+                        this.validrechargementespecePostCash(sesion);
                         break;
                   }
                   case 2:{
@@ -1077,15 +1077,22 @@ export class AccueilComponent implements OnInit {
 
 /******************************************************************************************************/
 
-  validrechargementespece(objet:any){
+  validrechargementespece(){
+    let depotInfo = {'nom':'PostCash','operateur':1,'operation':1,'num':this.telephone,'montant':this.montant};
+    this.mobileProcessing(JSON.stringify(depotInfo));
+    this.reinitialiser();
+  }
+  
+  validrechargementespecePostCash(objet:any){
+
     let index = this.process.findIndex(
-      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
     ));
 
-    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
 
     this._postCashService.rechargementespece('00221'+objet.data.telephone+'',''+objet.data.montant).then(postcashwebserviceList => {
-          alert(postcashwebserviceList);
+          console.log(postcashwebserviceList);
 
           if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
 
@@ -1126,29 +1133,33 @@ export class AccueilComponent implements OnInit {
 
   validateachatjula(objet:any){
     let index = this.process.findIndex(
-      item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+      item => (item.data.mt_carte === objet.data.mt_carte && item.data.mt_carte === objet.data.mt_carte && item.data.nom === objet.data.nom
     ));
 
     this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
-     this._postCashService.achatjula(objet.data.montant+'',objet.data.nbcarte+'').then(postcashwebserviceList => {
+    console.log("mangui si biti");
+     this._postCashService.achatjula(objet.data.mt_carte+'',objet.data.nb_carte+'').then(postcashwebserviceList => {
+      
         this.process[index].etats.pourcentage = 0;
 
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
         
          this.process[index].etats.pourcentage = 4;
-          
-         let montant = objet.data.nbcarte * objet.data.montant ;
+        
+         let mt_carte = objet.data.nb_carte * objet.data.mt_carte ;
          objet.dataI = {
+         
+
               apiservice:'postecash',
               service:'achatjula',
               infotransaction:{
                 client:{
                   transactionPostCash: postcashwebserviceList.transactionId,
                   transactionBBS: 'id BBS',
-                  typecarte:objet.data.montant,
-                  nbcarte:objet.data.nbcarte,
-                  montant:montant,
+                  typecarte:objet.data.mt_carte,
+                  nbcarte:objet.data.nb_carte,
+                  montant:mt_carte,
                 },
 
               },
@@ -1565,7 +1576,7 @@ export class AccueilComponent implements OnInit {
 
     let today = Number( Date.now() ) ;
     let omOps = [] ;
-    console.log(localStorage.getItem(operation)) ;
+        console.log(localStorage.getItem(operation));
 
     if (localStorage.getItem(operation)==null ){
       localStorage.setItem(operation, JSON.stringify([{requete:incomingRequest, tstamp:today}]) );
@@ -1813,8 +1824,9 @@ export class AccueilComponent implements OnInit {
     }
 
     this._tcService.requerirControllerTC(requete).then( resp => {
+    
       if (resp.status==200){
-
+        
         console.log("For this 'retrait', we just say : "+resp._body) ;
 
         if(resp._body.trim()=='0'){
@@ -2023,7 +2035,7 @@ public pdvacueilmenumobilemoneyretour(){
                   case 1:{
                         console.log("PosteCash operation 1");
 
-                        this.validrechargementespece(sesion);
+                        this.validrechargementespecePostCash(sesion);
                         break;
                   }
                   case 2:{
@@ -2050,8 +2062,8 @@ public pdvacueilmenumobilemoneyretour(){
               switch(operation){
                 case 1:{
                       
-                       this.deposer(sesion);
-                       break;
+                      //this.deposer(sesion);
+                        break;
                        }
                 case 2:{
                       this.retirerOM(sesion);
@@ -2122,11 +2134,11 @@ public pdvacueilmenumobilemoneyretour(){
          console.log('Willa');
              switch(operation){
               case 1:{
-                  // this.cashInWizall(sesion);
+                 this.cashInWizall(sesion);
                    break;
               }
               case 2:{
-                  //this.cashOutWizall(sesion);
+                  this.cashOutWizall(sesion);
                   break;
               }
               case 3:{
@@ -2372,6 +2384,7 @@ public pdvacueilmenumobilemoneyretour(){
        this.hidemodalPostCash();
     }
 
+
     retraitEspeceAvecCartePostCash(){
        let depotInfo = {'nom':'PostCash','operateur':1,'operation':3,'num':this.telephone,'montant':this.montant};
        this.mobileProcessing(JSON.stringify(depotInfo));
@@ -2385,6 +2398,7 @@ public pdvacueilmenumobilemoneyretour(){
        this.reinitialiser();
        this.hidemodalPostCash();
     }
+
 
     /*-------------- -------- Facturier -------------------------------*/
 
@@ -2522,6 +2536,8 @@ public pdvacueilmenumobilemoneyretour(){
           )
         },10000);
       }
+
+
     /*-------------- --------GESTIONREPORTING-------------------------------*/
 
         /********** gestionreporting-variables ***************/
@@ -2578,6 +2594,10 @@ public pdvacueilmenumobilemoneyretour(){
                   }
                 )
               console.log(JSON.stringify({idpdv:10, type:'jour', infotype: this.selectionjour}));
+            }
+
+            trimer(infosclient) : string{
+              return infosclient.replace('R', '') ;
             }
 
             historiqueintervalle(){
@@ -2945,7 +2965,7 @@ public pdvacueilmenumobilemoneyretour(){
       }
 
       public closeTrasaction(objet:any){
-        alert(objet);
+
         let index = this.process.findIndex(
           item => (item.data.telephone === objet.data.telephone && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
         ));
@@ -3946,7 +3966,20 @@ retraitaveccodeomBack(){
       this.retraitaveccodeom = this.retraitaveccodeom - 1 ;
 }
 
+/************************************
+ *  E-COMMERCE FUNCTIONS
+ ***********************************/
 
+ /* Catalogue */
+
+ public changeTypeaheadLoading(e: boolean): void {
+  this.filterQuery = this.asyncSelected;
+  this.typeaheadLoading = e;
+}
+
+public changeTypeaheadNoResults(e: boolean): void {
+  this.typeaheadNoResults = e;
+}
 
     // Pagination 
 /*      contentArray = new Array(90).fill('');
