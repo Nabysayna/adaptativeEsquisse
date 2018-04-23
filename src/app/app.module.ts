@@ -23,24 +23,17 @@ import {NgxPaginationModule} from 'ngx-pagination';
 /*      Services   */
 /*-----------------*/
 
-import { AchatJulaService} from './postcash/postservices';
-import { ReglSenelecService} from './postcash/postservices';
-import { AchatCodeWoyofalService} from './postcash/postservices';
-import { RechargeEspeceService} from './postcash/postservices';
-import { AchatCreditTelService} from './postcash/postservices';
-import { RetraitEspeceService} from './postcash/postservices';
 import { SoldeService} from './soldecompte/soldeservice';
 import { CashInService} from './expresso/expressoservices';
 import { CashOutService} from './expresso/expressoservices';
 import { AgentTopUpService} from './expresso/expressoservices';
 import { MyAccountService} from './expresso/expressoservices';
-import { NAbonnementService} from './tnt/tntservices';
-import { LAbonnementService} from './tnt/tntservices';
-import { EFinancierService} from './tnt/tntservices';
 
 import {TigocashService} from './services/tigocash.service';
 
-
+import { NAbonnementService} from './services/tntservices';
+import { LAbonnementService} from './services/tntservices';
+import { EFinancierService} from './services/tntservices';
 
 /*-----------------*/
 /*      Routes     */
@@ -79,28 +72,18 @@ import { AdminmultipdvStatusPdvComponent } from './admin-multi-pdv/admin-multi-p
 import { AdminmultipdvStatusReclamationComponent } from './admin-multi-pdv/admin-multi-pdv-status-reclamation/admin-multi-pdv-status-reclamation.component';
 import { AdminmultipdvUpdateCautionComponent } from './admin-multi-pdv/admin-multi-pdv-update-caution/admin-multi-pdv-update-caution.component';
 
-import { RapidoComponent} from './rapido/rapido.component';
-import { OrangeMoneyComponentComponent } from './orange-money-component/orange-money-component.component';
-import { TigoCashComponentComponent } from './tigo-cash-component/tigo-cash-component.component';
-
 import { CrmComponent } from './crm/crm.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { DemandepretComponent } from './demandepret/demandepret.component';
-import { GestionreportingComponent } from './gestionreporting/gestionreporting.component';
 import { SoldecompteComponent } from './soldecompte/soldecompte.component';
 import { ImpressionComponent } from './impression/impression.component';
-import { PostcashComponent } from './postcash/postcash.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ExpressoComponent } from './expresso/expresso.component';
-import { TntComponent, DataToArray } from './tnt/tnt.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
 import { EspacePersoComponent } from './espace-perso/espace-perso.component';
 import { ComptabiliteComponent } from './comptabilite/comptabilite.component';
 import { GestionnaireComponent } from './gestionnaire/gestionnaire.component';
 import { panierComponent } from './panier/panier.component';
-import { SenelecComponent } from './senelec/senelec.component';
-import { OoluComponent } from './oolu/oolu.component';
+
 
 import { GeomapComponentComponent } from './geomap-component/geomap-component.component';
 
@@ -155,7 +138,6 @@ import { FirstlogComponent } from './firstlog/firstlog.component';
 import {FiltreexploitationaveccommissionPipe} from "./pipes/filtreexploitationaveccommission.pipe";
 import {GuideUserCaisseComponent} from "./guideusercaisse/guideusercaisse.component";
 import {GuideUserSuperviseurComponent} from "./guideusersuperviseur/guideusersuperviseur.component";
-import {WizallComponent } from './wizall/wizall.component';
 import {UtilsService} from "./services/utils.service";
 import {CrmService} from "./services/crm.service";
 import {AdminpdvService} from "./services/adminpdv.service";
@@ -167,9 +149,6 @@ import {AdminmultipdvCreditationCCComponent} from "./admin-multi-pdv/admin-multi
 import { ZoningComponent } from './zoning/zoning.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { AnnoncesuperviseurComponent } from './annoncesuperviseur/annoncesuperviseur.component';
-
-import { SdeComponent } from './sde/sde.component';
-import { WoyofalComponent } from './woyofal/woyofal.component';
 
 import {AdminmultipdvSuivipointComponent} from "./admin-multi-pdv/admin-multi-pdv-suivipoint/admin-multi-pdv-suivipoint.component";
 import {AuthService} from "./services/auth.service";
@@ -196,31 +175,19 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
-    DataToArray,
     AppComponent,
     AuthComponentComponent,
     AccueilComponent,
-    OrangeMoneyComponentComponent,
-    TigoCashComponentComponent,
     CrmComponent,
     DashboardComponent,
-    ECommerceComponent,
     AccueiladminpdvComponent,
     AccueilAdminMultiPdvComponent,
     DemandepretComponent,
-    GestionreportingComponent,
     SoldecompteComponent,
     panierComponent,
-    RapidoComponent,
-    SdeComponent,
-    WoyofalComponent,
-    SenelecComponent,
-    OoluComponent,
 
     ImpressionComponent,
     ImpressionadminpdvComponent,
-
-    PostcashComponent,
 
     AdminmultipdvDashboardComponent,
     AdminmultipdvDemandeRetraitComponent,
@@ -240,8 +207,6 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     LoaderComponent,
     NavbarTopComponent,
     ExpressoComponent,
-    TntComponent,
-    CatalogueComponent,
     EspacePersoComponent,
     LoaderComponent,
     ComptabiliteComponent,
@@ -292,7 +257,6 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     GestionnaireComponent,
     GuideUserCaisseComponent,
     GuideUserSuperviseurComponent,
-    WizallComponent,
     CommissionnementComponent,
     ChallengeresultsComponent,
     ZoningComponent,
@@ -323,20 +287,14 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     NgxPaginationModule
   ],
   providers: [
-      EFinancierService,
-      LAbonnementService,
-      NAbonnementService,
+    EFinancierService,
+    LAbonnementService,
+    NAbonnementService,
       MyAccountService,
       AgentTopUpService,
       CashOutService,
       CashInService,
       SoldeService,
-      RetraitEspeceService,
-      AchatCreditTelService,
-      RechargeEspeceService,
-      AchatCodeWoyofalService,
-      ReglSenelecService,
-      AchatJulaService,
       AuthGuard,
       AuthGuardcais,
       AuthGuardsup,

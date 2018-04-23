@@ -12,8 +12,8 @@ import {GestionreportingService, Gestionreporting, Servicepoint} from "../servic
 import { ComptabiliteService } from 'app/services/comptabilite.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import { UtilsService } from 'app/services/utils.service';
-import { NAbonnementService, LAbonnementService, EFinancierService } from 'app/tnt/tntservices';
-import { NAbonnement, EFinancier, LAbonnement } from 'app/tnt/tntmodels';
+import { NAbonnementService, LAbonnementService, EFinancierService } from '../services/tntservices';
+import { NAbonnement, EFinancier, LAbonnement } from '../services/tntmodels';
 import { Location }  from '@angular/common';
 import { FacturierService } from 'app/services/facturier.service';
 import { Observable } from 'rxjs/Observable';
@@ -318,7 +318,22 @@ export class AccueilComponent implements OnInit {
 /******************************************************************************************************/
 
 
-  ngOnInit() { 
+  ngOnInit() {
+
+          window.onbeforeunload = function(e) {
+              let ee, message;
+
+              ee = e = e || window.event;
+
+              message = "Souhaitez-vous vraiment quiter la page";
+              
+              // For IE and Firefox 
+              if (ee) {
+                  ee.returnValue = message;
+              }
+              // For Safari
+                return message;
+          };
           //E-Commerce
           this.loading = true ;
           this._ecomService.listeArticles(this.token, 'catalogue').then( response => {
@@ -1082,6 +1097,7 @@ export class AccueilComponent implements OnInit {
     let depotInfo = {'nom':'PostCash','operateur':1,'operation':1,'num':this.telephone,'montant':this.montant};
     this.mobileProcessing(JSON.stringify(depotInfo));
     this.reinitialiser();
+    this.hidemodalPostCash();
   }
   
   validrechargementespecePostCash(objet:any){
@@ -2092,7 +2108,7 @@ public pdvacueilmenumobilemoneyretour(){
               switch(operation){
                 case 1:{
                       
-                      //this.deposer(sesion);
+                      this.deposer(sesion);
                         break;
                        }
                 case 2:{
