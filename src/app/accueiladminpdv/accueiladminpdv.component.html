@@ -9,12 +9,12 @@
     <nav class="navbar navbar-default navbar-fixed-top" style="position: fixed ; top :0 ;" role="navigation" style="margin-bottom: 0">
 
         <div class="navbar-collapse" id="navbHead">
-	        <app-navbar-top></app-navbar-top>
+          <app-navbar-top></app-navbar-top>
         </div>
 
         <div class="navbar-default sidebar" role="navigation" id="leftsidemenu">
-	        <div class="sidebar-nav navbar-collapse">
-	            <ul class="nav" id="side-menu">
+          <div class="sidebar-nav navbar-collapse">
+              <ul class="nav" id="side-menu">
 <!--                   <li role="presentation" style="background-color: #f39200; color: white;"><a style="color: white !important;" [routerLink]="['/accueiladmpdv', 'annonce']" >VIDEO ANNONCE</a></li>
  -->
 
@@ -33,9 +33,9 @@
   -->
                  <li><a [routerLink]="['/accueiladmpdv', 'Guide_utilisation']" ><i class="fa fa-book fa-fw"></i> Guide d'utilisation</a></li>
 
-	            </ul>
-	        </div>
-	    </div>
+              </ul>
+          </div>
+      </div>
     </nav>
 
     <div class="row routedisplayer" style="padding-top: 7rem">
@@ -56,66 +56,435 @@
 <!--**********************************************************************************************
                                         Accueil
 ***********************************************************************************************-->
+<div class="row" *ngIf="displayedPage=='accueil'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+    </div>
+    <!--<div class="col-sm-12 col-xs-12" style="margin-top: -6rem;">
+      <h1 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 5rem; ">
+        Dashbord
+      </h1> 
+    </div>--> 
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="col-xs-12 col-sm-12" (click)="roadTo('dashboard')" style="border: 0px;background-color: rgb(255,144, 00);">
+            <h5  style="font-family:'caviar dreams bold'; font-size: 2.5rem; color: white; width: 100%;margin-right: 5rem;">Tableaux de bord</h5>
+        </div>
 
-<!-- contenu accueil (Menu )-->
+        <div class="col-xs-12 col-sm-12" (click)="roadTo('monitoring')" style="border: 0px;">
+            <h5  style="font-family:'caviar dreams bold'; font-size: 2rem;color: #36A9E0;width: 100%;"> Monitoring des deposits</h5>
+        </div>
+
+      <div class="col-sm-12 col-xs-12" (click)="roadTo('parametrecompte')" style="background-color: transparent;border: 0px;">
+          <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">Parametre des comptes</h5>
+      </div>
+
+      <div  class="col-xs-12 col-sm-12" (click)="roadTo('reclamation')" style="background-color: transparent;border: 0px">
+            <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">   Status réclamation</h5>
+      </div>
+
+      <div  class="col-xs-12 col-sm-12" (click)="roadTo('aidedecision')" style="background-color: transparent;border: 0px">
+            <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">  Propositions d'aide à la decision</h5>
+      </div>
+
+        <div  class="col-xs-12 col-sm-12" (click)="roadTo('comptabilite')" style="background-color: transparent;border: 0px">
+            <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">  Comptabilité</h5>
+      </div>
+
+      <div class="col-sm-12 col-xs-12" (click)="roadTo('CRM')" style="background-color: transparent;border: 0px; ">
+        <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">  CRM</h5>
+      </div>
+
+      <div class="col-sm-12 col-xs-12" (click)="roadTo('consulterpret')" style="background-color: transparent;border: 0px;">
+        <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">   Consulter les prêts</h5>
+      </div>
+
+      <div class="col-sm-12 col-xs-12" (click)="roadTo('Guide_utilisation')" style="background-color: transparent;border: 0px;">
+          <h5  style="font-family:'caviar dreams bold';font-size: 2rem; color: #36A9E0;width: 100%;">   Guide d'utilisation</h5>
+      </div>
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                         tableau de bord
 ***********************************************************************************************-->
 
-<!-- tableau de bord -->
+<div class="row" *ngIf="displayedPage=='accueil-dashboard'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Tableau de bord
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        ici tableau de bord
+
+     
+ 
+    </div>
+</div>
 
 
 <!--**********************************************************************************************
                                         Monitoring des deposites
 ***********************************************************************************************-->
 
-<!-- //   Monitoring des deposites -->
+<div class="row" *ngIf="displayedPage=='accueil-monitoring'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Monotoring des deposites
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+            ici monotoring des deposites
+
+     
+ 
+    </div>
+</div>
 
 
 <!--**********************************************************************************************
                                         Paramettres des comptes
 ***********************************************************************************************-->
 
-<!-- //  Paramettres des comptes -->
+<div class="row" *ngIf="displayedPage=='accueil-parametrecompte'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Parametres des compte
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+            ici monotoring des deposites
+
+     
+ 
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                        Status reclamations
 ***********************************************************************************************-->
 
-<!-- //    Status reclamations -->
+<div class="row" *ngIf="displayedPage=='accueil-reclamation'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Satatus reclamation
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+            Satatus reclamation
+
+     
+ 
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                       Proposition d'aide a la solution
 ***********************************************************************************************-->
 
-<!-- //    Status reclamations -->
+<div class="row" *ngIf="displayedPage=='accueil-aidedecision'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Proposition d'aide a la solution
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+           Proposition d'aide a la solution
+
+     
+ 
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                      Contablité 
 ***********************************************************************************************-->
 
-<!-- //    Contablité  -->
+<div class="row" *ngIf="displayedPage=='accueil-comptabilite'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Comptablité
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+           Comptablité
+
+     
+ 
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                     CRM
 ***********************************************************************************************-->
 
-<!-- //    CRM -->
+<div class="row" *ngIf="displayedPage=='accueil-CRM'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Gestion Clientèle
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row" style="margin-bottom: 3rem;">
+        <div class=" col-sm-12 col-xs-12" style="padding-top: 7rem;">
+          <div class="row">
+            <button style="border: 0rem;color:rgb(255,144, 00);font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#portefeuille" data-toggle="tab" [ngClass]="{'activeatag': true, 'active': menuHead.menuHead1}" (click)="roadTo('port'); prtflle()">Portefeuille</button>
+          </div>
+          <div class="row">
+            <button style="border: 0rem;color:rgb(255,144, 00);font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#relance" data-toggle="tab" [ngClass]="{'activeatag': true, 'active': menuHead.menuHead2}" (click)="roadTo('rel'); relanceMeth()">Relance</button>
+          </div>
+          <div class="row">
+            <button style="border: 0rem;color:rgb(255,144, 00);font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#promotion" data-toggle="tab" [ngClass]="{'activeatag': true, 'active': menuHead.menuHead3}" (click)="roadTo('prom'); promotionMeth()">Promotion</button>
+          </div>
+          <div class="row">
+            <button style="border: 0rem;color:rgb(255,144, 00); font-family: 'caviar dreams bold';font-size: 2.4rem;" href="#prospection" data-toggle="tab" [ngClass]="{'activeatag': true, 'active': menuHead.menuHead4}" (click)="roadTo('pros'); prospect()">Prospection</button>
+          </div>
+          <div class="row">
+            <button style="border: 0rem;color:rgb(255,144, 00);font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#suivicommande" data-toggle="tab" [ngClass]="{'activeatag': true, 'active': menuHead.menuHead5}" (click)="roadTo('scm'); commandes()">Suivi Commandes</button>
+          </div>
+        </div>
+      </div>
+
+     
+ 
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                     Consulter les prets
 ***********************************************************************************************-->
 
-<!-- //    Consulter les prets -->
+<div class="row" *ngIf="displayedPage=='accueil-consulterpret'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Consulter des prêts
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+           Consulter des prêts
+
+     
+ 
+    </div>
+</div>
 
 <!--**********************************************************************************************
                                    Guide d'utilissation
 ***********************************************************************************************-->
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
 
-<!-- //    Guide d'utilissation -->
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Guide d'utilissation
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+          Guide d'utilissation
 
+     
+ 
+    </div>
+</div>
+<!--**********************************************************************************************
+                                   menus tableau de bord
+***********************************************************************************************-->
 
+<!--**********************************************************************************************
+                                  Monotoring des deposites
+***********************************************************************************************-->
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Guide d'utilissation
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+          Guide d'utilissation
+
+     
+ 
+    </div>
+</div>
 <!--**********************************************************************************************
                                   Les modals
 ***********************************************************************************************-->
