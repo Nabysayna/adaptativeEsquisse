@@ -386,7 +386,7 @@ export class AccueilComponent implements OnInit {
   this.loading = true ;
     this.ecomCaller.listeArticles(this.token, 'perso').then( response =>
     {
-      this.articles = _.chunk(response, 3) ;
+      //this.articles = _.chunk(response, 3) ;
       this.listarticles = response;
       this.loading = false ;
     });
@@ -1155,10 +1155,9 @@ export class AccueilComponent implements OnInit {
 
     this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
-    console.log("mangui si biti");
+    
      this._postCashService.achatjula(objet.data.mt_carte+'',objet.data.nb_carte+'').then(postcashwebserviceList => {
       
-        this.process[index].etats.pourcentage = 0;
 
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
         
@@ -1183,13 +1182,13 @@ export class AccueilComponent implements OnInit {
             }
          objet.etats.etat=true;
          objet.etats.load='terminated';
-         objet.etats.color='green';
+         objet.etats.color='red';
         }else{
              objet.etats.etat=true;
              objet.etats.load='terminated';
-             objet.etats.color='red';
+             objet.etats.color='creen';
 
-             this.process[index].etats.pourcentage = 5;
+             this.process[index].etats.pourcentage = 4;
         }
       });
 
@@ -1472,6 +1471,8 @@ export class AccueilComponent implements OnInit {
       this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
       console.log('cashInWizall');
+      console.log( "Telephone client: " + objet.data.num+ " Montant client: " + objet.data.montant );
+
       this._wizallService.intouchCashin("test 1", objet.data.num, objet.data.montant).then( response =>{
               
               console.log(response)
@@ -1508,7 +1509,7 @@ export class AccueilComponent implements OnInit {
       ));
   
       this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
-
+      console.log("Numero : " +objet.data.num + " Montant : "+objet.data.montant);
       this._wizallService.intouchCashout("test 1", objet.data.num, objet.data.montant).then( response =>{
               
               console.log(response) ;
@@ -2094,7 +2095,7 @@ public pdvacueilmenumobilemoneyretour(){
                         break;
                   }
                   case 4:{
-                        this.validateachatcodewoyofal(sesion);
+                       this.validateachatcodewoyofal(sesion);
                         break;
                   }
                   default:break;
@@ -2158,15 +2159,15 @@ public pdvacueilmenumobilemoneyretour(){
 
              switch(operation){
               case 1:{
-                  // this.validnabon(sesion);
+                  this.validnabon(sesion);
                    break;
               }
               case 2:{
-                 // this.vendreDecodeur(sesion);
+                 this.vendreDecodeur(sesion);
                   break;
               }
               case 3:{
-                  //this.vendreCarte(sesion);
+                  this.vendreCarte(sesion);
                   break;
               }
               default : break;
@@ -2243,7 +2244,7 @@ public pdvacueilmenumobilemoneyretour(){
 
                     case 3:{
                           console.log('Woyofal');
-                          this.payerSDEWizall(sesion);
+                          this.rechargeWoyofal(sesion);
                           break;
                     }
 
@@ -3143,7 +3144,7 @@ public pdvacueilmenumobilemoneyretour(){
 
   //Depot
   deposerWIZALL(){
-        let depotInfoWIZALL = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+        let depotInfoWIZALL = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.numclient,'montant':this.mnt};
         this.mobileProcessing(JSON.stringify(depotInfoWIZALL));
         this.fermermodalretraitWIZALL();
       }
@@ -3162,7 +3163,7 @@ public pdvacueilmenumobilemoneyretour(){
 
 //retrait
 public retirerWIZALL(){
-         let retraitInfoWIZALL = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         let retraitInfoWIZALL = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.numclient,'montant':this.mnt};
          this.mobileProcessing(JSON.stringify(retraitInfoWIZALL));
          this.fermermodalretraitWIZALL();
       }
@@ -3230,7 +3231,7 @@ public retirerWIZALL(){
      this.modalbonCash.hide()
     }
 faireBonCash(){
-         let depotInfo = {'nom':'WIZALL ','operateur':6,'operation':1};
+         let depotInfo = {'nom':'WIZALL ','operateur':6,'operation':1,};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodalBonCash();
       }
