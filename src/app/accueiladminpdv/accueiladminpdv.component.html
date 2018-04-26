@@ -58,9 +58,23 @@
 ***********************************************************************************************-->
 <div class="row" *ngIf="displayedPage=='accueil'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-      <img src="assets/thumbnailphone.png" style="width: 30%; margin-bottom: 10px;padding-bottom: 2rem;"/>
-      <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
-          <i class="fa fa-sign-out fa-2x" style="color:orange;"></i> 
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
+            </div> 
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; padding-top:1rem;"/>
+            </div>
+            <div class="col-sm-3 col-xs-3">
+                <div class="row">
+                    <i class="fa fa-sign-out fa-2x" style="color:orange;height: 4rem; margin-left:3rem;"></i> 
+                </div>
+                <div class="row">
+
+                </div>
+            </div>  
+                
+        </div> 
     </div>
     <!--<div class="col-sm-12 col-xs-12" style="margin-top: -6rem;">
       <h1 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 5rem; ">
@@ -110,24 +124,26 @@
                                         tableau de bord
 ***********************************************************************************************-->
 
+<!-- ............................
+        tableau de bord => Rechercher par intervalle
+ ............................-->
+
 <div class="row" *ngIf="displayedPage=='accueil-dashboard'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-      <div class="col-sm-2 col-xs-2">
-        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
-      </div>
-      <div class="col-sm-8 col-xs-8">
-        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
-      </div>
-      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-        <div class="row">
-          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        <div class="col-sm-3 col-xs-3">
+            <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
         </div>
-        <div class="row">
-          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        <div class="col-sm-6 col-xs-6">
+            <img src="assets/rond.png" style="width: 100%; "/>
         </div>
-        
-      </div>
-
+        <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+            <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem;"></i>
+            </div>
+            <div class="row">
+              <img src="assets/deconnet.png" style=" height: 4rem;"/>
+            </div>
+        </div>
     </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
       <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
@@ -135,13 +151,190 @@
       </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        ici tableau de bord
+        <div class="row" style="margin-top:2rem;">
+            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                  <div  class="row">
+                      <div class="col-xs-8 col-sm-8 ">
+                          <i  class="fa fa-microphone fa-4x" style="color:white;"></i>
+                      </div>
+                      <div  class="col-xs-4 col-sm-4 huge">
+                          <div   style="color:white;padding-right: 6px;">0</div>
+                      </div>
+                  </div>
+                  <div class="row" style="color:white;">
+                      Nouvelles Réclamations!
+                  </div>
+            </div>
 
-     
- 
+            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                <div  class="row">
+                    <div class="col-xs-8 col-sm-8">
+                        <i  class="fa fa-check-circle-o fa-4x" style="color:white;"></i>
+                    </div>
+                    <div  class="col-xs-4 col-sm-4 huge" st>
+                        <div   style="color:white;padding-right: 6px;">0</div>
+                    </div>
+                </div>
+                <div class="row" style="color:white;">
+                    Opérations effectuées!
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                <div  class="row">
+                    <div class="col-xs-8 col-sm-8">
+                        <i  class="fa fa-shopping-cart fa-4x" style="color:white;"></i>
+                    </div>
+                    <div  class="col-xs-4 col-sm-4 huge">
+                        <div style="color:white;padding-right: 6px;">0</div>
+                    </div>
+                </div>
+                <div class="row" style="color:white;">
+                    Articles vendus ecom!
+                </div>
+                
+            </div>
+             
+        </div>
+
+        <div class="row">
+             
+            <h5 class="card-header card-success adminpdvDashboardTitle">
+                <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions par intervalle
+            </h5>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <input style="width: 80%;border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-03-26" class="form-control">
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                à 
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                <input style="    width: 80%; border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-04-26" class="form-control"> 
+            </div>
+            <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
+                <button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- ............................
+        tableau de bord => Résultats Rechercher par intervalle
+ ............................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-dashboard'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-3 col-xs-3">
+          <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
+      </div>
+      <div class="col-sm-6 col-xs-6">
+          <img src="assets/rond.png" style="width: 100%; "/>
+      </div>
+      <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+          <div class="row">
+            <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+      Tableau de bord
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row" style="margin-top:2rem;">
+          <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                <div  class="row">
+                    <div class="col-xs-8 col-sm-8 ">
+                        <i  class="fa fa-microphone fa-4x" style="color:white;"></i>
+                    </div>
+                    <div  class="col-xs-4 col-sm-4 huge">
+                        <div   style="color:white;padding-right: 6px;">0</div>
+                    </div>
+                </div>
+                <div class="row" style="color:white;">
+                    Nouvelles Réclamations!
+                </div>
+          </div>
+
+          <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+              <div  class="row">
+                  <div class="col-xs-8 col-sm-8">
+                      <i  class="fa fa-check-circle-o fa-4x" style="color:white;"></i>
+                  </div>
+                  <div  class="col-xs-4 col-sm-4 huge" st>
+                      <div   style="color:white;padding-right: 6px;">0</div>
+                  </div>
+              </div>
+              <div class="row" style="color:white;">
+                  Opérations effectuées!
+              </div>
+          </div>
+
+          <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+              <div  class="row">
+                  <div class="col-xs-8 col-sm-8">
+                      <i  class="fa fa-shopping-cart fa-4x" style="color:white;"></i>
+                  </div>
+                  <div  class="col-xs-4 col-sm-4 huge">
+                      <div style="color:white;padding-right: 6px;">0</div>
+                  </div>
+              </div>
+              <div class="row" style="color:white;">
+                  Articles vendus ecom!
+              </div>
+              
+          </div>
+           
+      </div>
+
+      <div class="row">
+           
+          <h5 class="card-header card-success adminpdvDashboardTitle">
+              <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions par intervalle
+          </h5>
+
+      </div>
+
+      <div class="row">
+          <!-- <table class="table table-responsive table-bordered" [mfData]="retourTntWS | datafilter : filtre" #mfabo="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="orderByDate" [(mfSortOrder)]="sortDateOrder"> -->
+          <table class="table table-responsive table-bordered">
+
+            <thead>
+                    <tr>
+                        <th colspan="4">
+                          <input class="form-control" [(ngModel)]="filtre" placeholder="Recherche" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;" />
+                        </th>
+                    </tr>
+                    <tr>
+                          <th><mfDefaultSorter by="date_abonnement">Pdv</mfDefaultSorter></th>
+                          <th><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
+                          <th><mfDefaultSorter by="n_chip">Recette</mfDefaultSorter></th>
+                          <th><mfDefaultSorter by="n_carte">Option</mfDefaultSorter></th>
+                    </tr>
+
+              </thead>
+              <tbody  >
+                    <tr  [ngStyle]="{'color': 'white', 'background-color': abonnement.etatactivation?'green':'red'}">
+
+                    </tr>
+              </tbody>
+              <tfoot>
+                    <tr>
+                         
+                    </tr>
+              </tfoot>
+    </table>
+      </div>
+  </div>
+</div>
 
 <!--**********************************************************************************************
                                         Monitoring des deposites
@@ -348,7 +541,7 @@
         <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
       </div>
       <div class="col-sm-8 col-xs-8">
-        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+            <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
       </div>
       <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
         <div class="row">
@@ -571,7 +764,7 @@
 
     </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
         Portefeuille
       </h5>  
     </div>
@@ -790,7 +983,7 @@
       </div>
     </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
         Prospection
       </h5>  
     </div>
