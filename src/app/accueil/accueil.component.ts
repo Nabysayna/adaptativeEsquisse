@@ -126,7 +126,7 @@ export class AccueilComponent implements OnInit {
   addtype = '' ;
   id : any ;
 
-  
+  mess:any;
   nomImage : string ;
   categoriea : string ;
   designationa: string;
@@ -386,7 +386,7 @@ export class AccueilComponent implements OnInit {
   this.loading = true ;
     this.ecomCaller.listeArticles(this.token, 'perso').then( response =>
     {
-      this.articles = _.chunk(response, 3) ;
+      //this.articles = _.chunk(response, 3) ;
       this.listarticles = response;
       this.loading = false ;
     });
@@ -1155,10 +1155,9 @@ export class AccueilComponent implements OnInit {
 
     this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
-    console.log("mangui si biti");
+    
      this._postCashService.achatjula(objet.data.mt_carte+'',objet.data.nb_carte+'').then(postcashwebserviceList => {
       
-        this.process[index].etats.pourcentage = 0;
 
         if( (typeof postcashwebserviceList.errorCode != "undefined") && postcashwebserviceList.errorCode == "0" && postcashwebserviceList.errorMessage == ""){
         
@@ -1183,13 +1182,13 @@ export class AccueilComponent implements OnInit {
             }
          objet.etats.etat=true;
          objet.etats.load='terminated';
-         objet.etats.color='green';
+         objet.etats.color='red';
         }else{
              objet.etats.etat=true;
              objet.etats.load='terminated';
-             objet.etats.color='red';
+             objet.etats.color='creen';
 
-             this.process[index].etats.pourcentage = 5;
+             this.process[index].etats.pourcentage = 4;
         }
       });
 
@@ -1472,6 +1471,8 @@ export class AccueilComponent implements OnInit {
       this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
 
       console.log('cashInWizall');
+      console.log( "Telephone client: " + objet.data.num+ " Montant client: " + objet.data.montant );
+
       this._wizallService.intouchCashin("test 1", objet.data.num, objet.data.montant).then( response =>{
               
               console.log(response)
@@ -1508,7 +1509,7 @@ export class AccueilComponent implements OnInit {
       ));
   
       this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
-
+      console.log("Numero : " +objet.data.num + " Montant : "+objet.data.montant);
       this._wizallService.intouchCashout("test 1", objet.data.num, objet.data.montant).then( response =>{
               
               console.log(response) ;
@@ -2094,7 +2095,7 @@ public pdvacueilmenumobilemoneyretour(){
                         break;
                   }
                   case 4:{
-                        this.validateachatcodewoyofal(sesion);
+                       this.validateachatcodewoyofal(sesion);
                         break;
                   }
                   default:break;
@@ -2158,15 +2159,15 @@ public pdvacueilmenumobilemoneyretour(){
 
              switch(operation){
               case 1:{
-                  // this.validnabon(sesion);
+                  this.validnabon(sesion);
                    break;
               }
               case 2:{
-                 // this.vendreDecodeur(sesion);
+                 this.vendreDecodeur(sesion);
                   break;
               }
               case 3:{
-                  //this.vendreCarte(sesion);
+                  this.vendreCarte(sesion);
                   break;
               }
               default : break;
@@ -2243,7 +2244,7 @@ public pdvacueilmenumobilemoneyretour(){
 
                     case 3:{
                           console.log('Woyofal');
-                          this.payerSDEWizall(sesion);
+                          this.rechargeWoyofal(sesion);
                           break;
                     }
 
@@ -2263,6 +2264,33 @@ public pdvacueilmenumobilemoneyretour(){
               }
                break;
         }
+        case 9 :{
+          var operation=sesion.data.operation;
+          console.log(sesion);
+          console.log('Gestion');
+          switch(operation){
+                case 1:{
+                      console.log('Dépense');
+                      this.validCharge(sesion);
+                      break;
+                }
+
+                case 2:{
+                      console.log('Recette');
+                      this.validvente(sesion);
+                      break;
+                }
+
+                case 3:{
+                      console.log('Reclammation');
+                      this.validreclamation(sesion);
+                      break;
+                }
+
+                default : break;
+          }
+           break;
+    }
 
         default:break;
       }
@@ -2368,6 +2396,7 @@ public pdvacueilmenumobilemoneyretour(){
     this.capacite=undefined;
     this.matiere=undefined;
     this.tendances=undefined;
+    this.mess =undefined;
   }
   public number=['0','1','2','3','4','5','6','7','8','9'];
   verifnumber(event){
@@ -2762,35 +2791,69 @@ public pdvacueilmenumobilemoneyretour(){
               )
           }
 
-          validCharge(){
+          validCharge(objet){
             this.loading = true ;
-            console.log(JSON.stringify({libelle:this.libelleCharge, service:this.service, montant:this.montantCharge}));
-            this._gestionreportingService.ajoutdepense({libelle:this.libelleCharge, service:this.service, montant:this.montantCharge})
+
+            let index = this.process.findIndex(
+              item => (item.data.libelleCharge === objet.data.libelleCharge && item.data.service === objet.data.service && item.data.montantCharge === objet.data.montantCharge
+            ));
+        
+            this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
+            console.log(JSON.stringify({libelle:objet.data.libelleCharge, service:objet.data.service, montant:objet.data.montantCharge}));
+            
+            this._gestionreportingService.ajoutdepense({libelle:objet.data.libelleCharge, service:objet.data.service, montant:objet.data.montantCharge})
               .subscribe(
                 data => {
                   console.log(data)
                   this.libelleCharge = "" ;
                   this.service = "" ;
                   this.montantCharge = 0 ;
+                  this.process[index].etats.pourcentage = 4;
                 },
-                error => console.log(error),
+                error => {
+                  console.log(error)
+                  this.process[index].etats.pourcentage = 5;
+                },
                 () => {
                   this.loading = false ;
+                  this.process[index].etats.pourcentage = 5;
                 }
               )
+            }
+          //  check point
+          validChargeGestionRepoting(){
+              let depotInfo = {'nom':'ajouter dépense','operateur':9,'operation':1,'libelleCharge':this.libelleCharge,'service':this.service,"montantCharge": this.montantCharge};
+              this.hideGestionReporting();
+              this.mobileProcessing(JSON.stringify(depotInfo));
+              this.reinitialiser();
           }
 
-          validvente(){
+          
+          validventeGestionRepoting(){
+              let depotInfo = {'nom':'Recettes','operateur':9,'operation':2,'quantite':this.quantite,'designation':this.designation,'servicevente':this.servicevente.toLowerCase(),"noma": this.noma,"prenoma": this.prenoma, "telephonea": this.telephonea, "datedebut": this.datedebut, "datefin": this.datefin};
+              this.hideGestionReporting();
+              this.mobileProcessing(JSON.stringify(depotInfo));
+              this.reinitialiser();
+          }
+
+          validvente(objet){
               
               this.loading = true ;
-              if(this.servicevente.toLowerCase()=='assurance'.toLowerCase()){
-                let tempdesignation=this.designation;
-                this.designation=JSON.stringify({desig:tempdesignation, nom:this.noma, prenom:this.prenoma, telephone:this.telephonea, datedebut:this.datedebut.toString(), datefin:this.datefin.toString()})
-                console.log("Obj designé "+this.designation);
+              if( objet.data.servicevente == 'assurance'.toLowerCase()){
+                let tempdesignation= objet.data.designation;
+                objet.designation=JSON.stringify({desig:tempdesignation, nom:objet.data.noma, prenom:objet.data.prenoma, telephone:objet.data.telephonea, datedebut:(objet.data.datedebut).toString(), datefin: (objet.data.datefin).toString()})
+                console.log("Obj designé "+objet.designation);
               }
           
-              console.log(JSON.stringify({servicevente:this.servicevente, designation:this.designation, quantite:this.quantite}));
-              this._gestionreportingService.vente({servicevente:this.servicevente, designation:this.designation, quantite:this.quantite})
+              let index = this.process.findIndex(
+                item => (item.data.servicevente === objet.data.servicevente && item.data.designation === objet.data.designation && item.data.quantite === objet.data.quantite
+              ));
+          
+              this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+
+              console.log(JSON.stringify({servicevente:objet.data.servicevente, designation:objet.data.designation, quantite:objet.data.quantite}));
+              this._gestionreportingService.vente({servicevente:objet.data.servicevente, designation:objet.data.designation, quantite:objet.data.quantite})
                 .subscribe(
                   data => {
                     console.log("------ vente -----------")
@@ -2803,30 +2866,54 @@ public pdvacueilmenumobilemoneyretour(){
                     this.noma="";
                     this.telephonea="";
                     this.prenoma="";
+                    this.process[index].etats.pourcentage = 4;
                   },
-                  error => console.log(error),
+                  error => {
+                    console.log(error);
+                    this.process[index].etats.pourcentage = 5;
+                  },
                   () => {
                     this.loading = false ;
+                    this.process[index].etats.pourcentage = 5;
                   }
                 )
         
           }
 
-          validreclamation(){
+          validreclamationGestionRepoting(){
+            let depotInfo = {'nom':'Recettes','operateur':9,'operation':3,'sujet':this.sujet,'nomservice':this.nomservice,"mess": this.mess};
+            this.hideGestionReporting();
+            this.mobileProcessing(JSON.stringify(depotInfo));
+            this.reinitialiser();
+          }
+
+          validreclamation(objet){
             console.log("-------------------------------------------")
             this.loading = true ;
-            console.log({sujet:this.sujet, nomservice:this.nomservice, message:this.message});
-            this._gestionreportingService.reclamation({sujet:this.sujet, nomservice:this.nomservice, message:this.message})
+            
+            let index = this.process.findIndex(
+              item => (item.data.sujet === objet.data.sujet && item.data.nomservice === objet.data.nomservice && item.data.mess === objet.data.mess
+            ));
+        
+            this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+
+            console.log({sujet:objet.data.sujet, nomservice:objet.data.nomservice, mess:objet.data.mess});
+            this._gestionreportingService.reclamation({sujet:objet.data.sujet, nomservice:objet.data.nomservice, mess:objet.data.mess})
               .subscribe(
                 data => {
                   console.log(data)
                   this.sujet = "" ;
-                  this.nomservice = "" ;
-                  this.message = "" ;
+                  this.nomservice = "";
+                  this.mess = "" ;
+                  this.process[index].etats.pourcentage = 4;
                 },
-                error => console.log(error),
+                error => {
+                  console.log(error);
+                  this.process[index].etats.pourcentage = 4;
+                },
                 () => {
                   this.loading = false ;
+                  this.process[index].etats.pourcentage = 5;
                 }
               )
           }
@@ -2933,8 +3020,9 @@ public pdvacueilmenumobilemoneyretour(){
         }
 
         rechargeRapido(object:any){
+          console.log("numclient : "+ object.data.numclient, " montant : "+object.data.montant+ " badge: "+ object.data.badge);
           this._facturierService.validerrapido(object.data.numclient,object.data.montant,object.data.badge).then(response =>{
-              console.log(response);
+              console.log("mangui si bir");
               this.messagesucce=true;
           });
         }
@@ -3143,7 +3231,7 @@ public pdvacueilmenumobilemoneyretour(){
 
   //Depot
   deposerWIZALL(){
-        let depotInfoWIZALL = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+        let depotInfoWIZALL = {'nom':'wizall depot','operateur':6,'operation':1,'num':this.numclient,'montant':this.mnt};
         this.mobileProcessing(JSON.stringify(depotInfoWIZALL));
         this.fermermodalretraitWIZALL();
       }
@@ -3162,7 +3250,7 @@ public pdvacueilmenumobilemoneyretour(){
 
 //retrait
 public retirerWIZALL(){
-         let retraitInfoWIZALL = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.telephone,'montant':this.montant};
+         let retraitInfoWIZALL = {'nom':'wizall retrait','operateur':6,'operation':1,'num':this.numclient,'montant':this.mnt};
          this.mobileProcessing(JSON.stringify(retraitInfoWIZALL));
          this.fermermodalretraitWIZALL();
       }
@@ -3230,7 +3318,7 @@ public retirerWIZALL(){
      this.modalbonCash.hide()
     }
 faireBonCash(){
-         let depotInfo = {'nom':'WIZALL ','operateur':6,'operation':1};
+         let depotInfo = {'nom':'WIZALL ','operateur':6,'operation':1,};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodalBonCash();
       }
