@@ -2,6 +2,9 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { AuthService } from 'app/services/auth.service';
 import {CrmService, Portefeuille, Relance, Promotion, Prospection, Suivicommande, Servicepoint} from "../services/crm.service";
 import { ModalDirective } from 'ng2-bootstrap/modal';
+import {AdminpdvService} from "../services/adminpdv.service";
+import {UtilsService} from "../services/utils.service";
+
 
 
 @Component({
@@ -20,6 +23,33 @@ export class AccueiladminpdvComponent implements OnInit {
   choosedCustomerPhone : string ;
   loading = false ;
 
+  //parametre de compte
+  public filterQuery = "";
+  public rowsOnPage = 10;
+  public sortBy = "pdv";
+  public sortOrder = "asc";
+
+  public regions:any[] = [];
+  public zones:any[] = [];
+  public iszones:boolean;
+  public souszones:any[] = [];
+  public issouszones:boolean;
+
+  region : any ;
+  zone : any ;
+  souszone : any ;
+  chaine : string ;
+
+  prenom : any ;
+  nom :any ;
+  email :any ;
+  telephone :any ;
+  nometps : any ;
+  nomshop : any ;
+  adresse : any ;
+
+  existLogin = false ;
+
   public servicepoint:Servicepoint[];
   public relance:any[];
   public promotion:Promotion[];
@@ -27,10 +57,15 @@ export class AccueiladminpdvComponent implements OnInit {
   public suivicommande:Suivicommande[];
   public portefeuille:Portefeuille[];
 
+  public monitoringAdminpdvUserpdv: any;
+  public modifuserpdv: any;
+  public password:string;
+  public confirmPassword:string;
+  public errorConfirm:boolean = false;
 
 
-  constructor(private _authService:AuthService,
-              private _crmService: CrmService
+
+  constructor(private _utilsService:UtilsService,private _authService:AuthService,private _crmService: CrmService,private _adminpdvService:AdminpdvService
             ) { }
 
   ngOnInit() {
@@ -65,8 +100,63 @@ export class AccueiladminpdvComponent implements OnInit {
       }
     )
 
+     console.log("test");
+    this._adminpdvService.listuserpdv({type:"azrrtt"}).subscribe(
+      data => {
+        this.monitoringAdminpdvUserpdv = data.response ;
+      },
+      error => alert(error),
+      () => {
+        this.getRegionNewCaissier();
+        this.loading = false ;
+      }
+    );
+
+  }
+  //parametre de compte caissier
+   getRegionNewCaissier(){
+    this._utilsService.getRegion()
+      .subscribe(
+        data => {
+          this.regions = data;
+        },
+        error => alert(error),
+        () => {
+          console.log('test init sentool')
+        }
+      );
   }
 
+    selectRegionNewCaissier(){
+    this.iszones = false;
+    this.zone = '--Choix zone--';
+    this.souszone = '--Choix sous zone--';
+    this._utilsService.getZoneByRegion(this.region)
+      .subscribe(
+        data => {
+          this.zones = data;
+          this.iszones = true;
+        },
+        error => alert(error),
+        () => console.log('getZoneByRegion')
+      );
+  }
+
+  selectZoneNewCaissier(){
+    this.issouszones = false;
+    this._utilsService.getSouszoneByZoneByRegion({region:this.region, zone: this.zone})
+      .subscribe(
+        data => {
+          this.souszones = data;
+          this.issouszones = true;
+        },
+        error => alert(error),
+        () => console.log('getSouszoneByZoneByRegion')
+      );
+  }
+
+  
+//fin parametre de compte caissier
 
   relanceMeth(){
     this.loading = true ;
