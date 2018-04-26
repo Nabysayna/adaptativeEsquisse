@@ -1571,10 +1571,10 @@
                   </div>
                   <div class="row" style="width:98%; margin-left:1%; ">
                          <div class="col-xs-5 col-sm-5">
-                                <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">quantité</label>
+                                <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">message</label>
                          </div>
                          <div class="col-xs-7 col-sm-7">
-                               <textarea [(ngModel)]="message"  class="form-control ng-pristine ng-invalid ng-touched" id="descrip" name="descrip" p required="" rows="7" type="text" ng-reflect-required="" ng-reflect-name="descrip" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;"></textarea>
+                               <textarea [(ngModel)]="mess"  class="form-control ng-pristine ng-invalid ng-touched"  p required="" rows="7" type="text"  style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;"></textarea>
                          </div>
                   </div>
 
@@ -1585,7 +1585,7 @@
 
                             </div>
                             <div class="col-xs-2 col-sm-2">
-                                   <button (click)="validreclamation()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                   <button (click)="showGestionReporting()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                             </div>
                             <div class="col-xs-5 col-sm-5">
 
@@ -5045,38 +5045,55 @@
                <button type="button" class="close pull-right" aria-label="Close" (click)="hideGestionReporting()">
                    <span aria-hidden="true">&times;</span>
                </button>
+               <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
              </div>
             <div class="modal-body">
-              <h2 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h2>
-
+            
                 <div>
                     <form class="form">
 
-                       <div class="form-group" *ngIf="this.libelleCharge != undefined">
-                             <label >libelle : {{ this.libelleCharge }}</label>
-                       </div>
-                       <div class="form-group" *ngIf="this.montantCharge != undefined">
-                           <label>Montant  : {{ this.montantCharge }}</label>
-                       </div>
-                       <div class="form-group" *ngIf="this.service != undefined">
-                           <label>Service  : {{ this.service }}</label>
-                       </div>
-                       <div class="form-group" *ngIf="this.designation != undefined">
-                           <label>designation  : {{ this.designation }}</label>
-                       </div>
+                        <div class="form-group" *ngIf="this.libelleCharge != undefined">
+                                <label >libelle : {{ this.libelleCharge }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.montantCharge != undefined">
+                            <label>Montant  : {{ this.montantCharge }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.service != undefined">
+                            <label>Service  : {{ this.service }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.designation != undefined">
+                            <label>designation  : {{ this.designation }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.servicevente != undefined">
+                            <label>Service  : {{ this.servicevente }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.quantite != undefined">
+                            <label>Quantité  : {{ this.quantite }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.sujet != undefined">
+                            <label>suject  : {{ this.sujet }}</label>
+                        </div>
+                        <div class="form-group" *ngIf="this.mess != undefined">
+                            <label>Mess  : {{ this.mess }}</label>
+                        </div>
                   </form>
                 </div>
             </div>
             <div class="modal-footer">
-                  <div *ngIf="this.designation == undefined">
-                           <input type="button" value="fermer"  class="btn btn-danger" (click)="hideGestionReporting" />
-                           <input type="button" value="valider" class="btn btn-success" (click)="validCharge()" />
-                   </div>
+                    <div *ngIf="displayedPage=='accueil-ges-gracu-dep'">
+                           <input type="button" value="fermer"  class="btn btn-danger" (click)="hideGestionReporting()" />
+                           <input type="button" value="valider" class="btn btn-success" (click)="validChargeGestionRepoting()" />
+                    </div>
 
-                   <div *ngIf="this.designation != undefined">
+                    <div *ngIf="displayedPage=='accueil-ges-gracu-rct'" >
                        <input type="button" value="fermer" (click)="hideGestionReporting" class="btn btn-danger" />
-                       <input type="button" value="valider" class="btn btn-success" (click)="validvente()"/>
-                   </div>    
+                       <input type="button" value="valider" class="btn btn-success" (click)="validventeGestionRepoting()"/>
+                    </div>  
+
+                    <div *ngIf="displayedPage=='accueil-ges-gracu-rcl'">
+                            <input type="button" value="fermer" (click)="hideGestionReporting" class="btn btn-danger" />
+                            <input type="button" value="valider" class="btn btn-success" (click)="validreclamationGestionRepoting()"/>
+                    </div>    
             </div>
          </div>
        </div>
@@ -5616,9 +5633,9 @@
         <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process"  >
                 <span [popover]="popTemplateMobil" placement="top" (click)="showmodalProcessing()">{{op.data.nom}} </span>
                 
-                <div bsModal #modalProcessing="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div bsModal #modalProcessing="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="max-height: -webkit-fill-available; min-width: -webkit-fill-available">
 
-                        <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'; color:black;font-size: small">
+                        <div class="modal-dialog modal-sm" style="font-family:'caviar dreams bold'; color:black;font-size: small" style="max-height: -webkit-fill-available; min-width: -webkit-fill-available">
                            <div class="modal-content" >
                              <div class="modal-header">
                                <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalProcessing()">

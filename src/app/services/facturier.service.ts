@@ -48,9 +48,11 @@ export class FacturierService {
   public validerrapido(telephone:string,montant:string,badge:string):Promise<any>{
     let reEspParams={token:this.token,telephone:telephone,montant:montant,badge:badge};
     let url=this.link+"/facturier-sen/achatrapido";
+    console.log(reEspParams);
     let params="params="+JSON.stringify(reEspParams);
     return new Promise( (resolve, reject) => {
       this.http.post(url,params,{headers:this.headers}).map(res =>res.json()).subscribe(data =>{
+        console.log(data);
         resolve(JSON.parse(data));
       });
     });
