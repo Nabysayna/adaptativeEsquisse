@@ -4,6 +4,9 @@ import {CrmService, Portefeuille, Relance, Promotion, Prospection, Suivicommande
 import { ModalDirective } from 'ng2-bootstrap/modal';
 import {AdminpdvService} from "../services/adminpdv.service";
 import {UtilsService} from "../services/utils.service";
+import {ComptabiliteService} from "../services/comptabilite.service";
+import { Location }  from '@angular/common';
+
 
 
 
@@ -65,7 +68,12 @@ export class AccueiladminpdvComponent implements OnInit {
 
 
 
-  constructor(private _utilsService:UtilsService,private _authService:AuthService,private _crmService: CrmService,private _adminpdvService:AdminpdvService
+  constructor(private _utilsService:UtilsService,
+              private _authService:AuthService,
+              private _crmService: CrmService,
+              private _adminpdvService:AdminpdvService,
+              private location: Location,
+              private _comptabiliteService: ComptabiliteService
             ) { }
 
   ngOnInit() {
@@ -113,7 +121,50 @@ export class AccueiladminpdvComponent implements OnInit {
     );
 
   }
+estcheckModel(type: string){
+    if(type == 'jour'){
+      this.checkModel.jour = true;
+      this.checkModel.annee = false;
+      this.checkModel.intervalle = false;
 
+      this.selectionannee = "";
+      this.selectionintervalledateinit = "";
+      this.selectionintervalleddatefinal = "";
+    }
+    else if(type == 'annee'){
+      this.checkModel.jour = false;
+      this.checkModel.annee = true;
+      this.checkModel.intervalle = false;
+
+      this.selectionjour = "";
+      this.selectionannee = "2017";
+      this.selectionintervalledateinit = "";
+      this.selectionintervalleddatefinal = "";
+    }
+    else if(type == 'intervalle'){
+      this.checkModel.jour = false;
+      this.checkModel.annee = false;
+      this.checkModel.intervalle = true;
+
+      this.selectionjour = "";
+      this.selectionannee = "";
+    }
+    else{
+      this.checkModel.jour = true;
+      this.checkModel.annee = false;
+      this.checkModel.intervalle = false;
+
+      this.selectionjour = "";
+      this.selectionannee = "";
+      this.selectionintervalledateinit = "";
+      this.selectionintervalleddatefinal = "";
+    }
+    this.selectionintervalle="";
+  }
+
+  goBack() {
+    this.location.back();
+  }
 
 
 
@@ -121,6 +172,8 @@ export class AccueiladminpdvComponent implements OnInit {
                       parametre de compte caissier
   *******************************************************************************/
 /* -------- Variables -----------*/
+
+
 
 
 
@@ -311,6 +364,19 @@ export class AccueiladminpdvComponent implements OnInit {
                      exploitation
   *******************************************************************************/
 /* -------- Variables -----------*/
+public checkModel:any = {jour: true, annee: false, intervalle: false};
+  selectionannee:string;
+  selectionjour:string;
+  selectionintervalledateinit:string;
+  selectionintervalleddatefinal:string;
+  selectionintervalle:string;
+
+  filtre:any;
+  filtreaveccommission:any;
+  asc="asc";
+
+
+
 
 
 
@@ -318,9 +384,11 @@ export class AccueiladminpdvComponent implements OnInit {
 
 /* -------- Fonctions ---------*/
 
-// rôle   :
-// entres :
-// sorties:
+
+
+
+ 
+
 
 
 }
