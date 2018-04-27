@@ -216,7 +216,7 @@
                 <input style="    width: 80%; border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-04-26" class="form-control"> 
             </div>
             <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
-                <button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
+                <button class="btn btn-primary btn-sm" type="button" (click)="roadTo('res')"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
             </div>
         </div>
     </div>
@@ -226,7 +226,7 @@
         tableau de bord => Résultats Rechercher par intervalle
  ............................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-dashboard'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-dashboard-res'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
   <div class="col-sm-12 col-xs-12">
       <div class="col-sm-3 col-xs-3">
           <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
@@ -298,14 +298,14 @@
       <div class="row">
            
           <h5 class="card-header card-success adminpdvDashboardTitle">
-              <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions par intervalle
+              <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions
           </h5>
 
       </div>
 
       <div class="row">
           <!-- <table class="table table-responsive table-bordered" [mfData]="retourTntWS | datafilter : filtre" #mfabo="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="orderByDate" [(mfSortOrder)]="sortDateOrder"> -->
-          <table class="table table-responsive table-bordered">
+          <table class="table table-responsive table-bordered" style="width:96%; margin-left:2%;  margin-right:2%;">
 
             <thead>
                     <tr>
@@ -314,10 +314,10 @@
                         </th>
                     </tr>
                     <tr>
-                          <th><mfDefaultSorter by="date_abonnement">Pdv</mfDefaultSorter></th>
-                          <th><mfDefaultSorter by="tel">Téléphone</mfDefaultSorter></th>
-                          <th><mfDefaultSorter by="n_chip">Recette</mfDefaultSorter></th>
-                          <th><mfDefaultSorter by="n_carte">Option</mfDefaultSorter></th>
+                          <th>Pdv</th>
+                          <th>Téléphone</th>
+                          <th>Recette</th>
+                          <th>Option</th>
                     </tr>
 
               </thead>
@@ -340,7 +340,11 @@
                                         Monitoring des deposites
 ***********************************************************************************************-->
 
-<div class="row" *ngIf="displayedPage=='accueil-monitoring'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<!-- ................................................
+       Monitoring des deposites ==> Accueil
+...................................................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-monitoring'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
       <div class="col-sm-2 col-xs-2">
         <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
@@ -360,19 +364,197 @@
 
     </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
         Monotoring des deposites
       </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-            ici monotoring des deposites
-
-     
- 
+        <div class="row" style="margin-top:4rem;">
+            <button (click)="roadTo('bd')" style="background-color: transparent;border: 0px;width: 36rem;">
+                <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Bilan Déposit</p>
+            </button>
+        </div>
+        <div class="row" style="margin-top:0rem;">
+            <button (click)="roadTo('ib')" style="background-color: transparent;border: 0px; width: 36rem;">
+                <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">IBAN</p>
+            </button>
+        </div>
     </div>
 </div>
 
+<!-- ....................................................
+       Monitoring des deposites ==> Bilan Déposit
+............................................................-->
 
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-bd'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available; ">
+  <div class="col-sm-12 col-xs-12">
+    <div class="col-sm-2 col-xs-2">
+      <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+    </div>
+    <div class="col-sm-8 col-xs-8">
+      <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+    </div>
+    <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+            <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+    </div>
+
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Bilan Déposit
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; margin-top:2rem;" >
+      <div  class="panel-heading monitorindepositetatadminpdvTitle center-block">
+          <div  style="background-color: white"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <canvas  basechart="" height="107" width="404" class="chartjs-render-monitor" style="display: block; width: 404px; height: 107px;"></canvas>
+          </div>
+      </div>
+  </div>
+  <div  class="col-xs-12 col-sm-12">
+      <div class="row">
+            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                  <div class="row">
+                      <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">0 FCFA</strong></p>
+                  </div>
+                 <div class="row">
+                      <p style="color: white;" class="monitorindepositetatadminpdvBorder"><strong  class="monitorindepositetatadminpdvText">Déposit de base</strong></p>
+                  </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                <div class="row">
+                    <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">0 FCFA</strong></p>
+                </div>
+               <div class="row">
+                  <p style="color: white;" class="monitorindepositetatadminpdvBorder"><strong  class="monitorindepositetatadminpdvText">Etat Déposit</strong></p>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+                <div class="row" >
+                    <p style="color: white;"><strong  class="monitorindepositetatadminpdvNbre">0 FCFA</strong></p>
+                </div>
+                <div class="row">
+                  <p style="color: white;"  class="monitorindepositetatadminpdvBorder"><strong  class="monitorindepositetatadminpdvText">Commission</strong></p>
+                </div>
+            </div>
+      </div>
+    </div>
+</div>
+
+<!-- ....................................................
+       Monitoring des deposites ==> IBAN
+............................................................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+    <div class="col-sm-2 col-xs-2">
+      <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+    </div>
+    <div class="col-sm-8 col-xs-8">
+      <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+    </div>
+    <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+      <div class="row">
+        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+      </div>
+      <div class="row">
+        <img src="assets/deconnet.png" style=" height: 4rem;"/>
+      </div>
+      
+    </div>
+
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        IBAN
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row" style="margin-top:4rem;">
+          <button (click)="roadTo('re')" style="background-color: transparent;border: 0px;width: 36rem;">
+              <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Dépôt</p>
+          </button>
+      </div>
+      <div class="row" style="margin-top:0rem;">
+          <button (click)="roadTo('dep')" style="background-color: transparent;border: 0px; width: 36rem;">
+              <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Retrait</p>
+          </button>
+      </div>
+  </div>
+</div>
+
+<!-- ....................................................
+       Monitoring des deposites ==> IBAN ==> Déôt
+............................................................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib-dep'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+    <div class="col-sm-2 col-xs-2">
+      <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+    </div>
+    <div class="col-sm-8 col-xs-8">
+      <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+    </div>
+    <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+      <div class="row">
+        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+      </div>
+      <div class="row">
+        <img src="assets/deconnet.png" style=" height: 4rem;"/>
+      </div>
+      
+    </div>
+
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Dépôt
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+
+  </div>
+</div>
+
+<!-- ....................................................
+       Monitoring des deposites ==> IBAN ==> retrait
+............................................................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib-re'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+    <div class="col-sm-2 col-xs-2">
+      <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+    </div>
+    <div class="col-sm-8 col-xs-8">
+      <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+    </div>
+    <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+      <div class="row">
+        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+      </div>
+      <div class="row">
+        <img src="assets/deconnet.png" style=" height: 4rem;"/>
+      </div>
+      
+    </div>
+
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Retrait
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+
+  </div>
+</div>
 <!--**********************************************************************************************
                                         Paramettres des comptes
 ***********************************************************************************************-->

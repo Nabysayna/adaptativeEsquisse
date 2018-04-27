@@ -5646,7 +5646,7 @@
                             
                             <div class="modal-body">
 
-                                <!-- OM -->
+                                <!-- PostCash-->
                                 <div *ngIf="op.data.operateur==1">
 
                                         <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
@@ -5654,8 +5654,8 @@
                                         </div>
     
                                         <div *ngIf="op.data.operation==1">
-                                            <div>Montant : {{op.data.montant}}</div><br>
-                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                            <div>Montant CArte : {{op.data.mt_carte}}</div><br>
+                                            <div>Nombre Carte :{{op.data.nb_carte}}</div><br>
                                         </div>
                                         <div *ngIf="op.data.operation==2">
                                             <div>Montant : {{op.data.montant}}</div><br>
@@ -5812,7 +5812,7 @@
                                         </div>
                                         <div *ngIf="op.data.operation==2">
                                             <div>Montant : {{op.data.montant}}</div><br>
-                                            <div>Numéro Client :{{op.data.num}}</div><br>
+                                            <div>Numéro Client :{{op.data.numclient}}</div><br>
                                         </div>
                                         <div *ngIf="op.data.operation==3">
                                             <div>Montant:{{op.data.montant}}</div><br>
@@ -5847,12 +5847,35 @@
                                             <div>Réfèrence Client: {{op.data.refclient}}</div><br>
                                             <div>Réfèrence Facture : {{op.data.refFacture}}</div><br>
                                         </div>
-                                        <div *ngIf="op.data.operation==4">
-                                            <div>Montant:{{op.data.montant}}</div><br>
-                                            <div>Police: {{op.data.police}}</div><br>
-                                            <div>Numéro Facture : {{op.data.numfacture}}</div><br>
-                                        </div>
+
                                     </div>
+
+                                    <!-- GESTION -->
+                                    <div *ngIf="op.data.operateur==9">
+    
+                                            <div *ngIf="op.etats.errorCode!='*'" style="color:red ; font-weight: bold ;">
+                                                {{retrieveOperationInfo(op)}}
+                                            </div>
+        
+                                            <div *ngIf="op.data.operation==1">
+                                                <div>libelle Charge : {{op.data.libelleCharge}}</div><br>
+                                                <div>service :{{op.data.service}}</div><br>
+                                                <div>montant Charge :{{op.data.montantCharge}}</div><br>
+                                            </div>
+                                            <div *ngIf="op.data.operation==2">
+                                                <div>Nom : {{op.data.noma}}</div><br>
+                                                <div>Prenom :{{op.data.prenoma}}</div><br>
+                                                <div>Téléphone : {{op.data.telephonea}}</div><br>
+                                                <div>Date debut:{{op.data.datedebut}}</div><br>
+                                                <div>Date Fin:{{op.data.datefin}}</div><br>
+                                            </div>
+                                            <div *ngIf="op.data.operation==3">
+                                                <div>sujet:{{op.data.sujet}}</div><br>
+                                                <div>Nom Service: {{op.data.nomservice}}</div><br>
+                                                <div>Message: {{op.data.mess}}</div><br>
+                                            </div>
+
+                                        </div>
                             </div>
                             <div class="modal-footer">
                                     <button  type="button" (click)="closeTrasaction(op)" class="btn btn-danger"  style="border:none;"><i class="fa fa-times-circle" style="font-size:2rem; color:red; margin-rigth:0.5rem;" ></i>Arreter</button>
