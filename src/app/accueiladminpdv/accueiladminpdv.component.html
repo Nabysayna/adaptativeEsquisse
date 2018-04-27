@@ -1563,7 +1563,49 @@
                                   Les modals
 ***********************************************************************************************-->
  
-<!-- //    Les modals  -->
+<div  bsmodal="" class="modal fade in" aria-hidden="false" style="display: block;">
+  <div  class="modal-dialog modal-lg">
+    <div  class="modal-content">
+      <div  class="modal-header">
+        <p  class="modal-title">DEPOSIT</p>
+      </div>
+      <div  class="modal-body container">
+        <div  class="row">
+          <div  class="col-xs-6">
+            <div  class="form-group">
+              <label >montant du deposit :</label>
+              <input  class="form-control ng-pristine ng-valid ng-touched" min="0" placeholder="montant" type="number">
+            </div>
+
+            <div  class="form-group">
+              <label >Mode de versement</label>
+              <select  class="form-control input-sm ng-pristine ng-valid ng-touched">
+                <option >Direct</option>
+                <option >CPS</option>
+                <option >CBAO</option>
+                <option >WARI</option>
+                <option >Orangemoney</option>
+              </select>
+            </div>
+          </div>
+          <div  class="col-sm-offset-1 col-xs-3">
+            <img  alt="photo de l'agent" class="img-responsive" src="assets/bbs.png" style="width:150px;height:150px">
+          </div>
+        </div>
+        <div  class="form-group row">
+          
+        </div>
+        <div >Vous voulez faire un dépot de <b >? FCFA </b></div>
+      </div>
+      <div  class="modal-footer">
+        <button  class="btn btn-success pull-left" type="button" disabled="">valider</button>
+        <button  class="btn btn-danger" type="button">fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--envoyez un sms-->
 <div bsModal #childModalcrm="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
