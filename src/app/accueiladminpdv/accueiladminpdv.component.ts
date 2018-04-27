@@ -113,8 +113,26 @@ export class AccueiladminpdvComponent implements OnInit {
     );
 
   }
-  //parametre de compte caissier
-   getRegionNewCaissier(){
+
+
+
+
+/* ***************************************************************************
+                      parametre de compte caissier
+  *******************************************************************************/
+/* -------- Variables -----------*/
+
+
+
+
+
+/* -------- Fonctions ---------*/
+
+// rôle   :
+// entres :
+// sorties:
+
+  getRegionNewCaissier(){
     this._utilsService.getRegion()
       .subscribe(
         data => {
@@ -127,7 +145,8 @@ export class AccueiladminpdvComponent implements OnInit {
       );
   }
 
-    selectRegionNewCaissier(){
+    
+  selectRegionNewCaissier(){
     this.iszones = false;
     this.zone = '--Choix zone--';
     this.souszone = '--Choix sous zone--';
@@ -287,6 +306,21 @@ export class AccueiladminpdvComponent implements OnInit {
     this.message = '' ;
     this.childModalcrm.hide();
   }
+
+  /* ***************************************************************************
+                     exploitation
+  *******************************************************************************/
+/* -------- Variables -----------*/
+
+
+
+
+
+/* -------- Fonctions ---------*/
+
+// rôle   :
+// entres :
+// sorties:
 
 
 }
