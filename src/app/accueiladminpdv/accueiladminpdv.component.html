@@ -640,7 +640,7 @@
 
 </div>
 <!--**********************************************************************************************
-                                        Paramettres des comptes
+                                        Paramettres des comptes compte caissiers
 ***********************************************************************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-parametrecompte-ccc'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
@@ -821,7 +821,7 @@
 </div>
 
 <!--**********************************************************************************************
-                                     Contablité 
+                                     comptabilité 
 ***********************************************************************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
@@ -958,7 +958,7 @@
       </div>
 </div>
 
-<!--****************************************service ***********************************************-->
+<!--***********************************Services avec commission***************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-services'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
@@ -986,36 +986,111 @@
     </div>
     <div class="col-xs-12 col-sm-12" style="margin: 2rem;">
       <div class="row">
-        <label class="btn btn-primary" (click)="estcheckModel('jour'); listerexploitationrecherche(pdv.idpdv,0);">Par Jour</label>&nbsp;
-        <label class="btn btn-primary" (click)="estcheckModel('annee'); listerexploitationrechercheannee(pdv.idpdv,0);">Par Année</label>&nbsp;
-        <label class="btn btn-primary" (click)="estcheckModel('intervalle'); listerexploitationrecherche(pdv.idpdv,0);">Par Intervalle</label>
-      </div>
-      <div class="row">
-        <div class="btn-group" *ngIf="checkModel.intervalle">
-          de <input type="date" name="intervalledateinit" [(ngModel)]="selectionintervalledateinit" /> à <input type="date" name="intervalleddatefinal" [(ngModel)]="selectionintervalleddatefinal" />
-          <button (click)="listerexploitationintervalle(pdv.idpdv, 0)" >rechercher</button>
-        </div>
-        <div class="form-group" *ngIf="checkModel.jour" >
-          <input type="date" [(ngModel)]="selectionjour" name="jour" />
-          <button (click)="listerexploitationparjour(pdv.idpdv, 0)" >rechercher</button>
-        </div>
-        <div class="form-group" *ngIf="checkModel.annee" >
-          <select class="form-control" id="sel1b" [(ngModel)]="selectionannee">
-            <option>2016</option>
-            <option>2017</option>
-            <option>2018</option>
-            <option>2019</option>
-            <option>2020</option>
-            <option>2021</option>
-            <option>2022</option>
-          </select>
-          <button (click)="listerexploitationrechercheannee(pdv.idpdv, 0)" >rechercher</button>
-        </div>
+        <label class="btn btn-primary" (click)="roadTo('jour')">Par Jour</label>&nbsp;
+        <label class="btn btn-primary" ((click)="roadTo('annee')">Par Année</label>&nbsp;
+        <label class="btn btn-primary" (click)="roadTo('intervalle')">Par Intervalle</label>
       </div>
     </div> 
 </div>
 
+<!--***********************************Services avec commission par jour***************************-->
 
+<div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-services-jour'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Services avec commission par jour
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="margin: 2rem;">
+        <div class="row">
+          <div class="form-group" *ngIf="checkModel.jour" >
+            <input type="date" [(ngModel)]="selectionjour" name="jour" />
+            <button (click)="listerexploitationparjour(pdv.idpdv, 0)" >rechercher</button>
+          </div>
+        </div>
+    </div> 
+</div>
+
+<!--**************************Services avec commission par année**********************************-->
+
+<div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-services-annee'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Exploitation
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="margin: 2rem;">
+      ici par année
+    </div> 
+</div>
+
+
+<!--************************Services avec commission par intervalle********************************-->
+
+<div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-services-intervalle'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+        <div class="row">
+          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        </div>
+        <div class="row">
+          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Exploitation
+      </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="margin: 2rem;">
+      ici par intervalle
+    </div> 
+</div>
 
 <!--****************************************personnalisation***********************************************-->
 
