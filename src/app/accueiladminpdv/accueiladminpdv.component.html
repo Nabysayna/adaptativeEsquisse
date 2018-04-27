@@ -478,12 +478,12 @@
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
       <div class="row" style="margin-top:4rem;">
-          <button (click)="roadTo('re')" style="background-color: transparent;border: 0px;width: 36rem;">
+          <button (click)="roadTo('dep')" style="background-color: transparent;border: 0px;width: 36rem;">
               <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Dépôt</p>
           </button>
       </div>
       <div class="row" style="margin-top:0rem;">
-          <button (click)="roadTo('dep')" style="background-color: transparent;border: 0px; width: 36rem;">
+          <button (click)="roadTo('re')" style="background-color: transparent;border: 0px; width: 36rem;">
               <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Retrait</p>
           </button>
       </div>
@@ -514,12 +514,33 @@
 
   </div>
   <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-    <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Dépôt
-    </h5>  
+      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Dépôt
+      </h5>  
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row" style="margin-top: 1rem; text-align: center;">
+          <button class="btn btn-success" (click)="showmonitoringModal()">Faire un dépot</button>
+      </div>
 
+      <div class="row" style="margin-top: 1rem">
+          <table class="table table-hover">
+              <thead >
+                  <tr >
+                      <th style="text-align: center;">Date demande</th>
+                      <th style="text-align: right;">Montant dépot</th>
+                      <th style="text-align: center;">Representant BBS</th>
+                      <th style="text-align: center;">Etat</th>
+                  </tr>
+              </thead>
+              <tbody >
+                  <tr >
+                      <td colspan="5" style="text-align: center; margin-top: 1rem">
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
   </div>
 </div>
 
@@ -552,7 +573,13 @@
     </h5>  
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div modal class="row" style="margin-top: 1rem">
+          <input modal class="form-control  ng-untouched ng-pristine ng-invalid" name="montant" placeholder="Entrez le montant à retirer" required="" type="number" ng-reflect-required="" ng-reflect-name="montant">        
+      </div>
 
+      <div  modal class="row" style="margin-top: 1rem">
+          <button modal class=" btn btn-success" disabled="">Valider</button>
+      </div>
   </div>
 </div>
 <!--**********************************************************************************************
@@ -754,69 +781,118 @@
 
 <div class="row" *ngIf="displayedPage=='accueil-reclamation'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-      <div class="col-sm-2 col-xs-2">
-        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
-      </div>
-      <div class="col-sm-8 col-xs-8">
-        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
-      </div>
-      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-        <div class="row">
-          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        <div class="col-sm-2 col-xs-2">
+            <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
         </div>
-        <div class="row">
-          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        <div class="col-sm-8 col-xs-8">
+            <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
         </div>
-        
-      </div>
-
+        <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+            <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+            </div>
+            <div class="row">
+              <img src="assets/deconnet.png" style=" height: 4rem;"/>
+            </div>
+        </div>
     </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Satatus reclamation
-      </h5>  
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Satatus reclamation
+        </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-            Satatus reclamation
+          <div class="row" style="margin-top:2rem;">
+              <div  class="row" style="color: #f39200; text-align: center">
+                    <div  class="col-xs-6 col-sm-6">
+                        <label  class="label-control">Nombre de ligne</label>
+                        <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="10">
+                            <option  value="0: 5" ng-reflect-ng-value="5">5</option>
+                            <option  value="1: 10" ng-reflect-ng-value="10">10</option>
+                            <option  value="2: 25" ng-reflect-ng-value="25">25</option>
+                            <option  value="3: 50" ng-reflect-ng-value="50">50</option>
+                        </select>
+                    </div>
+                    <div  class="col-xs-6 col-sm-6">
+                        <div  class="row">
+                            <label  class="col-xs-12 label-control">Trier par</label>
+                            <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="datereclamation">
+                                <option  ngvalue="datereclamation" value="0: datereclamation" ng-reflect-ng-value="datereclamation">Date réclamation</option>
+                                <option  ngvalue="pdv" value="1: pdv" ng-reflect-ng-value="pdv">Pdv</option>
+                                <option  ngvalue="typeservice" value="2: typeservice" ng-reflect-ng-value="typeservice">Type de service</option>
+                                <option  value="2: etat" >Etat</option>
+                            </select>
+                        </div>
+                    </div>
+              </div>
+          </div>
+          <div  class="panel panel-default table-responsive row" style="margin-top:2rem;">
+            <table  class="table" ng-reflect-sort-by="datereclamation" ng-reflect-sort-order="asc" ng-reflect-rows-on-page="10" ng-reflect-input-data="">
+                <thead >
 
-     
- 
+                <tr >
+                    <th ><p  class="adminmultipdvReclamationBorder">Date de réclamation</p></th>
+                    <th ><p  class="adminmultipdvReclamationBorder">Pdv</p></th>
+                    <th ><p  class="adminmultipdvReclamationBorder">Adresse</p></th>
+                    <th ><p  class="adminmultipdvReclamationBorder">Telephone</p></th>
+                    <th ><p  class="adminmultipdvReclamationBorder">Type de service</p></th>
+                    <th ><p  class="adminmultipdvReclamationBorder">Message</p></th>
+                    <th ><p  class="adminmultipdvReclamationBorder">Etat</p></th>
+                </tr>
+                </thead>
+                <tbody >
+                    <tr colspan="5">
+                        <input  class="form-control adminmultipdvReclamationBorder ng-untouched ng-pristine ng-valid" ng-reflect-model="" placeholder="recherche" style="width:96%;">
+                    </tr>
+
+                </tbody>
+                <tfoot >
+                <tr >
+                    <td  colspan="5">
+                       
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>
 
 <!--**********************************************************************************************
-                                      Proposition d'aide a la solution
+                                      Proposition d'aide a la décision
 ***********************************************************************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-aidedecision'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
-    <div class="col-sm-12 col-xs-12">
-      <div class="col-sm-2 col-xs-2">
-        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      <div class="col-sm-12 col-xs-12">
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+            </div>
+            <div class="col-sm-8 col-xs-8">
+                  <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+            </div>
+            <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+                <div class="row">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem;"/>
+                </div>
+          </div>
       </div>
-      <div class="col-sm-8 col-xs-8">
-        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
-      </div>
-      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-        <div class="row">
-          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
-        </div>
-        <div class="row">
-          <img src="assets/deconnet.png" style=" height: 4rem;"/>
-        </div>
-        
-      </div>
-
-    </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Proposition d'aide a la solution
-      </h5>  
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Proposition d'aide a la décision
+        </h5>  
     </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-           Proposition d'aide a la solution
-
-     
- 
+    <div  class="col-sm-12 col-xs-12">
+        <div  class="row">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
+                CE MODULE EST EN DEVELOPPEMENT !
+            </div>
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem;">
+                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -1563,210 +1639,509 @@
 <!--**********************************************************************************************
                                    Guide d'utilissation
 ***********************************************************************************************-->
+<!-- .......................
+    Guide d'utilissation => ACCUEIL
+ ........................-->
+
 <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-      <div class="col-sm-2 col-xs-2">
-        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
-      </div>
-      <div class="col-sm-8 col-xs-8">
-        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
-      </div>
-      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-        <div class="row">
-          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        <div class="col-sm-2 col-xs-2">
+            <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
         </div>
-        <div class="row">
-          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+        <div class="col-sm-8 col-xs-8">
+            <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
         </div>
-        
+        <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+              <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>
       </div>
-
     </div>
     <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Guide d'utilissation
-      </h5>  
-    </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
           Guide d'utilissation
-
-     
- 
+        </h5>  
     </div>
-</div>
-<!--**********************************************************************************************
-                                   menus tableau de bord
-***********************************************************************************************-->
-
-<!--**********************************************************************************************
-                                  Monotoring des deposites
-***********************************************************************************************-->
-<div class="row" *ngIf="displayedPage=='accueil-monitoring-'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
-    <div class="col-sm-12 col-xs-12">
-      <div class="col-sm-2 col-xs-2">
-        <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
-      </div>
-      <div class="col-sm-8 col-xs-8">
-        <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
-      </div>
-      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; margin-top:1rem;" >
         <div class="row">
-          <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
-        </div>
-        <div class="row">
-          <img src="assets/deconnet.png" style=" height: 4rem;"/>
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('tb')">Tableau de bord (Dashboard)</button>
         </div>
         
-      </div>
-
-    </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Guide d'utilissation
-      </h5>  
-    </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-          Guide d'utilissation
-
-     
- 
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('md')">Monitoring des déposits</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;"(click)="roadTo('pc')">Paramètre des comptes</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('sr')">Status des réclamations</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('pd')">Proposition d'Aide à la décision</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('c')">Comptabilité </button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('crm')">CRM</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('cp')">Consulter les prêts</button>
+        </div>
     </div>
 </div>
 
+
+<!-- .......................
+    Guide d'utilissation => Tableau de bord (Dashboard)
+ ........................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-tb'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Guide d'utilissation
+      </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">Tableau de bord (Dashboard)</h4>
+      </div>
+      <div class="row">
+          <p style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;">
+            C’est la première fenêtre que vous allez voir sur votre plateforme.Elle vous résume les chiffres exacts issus de votre activité par jour/semaine ou mois.
+
+              Le tableau de bord vous fait l’état de votre performance journalière en termes d’articles vendus, de transactions effectuées, de réclamations etc.
+              
+              Ceci est donc votre porte d’entrée pour avoir constamment les informations sur la performance de vos points de vente.</p>
+          <div class="row">
+              <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="showguideModal()">voir les captures</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- .......................
+    Guide d'utilissation => Monitoring des déposits
+ ........................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-md'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+      <div class="col-sm-12 col-xs-12">
+          <div class="col-sm-2 col-xs-2">
+              <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+          </div>
+          <div class="col-sm-8 col-xs-8">
+              <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+          </div>
+          <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+              <div class="row">
+                  <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+              </div>
+              <div class="row">
+                <img src="assets/deconnet.png" style=" height: 4rem;"/>
+              </div>  
+          </div>
+      </div>
+    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+          <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+              Guide d'utilissation
+          </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <h4 style="color:rgb(255,144, 00);">Tableau de bord (Dashboard)</h4>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- .......................
+    Guide d'utilissation => Paramètre des comptes
+ ........................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-pc'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Guide d'utilissation
+        </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">Paramètre des comptes</h4>
+      </div>
+      <div class="row">
+          <div class="row">
+              <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('crm')">voir les capture</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- .......................
+    Guide d'utilissation => Status des réclamations
+ ........................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-sr'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Guide d'utilissation
+      </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">Status des réclamations</h4>
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+</div>
+
+<!-- .......................
+    Guide d'utilissation => Proposition d'Aide à la décision
+ ........................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-pd'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Guide d'utilissation
+      </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">Proposition d'Aide à la décision</h4>
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+</div>
+
+<!-- .......................
+    Guide d'utilissation => Comptabilité 
+ ........................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-c'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Guide d'utilissation
+      </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">Comptabilité</h4>
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+</div>
+
+<!-- .......................
+    Guide d'utilissation => CRM
+ ........................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-crm'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Guide d'utilissation
+      </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">CRM</h4>
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+</div>
+
+
+<!-- .......................
+    Guide d'utilissation => Consulter les prêts 
+ ........................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-cp'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-2 col-xs-2">
+          <img src="assets/thumbnailphone.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;"/>
+      </div>
+      <div class="col-sm-8 col-xs-8">
+          <img src="assets/rond.png" style="width: 35%; margin-bottom: 10px;padding-bottom: 2rem;margin-left: 4rem;height: 13rem;width: 13rem;"/>
+      </div>
+      <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+          <div class="row">
+              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>  
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+          Guide d'utilissation
+      </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+      <div class="row">
+          <h4 style="color:rgb(255,144, 00);">Consulter les prêts </h4>
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+</div>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    Fin Mobile 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+</div>
 
 <!--**********************************************************************************************
                                   Les modals
 ***********************************************************************************************-->
- 
-<div  bsmodal="" class="modal fade in" aria-hidden="false" style="display: block;">
-  <div  class="modal-dialog modal-lg">
-    <div  class="modal-content">
-      <div  class="modal-header">
-        <p  class="modal-title">DEPOSIT</p>
+<!-- ..................
+     monitoring modal
+.................... -->
+
+<div bsModal #guideModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div modal class="modal-dialog modal-lg">
+          <div modal class="modal-content">
+              <div modal class="modal-body container">
+
+              </div>
+          </div>
       </div>
-      <div  class="modal-body container">
-        <div  class="row">
-          <div  class="col-xs-6">
-            <div  class="form-group">
-              <label >montant du deposit :</label>
-              <input  class="form-control ng-pristine ng-valid ng-touched" min="0" placeholder="montant" type="number">
+  </div>
+
+<!-- ..................
+     monitoring modal
+.................... -->
+
+<div bsModal #monitoringModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div modal class="modal-dialog modal-lg">
+    <div modal class="modal-content">
+      <div modal class="modal-header">
+        <p modal class="modal-title">DEPOSIT</p>
+      </div>
+      <div modal class="modal-body container">
+        <div modal class="row">
+          <div modal class="col-xs-6">
+            <div modal class="form-group">
+              <label modal>montant du deposit :</label>
+              <input modal class="form-control ng-untouched ng-pristine ng-valid" min="0" placeholder="montant" type="number">
             </div>
 
-            <div  class="form-group">
-              <label >Mode de versement</label>
-              <select  class="form-control input-sm ng-pristine ng-valid ng-touched">
-                <option >Direct</option>
-                <option >CPS</option>
-                <option >CBAO</option>
-                <option >WARI</option>
-                <option >Orangemoney</option>
+            <div modal class="form-group">
+              <label modal>Mode de versement</label>
+              <select modal class="form-control input-sm ng-untouched ng-pristine ng-valid">
+                <option modal>Direct</option>
+                <option modal>CPS</option>
+                <option modal>CBAO</option>
+                <option modal>WARI</option>
+                <option modal>Orangemoney</option>
               </select>
             </div>
           </div>
-          <div  class="col-sm-offset-1 col-xs-3">
-            <img  alt="photo de l'agent" class="img-responsive" src="assets/bbs.png" style="width:150px;height:150px">
+          <div modal class="col-sm-offset-1 col-xs-3">
+            <img modal alt="photo de l'agent" class="img-responsive" src="assets/bbs.png" style="width:150px;height:150px">
           </div>
         </div>
-        <div  class="form-group row">
+        <div modal class="form-group row">
           
         </div>
-        <div >Vous voulez faire un dépot de <b >? FCFA </b></div>
+        <div modal>Vous voulez faire un dépot de <b modal>? FCFA </b></div>
       </div>
-      <div  class="modal-footer">
-        <button  class="btn btn-success pull-left" type="button" disabled="">valider</button>
-        <button  class="btn btn-danger" type="button">fermer</button>
+      <div modal class="modal-footer">
+        <button modal class="btn btn-success pull-left" type="button" disabled="" >valider</button>
+        <button modal class="btn btn-danger" type="button" (click)="hidemonitoringModal()">fermer</button>
       </div>
     </div>
   </div>
 </div>
-
 
 <!--envoyez un sms-->
 <div bsModal #childModalcrm="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg">
-      <div class="modal-content" >
-        <div class="modal-header">
-      <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModalcrm()">
-          <span aria-hidden="true">&times;</span>
-          </button>
-            <h4 class="modal-title" id="myModalLabel">Envoi SMS</h4>
-        </div>
-        <div class="modal-body" style="height : 37rem">
-        <div class="col-sm-12 col-xs-12">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content" >
+       <div class="modal-header">
+     <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModalcrm()">
+         <span aria-hidden="true">&times;</span>
+         </button>
+           <h4 class="modal-title" id="myModalLabel">Envoi SMS</h4>
+       </div>
+       <div class="modal-body" style="height : 37rem">
+       <div class="col-sm-12 col-xs-12">
 
-          <textarea style="margin-bottom: 3rem; " rows="4"  type="text" [(ngModel)]='message' class="form-control input-sm"  placeholder="Entrez le message que vous voulez envoyer ici ..." required cols="20"></textarea>
+         <textarea style="margin-bottom: 3rem; " rows="4"  type="text" [(ngModel)]='message' class="form-control input-sm"  placeholder="Entrez le message que vous voulez envoyer ici ..." required cols="20"></textarea>
 
-          <div style="text-align: center ;">
-             <a *ngIf="this.categMsg=='promogroupe'" class="btn btn-success" type="button" (click)="envoyersmsPromo()">Envoyer</a>
-             <a *ngIf="this.categMsg=='relancegroupe'" class="btn btn-success" type="button" (click)="envoyersmsRelance()">Envoyer</a>
-             <a *ngIf="this.categMsg=='single'" class="btn btn-success" type="button" (click)="sms(choosedCustomerPhone)">Envoyer</a>
-              <a type="reset" class="btn btn-danger"  (click)="hideChildModalcrm()">Annuler</a>
-          </div>
-        </div>
-      </div>
+         <div style="text-align: center ;">
+            <a *ngIf="this.categMsg=='promogroupe'" class="btn btn-success" type="button" (click)="envoyersmsPromo()">Envoyer</a>
+            <a *ngIf="this.categMsg=='relancegroupe'" class="btn btn-success" type="button" (click)="envoyersmsRelance()">Envoyer</a>
+            <a *ngIf="this.categMsg=='single'" class="btn btn-success" type="button" (click)="sms(choosedCustomerPhone)">Envoyer</a>
+             <a type="reset" class="btn btn-danger"  (click)="hideChildModalcrm()">Annuler</a>
+         </div>
+       </div>
+     </div>
 
-        </div>
-   </div>
+       </div>
+       
+  </div>
 </div>
 
 <div class="modal fade" id="modalNewCaissier" tabindex="-1" role="dialog" aria-labelledby="modalNewCaissier" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header adminpdvparametrecompteTitle">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Confirmation de la réation compte Caissier</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row" id="inscription">
-          <div id="form" class="col-sm-12 col-xs-12">
-            <div class="col-xs-12 col-sm-12">
-              <div class="form-row">
-                <div class="form-group col-sm-6">{{comptecaissier.prenom}}</div>
-                <div class="form-group col-sm-6">{{comptecaissier.nom}}</div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-sm-6">{{comptecaissier.email}}</div>
-                <div class="form-group col-sm-6">{{comptecaissier.telephone}}</div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-sm-6">Nom Entreprise :{{comptecaissier.nometps}}</div>
-                <div class="form-group col-sm-6">Nom boutique en ligne :{{comptecaissier.nomshop}}</div>
-                  <label for="boutiquenewcaisse" class="col-form-label adminpdvparametrecompteText">Nom boutique en ligne</label>
-                  <input type="text" class="form-control adminpdvparametrecompteBorder" id="boutiquenewcaisse" [(ngModel)]="nomshop" name="boutiquenewcaisse" required placeholder="nom boutique en ligne">
-              </div>
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <div class="modal-header adminpdvparametrecompteTitle">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <h4 class="modal-title" id="myModalLabel">Confirmation de la réation compte Caissier</h4>
+     </div>
+     <div class="modal-body">
+       <div class="row" id="inscription">
+         <div id="form" class="col-sm-12 col-xs-12">
+           <div class="col-xs-12 col-sm-12" *ngIf="comptecaissier">
+             <div class="form-row">
+               <div class="form-group col-sm-6">{{comptecaissier.prenom}}</div>
+               <div class="form-group col-sm-6">{{comptecaissier.nom}}</div>
+             </div>
+             <div class="form-row">
+               <div class="form-group col-sm-6">{{comptecaissier.email}}</div>
+               <div class="form-group col-sm-6">{{comptecaissier.telephone}}</div>
+             </div>
+             <div class="form-row">
+               <div class="form-group col-sm-6">Nom Entreprise :{{comptecaissier.nometps}}</div>
+               <div class="form-group col-sm-6">Nom boutique en ligne :{{comptecaissier.nomshop}}</div>
+                 <label for="boutiquenewcaisse" class="col-form-label adminpdvparametrecompteText">Nom boutique en ligne</label>
+                 <input type="text" class="form-control adminpdvparametrecompteBorder" id="boutiquenewcaisse" [(ngModel)]="nomshop" name="boutiquenewcaisse" required placeholder="nom boutique en ligne">
+             </div>
 
-              <div class="form-group row">Région:{{comptecaissier.region}}</div>
-              
-              <div class="form-group row" *ngIf="iszones && region!='&#45;&#45;Choix région&#45;&#45;'">
-                <label for="zonenewcaisse" class="col-sm-3 col-form-label adminpdvparametrecompteText">Zones</label>
-                <div class="col-sm-9">Zone:{{comptecaissier.zone}}</div>
-              </div>
-              <div class="form-group row" *ngIf="issouszones && zone!='&#45;&#45;Choix zone&#45;&#45;'">Sous zone:{{comptecaissier.souszone}}</div>
-              
-              <div class="form-group row" *ngIf="issouszones && souszone!='&#45;&#45;Choix sous zone&#45;&#45;'">Adresse exacte:{{comptecaissier.adresse}}</div>
+             <div class="form-group row">Région:{{comptecaissier.region}}</div>
+             
+             <div class="form-group row" *ngIf="iszones && region!='&#45;&#45;Choix région&#45;&#45;'">
+               <label for="zonenewcaisse" class="col-sm-3 col-form-label adminpdvparametrecompteText">Zones</label>
+               <div class="col-sm-9">Zone:{{comptecaissier.zone}}</div>
+             </div>
+             <div class="form-group row" *ngIf="issouszones && zone!='&#45;&#45;Choix zone&#45;&#45;'">Sous zone:{{comptecaissier.souszone}}</div>
+             
+             <div class="form-group row" *ngIf="issouszones && souszone!='&#45;&#45;Choix sous zone&#45;&#45;'">Adresse exacte:{{comptecaissier.adresse}}</div>
 
-              <div class="modal-footer text-center" style="text-align: right; margin-top: 3rem">
-                <button type="button" class="btn btn-info btn-sm adminpdvparametrecompteBorder" data-dismiss="modal" #closeBtn>Annuler</button>
-                <button type="button" class="btn btn-success btn-sm adminpdvparametrecompteBorder"  (click)="inscrire()" [disabled]="!f.form.valid || region=='--Choix région--'  || zone=='--Choix zone--'  || souszone=='--Choix sous zone--' || !adresse" >Valider</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+             <div class="modal-footer text-center" style="text-align: right; margin-top: 3rem">
+               <button type="button" class="btn btn-info btn-sm adminpdvparametrecompteBorder" data-dismiss="modal" #closeBtn>Annuler</button>
+               <button type="button" class="btn btn-success btn-sm adminpdvparametrecompteBorder"  (click)="inscrire()" [disabled]="!f.form.valid || region=='--Choix région--'  || zone=='--Choix zone--'  || souszone=='--Choix sous zone--' || !adresse" >Valider</button>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
 
-  <div *ngIf="this.loading">
-    <app-loader></app-loader>
-  </div>
+ <div *ngIf="this.loading">
+   <app-loader></app-loader>
+ </div>
 
-</div>
-
-
-
-
-
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                    Fin Mobile 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 </div>

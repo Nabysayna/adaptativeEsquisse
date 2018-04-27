@@ -1,10 +1,9 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { AuthService } from 'app/services/auth.service';
 import {CrmService, Portefeuille, Relance, Promotion, Prospection, Suivicommande, Servicepoint} from "../services/crm.service";
-import { ModalDirective } from 'ng2-bootstrap/modal';
+import {ModalDirective,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import {AdminpdvService} from "../services/adminpdv.service";
 import {UtilsService} from "../services/utils.service";
-
 
 
 @Component({
@@ -22,7 +21,7 @@ export class AccueiladminpdvComponent implements OnInit {
   categMsg:any;
   choosedCustomerPhone : string ;
   loading = false ;
-
+  comptecaissier : any;
   //parametre de compte
   public filterQuery = "";
   public rowsOnPage = 10;
@@ -47,7 +46,6 @@ export class AccueiladminpdvComponent implements OnInit {
   nometps : any ;
   nomshop : any ;
   adresse : any ;
-
   existLogin = false ;
 
   public servicepoint:Servicepoint[];
@@ -307,9 +305,62 @@ export class AccueiladminpdvComponent implements OnInit {
     this.childModalcrm.hide();
   }
 
-  /* ***************************************************************************
+/* ***************************************************************************
+                       Monitoring des deposites
+*******************************************************************************/
+/* -------- Variables -----------*/
+
+@ViewChild('monitoringModal') public monitoringModal:ModalDirective;
+
+/* -------- Fonctions ---------*/
+
+// rôle   : afficher le modal
+// entres : null
+// sorties: null
+
+public showmonitoringModal():void {
+  this.monitoringModal.show();
+}
+
+// rôle   : cacher le modal
+// entres : null
+// sorties: null
+
+public hidemonitoringModal():void {
+  this.monitoringModal.hide();
+}
+
+/* ***************************************************************************
+                     Guide d'iutilisation
+********************************************************************************/
+/* -------- Variables -----------*/
+
+
+@ViewChild('guideModal') public guideModal:ModalDirective;
+
+
+/* -------- Fonctions ---------*/
+
+
+// rôle   : afficher le modal
+// entres : null
+// sorties: null
+
+public showguideModal():void {
+  this.guideModal.show();
+}
+
+// rôle   : cacher le modal
+// entres : null
+// sorties: null
+
+public hideguideModal():void {
+  this.guideModal.hide();
+}
+
+/* ***************************************************************************
                      exploitation
-  *******************************************************************************/
+********************************************************************************/
 /* -------- Variables -----------*/
 
 
