@@ -18,8 +18,8 @@
 <!--                   <li role="presentation" style="background-color: #f39200; color: white;"><a style="color: white !important;" [routerLink]="['/accueiladmpdv', 'annonce']" >VIDEO ANNONCE</a></li>
  -->
 
-<!--                 <li role="presentation" style="background-color: #f39200;"><a style="color: white !important;" [routerLink]="['/accueiladmpdv', 'commissionnement']" >Commissionnement PROMO</a></li> -->
-
+<!--            
+                <li role="presentation" style="background-color: #f39200;"><a style="color: white !important;" [routerLink]="['/accueiladmpdv', 'commissionnement']" >Commissionnement PROMO</a></li> -->
                 <li><a [routerLink]="['/accueiladmpdv', 'dashboard']" ><i class="fa fa-dashboard fa-fw"></i> Tableaux de bord</a></li>
                 <li><a [routerLink]="['/accueiladmpdv', 'monitoring']" ><i class="fa fa-database fa-fw"></i> Monitoring des deposits</a></li>
                 <li><a [routerLink]="['/accueiladmpdv', 'parametrecompte']" ><i class="fa fa-wrench fa-fw"></i> Parametre des comptes</a></li>
@@ -151,14 +151,14 @@
       </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row" style="margin-top:2rem;">
+        <div class="row" style="margin-top:4rem;">
             <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                   <div  class="row">
                       <div class="col-xs-8 col-sm-8 ">
                           <i  class="fa fa-microphone fa-4x" style="color:white;"></i>
                       </div>
                       <div  class="col-xs-4 col-sm-4 huge">
-                          <div   style="color:white;padding-right: 6px;">0</div>
+                          <div   style="color:white;padding-right: 6px;"> {{adminpdvDashboardNbreReclVente.nbreclamations}}</div>
                       </div>
                   </div>
                   <div class="row" style="color:white;">
@@ -172,7 +172,7 @@
                         <i  class="fa fa-check-circle-o fa-4x" style="color:white;"></i>
                     </div>
                     <div  class="col-xs-4 col-sm-4 huge" st>
-                        <div   style="color:white;padding-right: 6px;">0</div>
+                        <div   style="color:white;padding-right: 6px;">{{adminpdvDashboardNbreReclVente.nboperations}}</div>
                     </div>
                 </div>
                 <div class="row" style="color:white;">
@@ -186,7 +186,7 @@
                         <i  class="fa fa-shopping-cart fa-4x" style="color:white;"></i>
                     </div>
                     <div  class="col-xs-4 col-sm-4 huge">
-                        <div style="color:white;padding-right: 6px;">0</div>
+                        <div style="color:white;padding-right: 6px;"> {{adminpdvDashboardNbreReclVente.nbarticlesvendus}}</div>
                     </div>
                 </div>
                 <div class="row" style="color:white;">
@@ -196,37 +196,29 @@
             </div>
              
         </div>
-
         <div class="row">
-             
-            <h5 class="card-header card-success adminpdvDashboardTitle">
-                <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions par intervalle
-            </h5>
-
+            <div class="row" style="margin-top:4rem;">
+                <button (click)="roadTo('all')" style="background-color: transparent;border: 0px;width: 36rem;">
+                    <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Tous les Gérants</p>
+                </button>
+            </div>
+            <div class="row" style="margin-top:0rem;">
+                <button (click)="roadTo('ri')" style="background-color: transparent;border: 0px; width: 36rem;">
+                    <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Recheche Par Interval</p>
+                </button>
+            </div>
+            
         </div>
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12">
-                <input style="width: 80%;border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-03-26" class="form-control">
-            </div>
-            <div class="col-xs-12 col-sm-12">
-                à 
-            </div>
-            <div class="col-xs-12 col-sm-12">
-                <input style="    width: 80%; border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-04-26" class="form-control"> 
-            </div>
-            <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
-                <button class="btn btn-primary btn-sm" type="button" (click)="roadTo('res')"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
-            </div>
-        </div>
     </div>
 </div>
 
+
 <!-- ............................
-        tableau de bord => Résultats Rechercher par intervalle
+        tableau de bord => Rechercher par intervalle
  ............................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-dashboard-res'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+ <div class="row" *ngIf="displayedPage=='accueil-dashboard-ri'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
   <div class="col-sm-12 col-xs-12">
       <div class="col-sm-3 col-xs-3">
           <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
@@ -249,92 +241,134 @@
     </h5>  
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-      <div class="row" style="margin-top:2rem;">
-          <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
-                <div  class="row">
-                    <div class="col-xs-8 col-sm-8 ">
-                        <i  class="fa fa-microphone fa-4x" style="color:white;"></i>
-                    </div>
-                    <div  class="col-xs-4 col-sm-4 huge">
-                        <div   style="color:white;padding-right: 6px;">0</div>
-                    </div>
-                </div>
-                <div class="row" style="color:white;">
-                    Nouvelles Réclamations!
-                </div>
-          </div>
 
-          <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
-              <div  class="row">
-                  <div class="col-xs-8 col-sm-8">
-                      <i  class="fa fa-check-circle-o fa-4x" style="color:white;"></i>
-                  </div>
-                  <div  class="col-xs-4 col-sm-4 huge" st>
-                      <div   style="color:white;padding-right: 6px;">0</div>
-                  </div>
-              </div>
-              <div class="row" style="color:white;">
-                  Opérations effectuées!
-              </div>
+      <div class="row" >
+          <div class="col-sm-12 col-xs-12">
+              <h5 class="card-header card-success adminpdvDashboardTitle">
+                <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions par intervalle
+              </h5>
           </div>
-
-          <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
-              <div  class="row">
-                  <div class="col-xs-8 col-sm-8">
-                      <i  class="fa fa-shopping-cart fa-4x" style="color:white;"></i>
-                  </div>
-                  <div  class="col-xs-4 col-sm-4 huge">
-                      <div style="color:white;padding-right: 6px;">0</div>
-                  </div>
-              </div>
-              <div class="row" style="color:white;">
-                  Articles vendus ecom!
-              </div>
-              
-          </div>
-           
       </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-12">
+              <input [(ngModel)]="suivionepointSelectionintervalledateinit" style="width: 80%;border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-03-26" class="form-control">
+          </div>
+          <div class="col-xs-12 col-sm-12">
+              à 
+          </div>
+          <div class="col-xs-12 col-sm-12">
+              <input [(ngModel)]="suivionepointSelectionintervalledatefinal" style="    width: 80%; border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-04-26" class="form-control"> 
+          </div>
+          <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
+              <button class="btn btn-primary btn-sm" type="button" (click)="roadTo('res')"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- ............................
+        tableau de bord => All tous les gerants
+ ............................-->
+
+<div class="row" *ngIf="displayedPage=='accueil-dashboard-all'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-3 col-xs-3">
+          <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
+      </div>
+      <div class="col-sm-6 col-xs-6">
+          <img src="assets/rond.png" style="width: 100%; "/>
+      </div>
+      <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+          <div class="row">
+            <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+      Tableau de bord
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
 
       <div class="row">
            
           <h5 class="card-header card-success adminpdvDashboardTitle">
-              <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions
+              Touts les gérants
+          </h5>
+
+      </div>
+
+      <div class="row" *ngIf="datapointrecup"> 
+          <a style="cursor: pointer; text-align: left" [ngClass]="{'list-group-item': true, 'list-group-item-action': true, 'active': id_gerant_selectionne==-1}" (click)="suivionepointSelectionGerant(-1)">
+              All ({{touslesgerants.length}} Gérants)
+          </a>
+          <li *ngFor="let item of touslesgerants; let i = index " [ngClass]="{'list-group-item': true, 'list-group-item-action': true, 'active': id_gerant_selectionne==item.id_gerant}">
+            <p style="cursor: pointer; text-align: left" (click)="test(); suivionepointSelectionGerant(item.id_gerant)">
+              Gérant: {{item.nom_gerant}} , {{item.telephone}}
+              <br>Last connection: {{item.last_connection}}.
+            </p>
+          </li>
+      </div>
+  </div>
+</div>
+
+
+<!-- ............................
+        tableau de bord => Moniteur du gerant
+ ............................-->
+
+ <div class="row" *ngIf="displayedPage=='accueil-dashboard-all-mg'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+  <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-3 col-xs-3">
+          <img src="assets/thumbnailphone.png" style="height: 4rem;"/>
+      </div>
+      <div class="col-sm-6 col-xs-6">
+          <img src="assets/rond.png" style="width: 100%; "/>
+      </div>
+      <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+          <div class="row">
+            <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem;"></i>
+          </div>
+          <div class="row">
+            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+      Tableau de bord
+    </h5>  
+  </div>
+  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+
+      <div class="row">
+           
+          <h5 class="card-header card-success adminpdvDashboardTitle">
+              Monitoring
           </h5>
 
       </div>
 
       <div class="row">
-          <!-- <table class="table table-responsive table-bordered" [mfData]="retourTntWS | datafilter : filtre" #mfabo="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="orderByDate" [(mfSortOrder)]="sortDateOrder"> -->
-          <table class="table table-responsive table-bordered" style="width:96%; margin-left:2%;  margin-right:2%;">
-
-            <thead>
-                    <tr>
-                        <th colspan="4">
-                          <input class="form-control" [(ngModel)]="filtre" placeholder="Recherche" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;" />
-                        </th>
-                    </tr>
-                    <tr>
-                          <th>Pdv</th>
-                          <th>Téléphone</th>
-                          <th>Recette</th>
-                          <th>Option</th>
-                    </tr>
-
-              </thead>
-              <tbody  >
-                    <tr  [ngStyle]="{'color': 'white', 'background-color': abonnement.etatactivation?'green':'red'}">
-
-                    </tr>
-              </tbody>
-              <tfoot>
-                    <tr>
-                         
-                    </tr>
-              </tfoot>
-    </table>
+          <div *ngIf="touslesjours.length!=0 && lineChartData.length!=0 && lineChartLabels.length!=0">
+              <canvas baseChart #baseChart="base-chart"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [options]="lineChartOptions"
+                      [legend]="lineChartLegend"
+                      [chartType]="lineChartType" >
+              </canvas>
+          </div>
       </div>
   </div>
 </div>
+
+
 
 <!--**********************************************************************************************
                                         Monitoring des deposites
@@ -411,16 +445,21 @@
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; margin-top:2rem;" >
       <div  class="panel-heading monitorindepositetatadminpdvTitle center-block">
-          <div  style="background-color: white"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-            <canvas  basechart="" height="107" width="404" class="chartjs-render-monitor" style="display: block; width: 404px; height: 107px;"></canvas>
-          </div>
+          <div style="background-color: white" *ngIf="barChartLabels.length!=0">
+              <canvas baseChart #baseChart3="base-chart" height="80"
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType"></canvas>
+              </div>
       </div>
   </div>
   <div  class="col-xs-12 col-sm-12">
-      <div class="row">
+      <div class="row" *ngIf="monitoringAdminpdvDeposit">
             <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                   <div class="row">
-                      <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">0 FCFA</strong></p>
+                      <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">{{ currencyFormat(monitoringAdminpdvDeposit.depositinitial) }} FCFA</strong></p>
                   </div>
                  <div class="row">
                       <p style="color: white;" class="monitorindepositetatadminpdvBorder"><strong  class="monitorindepositetatadminpdvText">Déposit de base</strong></p>
@@ -429,7 +468,7 @@
 
             <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                 <div class="row">
-                    <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">0 FCFA</strong></p>
+                    <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">{{ currencyFormat(monitoringAdminpdvDeposit.etatdeposit - monitoringAdminpdvDeposit.commission)}} FCFA</strong></p>
                 </div>
                <div class="row">
                   <p style="color: white;" class="monitorindepositetatadminpdvBorder"><strong  class="monitorindepositetatadminpdvText">Etat Déposit</strong></p>
@@ -438,7 +477,7 @@
 
             <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                 <div class="row" >
-                    <p style="color: white;"><strong  class="monitorindepositetatadminpdvNbre">0 FCFA</strong></p>
+                    <p style="color: white;"><strong  class="monitorindepositetatadminpdvNbre">{{ currencyFormat(monitoringAdminpdvDeposit.commission) }} FCFA</strong></p>
                 </div>
                 <div class="row">
                   <p style="color: white;"  class="monitorindepositetatadminpdvBorder"><strong  class="monitorindepositetatadminpdvText">Commission</strong></p>
@@ -534,10 +573,20 @@
                   </tr>
               </thead>
               <tbody >
-                  <tr >
-                      <td colspan="5" style="text-align: center; margin-top: 1rem">
+                    <tr *ngFor="let item of listedepositsencours; let i = index " [ngStyle]="{'color': 'black', 'background-color': item.accepteur=='attente'?'red':(item.accepteur!='attente' && item.etatdemande==0)?'orange':(item.etatdemande==1)?'blue':(item.etatdemande==2)?'pink':'green'}">
+                      <td scope="row">{{item.datedemande}}</td>
+                      <td style="text-align: right">{{currencyFormat(item.montantdemande)}}</td>
+                      <td>
+                        <div *ngIf="item.representantbbs=='attente'">{{item.representantbbs}}</div>
+                        <a *ngIf="item.representantbbs!='attente'" style="cursor: pointer" (click)="showapercuPhotoComModal(item)">{{item.representantbbs}}</a>
                       </td>
-                  </tr>
+                      <td style="text-align: left">{{item.statusetatdemande}} <span *ngIf="item.etatdemande==1" class="pull-right" (click)="imprimerdecharge(item)"><button type="button" class="btn btn-secondary btn-circle btn-sm" title="Imprimer décharge" ><i class="fa fa-print"></i></button></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="text-align: center; margin-top: 1rem">
+                          <u *ngIf="listedepositsvalide.length!=0" style="cursor: pointer" (click)="showvoirplusdedemandeModal()" title="Voir plus de depot">Voir dépots validés</u>
+                        </td>
+                    </tr>
               </tbody>
           </table>
       </div>
@@ -2470,9 +2519,23 @@
       </div>
   </div>
 </div>
+
+<div *ngIf="process.length!=0" class="row" style="background-image: url(assets/running.png); opacity: 1; background-size: 400px; height: 4rem ; position: relative ; bottom :4.5rem ; padding-left: 1rem ; margin-bottom:0px;">
+    <div class="row">
+        <div class="col-sm-2 col-xs-2 runningTask" *ngFor="let item of process">
+            <div class="runner" [ngStyle]="{'background-color':'red','width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
+        </div>
+    </div>
+    <div  class="row" style="margin-left: -1.5rem !important;font-size: x-small;margin-top: 0.5rem;color:black;font-family:'caviar dreams bold';"  >
+        <div class="col-sm-2 col-xs-2 runningService" *ngFor="let op of process"  >
+              <span [popover]="popTemplateMobil" placement="top" (click)="showmodalProcessing()">{{op.data.nom}} </span>
+        </div> 
+    </div>         
+</div>
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                     Fin Mobile 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
 </div>
 
 <!--**********************************************************************************************
@@ -2497,48 +2560,51 @@
 .................... -->
 
 <div bsModal #monitoringModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div modal class="modal-dialog modal-lg">
-    <div modal class="modal-content">
-      <div modal class="modal-header">
-        <p modal class="modal-title">DEPOSIT</p>
-      </div>
-      <div modal class="modal-body container">
-        <div modal class="row">
-          <div modal class="col-xs-6">
-            <div modal class="form-group">
-              <label modal>montant du deposit :</label>
-              <input modal class="form-control ng-untouched ng-pristine ng-valid" min="0" placeholder="montant" type="number">
-            </div>
-
-            <div modal class="form-group">
-              <label modal>Mode de versement</label>
-              <select modal class="form-control input-sm ng-untouched ng-pristine ng-valid">
-                <option modal>Direct</option>
-                <option modal>CPS</option>
-                <option modal>CBAO</option>
-                <option modal>WARI</option>
-                <option modal>Orangemoney</option>
-              </select>
-            </div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <p class="modal-title">DEPOSIT</p>
           </div>
-          <div modal class="col-sm-offset-1 col-xs-3">
-            <img modal alt="photo de l'agent" class="img-responsive" src="assets/bbs.png" style="width:150px;height:150px">
+          <div class="modal-body container">
+            <div class="row">
+              <div class="col-xs-6" >
+                <div class="form-group">
+                  <label>montant du deposit :</label>
+                  <input type="number" [(ngModel)]="montantdeposit" min="0" placeholder="montant" class="form-control" />
+                </div>
+    
+                <div class="form-group">
+                  <label>Mode de versement</label>
+                  <select class="form-control input-sm" [(ngModel)]="modeversement">
+                    <option>Direct</option>
+                    <option>CPS</option>
+                    <option>CBAO</option>
+                    <option>WARI</option>
+                    <option>Orangemoney</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-offset-1 col-xs-3">
+                <img style="width:150px;height:150px" src="assets/bbs.png"  class="img-responsive" alt="photo de l'agent" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <!--<label class="col-sm-1">Pièce justificative:</label>
+              <input input type="file" class="col-sm-4 form-control-file" #fileinput accept="image/*" (change)="fileChangeEvent($event)"/>
+              <button type="button" (click)="upload()" class="btn btn-sm btn-primary col-sm-1">Charger</button>-->
+            </div>
+            <div>Vous voulez faire un dépot de <b>{{ montantdeposit?currencyFormat(montantdeposit):'?' }} FCFA </b></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" [disabled]="montantdeposit==undefined || montantdeposit<1" (click)="validerdeposite()" class="btn btn-success pull-left">valider</button>
+            <button type="button" (click)="hidedepositeModal()" class="btn btn-danger">fermer</button>
           </div>
         </div>
-        <div modal class="form-group row">
-          
-        </div>
-        <div modal>Vous voulez faire un dépot de <b modal>? FCFA </b></div>
       </div>
-      <div modal class="modal-footer">
-        <button modal class="btn btn-success pull-left" type="button" disabled="" >valider</button>
-        <button modal class="btn btn-danger" type="button" (click)="hidemonitoringModal()">fermer</button>
-      </div>
-    </div>
-  </div>
 </div>
 
-<!--envoyez un sms-->
+<!--envoyez un sms-->  
+
 <div bsModal #childModalcrm="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
      <div class="modal-content" >
@@ -2619,3 +2685,4 @@
  </div>
 
 </div>
+
