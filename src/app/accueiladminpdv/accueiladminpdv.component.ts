@@ -143,6 +143,7 @@ export class AccueiladminpdvComponent implements OnInit {
         this._crmService.portefeuille().subscribe(
           data => {
             this.portefeuille = data ;
+            console.log("this.portefeuille :"+ this.portefeuille);
           },
           error => alert(error),
           () => {
@@ -161,6 +162,7 @@ export class AccueiladminpdvComponent implements OnInit {
       data => {
         console.log("Localhost Test");
         this.pdvCaisses = data.response ;
+        console.log("this.pdvCaisses :"+this.pdvCaisses);
       },
       error => alert(error),
       () => {
@@ -175,6 +177,7 @@ export class AccueiladminpdvComponent implements OnInit {
         console.log("Localhost Test");
         console.log(data.response);
         this.adminmultipdvReclamation = data.response ;
+        console.log("this.adminmultipdvReclamation"+ this.adminmultipdvReclamation);
       },
       error => alert(error),
       () => {
@@ -187,6 +190,7 @@ export class AccueiladminpdvComponent implements OnInit {
     this._adminpdvService.listuserpdv({type:"azrrtt"}).subscribe(
       data => {
         this.monitoringAdminpdvUserpdv = data.response ;
+        console.log("this.monitoringAdminpdvUserpdv :"+ this.monitoringAdminpdvUserpdv);
       },
       error => alert(error),
       () => {
@@ -202,6 +206,7 @@ export class AccueiladminpdvComponent implements OnInit {
         console.log("Localhost Test");
         console.log(data.response);
         this.adminpdvDashboardNbreReclVente = data.response ;
+        console.log("this.adminpdvDashboardNbreReclVente"+ this.adminpdvDashboardNbreReclVente);
       },
       error => alert(error),
       () => {
@@ -217,6 +222,7 @@ export class AccueiladminpdvComponent implements OnInit {
       data => {
         this.monitoringAdminpdvDeposit = data.response;
         this.getEtatDepot();
+        console.log("this.monitoringAdminpdvDeposit :"+this.monitoringAdminpdvDeposit);
       },
       error => alert(error),
       () => {

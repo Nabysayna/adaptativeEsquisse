@@ -65,26 +65,25 @@
                                         </th>
                                       </tr>
                                       <tr>
-                                        <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
-                                        <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
-                                        <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
-                                        <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                          <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
+                                          <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
+                                          <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                                          <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
                                       </tr>
                                     </thead>
                                     <tbody *ngIf="this.charges">
                                       <tr *ngFor="let charges of fopad.data">
-                                        <td>{{charges.dateajout.date | date}}</td>
-                                        <td>{{charges.libelle}}</td>
-                                        <td>{{currencyFormat(charges.montant)}}</td>
-                                        <td>{{charges.service}}</td>
+                                          <td>{{charges.dateajout.date | date}}</td>
+                                          <td>{{charges.libelle}}</td>
+                                          <td>{{currencyFormat(charges.montant)}}</td>
+                                          <td>{{charges.service}}</td>
                                       </tr>
                                     </tbody>
                                     <tfoot>
                                       <tr>
-                                        <td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
+                                          <td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
                                       </tr>
                                     </tfoot>
-
                             </table>
                               </div>
                               </div>
@@ -113,21 +112,21 @@
                                    Liste des autres revenu
                                    <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="revenus|filtrerevenus:filtre" #fopa="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                                        <thead>
-                                          <tr><th colspan="3" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
-                                          <tr>
-                                             <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
-                                             <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
-                                             <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
-                                             <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
-                                          </tr>
+                                            <tr><th colspan="3" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
+                                            <tr>
+                                              <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
+                                              <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
+                                              <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                                              <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                            </tr>
                                         </thead>
                                         <tbody *ngIf="this.revenus">
-                                          <tr *ngFor="let revenus of fopa.data">
-                                              <td>{{revenus.date.date | date}}</td>
-                                              <td>{{revenus.libelle}}</td>
-                                              <td>{{currencyFormat(revenus.montant)}}</td>
-                                              <td>{{revenus.service}}</td>
-                                          </tr>
+                                            <tr *ngFor="let revenus of fopa.data">
+                                                <td>{{revenus.date.date | date}}</td>
+                                                <td>{{revenus.libelle}}</td>
+                                                <td>{{currencyFormat(revenus.montant)}}</td>
+                                                <td>{{revenus.service}}</td>
+                                            </tr>
                                         </tbody>
                                         <tfoot>
                                           <tr><td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td></tr>
@@ -135,32 +134,32 @@
                                     </table>
                                </div>
                                <div class="col-sm-12" *ngIf="!isselectlisterrevenuautre">
-                                   Liste revenu des services avec commission
-                                   <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="revenustransfert | filtrerevenus:filtre" #fopa="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="date" [(mfSortOrder)]="desc" style="width: 100%;">
-                                      <thead>
-                                       <tr><th colspan="5" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
-                                       <tr>
-                                          <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
-                                          <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
-                                          <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
-                                          <th><mfDefaultSorter by="frais">Frais</mfDefaultSorter></th>
-                                          <th><mfDefaultSorter by="commission">Commission</mfDefaultSorter></th>
-                                          <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
-                                       </tr>
-                                       </thead>
-                                       <tbody *ngIf="this.revenus">
-                                       <tr *ngFor="let revenus of fopa.data">
-                                          <td>{{revenus.date.date}}</td>
-                                          <td>{{revenus.libelle}}</td>
-                                          <td>{{currencyFormat(revenus.montant)}}</td>
-                                          <td>{{currencyFormat(revenus.frais)}}</td>
-                                          <td>{{currencyFormat(revenus.commission)}}</td>
-                                          <td>{{revenus.service}}</td>
-                                       </tr>
-                                      </tbody>
-                                      <tfoot>
-                                        <tr><td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td></tr>
-                                      </tfoot>
+                                    Liste revenu des services avec commission
+                                    <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="revenustransfert | filtrerevenus:filtre" #fopa="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="date" [(mfSortOrder)]="desc" style="width: 100%;">
+                                        <thead>
+                                            <tr><th colspan="5" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
+                                            <tr>
+                                                <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="frais">Frais</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="commission">Commission</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngIf="this.revenus">
+                                            <tr *ngFor="let revenus of fopa.data">
+                                                <td>{{revenus.date.date}}</td>
+                                                <td>{{revenus.libelle}}</td>
+                                                <td>{{currencyFormat(revenus.montant)}}</td>
+                                                <td>{{currencyFormat(revenus.frais)}}</td>
+                                                <td>{{currencyFormat(revenus.commission)}}</td>
+                                                <td>{{revenus.service}}</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr><td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td></tr>
+                                        </tfoot>
                                     </table>
                                </div>
                             </div>
@@ -235,23 +234,23 @@
                                           <td colspan="6">
                                             <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="bilanexploitationaveccommission" #fopdacbilan="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                                               <thead>
-                                              <tr>
-                                                <th colspan="4" class="comptabiliteBorder"><h4>Bilan</h4></th>
-                                              </tr>
-                                              <tr>
-                                                <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
-                                                <th><mfDefaultSorter by="cashin">Total Entrée</mfDefaultSorter></th>
-                                                <th><mfDefaultSorter by="cashout">Total Sortie</mfDefaultSorter></th>
-                                                <th><mfDefaultSorter by="commission">Total commissions</mfDefaultSorter></th>
-                                              </tr>
+                                                  <tr>
+                                                    <th colspan="4" class="comptabiliteBorder"><h4>Bilan</h4></th>
+                                                  </tr>
+                                                  <tr>
+                                                    <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                                    <th><mfDefaultSorter by="cashin">Total Entrée</mfDefaultSorter></th>
+                                                    <th><mfDefaultSorter by="cashout">Total Sortie</mfDefaultSorter></th>
+                                                    <th><mfDefaultSorter by="commission">Total commissions</mfDefaultSorter></th>
+                                                  </tr>
                                               </thead>
                                               <tbody *ngIf="this.bilanexploitationaveccommission">
-                                              <tr *ngFor="let bilan of fopdacbilan.data">
-                                                <td>{{bilan.service}}</td>
-                                                <td>{{currencyFormat(bilan.cashin)}}</td>
-                                                <td>{{currencyFormat(bilan.cashout)}}</td>
-                                                <td>{{currencyFormat(bilan.commission)}}</td>
-                                              </tr>
+                                                  <tr *ngFor="let bilan of fopdacbilan.data">
+                                                      <td>{{bilan.service}}</td>
+                                                      <td>{{currencyFormat(bilan.cashin)}}</td>
+                                                      <td>{{currencyFormat(bilan.cashout)}}</td>
+                                                      <td>{{currencyFormat(bilan.commission)}}</td>
+                                                  </tr>
                                               </tbody>
                                             </table>
                                           </td>
