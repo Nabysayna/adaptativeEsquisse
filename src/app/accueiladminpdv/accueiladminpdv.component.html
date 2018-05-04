@@ -128,27 +128,29 @@
         tableau de bord => Rechercher par intervalle
  ............................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-dashboard'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-dashboard'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-        <div class="col-sm-3 col-xs-3">
-            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
-        </div>
-        <div class="col-sm-6 col-xs-6">
-            <img src="assets/rond.png" style="width: 100%; "/>
-        </div>
-        <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
-            <div class="row" [ngStyle]="{'margin-top':'1rem'}">
-              <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
             </div>
-            <div class="row">
-              <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Tableau de bord
-      </h5>  
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Tableau de bord
+        </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row" style="margin-top:4rem;">
@@ -218,30 +220,30 @@
         tableau de bord => Rechercher par intervalle
  ............................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-dashboard-ri'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+ <div class="row" *ngIf="displayedPage=='accueil-dashboard-ri'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
   <div class="col-sm-12 col-xs-12">
         <div class="col-sm-3 col-xs-3">
-                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
         </div>
         <div class="col-sm-6 col-xs-6">
-                <img src="assets/rond.png" style="width: 100%; "/>
+            <img src="assets/rond.png" style="width: 100%; "/>
         </div>
       <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
             <div class="row" [ngStyle]="{'margin-top':'1rem'}">
-                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
             </div>
             <div class="row">
-                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
             </div>
       </div>
   </div>
-  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+  <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
         Tableau de bord
         </h5>  
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row" >
+        <div class="row"  style="margin-top:2rem;">
                 <div class="col-sm-12 col-xs-12">
                     <h5 class="card-header card-success adminpdvDashboardTitle">
                         <i class="fa fa-bar-chart-o fa-fw"></i>Montant des Transactions par intervalle
@@ -270,7 +272,7 @@
         tableau de bord => All tous les gerants
  ............................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-dashboard-all'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-dashboard-all'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
   <div class="col-sm-12 col-xs-12">
       <div class="col-sm-3 col-xs-3">
           <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
@@ -287,22 +289,18 @@
           </div>
       </div>
   </div>
-  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-    <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+  <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0">
+    <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
       Tableau de bord
     </h5>  
   </div>
   <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-
-      <div class="row">
-           
-          <h5 class="card-header card-success adminpdvDashboardTitle">
+      <div class="row" style="margin-top:2rem;">
+          <h5 class="card-header card-success adminpdvDashboardTitle" style="color:rgb(255,144, 00);">
               Touts les gérants
           </h5>
-
       </div>
-
-      <div class="row" *ngIf="datapointrecup"> 
+      <div class="row" *ngIf="datapointrecup" style="margin-top:1rem;"> 
           <a style="cursor: pointer; text-align: left" [ngClass]="{'list-group-item': true, 'list-group-item-action': true, 'active': id_gerant_selectionne==-1}" (click)="suivionepointSelectionGerant(-1)">
               All ({{touslesgerants.length}} Gérants)
           </a>
@@ -321,50 +319,46 @@
         tableau de bord => Moniteur du gerant
  ............................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-dashboard-all-mg'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
-  <div class="col-sm-12 col-xs-12">
-      <div class="col-sm-3 col-xs-3">
-          <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
-      </div>
-      <div class="col-sm-6 col-xs-6">
-          <img src="assets/rond.png" style="width: 100%; "/>
-      </div>
-      <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
-          <div class="row" [ngStyle]="{'margin-top': '1rem'}">
-            <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
-          </div>
-          <div class="row">
-            <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-          </div>
-      </div>
-  </div>
-  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-    <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-      Tableau de bord
-    </h5>  
-  </div>
-  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-
-      <div class="row">
-           
-          <h5 class="card-header card-success adminpdvDashboardTitle">
-              Monitoring
-          </h5>
-
-      </div>
-
-      <div class="row">
-          <div *ngIf="touslesjours.length!=0 && lineChartData.length!=0 && lineChartLabels.length!=0">
-              <canvas baseChart #baseChart="base-chart"
-                      [datasets]="lineChartData"
-                      [labels]="lineChartLabels"
-                      [options]="lineChartOptions"
-                      [legend]="lineChartLegend"
-                      [chartType]="lineChartType" >
-              </canvas>
-          </div>
-      </div>
-  </div>
+ <div class="row" *ngIf="displayedPage=='accueil-dashboard-all-mg'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+        <div class="col-sm-3 col-xs-3">
+            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+        </div>
+        <div class="col-sm-6 col-xs-6">
+            <img src="assets/rond.png" style="width: 100%; "/>
+        </div>
+        <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+            <div class="row" [ngStyle]="{'margin-top': '1rem'}">
+                <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+            </div>
+            <div class="row">
+                <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+        Tableau de bord
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <h5 class="card-header card-success adminpdvDashboardTitle">
+                Monitoring
+            </h5>
+        </div>
+        <div class="row">
+            <div *ngIf="touslesjours.length!=0 && lineChartData.length!=0 && lineChartLabels.length!=0">
+                <canvas baseChart #baseChart="base-chart"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType" >
+                </canvas>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -377,28 +371,28 @@
        Monitoring des deposites ==> Accueil
 ...................................................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-monitoring'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-monitoring'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
         <div class="row">
-            <div class="col-sm-2 col-xs-2">
-                <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
             </div>
-            <div class="col-sm-8 col-xs-8">
-                <img src="assets/rond.png" style="width:100%; "/>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
             </div>
-            <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
                 <div class="row">
                     <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                </div>  
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:white;font-family: 'caviar dreams bold';text-align:center;font-size: 2rem; ">
-            Monotoring des deposites
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Monotoring des deposites
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
@@ -423,32 +417,32 @@
        Monitoring des deposites ==> Bilan Déposit
 ............................................................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-monitoring-bd'" style="background-image: url(assets/background-v.png); opacity: 0.90; min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-bd'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Bilan Déposit
+                Bilan Déposit
         </h5>  
     </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; margin-top:2rem;" >
-        <div  class="panel-heading monitorindepositetatadminpdvTitle center-block">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div  class="panel-heading monitorindepositetatadminpdvTitle center-block"  style="margin-top:4rem;">
             <div style="background-color: white" *ngIf="barChartLabels.length!=0">
                 <canvas baseChart #baseChart3="base-chart" height="80"
                         [datasets]="barChartData"
@@ -459,8 +453,8 @@
                 </div>
         </div>
     </div>
-    <div  class="col-xs-12 col-sm-12">
-        <div class="row" *ngIf="monitoringAdminpdvDeposit">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+            <div class="row" *ngIf="monitoringAdminpdvDeposit">
                 <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                     <div class="row">
                         <p style="color: white;" ><strong  class="monitorindepositetatadminpdvNbre">{{ currencyFormat(monitoringAdminpdvDeposit.depositinitial) }} FCFA</strong></p>
@@ -491,35 +485,36 @@
     </div>
 </div>
 
+
 <!-- ....................................................
        Monitoring des deposites ==> IBAN
 ............................................................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; background-color:  #36A9E0" >
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             IBAN
         </h5>  
-  </div>
-  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row" style="margin-top:4rem;">
             <button (click)="roadTo('dep')" style="background-color: transparent;border: 0px;width: 36rem;">
                 <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Dépôt</p>
@@ -530,102 +525,103 @@
                 <p style="color:#36A9E0;font-family: caviar dreams bold; font-size: 2rem;">Retrait</p>
             </button>
         </div>
-  </div>
+    </div>
 </div>
+
 
 <!-- ....................................................
        Monitoring des deposites ==> IBAN ==> Déôt
 ............................................................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib-dep'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib-dep'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
-                </div>
+        <div class="row">
+            <div class="col-sm-2 col-xs-2">
+                <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
             </div>
+            <div class="col-sm-8 col-xs-8">
+                <img src="assets/rond.png" style="width:100%; "/>
+            </div>
+            <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
+                <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>  
+            </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Dépôt
         </h5>  
     </div>
-  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row" style="margin-top: 1rem; text-align: center;">
-            <button class="btn btn-success" (click)="showmonitoringModal()">Faire un dépot</button>
-        </div>
-        <div class="row" style="margin-top: 1rem">
-            <table class="table table-hover">
-                <thead >
-                    <tr >
-                        <th style="text-align: center;">Date demande</th>
-                        <th style="text-align: right;">Montant dépot</th>
-                        <th style="text-align: center;">Representant BBS</th>
-                        <th style="text-align: center;">Etat</th>
-                    </tr>
-                </thead>
-                <tbody >
-                        <tr *ngFor="let item of listedepositsencours; let i = index " [ngStyle]="{'color': 'black', 'background-color': item.accepteur=='attente'?'red':(item.accepteur!='attente' && item.etatdemande==0)?'orange':(item.etatdemande==1)?'blue':(item.etatdemande==2)?'pink':'green'}">
-                        <td scope="row">{{item.datedemande}}</td>
-                        <td style="text-align: right">{{currencyFormat(item.montantdemande)}}</td>
-                        <td>
-                            <div *ngIf="item.representantbbs=='attente'">{{item.representantbbs}}</div>
-                            <a *ngIf="item.representantbbs!='attente'" style="cursor: pointer" (click)="showapercuPhotoComModal(item)">{{item.representantbbs}}</a>
-                        </td>
-                        <td style="text-align: left">{{item.statusetatdemande}} <span *ngIf="item.etatdemande==1" class="pull-right" (click)="imprimerdecharge(item)"><button type="button" class="btn btn-secondary btn-circle btn-sm" title="Imprimer décharge" ><i class="fa fa-print"></i></button></span></td>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+            <div class="row" style="margin-top: 4rem; text-align: center;">
+                <button class="btn btn-success" (click)="showmonitoringModal()">Faire un dépot</button>
+            </div>
+            <div class="row" style="margin-top: 1rem">
+                <table class="table table-hover">
+                    <thead >
+                        <tr >
+                            <th style="text-align: center;">Date demande</th>
+                            <th style="text-align: right;">Montant dépot</th>
+                            <th style="text-align: center;">Representant BBS</th>
+                            <th style="text-align: center;">Etat</th>
                         </tr>
-                        <tr>
-                            <td colspan="5" style="text-align: center; margin-top: 1rem">
-                            <u *ngIf="listedepositsvalide.length!=0" style="cursor: pointer" (click)="showvoirplusdedemandeModal()" title="Voir plus de depot">Voir dépots validés</u>
+                    </thead>
+                    <tbody >
+                            <tr *ngFor="let item of listedepositsencours; let i = index " [ngStyle]="{'color': 'black', 'background-color': item.accepteur=='attente'?'red':(item.accepteur!='attente' && item.etatdemande==0)?'orange':(item.etatdemande==1)?'blue':(item.etatdemande==2)?'pink':'green'}">
+                            <td scope="row">{{item.datedemande}}</td>
+                            <td style="text-align: right">{{currencyFormat(item.montantdemande)}}</td>
+                            <td>
+                                <div *ngIf="item.representantbbs=='attente'">{{item.representantbbs}}</div>
+                                <a *ngIf="item.representantbbs!='attente'" style="cursor: pointer" (click)="showapercuPhotoComModal(item)">{{item.representantbbs}}</a>
                             </td>
-                        </tr>
-                </tbody>
-            </table>
-        </div>
-  </div>
+                            <td style="text-align: left">{{item.statusetatdemande}} <span *ngIf="item.etatdemande==1" class="pull-right" (click)="imprimerdecharge(item)"><button type="button" class="btn btn-secondary btn-circle btn-sm" title="Imprimer décharge" ><i class="fa fa-print"></i></button></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: center; margin-top: 1rem">
+                                <u *ngIf="listedepositsvalide.length!=0" style="cursor: pointer" (click)="showvoirplusdedemandeModal()" title="Voir plus de depot">Voir dépots validés</u>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
 </div>
 
 <!-- ....................................................
        Monitoring des deposites ==> IBAN ==> retrait
 ............................................................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib-re'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; min-width: -webkit-fill-available;max-width: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-monitoring-ib-re'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Retrait
+                Retrait
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div modal class="row" style="margin-top: 1rem">
+        <div modal class="row" style="margin-top: 4rem">
             <input modal class="form-control  ng-untouched ng-pristine ng-invalid" name="montant" placeholder="Entrez le montant à retirer" required="" type="number" ng-reflect-required="" ng-reflect-name="montant">        
         </div>
 
@@ -634,333 +630,332 @@
         </div>
     </div>
 </div>
+
 <!--**********************************************************************************************
                                         Paramettres des comptes
 ***********************************************************************************************-->
-
-<div class="row" *ngIf="displayedPage=='accueil-parametrecompte'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-parametrecompte'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: orange;">
-        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">Paramétrage des comptes
-        </h5>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: center; background-color:  #36A9E0" >
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: center;font-size: 2rem; ">
+                Paramétrage des comptes
+        </h5>  
     </div>
-    <div class="row" style="padding-top: 5rem">
-        <div class="col-xs-12 col-sm-12" style="padding-top: 1rem;text-align: -webkit-right;width: 88%;">
-            <button (click)="roadTo('ccc')" type="button" style="background-color: white!important; color: #36A9E0!important;font-family: 'caviar dreams bold';width: 61%;border: 1px solid orange;" class="btn adminpdvparametrecompteBorder" data-toggle="modal" data-target="">Créer un compte Caissier
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: center;" >
+        <div class="row" style="margin-top: 4rem;text-align: center;">
+            <button (click)="roadTo('ccc')" type="button" style="background-color: white!important; color: #36A9E0!important;font-family: 'caviar dreams bold';border: 1px solid orange;" class="btn adminpdvparametrecompteBorder" data-toggle="modal" data-target="">Créer un compte Caissier
             </button>
         </div>
         <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
             <table class="table table-striped" [mfData]="monitoringAdminpdvUserpdv | dataFilterAdminpdvparametrecompte : filterQuery" #mf="mfDataTable"
-                 [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
-            <thead>
-            <tr>
-              <th colspan="6">
-                <div class="form-group row">
-                  <div class="col-sm-12 col-xs-12">
-                    <input style="width: 50%;"placeholder="Recherche" type="text" class="form-control adminpdvparametrecompteBorder" id="inputlistecompte" name="inputlistecompte" placeholder="Recherche caissier" [(ngModel)]="filterQuery"/>
-                  </div>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <th style="color:#36A9E0;font-family: 'caviar'"><p class="adminpdvparametrecompteBorder">#</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Caissier</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Login</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Adresse</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Téléphone</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Option</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Status</p></th>
-              <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Voir Dépot</p></th>
-            </tr>
-            </thead>
-            <tbody *ngIf="monitoringAdminpdvUserpdv">
-              <tr *ngFor="let item of mf.data; let i = index " style="color: #337ab7; font-weight: bold;">
-                <td>{{ i + 1  }}</td>
-                <td>{{item.pdv}}</td>
-                <td>{{item.login}}</td>
-                <td>{{getAdress(item.adresse)}}</td>
-                <td>{{item.telephone}}</td>
-                <td><button type="button" class="btn btn-outline adminpdvparametrecompteBorder" (click)="modif(item)" data-toggle="modal" data-target="#myModalModifUser">Modifier</button></td>
-                <td>
-                  <span *ngIf="!item.isconnect">Est déconnecté</span>
-                  <button type="button" *ngIf="item.isconnect" class="btn adminpdvparametrecompteBorder" (click)="deconnexionsession(item,i)">Deconnecter</button>
-                </td>
-                <td>
-                  <button type="button" *ngIf="item.estautorise==0" class="btn adminpdvparametrecompteBorder" (click)="autoriseravoirdeposir(item, 1)">Autoriser</button>
-                  <button type="button" *ngIf="item.estautorise==1" class="btn adminpdvparametrecompteBorder" (click)="autoriseravoirdeposir(item, 0)">Interdire</button>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="5"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50]"></mfBootstrapPaginator></td>
-              </tr>
-            </tfoot>
-          </table>
+                    [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                <thead>
+                <tr>
+                    <th colspan="6">
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-xs-12">
+                                <input style="width: 50%;"placeholder="Recherche" type="text" class="form-control adminpdvparametrecompteBorder" id="inputlistecompte" name="inputlistecompte" placeholder="Recherche caissier" [(ngModel)]="filterQuery"/>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="color:#36A9E0;font-family: 'caviar'"><p class="adminpdvparametrecompteBorder">#</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Caissier</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Login</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Adresse</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Téléphone</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Option</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Status</p></th>
+                    <th style="color:#36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvparametrecompteBorder">Voir Dépot</p></th>
+                </tr>
+                </thead>
+                <tbody *ngIf="monitoringAdminpdvUserpdv">
+                    <tr *ngFor="let item of mf.data; let i = index " style="color: #337ab7; font-weight: bold;">
+                    <td>{{ i + 1  }}</td>
+                    <td>{{item.pdv}}</td>
+                    <td>{{item.login}}</td>
+                    <td>{{getAdress(item.adresse)}}</td>
+                    <td>{{item.telephone}}</td>
+                    <td><button type="button" class="btn btn-outline adminpdvparametrecompteBorder" (click)="modif(item)" data-toggle="modal" data-target="#myModalModifUser">Modifier</button></td>
+                    <td>
+                        <span *ngIf="!item.isconnect">Est déconnecté</span>
+                        <button type="button" *ngIf="item.isconnect" class="btn adminpdvparametrecompteBorder" (click)="deconnexionsession(item,i)">Deconnecter</button>
+                    </td>
+                    <td>
+                        <button type="button" *ngIf="item.estautorise==0" class="btn adminpdvparametrecompteBorder" (click)="autoriseravoirdeposir(item, 1)">Autoriser</button>
+                        <button type="button" *ngIf="item.estautorise==1" class="btn adminpdvparametrecompteBorder" (click)="autoriseravoirdeposir(item, 0)">Interdire</button>
+                    </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50]"></mfBootstrapPaginator></td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-  </div>
-
+    </div>
 </div>
+
 <!--**********************************************************************************************
                                         Paramettres des comptes compte caissiers
 ***********************************************************************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-parametrecompte-ccc'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0">
-      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">Créer un compte Caissier
-      </h5>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Créer un compte Caissier
+        </h5>  
     </div>
-    <div class="col-sm-12 col-xs-12">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <h5 *ngIf="existLogin==true" style="color: red">Le login que vous avez renseigné est dèja utilisé. Veuillez saisir un login different.</h5>
         <div class="row" id="inscription">
-          <div class="col-sm-12 col-xs-12" style="">
+            <div class="col-sm-12 col-xs-12" style="">
                 <h6 style="color:rgb(255,144, 00);;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">Remplir
                 </h6>
-          </div>
-          <div id="form" class="col-sm-12 col-xs-12">
-            <form #f="ngForm" name="form" style="padding: 1rem;padding-top: 2rem;">
-                <div class="form-group col-sm-12 col-xs-12" style="">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="prenomnewcaisse" class="col-form-label adminpdvparametrecompteText">Prénom</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
-                          <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="prenomnewcaisse" required [(ngModel)]="prenom" name="prenomnewcaisse"  >
-                      </div>
-                  </div>
-                </div>
-
-                <div class="form-group col-sm-12 col-xs-12">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="nomnewcaisse" class="col-form-label adminpdvparametrecompteText">Nom</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
-                          <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="nomnewcaisse" [(ngModel)]="nom" required name="nomnewcaisse" >
-                      </div>
-                  </div>
-                </div>
-
-                <div class="form-group col-sm-12 col-xs-12">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="emailnewcaisse" class="col-form-label adminpdvparametrecompteText">Login</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
-                          <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="emailnewcaisse" required [(ngModel)]="email" name="emailnewcaisse"  >
-                      </div>
-                  </div>
-                </div>
-
-                <div class="form-group col-sm-12 col-xs-12">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="entreprisenewcaisse" class="col-form-label adminpdvparametrecompteText">Entreprise</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
-                          <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="entreprisenewcaisse" required [(ngModel)]="nometps" name="entreprisenewcaisse"  >
-                      </div>
-                  </div>
-                </div>
-                <div class="form-group col-sm-12 col-xs-12">
-                  <div class="row">
-                        <div class="col-sm-4 col-xs-4">
-                            <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="boutiquenewcaisse" class="col-form-label adminpdvparametrecompteText">Boutique</label>
+            </div>
+            <div id="form" class="col-sm-12 col-xs-12">
+                <form #f="ngForm" name="form" style="padding: 1rem;padding-top: 2rem;">
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="prenomnewcaisse" class="col-form-label adminpdvparametrecompteText">Prénom</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
+                                <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="prenomnewcaisse" required [(ngModel)]="prenom" name="prenomnewcaisse"  >
+                            </div>
                         </div>
-                        <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
-                            <input class="form-control form-control-sm" style="margin-bottom: 0px;border-radius: 2rem;" type="text" class="form-control form-control-sm" id="boutiquenewcaisse" [(ngModel)]="nomshop" name="boutiquenewcaisse" required >
-                        </div>
-                  </div>
-                </div>
-
-              <div class="form-group col-sm-12 col-xs-12" style="margin-top:1rem;">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="padding-left: 0px; margin-bottom: 0px;font-family: 'caviar dreams bold';color: #36A9E0;font-size: 1.5rem;" for="regionnewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Région</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" >
-                          <select style="border-radius: 2rem;margin-bottom: 0px;padding-left: 0px;" class="form-control form-control-sm " id="regionnewcaisse" name="regionnewcaisse" required [(ngModel)]="region" (change)="selectRegionNewCaissier()">
-                              <option selected>--Choix région--</option>
-                              <option *ngFor="let region of regions">{{region.nom}}</option>
-                          </select>                      
-                      </div>
-                  </div>
-              </div>
-              <div class="form-group col-sm-12 col-xs-12" *ngIf="iszones && region!='&#45;&#45;Choix région&#45;&#45;'">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="margin-bottom: 0px;font-family: 'caviar dreams bold';color: #36A9E0;font-size: 1.5rem;" for="zonenewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Zones</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8">
-                          <select style="border-radius: 2rem;" class="form-control form-control-sm " id="zonenewcaisse" name="zonenewcaisse" required [(ngModel)]="zone" (change)="selectZoneNewCaissier()">
-                              <option>&#45;&#45;Choix zone&#45;&#45;</option>
-                              <option  *ngFor="let zone of zones">{{zone.nom}}</option>
-                          </select>                     
-                      </div>
                     </div>
-              </div>
-              <div class="form-group col-sm-12 col-xs-12" *ngIf="issouszones && zone!='&#45;&#45;Choix zone&#45;&#45;'">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label for="souszonenewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Sous zones</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" style="">
-                          <select style="border-radius: 2rem;" class="form-control input-sm" id="souszonenewcaisse" name="souszonenewcaisse" required [(ngModel)]="souszone">
-                              <option>&#45;&#45;Choix sous zone&#45;&#45;</option>
-                              <option  *ngFor="let souszone of souszones">{{souszone.nom}}</option>
-                          </select>                   
-                      </div>
-                  </div>
-              </div>
-              <div class="form-group col-sm-12 col-xs-12" *ngIf="issouszones && souszone!='&#45;&#45;Choix sous zone&#45;&#45;'">
-                  <div class="row">
-                      <div class="col-sm-4 col-xs-4">
-                          <label style="font-family: 'caviar dreams bold';color: #36A9E0;font-size: 1.5rem;" for="adressenewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Adresse exacte</label>
-                      </div>
-                      <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
-                          <textarea class="form-control form-control-sm" id="adressenewcaisse" name="adressenewcaisse" required [(ngModel)]="adresse" placeholder="Adresse exacte" rows="3"></textarea>                  
-                      </div>
-                  </div>
-              </div>
 
-              <div class="modal-footer text-center" style="text-align: right; margin-top: 3rem">
-                  <div class="row">
-                      <div class="col-xs-4 col-sm-4">
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="nomnewcaisse" class="col-form-label adminpdvparametrecompteText">Nom</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
+                                <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="nomnewcaisse" [(ngModel)]="nom" required name="nomnewcaisse" >
+                            </div>
+                        </div>
+                    </div>
 
-                      </div>
-                      <div class="col-xs-2 col-sm-2">
-                            <button (click)="modalNewCaissie()"  type="button" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:5rem; color:rgb(255,144, 00);" ></i></button>
-                      </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="emailnewcaisse" class="col-form-label adminpdvparametrecompteText">Login</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
+                                <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="emailnewcaisse" required [(ngModel)]="email" name="emailnewcaisse"  >
+                            </div>
+                        </div>
+                    </div>
 
-                      <div class="col-xs-2 col-sm-2" style="margin-left:1rem;">
-                            <button [disabled]="!f.form.valid || region=='--Choix région--'  || zone=='--Choix zone--'  || souszone=='--Choix sous zone--' || !adresse"  (click)="inscrire()"  type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:5rem; color: rgb(255,144, 00);" ></i></button>
-                      </div>
-                      <div class="col-xs-4 col-sm-4">
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="entreprisenewcaisse" class="col-form-label adminpdvparametrecompteText">Entreprise</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
+                                <input style="border-radius: 2rem;margin-bottom: 0px;" type="text" class="form-control form-control-sm" id="entreprisenewcaisse" required [(ngModel)]="nometps" name="entreprisenewcaisse"  >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="font-size: 1.5rem;font-family: 'caviar dreams bold';color: #36A9E0; margin-top:1.5rem;" for="boutiquenewcaisse" class="col-form-label adminpdvparametrecompteText">Boutique</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
+                                <input class="form-control form-control-sm" style="margin-bottom: 0px;border-radius: 2rem;" type="text" class="form-control form-control-sm" id="boutiquenewcaisse" [(ngModel)]="nomshop" name="boutiquenewcaisse" required >
+                            </div>
+                        </div>
+                    </div>
 
-                      </div>
-                  </div>
-              </div>
-            </form>
-          </div>
+                    <div class="form-group col-sm-12 col-xs-12" style="margin-top:1rem;">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="padding-left: 0px; margin-bottom: 0px;font-family: 'caviar dreams bold';color: #36A9E0;font-size: 1.5rem;" for="regionnewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Région</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" >
+                                <select style="border-radius: 2rem;margin-bottom: 0px;padding-left: 0px;" class="form-control form-control-sm " id="regionnewcaisse" name="regionnewcaisse" required [(ngModel)]="region" (change)="selectRegionNewCaissier()">
+                                    <option selected>--Choix région--</option>
+                                    <option *ngFor="let region of regions">{{region.nom}}</option>
+                                </select>                      
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12" *ngIf="iszones && region!='&#45;&#45;Choix région&#45;&#45;'">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="margin-bottom: 0px;font-family: 'caviar dreams bold';color: #36A9E0;font-size: 1.5rem;" for="zonenewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Zones</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8">
+                                <select style="border-radius: 2rem;" class="form-control form-control-sm " id="zonenewcaisse" name="zonenewcaisse" required [(ngModel)]="zone" (change)="selectZoneNewCaissier()">
+                                    <option>&#45;&#45;Choix zone&#45;&#45;</option>
+                                    <option  *ngFor="let zone of zones">{{zone.nom}}</option>
+                                </select>                     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12" *ngIf="issouszones && zone!='&#45;&#45;Choix zone&#45;&#45;'">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label for="souszonenewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Sous zones</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="">
+                                <select style="border-radius: 2rem;" class="form-control input-sm" id="souszonenewcaisse" name="souszonenewcaisse" required [(ngModel)]="souszone">
+                                    <option>&#45;&#45;Choix sous zone&#45;&#45;</option>
+                                    <option  *ngFor="let souszone of souszones">{{souszone.nom}}</option>
+                                </select>                   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12" *ngIf="issouszones && souszone!='&#45;&#45;Choix sous zone&#45;&#45;'">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-4">
+                                <label style="font-family: 'caviar dreams bold';color: #36A9E0;font-size: 1.5rem;" for="adressenewcaisse" class="col-sm-3 col-xs-3 col-form-label adminpdvparametrecompteText">Adresse exacte</label>
+                            </div>
+                            <div class="col-sm-8 col-xs-8" style="padding-left: 0px;">
+                                <textarea class="form-control form-control-sm" id="adressenewcaisse" name="adressenewcaisse" required [(ngModel)]="adresse" placeholder="Adresse exacte" rows="3"></textarea>                  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer text-center" style="text-align: right; margin-top: 3rem">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                <button (click)="modalNewCaissie()"  type="button" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:5rem; color:rgb(255,144, 00);" ></i></button>
+                            </div>
+
+                            <div class="col-xs-2 col-sm-2" style="margin-left:1rem;">
+                                <button [disabled]="!f.form.valid || region=='--Choix région--'  || zone=='--Choix zone--'  || souszone=='--Choix sous zone--' || !adresse"  (click)="inscrire()"  type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:5rem; color: rgb(255,144, 00);" ></i></button>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-
+    </div>
 </div>
+
 
 <!--**********************************************************************************************
                                        Status reclamations
 ***********************************************************************************************-->
-
-<div class="row" *ngIf="displayedPage=='accueil-reclamation'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row"  *ngIf="displayedPage=='accueil-reclamation'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Satatus reclamation
+            Status reclamation
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-          <div class="row" style="margin-top:2rem;">
-              <div  class="row" style="color: #f39200; text-align: center">
-                    <div  class="col-xs-6 col-sm-6">
-                        <label  class="label-control">Nombre de ligne</label>
-                        <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="10">
-                            <option  value="0: 5" ng-reflect-ng-value="5">5</option>
-                            <option  value="1: 10" ng-reflect-ng-value="10">10</option>
-                            <option  value="2: 25" ng-reflect-ng-value="25">25</option>
-                            <option  value="3: 50" ng-reflect-ng-value="50">50</option>
+        <div class="row" style="margin-top:2rem;">
+            <div  class="row" style="color: #f39200; text-align: center">
+                <div  class="col-xs-6 col-sm-6">
+                    <label  class="label-control">Nombre de ligne</label>
+                    <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="10">
+                        <option  value="0: 5" ng-reflect-ng-value="5">5</option>
+                        <option  value="1: 10" ng-reflect-ng-value="10">10</option>
+                        <option  value="2: 25" ng-reflect-ng-value="25">25</option>
+                        <option  value="3: 50" ng-reflect-ng-value="50">50</option>
+                    </select>
+                </div>
+                <div  class="col-xs-6 col-sm-6">
+                    <div  class="row">
+                        <label  class="col-xs-12 label-control">Trier par</label>
+                        <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="datereclamation">
+                            <option  ngvalue="datereclamation" value="0: datereclamation" ng-reflect-ng-value="datereclamation">Date réclamation</option>
+                            <option  ngvalue="pdv" value="1: pdv" ng-reflect-ng-value="pdv">Pdv</option>
+                            <option  ngvalue="typeservice" value="2: typeservice" ng-reflect-ng-value="typeservice">Type de service</option>
+                            <option  value="2: etat" >Etat</option>
                         </select>
                     </div>
-                    <div  class="col-xs-6 col-sm-6">
-                        <div  class="row">
-                            <label  class="col-xs-12 label-control">Trier par</label>
-                            <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="datereclamation">
-                                <option  ngvalue="datereclamation" value="0: datereclamation" ng-reflect-ng-value="datereclamation">Date réclamation</option>
-                                <option  ngvalue="pdv" value="1: pdv" ng-reflect-ng-value="pdv">Pdv</option>
-                                <option  ngvalue="typeservice" value="2: typeservice" ng-reflect-ng-value="typeservice">Type de service</option>
-                                <option  value="2: etat" >Etat</option>
-                            </select>
-                        </div>
-                    </div>
-              </div>
-          </div>
-          <div  class="panel panel-default table-responsive row" style="margin-top:2rem;">
+                </div>
+            </div>
+        </div>
+        <div  class="panel panel-default table-responsive row" style="margin-top:2rem;">
             <table  class="table" ng-reflect-sort-by="datereclamation" ng-reflect-sort-order="asc" ng-reflect-rows-on-page="10" ng-reflect-input-data="">
                 <thead >
-
-                <tr >
-                    <th ><p  class="adminmultipdvReclamationBorder">Date de réclamation</p></th>
-                    <th ><p  class="adminmultipdvReclamationBorder">Pdv</p></th>
-                    <th ><p  class="adminmultipdvReclamationBorder">Adresse</p></th>
-                    <th ><p  class="adminmultipdvReclamationBorder">Telephone</p></th>
-                    <th ><p  class="adminmultipdvReclamationBorder">Type de service</p></th>
-                    <th ><p  class="adminmultipdvReclamationBorder">Message</p></th>
-                    <th ><p  class="adminmultipdvReclamationBorder">Etat</p></th>
-                </tr>
+                    <tr >
+                        <th ><p  class="adminmultipdvReclamationBorder">Date de réclamation</p></th>
+                        <th ><p  class="adminmultipdvReclamationBorder">Pdv</p></th>
+                        <th ><p  class="adminmultipdvReclamationBorder">Adresse</p></th>
+                        <th ><p  class="adminmultipdvReclamationBorder">Telephone</p></th>
+                        <th ><p  class="adminmultipdvReclamationBorder">Type de service</p></th>
+                        <th ><p  class="adminmultipdvReclamationBorder">Message</p></th>
+                        <th ><p  class="adminmultipdvReclamationBorder">Etat</p></th>
+                    </tr>
                 </thead>
                 <tbody >
                     <tr colspan="5">
                         <input  class="form-control adminmultipdvReclamationBorder ng-untouched ng-pristine ng-valid" ng-reflect-model="" placeholder="recherche" style="width:96%;">
                     </tr>
-
                 </tbody>
                 <tfoot >
-                <tr >
-                    <td  colspan="5">
-                       
-                    </td>
-                </tr>
+                    <tr >
+                        <td  colspan="5">
+                            
+                        </td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
@@ -971,36 +966,36 @@
                                       Proposition d'aide a la décision
 ***********************************************************************************************-->
 
-<div class="row" *ngIf="displayedPage=='accueil-aidedecision'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-aidedecision'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-          Proposition d'aide a la décision
+                Proposition d'aide a la décision
         </h5>  
     </div>
-    <div  class="col-sm-12 col-xs-12">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div  class="row">
             <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
                 CE MODULE EST EN DEVELOPPEMENT !
             </div>
-            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem;">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
                 <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
             </div>
         </div>
@@ -1013,30 +1008,30 @@
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Comptablité
+                Comptablité
         </h5>  
     </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;padding-top: 5rem;" >
-        <div class="row">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row" style="margin-top:4rem">
             <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('css')">Caisse</button>
         </div>
         <div class="row">
@@ -1051,89 +1046,112 @@
     </div>
 </div>
 
+
 <!--****************************************Caisses***********************************************-->
+
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-css'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Caisses
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Caisses
         </h5>  
     </div>
-   
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div  class="row">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
+                CE MODULE EST EN DEVELOPPEMENT !
+            </div>
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
+                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            </div>
+        </div>
+    </div>
 </div>
-<!--****************************************Journal***********************************************-->
 
+
+<!--****************************************Journal***********************************************-->
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-jour'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-          Journal
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Journal
         </h5>  
     </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div  class="row">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
+                CE MODULE EST EN DEVELOPPEMENT !
+            </div>
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
+                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            </div>
+        </div>
+    </div>
 </div>
+
 <!--****************************************Exploitation***********************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Exploitation
         </h5>  
     </div>
-    <div class="col-sm-12 col-xs-12" style="padding-top: 5rem;text-align: -webkit-center;">
-        <div class="row">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row" style="margin-top:4rem;">
             <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('services')">Services avec commission</button>
         </div>
         <div class="row">
@@ -1142,33 +1160,34 @@
     </div>
 </div>
 
+
 <!--***********************************Services avec commission***************************************-->
 
-<div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-services'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-services'"  style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Exploitation
         </h5>  
     </div>
-    <div class="col-xs-12 col-sm-12" style="padding-top: 5rem;" style="text-align: -webkit-center;">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row" [ngStyle]="{'margin-top':'2rem','margin-bottom':'2rem'}">
             <div class="col-sm-4 col-xs-4" [ngStyle]="{padding:'0px'}">
                 <button   style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold'; border: 1px solid #36a9e0;"  (click)="estcheckModel('jour');" >Par Jour</button><br>
@@ -1191,135 +1210,148 @@
             </div>
             <div class="form-group" *ngIf="checkModel.annee" >
                 <select class="form-control" id="sel1b" [(ngModel)]="selectionannee">
-                  <option>2016</option>
-                  <option>2017</option>
-                  <option>2018</option>
-                  <option>2019</option>
-                  <option>2020</option>
-                  <option>2021</option>
-                  <option>2022</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
                 </select>
                 <button (click)="listerexploitationrechercheannee(pdv.idpdv, 0)" >rechercher</button>
             </div>
         </div>
     </div> 
-
-    <div class="col-sm-12 col-xs-12">
-        <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="exploitationaveccommission|filtreexploitationaveccommission:filtreaveccommission" #fopdac="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
-            <thead>
-                <tr>
-                    <td colspan="6">
-                        <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="bilanexploitationaveccommission" #fopdacbilan="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
-                            <thead>
-                                <tr>
-                                    <th colspan="4" style="text-align: -webkit-center;" class="comptabiliteBorder"><h4 style="font-family: 'caviar dreams bold'; font-size: 1.5rem;">Bilan</h4></th>
-                                </tr>
-                                <tr>
-                                    <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
-                                    <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="cashin">Total Entrée</mfDefaultSorter></th>
-                                    <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="cashout">Total Sortie</mfDefaultSorter></th>
-                                    <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="commission">Total commissions</mfDefaultSorter></th>
-                                </tr>
-                            </thead>
-                            <tbody *ngIf="this.bilanexploitationaveccommission">
-                                <tr *ngFor="let bilan of fopdacbilan.data">
-                                    <td>{{bilan.service}}</td>
-                                    <td>{{currencyFormat(bilan.cashin)}}</td>
-                                    <td>{{currencyFormat(bilan.cashout)}}</td>
-                                    <td>{{currencyFormat(bilan.commission)}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            <tr>
-              <th colspan="6" style="text-align: -webkit-center;" class="comptabiliteBorder"><h4 style="font-family: 'caviar dreams bold'; font-size: 1.5rem;">Détail</h4></th>
-            </tr>
-            <tr>
-                <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter  by="dateajout">Date</mfDefaultSorter></th>
-                <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
-                <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="designation">Désignation</mfDefaultSorter></th>
-                <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="mnt">Montant</mfDefaultSorter></th>
-                <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="frais">Frais</mfDefaultSorter></th>
-                <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="commission">Commission</mfDefaultSorter></th>
-            </tr>
-            </thead>
-            <tbody *ngIf="this.exploitationaveccommission">
-                <tr *ngFor="let exploitation of fopdac.data">
-                    <td>{{exploitation.dateajout }}</td>
-                    <td>{{exploitation.service}}</td>
-                    <td>{{exploitation.designation}}</td>
-                    <td>{{currencyFormat(exploitation.mnt)}}</td>
-                    <td>{{currencyFormat(exploitation.frais)}}</td>
-                    <td>{{currencyFormat(exploitation.commission)}}</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                  <td colspan="6"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
-                </tr>
-            </tfoot>
-        </table>
+    <div class="col-xs-12 col-sm-12" style="text-align: -webkit-center;">
+        <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+            <table  class="table table-striped" [mfData]="bilanexploitationaveccommission" #fopdacbilan="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%; min-width: -webkit-fill-available; max-width: -webkit-fill-available; overflow-x:scroll;">
+                <thead>
+                    <tr>
+                        <th colspan="4" style="text-align: -webkit-center;" class="comptabiliteBorder"><h4 style="font-family: 'caviar dreams bold'; font-size: 1.5rem;">Bilan</h4></th>
+                    </tr>
+                    <tr>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="cashin">Total Entrée</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="cashout">Total Sortie</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="commission">Total commissions</mfDefaultSorter></th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="this.bilanexploitationaveccommission">
+                    <tr *ngFor="let bilan of fopdacbilan.data">
+                        <td>{{bilan.service}}</td>
+                        <td>{{currencyFormat(bilan.cashin)}}</td>
+                        <td>{{currencyFormat(bilan.cashout)}}</td>
+                        <td>{{currencyFormat(bilan.commission)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12" style="text-align: -webkit-center;" >
+        <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+            <table  class="table table-striped" [mfData]="exploitationaveccommission|filtreexploitationaveccommission:filtreaveccommission" #fopdac="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="min-width: -webkit-fill-available; max-width: -webkit-fill-available; overflow-x:scroll;">
+                <thead>
+                    <tr>
+                        <th colspan="6" style="text-align: -webkit-center;" class="comptabiliteBorder"><h4 style="font-family: 'caviar dreams bold'; font-size: 1.5rem;">Détail</h4></th>
+                    </tr>
+                    <tr>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter  by="dateajout">Date</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="designation">Désignation</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="mnt">Montant</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="frais">Frais</mfDefaultSorter></th>
+                        <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter by="commission">Commission</mfDefaultSorter></th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="this.exploitationaveccommission">
+                    <tr *ngFor="let exploitation of fopdac.data">
+                        <td>{{exploitation.dateajout }}</td>
+                        <td>{{exploitation.service}}</td>
+                        <td>{{exploitation.designation}}</td>
+                        <td>{{currencyFormat(exploitation.mnt)}}</td>
+                        <td>{{currencyFormat(exploitation.frais)}}</td>
+                        <td>{{currencyFormat(exploitation.commission)}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>
+
 
 
 <!--****************************************personnalisation***********************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-pers'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            personnalisation
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                personnalisation
         </h5>  
     </div>
-   
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div  class="row">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
+                CE MODULE EST EN DEVELOPPEMENT !
+            </div>
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
+                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <!--****************************************Autres Services***********************************************-->
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-exp-autres'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Autres Services
+                Autres Services
         </h5>  
     </div>
-    <div class="col-xs-12 col-sm-12" style="padding-top: 5rem;" style="text-align: -webkit-center;">
+
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row" [ngStyle]="{'margin-top':'2rem','margin-bottom':'2rem'}">
             <div class="col-sm-4 col-xs-4" [ngStyle]="{padding:'0px'}">
                 <button   style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold'; border: 1px solid #36a9e0;"  (click)="estcheckModel('jour');" >Par Jour</button><br>
@@ -1342,275 +1374,312 @@
             </div>
             <div class="form-group" *ngIf="checkModel.annee" >
                 <select class="form-control" id="sel1b" [(ngModel)]="selectionannee">
-                  <option>2016</option>
-                  <option>2017</option>
-                  <option>2018</option>
-                  <option>2019</option>
-                  <option>2020</option>
-                  <option>2021</option>
-                  <option>2022</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
                 </select>
                 <button (click)="listerexploitationrechercheannee(pdv.idpdv, 0)" >rechercher</button>
             </div>
         </div>
     </div> 
-     <div class="col-xs-12 col-sm-12" style="padding-top: 5rem;" style="text-align: -webkit-center;padding-top: 5rem;">
-        <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="exploitation|filtreexploitation:filtre" #fopd="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
-            <thead>
-                <tr>
-                    <th colspan="6" style="padding-right: 3rem ;">
-                    
-                    </th>
-                </tr>
-                <tr>
-                    <th><mfDefaultSorter by="dateajout">Date</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="designation">Désignation</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="stocki">Stock Initial</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="vente">Ventes</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="stockf">Stock Final</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="mnt">Montant</mfDefaultSorter></th>
-                </tr>
-            </thead>
-            <tbody *ngIf="this.exploitation">
-                <tr *ngFor="let exploitation of fopd.data">
-                    <td>{{exploitation.dateajout }}</td>
-                    <td>{{exploitation.designation}}</td>
-                    <td>{{exploitation.stocki}}</td>
-                    <td>{{exploitation.vente}}</td>
-                    <td>{{exploitation.stockf}}</td>
-                    <td>{{currencyFormat(exploitation.mnt)}}</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-</div>
-
-<!--**********************************************************************************************
-                                    CRM
-***********************************************************************************************-->
-
-<div class="row" *ngIf="displayedPage=='accueil-CRM'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
-    <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
-                </div>
-            </div>
-    </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-        Gestion Clientèle
-      </h5>  
-    </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-      <div class="row" style="margin-bottom: 3rem;">
-        <div class=" col-sm-12 col-xs-12" style="padding-top: 7rem;">
-          <div class="row">
-            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#portefeuille" data-toggle="tab"  (click)="roadTo('port');">Portefeuille</button>
-          </div>
-          <div class="row">
-            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#relance" data-toggle="tab"  (click)="roadTo('rel')">Relance</button>
-          </div>
-          <div class="row">
-            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#promotion" data-toggle="tab" (click)="roadTo('prom')">Promotion</button>
-          </div>
-          <div class="row">
-            <button style="border: 0rem;color:#36A9E0; font-family: 'caviar dreams bold';font-size: 2.4rem;" href="#prospection" data-toggle="tab" (click)="roadTo('pros')">Prospection</button>
-          </div>
-          <div class="row">
-            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#suivicommande" data-toggle="tab" (click)="roadTo('scm')">Suivi Commandes</button>
-          </div>
-        </div>
-      </div>
-
-     
- 
-    </div>
-</div>
-
-<!--***********************************Portefeuille******************************************-->
-<div class="row" *ngIf="displayedPage=='accueil-CRM-port'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
-    <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
-                </div>
-            </div>
-    </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Portefeuille
-        </h5>  
-    </div>
-    <div class="tab-content col-sm-12 col-xs-12">
-        <div class="row" id="portefeuille" style="padding-left:2rem;padding-right: 2rem;padding-top:3rem;">
-            <!--<div class="badge">Portefeuille</div>-->
-            <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="portefeuille|filtreportefeuille:filtre" #fpf="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+        <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+            <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="exploitation|filtreexploitation:filtre" #fopd="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                 <thead>
                     <tr>
-                    <th colspan="4" style="padding-right: 3rem ;">
-                        <input style="width: 50%;" placeholder="Rechercher" style="width: 50%;" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
-                    </th>
+                        <th colspan="6" style="padding-right: 3rem ;">
+                        
+                        </th>
                     </tr>
                     <tr>
-                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
-                        <p class="adminpdvcrmBorder">Prénom</p></th>
-                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
-                        <p class="adminpdvcrmBorder">Nom</p></th>
-                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
-                        <p class="adminpdvcrmBorder">Téléphone</p></th>
-                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
-                        <p class="adminpdvcrmBorder">Fidélité</p></th>
+                        <th><mfDefaultSorter by="dateajout">Date</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="designation">Désignation</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="stocki">Stock Initial</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="vente">Ventes</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="stockf">Stock Final</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="mnt">Montant</mfDefaultSorter></th>
                     </tr>
                 </thead>
-                <tbody *ngIf="this.portefeuille">
-                    <tr *ngFor="let portefeuille of fpf.data" style="color: #337ab7;">
-                        <td>{{portefeuille.prenom}}</td>
-                        <td>{{portefeuille.nom}}</td>
-                        <td>{{portefeuille.telephone}}</td>
-                        <td>{{portefeuille.fidelite}}</td>
+                <tbody *ngIf="this.exploitation">
+                    <tr *ngFor="let exploitation of fopd.data">
+                        <td>{{exploitation.dateajout }}</td>
+                        <td>{{exploitation.designation}}</td>
+                        <td>{{exploitation.stocki}}</td>
+                        <td>{{exploitation.vente}}</td>
+                        <td>{{exploitation.stockf}}</td>
+                        <td>{{currencyFormat(exploitation.mnt)}}</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="4">
-                            <mfBootstrapPaginator ></mfBootstrapPaginator>
-                        </td>
+                        <td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
                     </tr>
                 </tfoot>
             </table>
+        </div>    
+    </div>
+</div>
+
+
+
+<!--**********************************************************************************************
+                                    CRM
+***********************************************************************************************-->
+<!-- <div class="col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                personnalisation
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div  class="row">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
+                CE MODULE EST EN DEVELOPPEMENT !
+            </div>
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
+                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="row" *ngIf="displayedPage=='accueil-CRM'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Gestion Clientèle
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#portefeuille" data-toggle="tab"  (click)="roadTo('port');">Portefeuille</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#relance" data-toggle="tab"  (click)="roadTo('rel')">Relance</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#promotion" data-toggle="tab" (click)="roadTo('prom')">Promotion</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0; font-family: 'caviar dreams bold';font-size: 2.4rem;" href="#prospection" data-toggle="tab" (click)="roadTo('pros')">Prospection</button>
+        </div>
+        <div class="row">
+            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem; " href="#suivicommande" data-toggle="tab" (click)="roadTo('scm')">Suivi Commandes</button>
+        </div>
+    </div>
+</div>
+
+
+<!--***********************************Portefeuille******************************************-->
+
+<div class="row" *ngIf="displayedPage=='accueil-CRM-port'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Portefeuille
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+                <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="portefeuille|filtreportefeuille:filtre" #fpf="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th colspan="4" style="padding-right: 3rem ;">
+                                <input style="width: 50%;" placeholder="Rechercher" style="width: 50%;" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
+                            <p class="adminpdvcrmBorder">Prénom</p></th>
+                            <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
+                            <p class="adminpdvcrmBorder">Nom</p></th>
+                            <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
+                            <p class="adminpdvcrmBorder">Téléphone</p></th>
+                            <th style="color: #36A9E0;font-family: 'caviar dreams bold';">
+                            <p class="adminpdvcrmBorder">Fidélité</p></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="this.portefeuille">
+                        <tr *ngFor="let portefeuille of fpf.data" style="color: #337ab7;">
+                            <td>{{portefeuille.prenom}}</td>
+                            <td>{{portefeuille.nom}}</td>
+                            <td>{{portefeuille.telephone}}</td>
+                            <td>{{portefeuille.fidelite}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mfBootstrapPaginator ></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
 <!--***********************************relance******************************************-->
-<div class="row" *ngIf="displayedPage=='accueil-CRM-rel'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+
+<div class="row" *ngIf="displayedPage=='accueil-CRM-rel'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Relance
+                Relance
         </h5>  
     </div>
-    <div class="col-sm-12 col-xs-12" style="padding-top: 2rem;text-align: -webkit-right;">
-      <button style="color: orange!important;font-family:'caviar dreams bold';font-size: 2rem;border:1px solid orange;" class="btn btn-primary" (click)="showChildModalcrm('relancegroupe','')">Envoyer sms</button>
-    </div>
-    <div class="col-xs-12 col-sm-12">
-        <div class="col-sm-12 col-xs-12" id="relance" style="overflow-x:scroll;width: 94%;padding: 40px;margin-left: 3%;margin-right: 3%;">
-            <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="relance|filtrerelance:filtre" #frla="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
-                <thead>
-                <tr>
-                    <th colspan="7" style="padding-right: 3rem ;">
-                    <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
-                    </th>
-                </tr>
-                <tr>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Choisir</p></th>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Nom</p></th>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Prénom</p></th>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Téléphone</p></th>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Service</p></th>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Echéance</p></th>
-                    <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Action</p></th>
-                </tr>
-                </thead>
-                <tbody *ngIf="this.relance">
-                <tr *ngFor="let relance of frla.data ; let i = index " style="color: #337ab7;">
-                    <td>
-                    <input style="width: 50%;" type="checkbox" #checkbox (change)="checkThisForRelance(checkbox.checked,relance,i)">
-                    </td>
-                    <td>{{ relance.prenom }}</td>
-                    <td>{{ relance.nom }}</td>
-                    <td>{{ relance.telephone }}</td>
-                    <td>{{relance.nomservice}}</td>
-                    <td>{{relance.echeance.date}}</td>
-                    <td>
-                    <button type="button" class="btn btn-primary btn-sm" (click)="showChildModalcrm('single',relance.telephone)">SMS</button>
-                    </td>
-                </tr>
-                </tbody>
-                <tfoot>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+                <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="relance|filtrerelance:filtre" #frla="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                    <thead>
                     <tr>
-                        <td colspan="4">
-                            <mfBootstrapPaginator ></mfBootstrapPaginator>
+                        <th colspan="7" style="padding-right: 3rem ;">
+                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Choisir</p></th>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Nom</p></th>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Prénom</p></th>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Téléphone</p></th>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Service</p></th>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Echéance</p></th>
+                        <th style="font-family: 'caviar dreams bold'; color: #36A9E0;"><p class="adminpdvcrmBorder">Action</p></th>
+                    </tr>
+                    </thead>
+                    <tbody *ngIf="this.relance">
+                    <tr *ngFor="let relance of frla.data ; let i = index " style="color: #337ab7;">
+                        <td>
+                            <input style="width: 50%;" type="checkbox" #checkbox (change)="checkThisForRelance(checkbox.checked,relance,i)">
+                        </td>
+                        <td>{{ relance.prenom }}</td>
+                        <td>{{ relance.nom }}</td>
+                        <td>{{ relance.telephone }}</td>
+                        <td>{{relance.nomservice}}</td>
+                        <td>{{relance.echeance.date}}</td>
+                        <td>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="showChildModalcrm('single',relance.telephone)">SMS</button>
                         </td>
                     </tr>
-                </tfoot>
-            </table>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mfBootstrapPaginator ></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
+
 <!--***********************************Promotion******************************************-->
-<div class="row" *ngIf="displayedPage=='accueil-CRM-prom'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+
+<div class="row" *ngIf="displayedPage=='accueil-CRM-prom'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Promotion
         </h5>  
     </div>
-    <div class="col-sm-12 col-xs-12" id="promotion">
-        <div style="margin-bottom: 2rem;text-align: -webkit-center;padding-top: 2rem;">
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row" style="margin-bottom: 2rem;text-align: -webkit-center;padding-top: 2rem;">
             <label>Filtrer Par :  <select class="form-control input-sm" >
                 <option>périodicité</option>
                 <option >fidélité</option>
@@ -1624,35 +1693,104 @@
             </label>
             <button style="color: orange;border:1px solid orange;" class="btn btn-primary" (click)="showChildModalcrm('promogroupe','')">Envoyer sms</button>
         </div>
-        <div >
-        <div class="col-sm-12 col-xs-12" id="relance" style="overflow-x:scroll;width: 94%;padding: 40px;margin-left: 3%;margin-right: 3%;">
-            <table   class="table table-responsive table-bordered table-striped" [mfData]="promotion|filtrepromotion:filtre" #fpr="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+
+        <div class="row" id="relance" style="overflow-x:scroll;width: 94%;padding: 40px;margin-left: 3%;margin-right: 3%;">
+            <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+                <table   class="table table-responsive table-bordered table-striped" [mfData]="promotion|filtrepromotion:filtre" #fpr="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th colspan="6" style="padding-right: 3rem ;">
+                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Choisir</p></th>
+                            <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Prénom</p></th>
+                            <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Nom</p></th>
+                            <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Téléphone</p></th>
+                            <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Périodicité/Fidélité</p></th>
+                            <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Service</p></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="this.promotion">
+                        <tr *ngFor="let promotion of fpr.data ; let i = index "  style="color: #337ab7;">
+                        <td>
+                            <input type="checkbox" #checkboxprom (change)="checkThisForPromo(checkboxprom.checked,promotion,i)">
+                        </td>
+                        <td>{{promotion.prenom}}</td>
+                        <td>{{promotion.nom}}</td>
+                        <td>{{promotion.telephone}}</td>
+                        <td>{{promotion.periofidel}}</td>
+                        <td>{{promotion.service}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mfBootstrapPaginator ></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!--***********************************Prospection******************************************-->
+
+<div class="row" *ngIf="displayedPage=='accueil-CRM-pros'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Prospection
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+            <table  class="table table-responsive table-bordered table-striped" [mfData]="prospection|filtreprospection:filtre" #fprs="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th colspan="6" style="padding-right: 3rem ;">
-                        <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                        <th colspan="5" style="padding-right: 3rem ;">
+                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
                         </th>
                     </tr>
                     <tr>
-                        <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Choisir</p></th>
                         <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Prénom</p></th>
                         <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Nom</p></th>
                         <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Téléphone</p></th>
-                        <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Périodicité/Fidélité</p></th>
-                        <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Service</p></th>
+                        <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Détail</p></th>
+                        <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Action</p></th>
                     </tr>
+
                 </thead>
-                <tbody *ngIf="this.promotion">
-                    <tr *ngFor="let promotion of fpr.data ; let i = index "  style="color: #337ab7;">
-                    <td>
-                        <input type="checkbox" #checkboxprom (change)="checkThisForPromo(checkboxprom.checked,promotion,i)">
+                <tbody *ngIf="this.prospection">
+                <tr *ngFor="let prospection of fprs.data"  style="color: #337ab7;">
+                    <td>{{prospection.prenom}}</td>
+                    <td>{{prospection.nom}}</td>
+                    <td>{{prospection.telephone}}</td>
+                    <td><button type="button" class="btn btn-primary" popover="retrait d'argent" popoverTitle="Détails" triggers="focus">Détails</button></td>
+                    <td><button  class="btn btn-primary" (click)="showChildModalcrm('single',prospection.telephone)">SMS</button>
                     </td>
-                    <td>{{promotion.prenom}}</td>
-                    <td>{{promotion.nom}}</td>
-                    <td>{{promotion.telephone}}</td>
-                    <td>{{promotion.periofidel}}</td>
-                    <td>{{promotion.service}}</td>
-                    </tr>
+                </tr>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -1664,200 +1802,150 @@
             </table>
         </div>
     </div>
-  </div>
 </div>
-  <!--***********************************Prospection******************************************-->
-<div class="row" *ngIf="displayedPage=='accueil-CRM-pros'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
-    <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
-                </div>
-            </div>
-    </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Prospection
-        </h5>  
-    </div>
-    <div class="col-sm-12 col-xs-12" id="prospection" style="overflow-x:scroll;width: 94%;padding: 40px;margin-left: 3%;margin-right: 3%;" >
-            <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="prospection|filtreprospection:filtre" #fprs="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
-                  <thead>
-                      <tr>
-                          <th colspan="5" style="padding-right: 3rem ;">
-                              <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
-                          </th>
-                    </tr>
-                      <tr>
-                          <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Prénom</p></th>
-                          <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Nom</p></th>
-                          <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Téléphone</p></th>
-                          <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Détail</p></th>
-                          <th style="color: #36A9E0; font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Action</p></th>
-                     </tr>
-
-                  </thead>
-                  <tbody *ngIf="this.prospection">
-                  <tr *ngFor="let prospection of fprs.data"  style="color: #337ab7;">
-                      <td>{{prospection.prenom}}</td>
-                      <td>{{prospection.nom}}</td>
-                      <td>{{prospection.telephone}}</td>
-                      <td><button type="button" class="btn btn-primary" popover="retrait d'argent" popoverTitle="Détails" triggers="focus">Détails</button></td>
-                      <td><button  class="btn btn-primary" (click)="showChildModalcrm('single',prospection.telephone)">SMS</button>
-                      </td>
-                  </tr>
-                  </tbody>
-                  <tfoot>
-                      <tr>
-                          <td colspan="4">
-                              <mfBootstrapPaginator ></mfBootstrapPaginator>
-                          </td>
-                      </tr>
-                  </tfoot>
-
-            </table>
-        </div>
-  </div>
 
     <!--***********************************Suivi Commandes******************************************-->
-<div class="row" *ngIf="displayedPage=='accueil-CRM-scm'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+
+<div class="row" *ngIf="displayedPage=='accueil-CRM-scm'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-        <div class="col-sm-2 col-xs-2">
-            <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right:3rem;"/>
-        </div>
-        <div class="col-sm-8 col-xs-8">
-            <img src="assets/rond.png" style="width: 100%;"/>
-        </div>
-        <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-            <div class="row">
-            <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 2rem;"></i>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
             </div>
-            <div class="row">
-            <img src="assets/deconnet.png" style=" height: 4rem;"/>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Suivi commandes
         </h5>  
     </div>
-        <div class="col-sm-12 col-xs-12" style="overflow-x:scroll;width: 94%;padding: 40px;margin-left: 3%;margin-right: 3%;" id="suivicommande">
-                    <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="suivicommande|filtresuivicommande:filtre" #fsc="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
-                        <thead>
-                            <tr>
-                                <th colspan="6" style="padding-right: 3rem ;"> 
-                                   <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Nom</p></th>
-                                <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Prénom</p></th>
-                                <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Point de récupération</p></th>
-                                <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Montant de la commande</p></th>
-                                <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Détails</p></th>
-                                <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Etat</p></th>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+            <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="suivicommande|filtresuivicommande:filtre" #fsc="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th colspan="6" style="padding-right: 3rem ;"> 
+                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Nom</p></th>
+                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Prénom</p></th>
+                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Point de récupération</p></th>
+                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Montant de la commande</p></th>
+                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Détails</p></th>
+                        <th style="color: #36A9E0;font-family: 'caviar dreams bold';"><p class="adminpdvcrmBorder">Etat</p></th>
 
-                           </tr>
-                        </thead>
-                        <tbody *ngIf="this.suivicommande">
-                        <tr *ngFor="let suivicommande of fsc.data"  style="color: #337ab7;">
-                            <td>{{suivicommande.nomclient}}</td>
-                            <td>{{suivicommande.prenomclient}}</td>
-                            <td>{{getAddressRecup(suivicommande.pointderecuperation)}}</td>
-                            <td>{{suivicommande.montantcommande}}</td>
-                            <td><button type="button" class="btn btn-primary" popover="{{suivicommande.detail}}" popoverTitle="Détails" triggers="focus">Détails</button></td>
-                            <td>{{suivicommande.etat}}</td>
+                    </tr>
+                </thead>
+                <tbody *ngIf="this.suivicommande">
+                <tr *ngFor="let suivicommande of fsc.data"  style="color: #337ab7;">
+                    <td>{{suivicommande.nomclient}}</td>
+                    <td>{{suivicommande.prenomclient}}</td>
+                    <td>{{getAddressRecup(suivicommande.pointderecuperation)}}</td>
+                    <td>{{suivicommande.montantcommande}}</td>
+                    <td><button type="button" class="btn btn-primary" popover="{{suivicommande.detail}}" popoverTitle="Détails" triggers="focus">Détails</button></td>
+                    <td>{{suivicommande.etat}}</td>
 
-                        </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4">
-                                    <mfBootstrapPaginator ></mfBootstrapPaginator>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-            </div>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <mfBootstrapPaginator ></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div> 
     </div>
+</div>
 
 <!--**********************************************************************************************
                                     Consulter les prets
 ***********************************************************************************************-->
 
-<div class="row" *ngIf="displayedPage=='accueil-consulterpret'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-consulterpret'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Consulter des prêts
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-           Consulter des prêts
+        <div  class="row">
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
+                CE MODULE EST EN DEVELOPPEMENT !
+            </div>
+            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
+                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <!--**********************************************************************************************
                                    Guide d'utilissation
 ***********************************************************************************************-->
+
 <!-- .......................
     Guide d'utilissation => ACCUEIL
  ........................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-          Guide d'utilissation
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Guide d'utilissation
         </h5>  
     </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; margin-top:1rem;" >
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row">
             <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('tb')">Tableau de bord (Dashboard)</button>
         </div>
@@ -1891,85 +1979,93 @@
     Guide d'utilissation => Tableau de bord (Dashboard)
  ........................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-tb'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-tb'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-      <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-          Guide d'utilissation
-      </h5>  
-  </div>
-  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-      <div class="row">
-          <h4 style="color:rgb(255,144, 00);">Tableau de bord (Dashboard)</h4>
-      </div>
-      <div class="row">
-          <p style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;">
-            C’est la première fenêtre que vous allez voir sur votre plateforme.Elle vous résume les chiffres exacts issus de votre activité par jour/semaine ou mois.
-
-              Le tableau de bord vous fait l’état de votre performance journalière en termes d’articles vendus, de transactions effectuées, de réclamations etc.
-              
-              Ceci est donc votre porte d’entrée pour avoir constamment les informations sur la performance de vos points de vente.</p>
-          <div class="row">
-              <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="showguideModal()">voir les captures</button>
-          </div>
-      </div>
-  </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Consulter des prêts
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <h4 style="color:rgb(255,144, 00);">Tableau de bord (Dashboard)</h4>
+        </div>
+        <div class="row">
+            <p style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;">
+                C’est la première fenêtre que vous allez voir sur votre plateforme.Elle vous résume les chiffres exacts issus de votre activité par jour/semaine ou mois.
+    
+                Le tableau de bord vous fait l’état de votre performance journalière en termes d’articles vendus, de transactions effectuées, de réclamations etc.
+                
+                Ceci est donc votre porte d’entrée pour avoir constamment les informations sur la performance de vos points de vente.</p>
+            <div class="row">
+                <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="showguideModal()">voir les captures</button>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 <!-- .......................
     Guide d'utilissation => Monitoring des déposits
  ........................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-md'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-md'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-        <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-            <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-                Guide d'utilissation
-            </h5>  
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+            Consulter des prêts
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <h4 style="color:rgb(255,144, 00);">Tableau de bord (Dashboard)</h4>
         </div>
-        <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div class="row">
+            <p style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;">
+                C’est la première fenêtre que vous allez voir sur votre plateforme.Elle vous résume les chiffres exacts issus de votre activité par jour/semaine ou mois.
+    
+                Le tableau de bord vous fait l’état de votre performance journalière en termes d’articles vendus, de transactions effectuées, de réclamations etc.
+                
+                Ceci est donc votre porte d’entrée pour avoir constamment les informations sur la performance de vos points de vente.</p>
             <div class="row">
-                <h4 style="color:rgb(255,144, 00);">Tableau de bord (Dashboard)</h4>
-            </div>
-            <div class="row">
-
+                <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="showguideModal()">voir les captures</button>
             </div>
         </div>
+    </div>
 </div>
 
 
@@ -1977,40 +2073,33 @@
     Guide d'utilissation => Paramètre des comptes
  ........................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-pc'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-pc'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-  <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Guide d'utilissation
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Guide d'utilissation
         </h5>  
-  </div>
-  <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-      <div class="row">
-          <h4 style="color:rgb(255,144, 00);">Paramètre des comptes</h4>
-      </div>
-      <div class="row">
-          <div class="row">
-              <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('crm')">voir les capture</button>
-          </div>
-      </div>
-  </div>
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+
+    </div>
 </div>
 
 
@@ -2018,37 +2107,32 @@
     Guide d'utilissation => Status des réclamations
  ........................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-sr'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-sr'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Guide d'utilissation
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Guide d'utilissation
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row">
-            <h4 style="color:rgb(255,144, 00);">Status des réclamations</h4>
-        </div>
-        <div class="row">
 
-        </div>
     </div>
 </div>
 
@@ -2056,113 +2140,102 @@
     Guide d'utilissation => Proposition d'Aide à la décision
  ........................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-pd'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-pd'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Guide d'utilissation
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Guide d'utilissation
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row">
-            <h4 style="color:rgb(255,144, 00);">Proposition d'Aide à la décision</h4>
-        </div>
-        <div class="row">
 
-        </div>
     </div>
 </div>
+
 
 <!-- .......................
     Guide d'utilissation => Comptabilité 
  ........................-->
 
-<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-c'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-c'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
-            Guide d'utilissation
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                Guide d'utilissation
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row">
-            <h4 style="color:rgb(255,144, 00);">Comptabilité</h4>
-        </div>
-        <div class="row">
 
-        </div>
     </div>
 </div>
+
+
 
 <!-- .......................
     Guide d'utilissation => CRM
  ........................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-crm'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+ <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-crm'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Guide d'utilissation
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row">
-            <h4 style="color:rgb(255,144, 00);">CRM</h4>
-        </div>
-        <div class="row">
 
-        </div>
     </div>
 </div>
 
@@ -2171,37 +2244,32 @@
     Guide d'utilissation => Consulter les prêts 
  ........................-->
 
- <div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-cp'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil-Guide_utilisation-cp'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-sm-2 col-xs-2">
-                    <img src="assets/thumbnailphone.png" style="height:4rem ; margin-right: 3rem;"/>
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <img src="assets/rond.png" style="width:100%; "/>
-                </div>
-                <div class="col-sm-2 col-xs-2" (click)="pdvacueilretour()">
-                    <div class="row"  [ngStyle]="{'margin-top': '1rem'}" >
-                        <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); margin-left: 1rem; font-size:3rem;"></i>
-                    </div>
-                    <div class="row">
-                        <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
-                    </div>  
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-xs-12" style="background-color: rgb(255,144, 00);">
-        <h5 style="color:#36A9E0;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
             Guide d'utilissation
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row">
-            <h4 style="color:rgb(255,144, 00);">Consulter les prêts </h4>
-        </div>
-        <div class="row">
 
-        </div>
     </div>
 </div>
 
