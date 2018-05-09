@@ -6,7 +6,7 @@
 <div *ngIf="this.isMobile==false" id="wrapper" >
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" style="position: fixed ; top :0 ;" role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-default navbar-fixed-top" style="position: fixed ; top :0 ;" role="navigation" style="margin-bottom: 0">
 
         <div class="navbar-collapse" id="navbHead">
           <app-navbar-top></app-navbar-top>
@@ -154,7 +154,7 @@
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row" style="margin-top:4rem;">
-            <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
+            <!-- <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                   <div  class="row">
                       <div class="col-xs-8 col-sm-8 ">
                           <i  class="fa fa-microphone fa-4x" style="color:white;"></i>
@@ -181,7 +181,6 @@
                     Opérations effectuées!
                 </div>
             </div>
-
             <div class="col-xs-4 col-sm-4" style="background-color:#337ab7;padding:1rem;border: 2px solid white; border-radius: 2rem;">
                 <div  class="row">
                     <div class="col-xs-8 col-sm-8">
@@ -194,9 +193,41 @@
                 <div class="row" style="color:white;">
                     Articles vendus ecom!
                 </div>
-                
+            </div> -->
+            <div class="col-xs-12 col-sm-12">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6">
+                        <div style="display: block">
+                            <canvas baseChart
+                                [data]="pieChartData"
+                                [chartType]="pieChartType"
+                                (chartHover)="chartHovered($event)"
+                                (chartClick)="chartClicked($event)">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                </div> 
+                <div class="row">
+                    <div style="display: block">
+                        <canvas baseChart
+                            [datasets]="barChartData2"
+                            [chartType]="barChartType2"
+                            (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+
+                </div>               
+
             </div>
-             
         </div>
         <div class="row">
             <div class="row" style="margin-top:4rem;">
@@ -261,7 +292,7 @@
                 <input [(ngModel)]="suivionepointSelectionintervalledatefinal" style="    width: 80%; border-radius: 2rem 0rem 2rem 2rem;border: 1px solid rgb(255,144, 00);" type="date" ng-reflect-model="2018-04-26" class="form-control"> 
             </div>
             <div class="col-xs-12 col-sm-12" style="margin-top:1rem;">
-                <button class="btn btn-primary btn-sm" type="button" (click)="roadTo('res')"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
+                <button class="btn btn-primary btn-sm" type="button" (click)="suivionepointIntervalleDashboard();this.displayedPage='accueil-dashboard-all'"><i aria-hidden="true" class="fa fa-search" style="color: rgb(255,144, 00); font-size: 18px;"></i></button>
             </div>
         </div>
   </div>
@@ -615,7 +646,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center; background-color:#36A9E0;" >
         <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
                 Retrait
         </h5>  
@@ -626,7 +657,7 @@
         </div>
 
         <div  modal class="row" style="margin-top: 1rem">
-            <button modal class=" btn btn-success" disabled="">Valider</button>
+            <button modal class=" btn btn-success"  (click)="validerdmde()">Valider</button>
         </div>
     </div>
 </div>
@@ -866,7 +897,7 @@
                             </div>
 
                             <div class="col-xs-2 col-sm-2" style="margin-left:1rem;">
-                                <button [disabled]="!f.form.valid || region=='--Choix région--'  || zone=='--Choix zone--'  || souszone=='--Choix sous zone--' || !adresse"  (click)="inscrire()"  type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:5rem; color: rgb(255,144, 00);" ></i></button>
+                                <button   (click)="inscrire()"  type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:5rem; color: rgb(255,144, 00);" ></i></button>
                             </div>
                             <div class="col-xs-4 col-sm-4">
 
@@ -1151,11 +1182,202 @@
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row" style="margin-top:4rem;">
-            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('services')">Services avec commission</button>
-        </div>
-        <div class="row">
-            <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="roadTo('autres')">Autres</button>
+        <div class="row" *ngFor="let pdv of usersExploitation; let i = index; let isOdd = odd">
+            <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-3 col-xs-12"><label>{{pdv.prenom+" "+pdv.nom}}</label></div>
+            </div>
+            <div  class="col-sm-12 col-xs-12">
+                <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="listerexploitationaveccommission(i, i, 0); ExploitationSub='Services avec commission';">Services avec commission</button>
+                <button style="border: 0rem;color:#36A9E0;font-family: 'caviar dreams bold';font-size: 2.4rem;" (click)="listerexploitation(i, i, 1);ExploitationSub='Autres';">Autres</button>
+            </div>
+            <div  class="col-sm-12 col-xs-12">
+                    <div class="col-sm-12 col-xs-12" *ngIf="i==estselectionne && 0==estselectionfff">
+                        <div id="exp{{i}}" >
+                            <div class="panel-body">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="dataTables-example_wra">
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="exploitationaveccommission|filtreexploitationaveccommission:filtreaveccommission" #fopdac="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="6" style="padding-right: 3rem ;">
+                                        <div class="row">
+                                            <div class="col-sm-5 col-xs-12">
+                                            Rechercher :
+                                            <input class="form-control" [(ngModel)]="filtreaveccommission"/>
+                                            </div>
+                                            <div class="col-sm-7 col-xs-12">
+                                            <div class="row">
+                                                <label class="btn btn-primary" (click)="estcheckModel('jour'); listerexploitationrecherche(pdv.idpdv,0);">Par Jour</label>&nbsp;
+                                                <label class="btn btn-primary" (click)="estcheckModel('annee'); listerexploitationrechercheannee(pdv.idpdv,0);">Par Année</label>&nbsp;
+                                                <label class="btn btn-primary" (click)="estcheckModel('intervalle'); listerexploitationrecherche(pdv.idpdv,0);">Par Intervalle</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="btn-group" *ngIf="checkModel.intervalle">
+                                                de <input type="date" name="intervalledateinit" [(ngModel)]="selectionintervalledateinit" /> à <input type="date" name="intervalleddatefinal" [(ngModel)]="selectionintervalleddatefinal" />
+                                                <button (click)="listerexploitationintervalle(pdv.idpdv, 0)" >rechercher</button>
+                                                </div>
+                                                <div class="form-group" *ngIf="checkModel.jour" >
+                                                <input type="date" [(ngModel)]="selectionjour" name="jour" />
+                                                <button (click)="listerexploitationparjour(pdv.idpdv, 0)" >rechercher</button>
+                                                </div>
+                                                <div class="form-group" *ngIf="checkModel.annee" >
+                                                <select class="form-control" id="sel1b" [(ngModel)]="selectionannee">
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                </select>
+                                                <button (click)="listerexploitationrechercheannee(pdv.idpdv, 0)" >rechercher</button>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                        <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="bilanexploitationaveccommission" #fopdacbilan="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                <th colspan="4" class="comptabiliteBorder"><h4>Bilan</h4></th>
+                                                </tr>
+                                                <tr>
+                                                <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="cashin">Total Entrée</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="cashout">Total Sortie</mfDefaultSorter></th>
+                                                <th><mfDefaultSorter by="commission">Total commissions</mfDefaultSorter></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody *ngIf="this.bilanexploitationaveccommission">
+                                                <tr *ngFor="let bilan of fopdacbilan.data">
+                                                    <td>{{bilan.service}}</td>
+                                                    <td>{{currencyFormat(bilan.cashin)}}</td>
+                                                    <td>{{currencyFormat(bilan.cashout)}}</td>
+                                                    <td>{{currencyFormat(bilan.commission)}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6" class="comptabiliteBorder"><h4>Détail</h4></th>
+                                    </tr>
+                                    <tr>
+                                        <th><mfDefaultSorter by="dateajout">Date</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="designation">Désignation</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="mnt">Montant</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="frais">Frais</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="commission">Commission</mfDefaultSorter></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody *ngIf="this.exploitationaveccommission">
+                                    <tr *ngFor="let exploitation of fopdac.data">
+                                        <td>{{exploitation.dateajout }}</td>
+                                        <td>{{exploitation.service}}</td>
+                                        <td>{{exploitation.designation}}</td>
+                                        <td>{{currencyFormat(exploitation.mnt)}}</td>
+                                        <td>{{currencyFormat(exploitation.frais)}}</td>
+                                        <td>{{currencyFormat(exploitation.commission)}}</td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="6"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
+                                    </tr>
+                                    </tfoot>
+                                    </table>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12" *ngIf="i==estselectionne && 1==estselectionfff">
+                        <div id="exp{{i}}-a" >
+                            <div class="panel-body">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="dataTables-example_wrap">
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="exploitation|filtreexploitation:filtre" #fopd="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="6" style="padding-right: 3rem ;">
+                                        <div class="row">
+                                            <div class="col-sm-5 col-xs-12">
+                                            Rechercher :
+                                            <input class="form-control" [(ngModel)]="filtre"/>
+                                            </div>
+                                            <div class="col-sm-7 col-xs-12">
+                                            <div class="row">
+                                                <label class="btn btn-primary" (click)="estcheckModel('jour'); listerexploitationrecherche(pdv.idpdv);">Par Jour</label>&nbsp;
+                                                <label class="btn btn-primary" (click)="estcheckModel('annee'); listerexploitationrechercheannee(pdv.idpdv);">Par Année</label>&nbsp;
+                                                <label class="btn btn-primary" (click)="estcheckModel('intervalle'); listerexploitationrecherche(pdv.idpdv);">Par Intervalle</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="btn-group" *ngIf="checkModel.intervalle">
+                                                de <input type="date" name="intervalledateinit" [(ngModel)]="selectionintervalledateinit" /> à <input type="date" name="intervalleddatefinal" [(ngModel)]="selectionintervalleddatefinal" />
+                                                <button (click)="listerexploitationintervalle(pdv.idpdv)" >rechercher</button>
+                                                </div>
+                                                <div class="form-group" *ngIf="checkModel.jour" >
+                                                <input type="date" [(ngModel)]="selectionjour" name="jour" />
+                                                <button (click)="listerexploitationparjour(pdv.idpdv)" >rechercher</button>
+                                                </div>
+                                                <div class="form-group" *ngIf="checkModel.annee" >
+                                                <select class="form-control" id="sel1" [(ngModel)]="selectionannee">
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                </select>
+                                                <button (click)="listerexploitationrechercheannee(pdv.idpdv)" >rechercher</button>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th><mfDefaultSorter by="dateajout">Date</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="designation">Désignation</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="stocki">Stock Initial</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="vente">Ventes</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="stockf">Stock Final</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="mnt">Montant</mfDefaultSorter></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody *ngIf="this.exploitation">
+                                    <tr *ngFor="let exploitation of fopd.data">
+                                        <td>{{exploitation.dateajout }}</td>
+                                        <td>{{exploitation.designation}}</td>
+                                        <td>{{exploitation.stocki}}</td>
+                                        <td>{{exploitation.vente}}</td>
+                                        <td>{{exploitation.stockf}}</td>
+                                        <td>{{currencyFormat(exploitation.mnt)}}</td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
+                                    </tr>
+                                    </tfoot>
+                                    </table>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -2349,9 +2571,9 @@
             <div>Vous voulez faire un dépot de <b>{{ montantdeposit?currencyFormat(montantdeposit):'?' }} FCFA </b></div>
           </div>
           <div class="modal-footer">
-            <button type="button" [disabled]="montantdeposit==undefined || montantdeposit<1" (click)="validerdeposite()" class="btn btn-success pull-left">valider</button>
             <button type="button" (click)="hidedepositeModal()" class="btn btn-danger">fermer</button>
-          </div>
+            <button type="button" [disabled]="montantdeposit==undefined || montantdeposit<1" (click)="validerdeposite()" class="btn btn-success pull-left">valider</button>
+        </div>
         </div>
       </div>
 </div>
