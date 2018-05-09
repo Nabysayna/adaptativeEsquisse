@@ -1022,12 +1022,23 @@ getAlldepotsSup(){
 ********************************************************************************/
 /* -------- Variables -----------*/
 
-
+slideChangeMessage = '';
 @ViewChild('guideModal') public guideModal:ModalDirective;
 
 
 /* -------- Fonctions ---------*/
 
+
+ 
+slides = [
+  {image: 'assets/OM.png'},
+  {image: 'assets/lion.png'},
+  {image: 'assets/bbs.png'}
+];
+
+log(event: number) {
+  this.slideChangeMessage = `Slide has been switched: ${event}`;
+}
 
 // rôle   : afficher le modal
 // entres : null
