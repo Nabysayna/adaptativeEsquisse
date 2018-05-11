@@ -67,7 +67,7 @@
             </div>
             <div class="col-sm-3 col-xs-3" style="margin-top:1rem;">
                 <div class="row">
-                    <i class="fa fa-sign-out fa-2x" style="color:orange;height: 4rem; margin-left:3rem;"></i> 
+                    <i class="fa fa-sign-out fa-2x" style="color:orange;height: 4rem; margin-left:3rem; -webkit-transform: rotate(180deg);moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);"></i> 
                 </div>
                 <div class="row">
 
@@ -943,7 +943,7 @@
             <div  class="row" style="color: #f39200; text-align: center">
                 <div  class="col-xs-6 col-sm-6">
                     <label  class="label-control">Nombre de ligne</label>
-                    <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="10">
+                    <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="10" [ngStyle]="{border: '1px solid rgb(255,144,0)','border-radius': '2rem 0rem 2rem 2rem'}">
                         <option  value="0: 5" ng-reflect-ng-value="5">5</option>
                         <option  value="1: 10" ng-reflect-ng-value="10">10</option>
                         <option  value="2: 25" ng-reflect-ng-value="25">25</option>
@@ -953,7 +953,7 @@
                 <div  class="col-xs-6 col-sm-6">
                     <div  class="row">
                         <label  class="col-xs-12 label-control">Trier par</label>
-                        <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="datereclamation">
+                        <select  class="form-control input-sm adminmultipdvReclamationBorder ng-pristine ng-valid ng-touched" ng-reflect-model="datereclamation" [ngStyle]="{border: '1px solid rgb(255,144,0)','border-radius': '2rem 0rem 2rem 2rem'}">
                             <option  ngvalue="datereclamation" value="0: datereclamation" ng-reflect-ng-value="datereclamation">Date réclamation</option>
                             <option  ngvalue="pdv" value="1: pdv" ng-reflect-ng-value="pdv">Pdv</option>
                             <option  ngvalue="typeservice" value="2: typeservice" ng-reflect-ng-value="typeservice">Type de service</option>
@@ -1144,14 +1144,142 @@
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div  class="row">
-            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
-                CE MODULE EST EN DEVELOPPEMENT !
-            </div>
-            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
-                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+        <div class="row tab-pane fade in" id="journal" >
+            <div class="row blockcaisse" *ngFor="let pdv of pdvCaisses; let i = index; let isOdd = odd" [ngClass]="{'colored-caisse' : !isOdd}" >
+                <div class="col-sm-3 col-xs-4">
+                    <button style="background-color: transparent; border : none ;"  href="#vide" data-toggle="tab"> <label>{{pdv.prenom+" "+pdv.nom}} </label> </button>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <button style="margin-bottom: 1rem;" class="btn btn-success"  href="#listc" data-toggle="tab"  (click)="listercharges(i)">Lister Charges</button>
+                </div>
+                <div class="col-sm-3 col-xs-8">
+                <button style="margin-bottom: 1rem;" class="btn btn-success"  href="#ajout" data-toggle="tab"  (click)="ajoutercharges(i)">Ajouter Charge</button>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                            <button style="margin-bottom: 1rem;" class="btn btn-success"  href="#listr" data-toggle="tab"  (click)="listerrevenus(i)">Lister Revenus</button>
+                </div>
+
+                <div class="col-sm-12 col-xs-12 tab-content" *ngIf="i==estselectionne">
+                <div id="vide"></div>
+                <div id="listc"  class="tab-pane fade in" >
+                    <div class="panel-body">
+                        <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="dataTables-example_wrappe">
+                            <div class="row">
+                            <div class="col-sm-12">
+                                <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="charges|filtrecharges:filtre" #fopad="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                    <th colspan="3" style="padding-right: 3rem ;">
+                                        Rechercher :
+                                        <input class="form-control" [(ngModel)]="filtre"/>
+                                    </th>
+                                    </tr>
+                                    <tr>
+                                        <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                                        <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="this.charges">
+                                    <tr *ngFor="let charges of fopad.data">
+                                        <td>{{charges.dateajout.date | date}}</td>
+                                        <td>{{charges.libelle}}</td>
+                                        <td>{{currencyFormat(charges.montant)}}</td>
+                                        <td>{{charges.service}}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
+                                    </tr>
+                                </tfoot>
+                        </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                <div id="ajout" class="tab-pane fade in col-sm-6 col-xs-12">
+                    <form class="form-signin" (ngSubmit)="validerajoutercharges(pdv)" #chargeForm="ngForm">
+                        <input type="text" [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control"  placeholder="Libelle charge" required>
+                        <input type="number" [(ngModel)]="montantCharge"   name="montant" id="montantajoutercharges" class="form-control" placeholder="Montant de la dépense" required>
+                        <input type="text" [(ngModel)]="service"   name="service" id="serviceajoutercharges" class="form-control" placeholder="Service concerné" required>
+                        <button id="validcharge" class="btn btn-primary btn-block" type="submit" [disabled]="!chargeForm.form.valid" >Enregister</button>
+                    </form>
+                </div>
+
+                <div id="listr" class="tab-pane fade in" >
+                    <div class="panel-body">
+                        <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="dataTables-example_wrapp">
+                        <div class="row text-center" style="margin-bottom: 2rem">
+                            <button type="button" class="btn btn-primary btn-sm" (click)="isselectlisterrevenuautre = false; listerrevenustransfert(i)">Services avec commission</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="isselectlisterrevenuautre = true">Autres</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12" *ngIf="isselectlisterrevenuautre">
+                                Liste des autres revenu
+                                <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="revenus|filtrerevenus:filtre" #fopa="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                                    <thead>
+                                        <tr><th colspan="3" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
+                                        <tr>
+                                            <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="this.revenus">
+                                        <tr *ngFor="let revenus of fopa.data">
+                                            <td>{{revenus.date.date | date}}</td>
+                                            <td>{{revenus.libelle}}</td>
+                                            <td>{{currencyFormat(revenus.montant)}}</td>
+                                            <td>{{revenus.service}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr><td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="col-sm-12" *ngIf="!isselectlisterrevenuautre">
+                                Liste revenu des services avec commission
+                                <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="revenustransfert | filtrerevenus:filtre" #fopa="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="date" [(mfSortOrder)]="desc" style="width: 100%;">
+                                    <thead>
+                                        <tr><th colspan="5" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
+                                        <tr>
+                                            <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="montant">Montant</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="frais">Frais</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="commission">Commission</mfDefaultSorter></th>
+                                            <th><mfDefaultSorter by="service">Service</mfDefaultSorter></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="this.revenus">
+                                        <tr *ngFor="let revenus of fopa.data">
+                                            <td>{{revenus.date.date}}</td>
+                                            <td>{{revenus.libelle}}</td>
+                                            <td>{{currencyFormat(revenus.montant)}}</td>
+                                            <td>{{currencyFormat(revenus.frais)}}</td>
+                                            <td>{{currencyFormat(revenus.commission)}}</td>
+                                            <td>{{revenus.service}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr><td colspan="4"><mfBootstrapPaginator ></mfBootstrapPaginator></td></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -1197,10 +1325,10 @@
                             <td>{{pdv.prenom}}</td>
                             <td>{{pdv.nom}}</td>
                             <td>
-                                <button style="color:#36A9E0;font-family: 'caviar dreams bold';font-size: 1.2rem;" (click)="listerexploitationaveccommission(i, i, 0); ExploitationSub='Services avec commission'; roadTo('suite');">Voir</button> 
+                                <button style="color:#36A9E0;font-family: 'caviar dreams bold';font-size: 1.2rem;border: 1px solid;" (click)="listerexploitationaveccommission(i, i, 0); ExploitationSub='Services avec commission'; roadTo('suite');">Voir</button> 
                             </td>
                             <td>
-                                <button style="color:#36A9E0;font-family: 'caviar dreams bold';font-size: 1.2rem;" (click)="listerexploitation(i, i, 1);ExploitationSub='Autres'; roadTo('suite');">Voir</button>
+                                <button style="color:#36A9E0;font-family: 'caviar dreams bold';font-size: 1.2rem; border: 1px solid;" (click)="listerexploitation(i, i, 1);ExploitationSub='Autres'; roadTo('suite');">Voir</button>
                             </td>
                         </tr>
                 </tbody>
@@ -1287,7 +1415,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-5 col-xs-12">
                                                         Rechercher :
-                                                        <input class="form-control" [(ngModel)]="filtreaveccommission"/>
+                                                        <input class="form-control" [(ngModel)]="filtreaveccommission" style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);" />
                                                     </div>
                                                 </div>
                                             
@@ -1365,7 +1493,7 @@
                                             <div class="row">
                                                 <div class="col-sm-5 col-xs-12">
                                                 Rechercher :
-                                                <input class="form-control" [(ngModel)]="filtre"/>
+                                                <input class="form-control" [(ngModel)]="filtre" style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);"/>
                                                 </div>
                                                 <div class="col-sm-7 col-xs-12">
                                                 <div class="row">
@@ -1529,7 +1657,7 @@
             <table  class="table table-striped" [mfData]="exploitationaveccommission|filtreexploitationaveccommission:filtreaveccommission" #fopdac="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="min-width: -webkit-fill-available; max-width: -webkit-fill-available; overflow-x:scroll;">
                 <thead>
                     <tr>
-                        <th colspan="6" style="text-align: -webkit-center;" class="comptabiliteBorder"><h4 style="font-family: 'caviar dreams bold'; font-size: 1.5rem;">Détail</h4></th>
+                        <th colspan="6" tyle="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);" class="comptabiliteBorder"><h4 style="font-family: 'caviar dreams bold'; font-size: 1.5rem;">Détail</h4></th>
                     </tr>
                     <tr>
                         <th style="font-family: 'caviar dreams bold'; font-size: 1.5rem;" by="commission" ><mfDefaultSorter  by="dateajout">Date</mfDefaultSorter></th>
@@ -1590,11 +1718,196 @@
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div  class="row">
-            <div  class="col-xs-12 col-sm-12" style="margin-top: 4rem;">
-                CE MODULE EST EN DEVELOPPEMENT !
+                    <!-- <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 1%;margin-right: 1%; margin-top:2rem;">
+                        <table class="table table-responsive table-bordered table-striped">
+                            <thead>
+                                    <th>Prenom</th>
+                                    <th>Nom</th>
+                                    <th>Ajouter Service</th>
+                                    <th>Lister Service</th>
+                            </thead>
+                            <tbody>
+                                    <tr *ngFor="let pdv of pdvCaisses; let i = index; let isOdd = odd" [ngClass]="{'colored-caisse' : !isOdd}" [ngStyle]="{'text-align':'center'}">
+                                        <td>{{pdv.prenom}}</td>
+                                        <td>{{pdv.nom}}</td>
+                                        <td>
+                                            <button style="color:#36A9E0;font-family: 'caviar dreams bold';font-size: 1.2rem;border: 1px solid;" (click)="ajouterservice(i)">Ajout</button> 
+                                        </td>
+                                        <td>
+                                            <button style="color:#36A9E0;font-family: 'caviar dreams bold';font-size: 1.2rem; border: 1px solid;" (click)="modifierservice(i)">Voir</button>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                <div class="row tab-pane fade in" id="personnalisation">
+                        <div class="row blockcaisse" *ngFor="let pdv of pdvCaisses; let i = index; let isOdd = odd" [ngClass]="{'colored-caisse' : !isOdd}" >
+       
+                         <div class="col-sm-3 col-xs-6">
+                                     <button style="background-color: transparent; border : none ;"  href="#vide" data-toggle="tab"> <label>{{pdv.prenom+" "+pdv.nom}} </label> </button>
+                         </div>
+                         <div class="boutonspersonnalisation">
+                             <div class="col-sm-3 col-xs-12">
+                                        <button style="margin-bottom: 1rem;"  class="btn btn-success"  href="#ajoutservice" data-toggle="tab"  (click)="ajouterservice(i)">Ajouter Service</button>
+                             </div>
+                             <div class="col-sm-3 col-xs-8">
+                                    <button style="margin-bottom: 1rem;" class="btn btn-success"  href="#modifservice" data-toggle="tab"  (click)="modifierservice(i)">Lister Service</button>
+                             </div>
+                          </div>
+       
+                               <div class="col-sm-12 col-xs-12 tab-content" *ngIf="i==estselectionne">
+       
+       
+                                             <div id="ajoutservice" class="row tab-pane fade in">
+                                     <form style="margin-bottom: 2rem;" class="form-signin" (ngSubmit)="validerajouterservice(pdv)" #exploitationForm="ngForm">
+       
+                                                     <div class="row">
+                                                         <div class="col-sm-3 col-xs-12 form-group input-group">
+                                                             <span class="input-group-addon">Nouveau Service</span>
+                                                             <input type="text" [(ngModel)]="service"   name="service" id="service" class="form-control"  placeholder="Nom du service" required style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);">
+                                                         </div>
+                                                     </div>
+                                                     <div class="row">
+                                                         <div class="col-sm-10 col-xs-12 form-group">
+                                                             <div *ngFor="let designation of designationsService; let i = index; "
+                                                                 class="row" >
+       
+                                                                 <label  class="col-sm-1">Produit {{i+1}}</label>
+       
+                                                                 <input type="text" name="name-{{i}}" [(ngModel)]="designationsService[i].name" class="col-sm-3" placeholder="Désignation" required style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);">
+       
+                                                                 <input type="number" name="stock-{{i}}" [(ngModel)]="designationsService[i].stock" class="col-sm-2" placeholder="Stock" required style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);">
+       
+                                                                 <input type="number" name="prixachat-{{i}}" [(ngModel)]="designationsService[i].prixAchat" class="col-sm-2" placeholder="Prix Achat" required style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);">
+       
+                                                                 <input type="number" name="prix-{{i}}" [(ngModel)]="designationsService[i].prixunitaire" class="col-sm-2" placeholder="Prix de vente" style="margin-left: -3rem ;" required style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);">
+       
+                                                             </div>
+                                                         </div>
+                                                         <button class="col-sm-2 btn btn-primary" name="autresdesignation" [disabled]="!exploitationForm.form.valid" (click)="ajouterdesignation()" [ngStyle]="{color:'black'}">Autre produit</button>
+                                                     </div>
+                                                     <div class="row text-center">
+                                                         <button id="validservice" class="btn btn-primary" type="submit" [disabled]="!exploitationForm.form.valid" [ngStyle]="{color:'black'}">Ajouter</button>
+                                                     </div>
+       
+                                 </form>
+                                </div>
+       
+                                 <div id="modifservice" class="row tab-pane fade in" >
+                                    <div class="col-sm-4 col-xs-12" >
+                                       <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="supservice|filtresupservice:filtre" #foi="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+                                             <thead>
+                                                 <tr>
+                                                     <th colspan="3" style="padding-right: 3rem ;">
+                                                         Rechercher :
+                                                         <input class="form-control" [(ngModel)]="filtre"/>
+                                                     </th>
+                                             </tr>
+                                                 <tr>
+                                                     <th><mfDefaultSorter by="services">Services</mfDefaultSorter></th>
+                                                     <th><mfDefaultSorter >Action</mfDefaultSorter></th>
+                                                </tr>
+       
+                                             </thead>
+                                             <tbody *ngIf="this.supservice">
+                                             <tr *ngFor="let supservice of foi.data; let j=index; ">
+                                                 <td>{{supservice.services}}</td>
+                                                 <td>
+                                                     <button name="modif-{{j}}" type="button" (click)="modifyservice(j)">Modifier</button>
+                                                     <button name="delete-{{j}}" type="button" (click)="deleteservice(supservice,pdv)">Supprimer</button>
+                                                 </td>
+                                             </tr>
+                                             </tbody>
+                                             <tfoot>
+                                                 <tr>
+                                                     <td colspan="4">
+                                                         <mfBootstrapPaginator ></mfBootstrapPaginator>
+                                                     </td>
+                                                 </tr>
+                                             </tfoot>
+       
+                                         </table>
+                                     </div>
+                                     <div *ngIf="estselectionmods!=-1" class="col-sm-8 col-xs-12" >
+                                         <form class="form-signin" (ngSubmit)="validermodifierservice(pdv)" #exploitationFormModif="ngForm">
+                                             <div class="row">
+                                                 <div class="col-sm-6 col-xs-12 form-group input-group">
+                                                     <span class="input-group-addon">Modification Service</span>
+                                                     <input type="text" [(ngModel)]="service"   name="serviceModif" class="form-control"  placeholder="Nom du service" required>
+                                                 </div>
+                                             </div>
+                                             <div class="row">
+                                                 <div class="form-group col-sm-12 col-xs-12">
+                                                     <div *ngFor="let designation of designationsService; let i = index; " class="row">
+                                                         <!-- <label  class="col-sm-1">Produit {{i+1}}</label> -->
+                                                         <input type="text" name="nameModif-{{i}}" [(ngModel)]="designationsService[i].name" class="col-sm-3" placeholder="Entre le produit" required>
+                                                         <input type="number" name="stockModif-{{i}}" [(ngModel)]="designationsService[i].stock" class="col-sm-2" placeholder="nombre stock" required>
+                                                         <input type="number" name="prixachat-{{i}}" [(ngModel)]="designationsService[i].prixAchat" class="col-sm-2" placeholder="Prix Achat produit" required>
+                                                         <input type="number" name="prixModif-{{i}}" [(ngModel)]="designationsService[i].prixunitaire" class="col-sm-2" placeholder="prix unitaire" required>
+                                                         <button type="button" (click)="effacerunedesignation(i)" class="btn btn-danger btn-circle">
+                                                             <i class="fa fa-times"></i>
+                                                         </button>
+                                                     </div>
+                                                 </div>
+                                                 <button class="col-sm-3 col-xs-12 btn btn-primary" name="autresdesignationModif" [disabled]="!exploitationFormModif.form.valid" (click)="ajouterdesignation()" >Ajouter désignation</button>
+                                             </div>
+                                             <div class="row text-center">
+                                                 <button id="validservice1" class="btn btn-primary" type="submit" [disabled]="!exploitationFormModif.form.valid" [ngStyle]="{color:'black'}">Enregistrer</button>
+                                                 <button class="btn btn-primary" type="submit" (click)="estselectionmods=-1" [ngStyle]="{color:'black'}">Annuler</button>
+                                             </div>
+                                         </form>
+                           </div>
+                                 </div>
+                   </div>
+       
+                   </div>
+       
+       
+                   </div>
+        </div>
+    </div>
+</div>
+
+<!--****************************************personnalisation* suite**********************************************-->
+
+<div class="row" *ngIf="displayedPage=='accueil-comptabilite-pers-suite'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div class="col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">
+                <img src="assets/thumbnailphone.png" style="height: 4rem; margin-right: 3rem;"/>
             </div>
-            <div  class="col-xs-12 col-sm-12" style="margin-top: 2rem; text-align:center;">
-                <i  class="fa fa-spinner fa-spin" style="font-size: 10rem;; color:red;"></i>
+            <div class="col-sm-6 col-xs-6">
+                <img src="assets/rond.png" style="width: 100%; "/>
+            </div>
+            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
+                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+                </div>
+                <div class="row">
+                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12" style="background-color:  #36A9E0;">
+        <h5 style="color:white;font-family: 'caviar dreams bold';text-align: -webkit-center;font-size: 2rem; ">
+                personnalisation
+        </h5>  
+    </div>
+    <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
+        <div  class="row">
+            <div class="row blockcaisse" *ngFor="let pdv of pdvCaisses; let i = index; let isOdd = odd" [ngClass]="{'colored-caisse' : !isOdd}" >
+                <div class="col-sm-3 col-xs-6">
+                    <button style="background-color: transparent; border : none ;"  href="#vide" data-toggle="tab"> <label>{{pdv.prenom+" "+pdv.nom}} </label> </button>
+                </div>
+                <div class="boutonspersonnalisation">
+                    <div class="col-sm-3 col-xs-12">
+                        <button style="margin-bottom: 1rem;"  class="btn btn-success"  href="#ajoutservice" data-toggle="tab"  (click)="ajouterservice(i)">Ajouter Service</button>
+                    </div>
+                    <div class="col-sm-3 col-xs-8">
+                        <button style="margin-bottom: 1rem;" class="btn btn-success"  href="#modifservice" data-toggle="tab"  (click)="modifierservice(i)">Lister Service</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1814,12 +2127,12 @@
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div class="row">
-            <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+            <div class="panel panel-default table-responsive" style="width: 96%;margin-left: 2%;margin-right: 2%;margin-top: 4rem;">
                 <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="portefeuille|filtreportefeuille:filtre" #fpf="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                     <thead>
                         <tr>
                             <th colspan="4" style="padding-right: 3rem ;">
-                                <input style="width: 50%;" placeholder="Rechercher" style="width: 50%;" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                                <input [ngStyle]="{border: '1px solid rgb(255,144,0)', 'border-radius': '2rem 0rem 2rem 2rem', width: '50%'}"  placeholder="Rechercher" style="width: 50%;" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
                             </th>
                         </tr>
                         <tr>
@@ -1881,13 +2194,13 @@
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row">
-            <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+        <div class="row" style="margin-top:4rem;">
+            <div class="panel panel-default table-responsive" style="width: 96%;margin-left: 2%;margin-right: 2%;">
                 <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="relance|filtrerelance:filtre" #frla="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                     <thead>
                     <tr>
                         <th colspan="7" style="padding-right: 3rem ;">
-                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                            <input style="width: 50%; border: 1px solid rgb(255,144,0); border:2rem 0rem 2rem 2rem;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
                         </th>
                     </tr>
                     <tr>
@@ -1956,14 +2269,15 @@
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="row" style="margin-bottom: 2rem;text-align: -webkit-center;padding-top: 2rem;">
-            <label>Filtrer Par :  <select class="form-control input-sm" >
-                <option>périodicité</option>
-                <option >fidélité</option>
-            </select>
+        <div class="row" style="margin-bottom: 2rem;text-align: -webkit-center;margin-top: 2rem;">
+            <label>Filtrer Par :  
+                <select class="form-control input-sm"  ngStyle]="{border: '1px solid rgb(255,144,0)', 'border-radius': '2rem 0rem 2rem 2rem'}">
+                    <option>périodicité</option>
+                    <option >fidélité</option>
+                </select>
             </label>
             <label>Service :
-                <select class="form-control input-sm" [(ngModel)]="filtreService">
+                <select class="form-control input-sm" [(ngModel)]="filtreService" [ngStyle]="{border: '1px solid rgb(255,144,0)', 'border-radius': '2rem 0rem 2rem 2rem'}">
                     <option></option>
                     <option  *ngFor="let srv of servicepoint">{{srv.nom}}</option>
                 </select>
@@ -1971,13 +2285,13 @@
             <button style="color: orange;border:1px solid orange;" class="btn btn-primary" (click)="showChildModalcrm('promogroupe','')">Envoyer sms</button>
         </div>
 
-        <div class="row" id="relance" style="overflow-x:scroll;width: 94%;padding: 40px;margin-left: 3%;margin-right: 3%;">
-            <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
-                <table   class="table table-responsive table-bordered table-striped" [mfData]="promotion|filtrepromotion:filtre" #fpr="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
+        <div class="row" id="relance" style="">
+            <div class="panel panel-default table-responsive" style="width: 96%;margin-left: 2%;margin-right: 2%;">
+                <table   class="table table-responsive table-bordered table-striped" [mfData]="promotion|filtrepromotion:filtre" #fpr="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%; overflow-x:scroll;">
                     <thead>
                         <tr>
                             <th colspan="6" style="padding-right: 3rem ;">
-                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                                <input  placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre" [ngStyle]="{width:'50%',border: '1px solid rgb(255,144,0)', 'border-radius': '2rem 0rem 2rem 2rem'}"/>
                             </th>
                         </tr>
                         <tr>
@@ -2042,12 +2356,12 @@
         </h5>  
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
-        <div class="panel panel-default table-responsive" style="width: 94%;margin-left: 3%;margin-right: 3%;">
+        <div class="panel panel-default table-responsive" style="width: 96%;margin-left: 2%;margin-right: 2%; margin-top: 4rem;">
             <table  class="table table-responsive table-bordered table-striped" [mfData]="prospection|filtreprospection:filtre" #fprs="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="width: 100%;">
                 <thead>
                     <tr>
                         <th colspan="5" style="padding-right: 3rem ;">
-                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                            <input style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
                         </th>
                     </tr>
                     <tr>
@@ -2113,7 +2427,7 @@
                 <thead>
                     <tr>
                         <th colspan="6" style="padding-right: 3rem ;"> 
-                            <input style="width: 50%;" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
+                            <input tyle="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);" placeholder="Rechercher" class="form-control adminpdvcrmBorder" [(ngModel)]="filtre"/>
                         </th>
                     </tr>
                     <tr>
