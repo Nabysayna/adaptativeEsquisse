@@ -93,7 +93,7 @@
 
                     <div id="ajout" class="tab-pane fade in col-sm-6 col-xs-12">
                       <form class="form-signin" (ngSubmit)="validerajoutercharges(pdv)" #chargeForm="ngForm">
-                          <input type="text" [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control"  placeholder="Libelle charge" required>
+                          <input type="text" [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control"  placeholder="Libelle charge" required style="border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem;">
                           <input type="number" [(ngModel)]="montantCharge"   name="montant" id="montantajoutercharges" class="form-control" placeholder="Montant de la dépense" required>
                           <input type="text" [(ngModel)]="service"   name="service" id="serviceajoutercharges" class="form-control" placeholder="Service concerné" required>
                           <button id="validcharge" class="btn btn-primary btn-block" type="submit" [disabled]="!chargeForm.form.valid" >Enregister</button>
@@ -396,7 +396,7 @@
 
                                               <div class="row">
                                                   <div class="col-sm-3 col-xs-12 form-group input-group">
-                                                      <span class="input-group-addon">Nouveau Service</span>
+                                                      <label class="input-group" style="text-align:center">Nouveau Service</label>
                                                       <input type="text" [(ngModel)]="service"   name="service" id="service" class="form-control"  placeholder="Nom du service" required>
                                                   </div>
                                               </div>
@@ -405,7 +405,7 @@
                                                       <div *ngFor="let designation of designationsService; let i = index; "
                                                           class="row" >
 
-                                                          <label  class="col-sm-1">Produit {{i+1}}</label>
+                                                          <label  class="col-sm-12 col-xs-12" style="text-align:center">Produit {{i+1}}</label>
 
                                                           <input type="text" name="name-{{i}}" [(ngModel)]="designationsService[i].name" class="col-sm-3" placeholder="Désignation" required>
 
