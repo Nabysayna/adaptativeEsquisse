@@ -653,7 +653,7 @@
     </div>
     <div class="col-xs-12 col-sm-12" style="width: 100%;text-align: -webkit-center;" >
         <div modal class="row" style="margin-top: 4rem">
-            <input modal class="form-control  ng-untouched ng-pristine ng-invalid" name="montant" placeholder="Entrez le montant à retirer" required="" type="number" ng-reflect-required="" ng-reflect-name="montant" style="border-radius: 2rem 0rem 2rem 2rem; border: 1px solid rgb(255,144, 00);">        
+            <input modal class="form-control  ng-untouched ng-pristine ng-invalid" name="montant" placeholder="Entrez le montant à retirer" required="" type="number" ng-reflect-required="" ng-reflect-name="montant" style="border-radius: 2rem 0rem 2rem 2rem; border: 1px solid rgb(255,144, 00); width:60%;">        
         </div>
 
         <div  modal class="row" style="margin-top: 1rem">
@@ -702,7 +702,7 @@
                     <th colspan="6">
                         <div class="form-group row">
                             <div class="col-sm-12 col-xs-12">
-                                <input [ngStyle]="{width: '50%', 'border':'1px solid rgb(255,144,0)', border: '2rem 0rem 2rem 2rem'}" placeholder="Recherche" type="text" class="form-control adminpdvparametrecompteBorder" id="inputlistecompte" name="inputlistecompte" placeholder="Recherche caissier" [(ngModel)]="filterQuery"/>
+                                <input style="width: 50%;border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem;" placeholder="Recherche" type="text" class="form-control adminpdvparametrecompteBorder" id="inputlistecompte" name="inputlistecompte" placeholder="Recherche caissier" [(ngModel)]="filterQuery"/>
                             </div>
                         </div>
                     </th>
@@ -978,7 +978,7 @@
                 </thead>
                 <tbody >
                     <tr colspan="5">
-                        <input [ngStyle]="{width: '96%','border':'1px solid rgb(255,144,0)', border: '2rem 0rem 2rem 2rem'}" class="form-control adminmultipdvReclamationBorder ng-untouched ng-pristine ng-valid" ng-reflect-model="" placeholder="recherche" >
+                        <input style="width: 96%;border:1px solid rgb(255,144,0); border:2rem 0rem 2rem 2rem;" class="form-control adminmultipdvReclamationBorder ng-untouched ng-pristine ng-valid" ng-reflect-model="" placeholder="recherche" >
                     </tr>
                 </tbody>
                 <tfoot >
@@ -1078,7 +1078,9 @@
 </div>
 
 
-<!--****************************************Caisses***********************************************-->
+<!--*************************
+            Caisses
+****************************-->
 
 
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-css'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
@@ -1130,7 +1132,10 @@
 </div>
 
 
-<!--****************************************Journal***********************************************-->
+<!--*************************
+    Journal
+*****************************-->
+
 <div class="row" *ngIf="displayedPage=='accueil-comptabilite-jour'" style="background-image: url(assets/background-v.); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12">
         <div class="row">
@@ -1185,7 +1190,7 @@
                                     <tr>
                                     <th colspan="3" style="padding-right: 3rem ;">
                                         Rechercher :
-                                        <input class="form-control" [(ngModel)]="filtre" style="border:1px solid rgb(255,144,0);border:2rem 0rem 2rem 2rem"/>
+                                        <input class="form-control" [(ngModel)]="filtre" style="border:1px solid rgb(255,144,0);border-radius:2rem 0rem 2rem 2rem"/>
                                     </th>
                                     </tr>
                                     <tr>
@@ -1218,27 +1223,27 @@
                 <div id="ajout" class="tab-pane fade in col-sm-6 col-xs-12">
                     <form class="form-signin" (ngSubmit)="validerajoutercharges(pdv)" #chargeForm="ngForm">
                         <div class="row">
-                            <div class="col-sm-5">
-                                <label for="">Libelle charge</label>           
+                            <div class="col-sm-5 col-xs-5">
+                                <label for=""style="margin-top: 1.5rem;" >Libelle charge</label>           
                             </div>
-                            <div class="col-sm-7">
-                                <input type="text" [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control"  placeholder="" required style="border:1px solid rgb(255,144,0); border:2rem 0rem 2rem 2rem">
+                            <div class="col-sm-7 col-xs-7">
+                                <input type="text" [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control"  placeholder="" required style="border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-5 col-xs-5">
                                 <label for="">Montant de la dépense</label>
                             </div>
-                            <div class="col-sm-7">
-                                <input type="number" [(ngModel)]="montantCharge"   name="montant" id="montantajoutercharges" class="form-control" placeholder="" required style="border:1px solid rgb(255,144,0); border:2rem 0rem 2rem 2rem">
+                            <div class="col-sm-7 col-xs-7">
+                                <input type="number" [(ngModel)]="montantCharge"   name="montant" id="montantajoutercharges" class="form-control" placeholder="" required style="border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-5 col-xs-5">
                                 <label for="">Service concerné</label>
                             </div>
-                            <div class="col-sm-7">
-                                <input type="text" [(ngModel)]="service"   name="service" id="serviceajoutercharges" class="form-control" placeholder="" required style="border:1px solid rgb(255,144,0); border:2rem 0rem 2rem 2rem">
+                            <div class="col-sm-7 col-xs-7">
+                                <input type="text" [(ngModel)]="service"   name="service" id="serviceajoutercharges" class="form-control" placeholder="" required style="border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem">
                             </div>
                         </div>
 
