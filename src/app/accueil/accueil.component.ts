@@ -2033,8 +2033,12 @@ public pdvacueilmenumobilemoneyretour(){
 }
 
   deconnexion(){
+    console.log('Debut de la deconnexion');
     this._authService.deconnexion();
+    sessionStorage.clear() ;
+    this.router.navigate(['']);
   }
+
   cheminretour(){
      let chemin=this.displayedPage.split('-');
      let newchemin='accueil';

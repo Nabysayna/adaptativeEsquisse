@@ -837,7 +837,7 @@
                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Type</label>
                                </div>
                                <div class="col-xs-7 col-sm-7">
-                                     <select  name="tbouquetNewClient" [(ngModel)]="this.tbouquetNewClient" class="form-control ng-pristine ng-invalid ng-touched"   required="" style="margin-bottom: 2rem;margin-left: 1rem;" ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     <select  name="tbouquetNewClient" [(ngModel)]="this.tbouquetNewClient" class="form-control ng-pristine ng-invalid ng-touched"   required=""  ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem;  width:100%; margin-left: 7px; margin-bottom: 2rem;">
                                             <option >Sans Abonnement</option>
                                             <option >+1 mois</option>
                                             <option >+3 mois</option>
@@ -1145,19 +1145,27 @@
                 </button>
             </div>
             <div class="row" style="">
-                <button (click)="roadTo('dmp')" style="background-color: transparent;border: 0px; width: 36rem;" >
+                <!-- <button (click)="roadTo('dmp')" style="background-color: transparent;border: 0px; width: 36rem;" >
+                    <p style="color:white; font-size: 30px; padding-top: 0rem;">Demande De Pret</p>
+                </button> -->
+                <button style="background-color: transparent;border: 0px; width: 36rem;" >
                     <p style="color:white; font-size: 30px; padding-top: 0rem;">Demande De Pret</p>
                 </button>
             </div>
             <div class="row" >
-                <button (click)="roadTo('gu')" style="background-color: transparent;border: 0px; width: 36rem;">
+                <!-- <button (click)="roadTo('gu')" style="background-color: transparent;border: 0px; width: 36rem;">
+                    <p style="color:white; font-size: 30px; padding-top: 0rem;">Guide D'utilisation</p>
+                </button> -->
+                <button  style="background-color: transparent;border: 0px; width: 36rem;">
                     <p style="color:white; font-size: 30px; padding-top: 0rem;">Guide D'utilisation</p>
                 </button>
             </div>
         </div>
     </div>
 </div>
-<!-- GESTION-GESTION-HISTOIRE-Accueil -->
+<!-- ++++++++++++++++++++++++++++++++
+    GESTION-GESTION-HISTOIRE-Accueil 
++++++++++++++++++++++++++++++++++++++-->
 <div *ngIf="displayedPage=='accueil-ges-gracu'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
             <div  class="row" style=" padding:0;">
@@ -1198,7 +1206,9 @@
             </div>
         </div>
 </div>
-<!--  GESTION-HISTORIQUE DES OPERATIONS (formulaire de recherche)-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    GESTION-HISTORIQUE DES OPERATIONS (formulaire de recherche)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-re'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
         <div  class="row" style=" padding:0;">
@@ -1296,7 +1306,9 @@
         </div>
     </div>
 </div>
-<!-- GESTION-HISTOIRE DES OPERATIONS (Resultats) -->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++
+    GESTION-HISTOIRE DES OPERATIONS (Resultats) 
+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <div  *ngIf="displayedPage=='accueil-ges-gracu-re-r'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
         <div  class="row" style=" padding:0;">
@@ -1322,7 +1334,7 @@
                 <div class="col-sm-12 col-xs-12">
                       <h4>Résultats</h4>
                 </div>
-                <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-12 col-xs-12  tab-panel">
                       <table class="table table-bordered table-dark" [mfData]="gestionreporting|filtregestionreporting:filtre" #fho="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="nom" [(mfSortOrder)]="asc" style="max-width: 98%;min-width: 98%;overflow-x: auto;">
                                 <thead>
                                       <tr>
@@ -1364,7 +1376,11 @@
         </div>
     </div>
 </div>
-<!-- GESTION-Dépense -->
+
+<!--+++++++++++++++++++++++++++
+    GESTION-Dépense 
+++++++++++++++++++++++++++-->
+
 <div  *ngIf="displayedPage=='accueil-ges-gracu-dep'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
         <div  class="row" style=" padding:0;">
@@ -1392,7 +1408,7 @@
                            <div class="col-xs-5 col-sm-5">
                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Libelle charge </label>
                            </div>
-                           <div class="col-xs-7 col-sm-7">
+                           <div class="col-xs-7 col-sm-7" style="margin-left: 0px;">
                                   <input   [(ngModel)]="libelleCharge"   name="libelle" id="libelle" class="form-control ng-pristine ng-invalid ng-touched" id="libelle" name="libelle"  required="" type="text" ng-reflect-required="" ng-reflect-name="libelle" style="border-radius:2rem; width:100%; margin-left:0px; margin-right:0px;">
                            </div>
                     </div>
@@ -1400,7 +1416,7 @@
                            <div class="col-xs-5 col-sm-5">
                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant de la dépense</label>
                            </div>
-                           <div class="col-xs-7 col-sm-7">
+                           <div class="col-xs-7 col-sm-7"  style="margin-left: 0px;" >
                               <input [(ngModel)]="montantCharge"   name="montant" id="montant" class="form-control ng-dirty ng-valid ng-touched" id="montant" name="montant"  required="" type="number" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
                            </div>
                     </div>
@@ -1409,7 +1425,7 @@
                                   <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">service concerné</label>
                            </div>
                            <div class="col-xs-7 col-sm-7">
-                                 <select [(ngModel)]="service" class="form-control input-sm ng-pristine ng-valid ng-touched" style="margin-top: 1rem;" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                 <select [(ngModel)]="service" class="form-control input-sm ng-pristine ng-valid ng-touched"  style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px; margin-left: 1rem; margin-top: 1rem;">
                                         <option >--Choisir le service concerné--</option>
                                         <option >TNT</option>
                                         <option >POSTECASH</option>
@@ -1521,7 +1537,11 @@
         </div>
     </div>
 </div>
-<!-- GESTION-Reclamations -->
+
+<!-- ++++++++++++++++++++++++
+    GESTION-Reclamations 
++++++++++++++++++++++++++++-->
+
 <div  *ngIf="displayedPage=='accueil-ges-gracu-rcl'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
         <div  class="row" style=" padding:0;">
@@ -1595,7 +1615,11 @@
         </div>
     </div>
 </div>
-<!-- GESTION-caisse -->
+
+<!--++++++++++++++++++++++++
+     GESTION-caisse 
++++++++++++++++++++++++++++-->
+
 <div *ngIf="displayedPage=='accueil-ges-gracu-css'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
     <div class="col-sm-12 col-xs-12" style="background-color:rgb(255,144, 00);overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; width:100%;margin:0px; padding:0px;">
         <div  class="row" style=" padding:0;">
@@ -2301,7 +2325,7 @@
                                                   <label for="codevalidation" style="margin-top: 0.8rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Code de validation</label>
                                            </div>
                                            <div class="col-xs-7 col-sm-7">
-                                                 <input type="number" [(ngModel)]="this.codevalidation"  name="codevalidation" class="form-control"  style="border-radius:2rem; ">
+                                                 <input type="number" [(ngModel)]="this.codevalidation"  name="codevalidation" class="form-control"  style="border-radius:2rem; width:100%; ">
                                            </div>
                                     </div>
                               </div>
@@ -2528,7 +2552,7 @@
                 <form (ngSubmit)="showmodaldepotTigoCash()" #rechargementespeceTicoCash="ngForm" autocomplete="on">
                     <div class="row" >
                         <div class="col-xs-4 col-sm-4" >
-                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Numéro du client:</label>
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Numéro:</label>
                         </div>
                         <div class="col-xs-7 col-sm-7">
                             <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control"  required style="border-radius: 2rem;">
@@ -2665,7 +2689,7 @@
                <form (ngSubmit)="showmodalvendreizi()" #rechargementespeceTigoCash="ngForm" autocomplete="on">
                     <div class="row">
                         <div class="col-xs-4 col-sm-4">
-                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="    color: white;font-family: 'caviar dreams bold';font-size: 1.5rem;margin-top: 1rem;">Numéro du client:
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="    color: white;font-family: 'caviar dreams bold';font-size: 1.5rem;margin-top: 1rem;">Numéro:
                             </label>
                         </div>
                         <div class="col-sm-7 col-xs-7">

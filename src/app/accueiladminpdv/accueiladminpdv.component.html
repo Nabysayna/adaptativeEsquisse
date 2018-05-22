@@ -978,7 +978,7 @@
                 </thead>
                 <tbody >
                     <tr colspan="5">
-                        <input style="width: 96%;border:1px solid rgb(255,144,0); border:2rem 0rem 2rem 2rem;" class="form-control adminmultipdvReclamationBorder ng-untouched ng-pristine ng-valid" ng-reflect-model="" placeholder="recherche" >
+                        <input style="width: 96%;border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem;" class="form-control adminmultipdvReclamationBorder ng-untouched ng-pristine ng-valid" ng-reflect-model="" placeholder="recherche" >
                     </tr>
                 </tbody>
                 <tfoot >
@@ -1288,7 +1288,7 @@
                                 Liste revenu des services avec commission
                                 <table width="100%" class="table table-responsive table-bordered table-striped" [mfData]="revenustransfert | filtrerevenus:filtre" #fopa="mfDataTable" [mfRowsOnPage]="10" [(mfSortBy)]="date" [(mfSortOrder)]="desc" style="width: 100%;">
                                     <thead>
-                                        <tr><th colspan="5" style="padding-right: 3rem ;"> Rechercher :<input class="form-control" [(ngModel)]="filtre"/></th></tr>
+                                        <tr><th colspan="5" style="padding-right: 3rem ;"><input class="form-control" [(ngModel)]="filtre" style="border:1px solid rgb(255,144,0); border-radius:2rem 0rem 2rem 2rem;"  placeholder=" Rechercher"/></th></tr>
                                         <tr>
                                             <th><mfDefaultSorter by="date">Date</mfDefaultSorter></th>
                                             <th><mfDefaultSorter by="libelle">Libellé</mfDefaultSorter></th>
@@ -1455,8 +1455,7 @@
                                                 <th colspan="6" style="padding-right: 3rem ;">
                                                 <div class="row">
                                                     <div class="col-sm-5 col-xs-12">
-                                                        Rechercher :
-                                                        <input class="form-control" [(ngModel)]="filtreaveccommission" style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);" />
+                                                        <input class="form-control" [(ngModel)]="filtreaveccommission" style="width: 50%; border-radius:2rem 0rem 2rem 2rem; border:1px solid rgb(255,144,0);" placeholder="Rechercher"/>
                                                     </div>
                                                 </div>
                                             

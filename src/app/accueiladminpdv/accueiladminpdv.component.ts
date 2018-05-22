@@ -511,9 +511,10 @@ public errorConfirm:boolean = false;
       console.log("Cancel url: " + this.displayedPage);
   } 
 
-  // deconnection 
   deconnexion(){
     this._authService.deconnexion();
+    sessionStorage.clear() ;
+    this.router.navigate(['']);
   }
 
   mail(){}
