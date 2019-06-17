@@ -97,6 +97,7 @@ body {
 
 .runner{
     border: 1px solid white;
+    padding: 3px !important
 }
 
 .runningService{
@@ -447,7 +448,7 @@ body {
 .row{
     margin: 0px;
     padding: 0px;
-
+}
 
 
 img{
@@ -703,10 +704,10 @@ color: rgb(225,145,00);
     border-radius:10px;
     height:150px
 }
-..ngx-pagination .show-for-sr ul li a span{
+.ngx-pagination .show-for-sr ul li a span{
     color: white;
 }
 
 
 
-}
+

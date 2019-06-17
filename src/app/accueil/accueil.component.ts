@@ -575,18 +575,21 @@ export class AccueilComponent implements OnInit {
       }
 
   deposer(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
 
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+    
     let requete = "1/"+objet.data.montant+"/"+objet.data.num ;
-
     if (this.repeatedInLastFifteen('om-depot', requete)==1){
       objet.etats.etat=true;
       objet.etats.load='terminated';
       objet.etats.color='red';
       objet.etats.errorCode='r';
+      this.process[index].etats.pourcentage = 5;
       return 0 ;
     }
-
-
     this._omService.requerirControllerOM(requete).then( resp => {
       if (resp.status==200){
            console.log("For this 'depot', we just say : "+resp._body) ;
@@ -595,12 +598,14 @@ export class AccueilComponent implements OnInit {
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='0';
+               this.process[index].etats.pourcentage = 5;
             }else
             if(resp._body.match('-12')){
                objet.etats.etat=true;
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='-12';
+               this.process[index].etats.pourcentage = 5;
             }
             else
 
@@ -611,7 +616,8 @@ export class AccueilComponent implements OnInit {
                 if(donnee=='1'){
                    objet.etats.etat=true;
                    objet.etats.load='terminated';
-                   objet.etats.color='green';
+                   objet.etats.color='#36A9E0';
+                   this.process[index].etats.pourcentage = 5;
                 }
                 else{
                   if(donnee!='-1'){
@@ -619,6 +625,7 @@ export class AccueilComponent implements OnInit {
                      objet.etats.load='terminated';
                      objet.etats.color='red';
                      objet.etats.errorCode=donnee;
+                     this.process[index].etats.pourcentage = 5;
                    }else{
                         var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
@@ -628,8 +635,10 @@ export class AccueilComponent implements OnInit {
                           if(donnee=='1'){
                              objet.etats.etat=true;
                              objet.etats.load='terminated';
-                             objet.etats.color='green';
+                             objet.etats.color='#36A9E0';
+                             this.process[index].etats.pourcentage = 5;
                              clearInterval(periodicVerifier) ;
+
                           }
                           else{
                             if(donnee!='-1'){
@@ -637,6 +646,7 @@ export class AccueilComponent implements OnInit {
                              objet.etats.load='terminated';
                              objet.etats.color='red';
                              objet.etats.errorCode=donnee;
+                             this.process[index].etats.pourcentage = 5;
                              clearInterval(periodicVerifier) ;
                             }
                             if(donnee=='-1' && objet.etats.nbtour>=45){
@@ -647,6 +657,7 @@ export class AccueilComponent implements OnInit {
                                    objet.etats.load='terminated';
                                    objet.etats.color='red';
                                    objet.etats.errorCode="c";
+                                   this.process[index].etats.pourcentage = 5;
                                    clearInterval(periodicVerifier) ;
                                    }
                               }) ;
@@ -774,6 +785,11 @@ export class AccueilComponent implements OnInit {
     }
 
     retirerOM(objet:any){
+      let index = this.process.findIndex(
+        item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+      ));
+  
+      this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
       let requete = "2/"+objet.data.numclient+"/"+objet.data.montant ;
   
       if (this.repeatedInLastFifteen('om-retrait', requete)==1){
@@ -781,6 +797,7 @@ export class AccueilComponent implements OnInit {
         objet.etats.load='terminated';
         objet.etats.color='red';
         objet.etats.errorCode='r';
+        this.process[index].etats.pourcentage =5;
         return 0 ;
       }
 
@@ -794,12 +811,14 @@ export class AccueilComponent implements OnInit {
             objet.etats.load='terminated';
             objet.etats.color='red';
             objet.etats.errorCode='0';
+            this.process[index].etats.pourcentage =5;
           }else
               if(resp._body.match('-12')){
                 objet.etats.etat=true;
                 objet.etats.load='terminated';
                 objet.etats.color='red';
                 objet.etats.errorCode='-12';
+                this.process[index].etats.pourcentage =5;
               }
               else
 
@@ -811,7 +830,8 @@ export class AccueilComponent implements OnInit {
                   if(donnee=='1'){
                     objet.etats.etat=true;
                     objet.etats.load='terminated';
-                    objet.etats.color='green';
+                    objet.etats.color='#36A9E0';
+                    this.process[index].etats.pourcentage = 5;
                     clearInterval(periodicVerifier) ;
                   }
                   else{
@@ -820,6 +840,7 @@ export class AccueilComponent implements OnInit {
                     objet.etats.load='terminated';
                     objet.etats.color='red';
                     objet.etats.errorCode=donnee;
+                    this.process[index].etats.pourcentage = 5;
                     clearInterval(periodicVerifier) ;
                     }else{
                         var periodicVerifier = setInterval(()=>{
@@ -830,7 +851,8 @@ export class AccueilComponent implements OnInit {
                           if(donnee=='1'){
                             objet.etats.etat=true;
                             objet.etats.load='terminated';
-                            objet.etats.color='green';
+                            objet.etats.color='#36A9E0';
+                            this.process[index].etats.pourcentage = 5;
                             clearInterval(periodicVerifier) ;
                           }
                           else{
@@ -839,6 +861,7 @@ export class AccueilComponent implements OnInit {
                             objet.etats.load='terminated';
                             objet.etats.color='red';
                             objet.etats.errorCode=donnee;
+                            this.process[index].etats.pourcentage = 5;
                             clearInterval(periodicVerifier) ;
                             }
                               if(donnee=='-1' && objet.etats.nbtour>=10){
@@ -849,6 +872,7 @@ export class AccueilComponent implements OnInit {
                                     objet.etats.load='terminated';
                                     objet.etats.color='red';
                                     objet.etats.errorCode="c";
+                                    this.process[index].etats.pourcentage = 5;
                                     clearInterval(periodicVerifier) ;
                                     }
                                 }) ;
@@ -864,6 +888,7 @@ export class AccueilComponent implements OnInit {
         }
         else{
           console.log("error") ;
+          this.process[index].etats.pourcentage = 5;
 
           }
       });
@@ -883,6 +908,11 @@ export class AccueilComponent implements OnInit {
   }
 
    retraitAC(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
     let requete = "3/"+objet.data.coderetrait+"/"+objet.data.prenom+"/"+objet.data.nomclient+"/"+objet.data.date+"/"+objet.data.cni+"/"+objet.data.num+"/"+objet.data.montant;
 
     if (this.repeatedInLastFifteen('om-retraitcode', requete)==1)
@@ -897,12 +927,14 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode='0';
+           this.process[index].etats.pourcentage =5;
         }else
             if(resp._body.match('-12')){
                objet.etats.etat=true;
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='-12';
+               this.process[index].etats.pourcentage =5;
             }
             else
 
@@ -914,7 +946,8 @@ export class AccueilComponent implements OnInit {
                 if(donnee=='1'){
                    objet.etats.etat=true;
                    objet.etats.load='terminated';
-                   objet.etats.color='green';
+                   objet.etats.color='#36A9E0';
+                   this.process[index].etats.pourcentage =5;
                    clearInterval(periodicVerifier) ;
                 }
                 else
@@ -923,6 +956,7 @@ export class AccueilComponent implements OnInit {
                    objet.etats.load='terminated';
                    objet.etats.color='red';
                    objet.etats.errorCode=donnee;
+                   this.process[index].etats.pourcentage =5;
                    clearInterval(periodicVerifier) ;
                   }else
                 var periodicVerifier = setInterval(()=>{
@@ -933,7 +967,8 @@ export class AccueilComponent implements OnInit {
                   if(donnee=='1'){
                      objet.etats.etat=true;
                      objet.etats.load='terminated';
-                     objet.etats.color='green';
+                     objet.etats.color='#36A9E0';
+                     this.process[index].etats.pourcentage =5;
                      clearInterval(periodicVerifier) ;
                   }else
                     if(donnee!='-1'){
@@ -941,6 +976,7 @@ export class AccueilComponent implements OnInit {
                        objet.etats.load='terminated';
                        objet.etats.color='red';
                        objet.etats.errorCode=donnee;
+                       this.process[index].etats.pourcentage =5;
                        clearInterval(periodicVerifier) ;
                     }
                     if(donnee=='-1' && objet.etats.nbtour>=10){
@@ -951,6 +987,7 @@ export class AccueilComponent implements OnInit {
                            objet.etats.load='terminated';
                            objet.etats.color='red';
                            objet.etats.errorCode="c";
+                           this.process[index].etats.pourcentage =5;
                            clearInterval(periodicVerifier) ;
                            }
                       }) ;
@@ -962,7 +999,7 @@ export class AccueilComponent implements OnInit {
         }
       else{
         console.log("error") ;
-
+        this.process[index].etats.pourcentage =5;
         }
     });
 
@@ -1004,6 +1041,12 @@ export class AccueilComponent implements OnInit {
 
   acheterCreditOM(objet:any){
 
+    let index = this.process.findIndex(
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+
     let requete = "5/"+objet.data.numclient+"/"+objet.data.montant;
     console.log("Achat de crédit avec : "+requete) ;
 
@@ -1018,12 +1061,14 @@ export class AccueilComponent implements OnInit {
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='0';
+               this.process[index].etats.pourcentage = 5;
             }else
             if(resp._body.trim()=='-12'){
                objet.etats.etat=true;
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='-12';
+               this.process[index].etats.pourcentage = 5;
             }
             else
            setTimeout(()=>{
@@ -1033,7 +1078,8 @@ export class AccueilComponent implements OnInit {
                 if(donnee=='1'){
                    objet.etats.etat=true;
                    objet.etats.load='terminated';
-                   objet.etats.color='green';
+                   objet.etats.color='#36A9E0';
+                   this.process[index].etats.pourcentage = 5;
                 }
                 else{
                   if(donnee!='-1'){
@@ -1041,6 +1087,7 @@ export class AccueilComponent implements OnInit {
                      objet.etats.load='terminated';
                      objet.etats.color='red';
                      objet.etats.errorCode=donnee;
+                     this.process[index].etats.pourcentage = 5;
                    }else{
                         var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
@@ -1050,7 +1097,8 @@ export class AccueilComponent implements OnInit {
                           if(donnee=='1'){
                              objet.etats.etat=true;
                              objet.etats.load='terminated';
-                             objet.etats.color='green';
+                             objet.etats.color='#36A9E0';
+                             this.process[index].etats.pourcentage = 5;
                              clearInterval(periodicVerifier) ;
                           }
                           else{
@@ -1059,6 +1107,7 @@ export class AccueilComponent implements OnInit {
                              objet.etats.load='terminated';
                              objet.etats.color='red';
                              objet.etats.errorCode=donnee;
+                             this.process[index].etats.pourcentage = 5;
                              clearInterval(periodicVerifier) ;
                             }
                             if(donnee=='-1' && objet.etats.nbtour>=10){
@@ -1069,6 +1118,7 @@ export class AccueilComponent implements OnInit {
                                    objet.etats.load='terminated';
                                    objet.etats.color='red';
                                    objet.etats.errorCode="c";
+                                   this.process[index].etats.pourcentage = 5;
                                    clearInterval(periodicVerifier) ;
                                    }
                               }) ;
@@ -1084,6 +1134,7 @@ export class AccueilComponent implements OnInit {
       }
       else{
         console.log("error") ;
+        this.process[index].etats.pourcentage = 5;
 
         }
     });
@@ -1120,10 +1171,12 @@ export class AccueilComponent implements OnInit {
 
             objet.etats.etat=true;
             objet.etats.load='terminated';
-            objet.etats.color='green';
+            objet.etats.color='#36A9E0';
+            this.process[index].etats.pourcentage = 5;
             objet.dataI = {
             apiservice:'postecash',
             service:'rechargementespece',
+
             infotransaction:{
               client:{
                 transactionPostCash: postcashwebserviceList.transactionId,
@@ -1138,7 +1191,7 @@ export class AccueilComponent implements OnInit {
             objet.etats.etat=true;
             objet.etats.load='terminated';
             objet.etats.color='red';
-            this.process[index].etats.pourcentage = 4;
+            this.process[index].etats.pourcentage = 5;
       }
     });
 
@@ -1186,9 +1239,9 @@ export class AccueilComponent implements OnInit {
         }else{
              objet.etats.etat=true;
              objet.etats.load='terminated';
-             objet.etats.color='creen';
+             objet.etats.color='#36A9E0';
 
-             this.process[index].etats.pourcentage = 4;
+             this.process[index].etats.pourcentage = 5;
         }
       });
 
@@ -1321,7 +1374,7 @@ export class AccueilComponent implements OnInit {
 
            objet.etats.etat=true;
            objet.etats.load='terminated';
-           objet.etats.color='green';
+           objet.etats.color='#36A9E0';
 
           let montant:number = 0;
           if(objet.data.typedebouquet == 1){
@@ -1756,7 +1809,11 @@ export class AccueilComponent implements OnInit {
 **********************************/
 
   deposertc(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
 
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
     let requete = "1/"+objet.data.num+"/"+objet.data.montant ;
 
     if (this.repeatedInLastFifteen('tc-depot', requete)==1){
@@ -1764,14 +1821,11 @@ export class AccueilComponent implements OnInit {
       objet.etats.load='terminated';
       objet.etats.color='red';
       objet.etats.errorCode='r';
+      this.process[index].etats.pourcentage = 5;
       return 0 ;
     }
 
-    let index = this.process.findIndex(
-      item => (item.data.montant === objet.data.montant && item.data.police === objet.data.police && item.data.numfacture === objet.data.numfacture
-    ));
-
-    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1  ;
+    
 
     this._tcService.requerirControllerTC(requete).then( resp => {
       if (resp.status==200){
@@ -1782,12 +1836,14 @@ export class AccueilComponent implements OnInit {
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='0';
+               this.process[index].etats.pourcentage = 5;
             }else
             if(resp._body.match('-12')){
                objet.etats.etat=true;
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='-12';
+               this.process[index].etats.pourcentage = 5;
             }
             else
 
@@ -1798,7 +1854,8 @@ export class AccueilComponent implements OnInit {
                 if(donnee=='1'){
                    objet.etats.etat=true;
                    objet.etats.load='terminated';
-                   objet.etats.color='green';
+                   objet.etats.color='#36A9E0';
+                   this.process[index].etats.pourcentage = 5;
                 }
                 else{
                   if(donnee!='-1'){
@@ -1806,6 +1863,7 @@ export class AccueilComponent implements OnInit {
                      objet.etats.load='terminated';
                      objet.etats.color='red';
                      objet.etats.errorCode=donnee;
+                     this.process[index].etats.pourcentage = 5;
                    }else{
                         var periodicVerifier = setInterval(()=>{
                         objet.etats.nbtour = objet.etats.nbtour + 1 ;
@@ -1815,7 +1873,8 @@ export class AccueilComponent implements OnInit {
                           if(donnee=='1'){
                              objet.etats.etat=true;
                              objet.etats.load='terminated';
-                             objet.etats.color='green';
+                             objet.etats.color='#36A9E0';
+                             this.process[index].etats.pourcentage = 5;
                              clearInterval(periodicVerifier) ;
                           }
                           else{
@@ -1824,6 +1883,7 @@ export class AccueilComponent implements OnInit {
                              objet.etats.load='terminated';
                              objet.etats.color='red';
                              objet.etats.errorCode=donnee;
+                             this.process[index].etats.pourcentage = 5;
                              clearInterval(periodicVerifier) ;
                             }
                             if(donnee=='-1' && objet.etats.nbtour>=10){
@@ -1834,6 +1894,7 @@ export class AccueilComponent implements OnInit {
                                    objet.etats.load='terminated';
                                    objet.etats.color='red';
                                    objet.etats.errorCode="c";
+                                   this.process[index].etats.pourcentage = 5;
                                    clearInterval(periodicVerifier) ;
                                    }
                               }) ;
@@ -1860,6 +1921,11 @@ export class AccueilComponent implements OnInit {
 /******************************************************************************************************/
 
    retirertc(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
     let requete = "2/"+objet.data.numclient+"/"+objet.data.montant ;
 
     if (this.repeatedInLastFifteen('tc-retrait', requete)==1){
@@ -1867,6 +1933,7 @@ export class AccueilComponent implements OnInit {
       objet.etats.load='terminated';
       objet.etats.color='red';
       objet.etats.errorCode='r';
+      this.process[index].etats.pourcentage = 5 ;
       return 0 ;
     }
 
@@ -1881,12 +1948,14 @@ export class AccueilComponent implements OnInit {
            objet.etats.load='terminated';
            objet.etats.color='red';
            objet.etats.errorCode='0';
+           this.process[index].etats.pourcentage = 5 ;
         }else
             if(resp._body.match('-12')){
                objet.etats.etat=true;
                objet.etats.load='terminated';
                objet.etats.color='red';
                objet.etats.errorCode='-12';
+               this.process[index].etats.pourcentage = 5 ;
             }
             else
 
@@ -1898,7 +1967,8 @@ export class AccueilComponent implements OnInit {
                 if(donnee=='1'){
                    objet.etats.etat=true;
                    objet.etats.load='terminated';
-                   objet.etats.color='green';
+                   objet.etats.color='#36A9E0';
+                   this.process[index].etats.pourcentage = 5 ;
                    clearInterval(periodicVerifier) ;
                 }
                 else{
@@ -1907,6 +1977,7 @@ export class AccueilComponent implements OnInit {
                    objet.etats.load='terminated';
                    objet.etats.color='red';
                    objet.etats.errorCode=donnee;
+                   this.process[index].etats.pourcentage = 5 ;
                    clearInterval(periodicVerifier) ;
                   }else{
                       var periodicVerifier = setInterval(()=>{
@@ -1916,7 +1987,8 @@ export class AccueilComponent implements OnInit {
                         if(donnee=='1'){
                            objet.etats.etat=true;
                            objet.etats.load='terminated';
-                           objet.etats.color='green';
+                           objet.etats.color='#36A9E0';
+                           this.process[index].etats.pourcentage = 5 ;
                            clearInterval(periodicVerifier) ;
                         }
                         else{
@@ -1925,6 +1997,7 @@ export class AccueilComponent implements OnInit {
                            objet.etats.load='terminated';
                            objet.etats.color='red';
                            objet.etats.errorCode=donnee;
+                           this.process[index].etats.pourcentage = 5 ;
                            clearInterval(periodicVerifier) ;
                           }
                         }
@@ -1938,6 +2011,7 @@ export class AccueilComponent implements OnInit {
       }
       else{
         console.log("error") ;
+        this.process[index].etats.pourcentage = 5 ;
 
         }
     });
@@ -2069,10 +2143,7 @@ public pdvacueilmenumobilemoneyretour(){
  mobileProcessing(objet){
 
       let infoOperation={'etat':false,'id':this.process.length,'load':'loader','color':'white', 'errorCode':'*', nbtour:0};
-
-//       let sesion={'data':objet,'etats':infoOperation,'dataI':''};
-
-
+      //let sesion={'data':objet,'etats':infoOperation,'dataI':''};
       let sesion={'data':JSON.parse(objet),'etats':infoOperation,'dataI':''};
 
       this.process.push(sesion);
@@ -2245,19 +2316,16 @@ public pdvacueilmenumobilemoneyretour(){
                           this. rechargeRapido(sesion);
                           break;
                     }
-
                     case 3:{
                           console.log('Woyofal');
                           this.rechargeWoyofal(sesion);
                           break;
                     }
-
                     case 4:{
                         console.log('Senelect');
                         this.paimentsenelec(sesion);
                         break;
                     }
-
                     case 5:{
                         console.log('Oolu solar');
                         this.payeroolusolarFacturier(sesion);

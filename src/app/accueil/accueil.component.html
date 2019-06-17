@@ -2075,12 +2075,12 @@
                         <form  class="row" name="transnat" (ngSubmit)="showAddChildModal()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem; width:90%;">
                             <div class="col-sm-12 col-xs-12">
                               <div class="row" style="margin-top:2rem;" *ngIf="retraitaveccodeom==1">
-                                     <div style="" class="col-xs-5 col-sm-5">
-                                         <label style="color:white;padding:0px;margin:0px" >Code de retrait :</label>
-                                     </div>
-                                     <div style="padding:0px;margin:0px" class="col-xs-7 col-sm-7">
-                                          <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem; width:100%; margin:0px;"  class="form-control"  required >
-                                     </div>
+                                    <div  class="col-xs-5 col-sm-5">
+                                        <label style="color:white;padding:0px;margin:0px" >Code de retrait :</label>
+                                    </div>
+                                    <div style="padding:0px;margin:0px" class="col-xs-7 col-sm-7">
+                                        <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem; width:100%; margin:0px;"  class="form-control"  required >
+                                    </div>
                               </div>
     
                               <div class="row"  *ngIf="retraitaveccodeom==1">
@@ -2119,12 +2119,7 @@
                                           <input type="text" class="btn btn-success" [(ngModel)]="this.cni" (keyup)="verifcni($event)" autocomplete="off" name="cni" style="border-radius: 2rem; width:100%; margin:0px;"  id="mnttrans"  class="form-control"  required >
                                      </div>
                               </div>
-                              <div class="col-xs-5 col-sm-5">
-                                    <label style="color:white" >Prénom :</label>
-                                </div>
-                                <div class="col-xs-7 col-sm-7" style="padding:0px;margin:0px">
-                                    <input type="text" class="btn btn-success" [(ngModel)]="this.prenom" autocomplete="off" (keyup)="veriprenomnom()" name="prenom" style=" border-radius:  2rem;padding:0px;margin:0px ;width: 100%;"  id="numclient"  class="form-control"  required >
-                                </div>
+                              
                               <div class="row" style="margin-top:1rem;" *ngIf="retraitaveccodeom==2">
                                     <div class="col-xs-5 col-sm-4">
                                          <label style="color:white">Numéro du client  :</label>
@@ -2151,7 +2146,7 @@
                                             <button *ngIf="retraitaveccodeom==2"  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
                                         </div>
                                         <div class="col-xs-2 col-sm-2"style="padding-top:4rem;">
-                                            <button *ngIf="retraitaveccodeom==2"  (click)="showmodalTnt()" type="button" class="btn btn-danger" style="border:none;background-color: transparent; margin-left: 2rem;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                            <button *ngIf="retraitaveccodeom==2"  (click)="showAddChildModal()" type="button" class="btn btn-danger" style="border:none;background-color: transparent; margin-left: 2rem;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
                                         </div>
                                                                 
                                         <div class="col-xs-1 col-sm-1" >
@@ -5395,15 +5390,15 @@
                          <div class="form-group">
                              <label >Date De Naissance: {{this.date}}</label>
                          </div>
-             <div class="form-group">
-               <label >Numéro CNI : {{this.cni}}</label>
-             </div>
-             <div class="form-group">
-               <label >Numéro Client : {{this.numclient}}</label>
-             </div>
-             <div class="form-group">
-               <label >Montant : {{this.mnt}}</label>
-             </div>
+                        <div class="form-group">
+                        <label >Numéro CNI : {{this.cni}}</label>
+                        </div>
+                        <div class="form-group">
+                        <label >Numéro Client : {{this.numclient}}</label>
+                        </div>
+                        <div class="form-group">
+                        <label >Montant : {{this.mnt}}</label>
+                        </div>
                      </form>
 
                  </div>
@@ -5642,7 +5637,7 @@
     
     <div class="row">
         <div class="col-sm-2 col-xs-2 runningTask" *ngFor="let item of process">
-            <div class="runner" [ngStyle]="{'background-color':'red','width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
+            <div class="runner" [ngStyle]="{'background-color':item.etats.color,'width':(item.etats.pourcentage==0?'0%':(item.etats.pourcentage==1?'25%':(item.etats.pourcentage==2?'50%':(item.etats.pourcentage==3?'75%':(item.etats.pourcentage==4?'75%':'100%'))))) , 'border': (item.etats.pourcentage==0?'1px solid white':(item.etats.pourcentage==1?'1px solid #F0F8FF':(item.etats.pourcentage==2?'1px solid orange':(item.etats.pourcentage==3?'1px solid white':(item.etats.pourcentage==4?'1px solid green':'1px solid  red')))))}"></div>
         </div>
     </div>
 
