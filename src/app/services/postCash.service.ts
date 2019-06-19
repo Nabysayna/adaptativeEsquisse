@@ -24,6 +24,8 @@ export class PostCashService {
   public rechargementespece(tel_destinataire : string, montant : string): Promise<any>  {
     var reEspParams = {token:this.token, tel_destinataire: tel_destinataire, montant: montant} ;
     let params="params="+JSON.stringify(reEspParams);
+    console.log(params);
+    
     let link=this.link+"/postcash-sen/rechargementespece";
     return new Promise( (resolve, reject) => {
        this.http.post(link,params,{headers:this.headers}).subscribe(data =>{

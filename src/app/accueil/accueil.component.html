@@ -6,7 +6,8 @@
 <!-- class="mobile"-->
 <div  *ngIf="isMobile==true" style="min-height: -webkit-fill-available; max-height: -webkit-fill-available; margin:0px; padding:0px; font-family:caviar dreams bold;" >
 
-<div class="row" *ngIf="displayedPage=='accueil'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+<div class="row" *ngIf="displayedPage=='accueil'" style="background-image: url(assets/background-v.png); opacity: 0.90;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;background-size: contain">
+    <div class="col-xs-12">
         <div class="row"   style="background-color:rgb(255,144, 00);width: 60%;text-align: center;overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; " >
             <div class="col-sm-12 col-xs-12" >
                   <div class="row">
@@ -82,6 +83,7 @@
                 </div>
           </div>
         </div>
+    </div>
 </div>
 
 
@@ -2079,7 +2081,7 @@
                                         <label style="color:white;padding:0px;margin:0px" >Code de retrait :</label>
                                     </div>
                                     <div style="padding:0px;margin:0px" class="col-xs-7 col-sm-7">
-                                        <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off" (keyup)="verifcode($event)" id="numclient" name="coderetrait" style="border-radius: 2rem; width:100%; margin:0px;"  class="form-control"  required >
+                                        <input type="text" class="btn btn-success" [(ngModel)]="this.coderetrait" autocomplete="off"  id="numclient" name="coderetrait" style="border-radius: 2rem; width:100%; margin:0px;"  class="form-control"  required >
                                     </div>
                               </div>
     
@@ -2100,8 +2102,6 @@
                                         <input type="text" class="btn btn-success" [(ngModel)]="this.nom" autocomplete="off" (keyup)="veriprenomnom()" name="nom" style=" border-radius:  2rem;padding:0px;margin:0px ;width: 100%;"  id="numclient"  class="form-control"  required >
                                     </div>
                                 </div>
-
-    
                               <div class="row" *ngIf="retraitaveccodeom==1">
                                      <div class="col-xs-5 col-sm-5">
                                            <label style="color:white;" >Date de naissance :</label>
@@ -2606,14 +2606,40 @@
             <div class="col-xs-12 col-sm-12" style="background-color:white; margin-top:2rem;" >
                 <h3 style=" color: #36A9E0;font-family: 'caviar dreams bold';font-size: 3rem;margin-top: 0.3rem;" >Retrait</h3>
             </div>
-            <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
-              <marquee>
-                <div class="marquee-outer">
-                <div class="marquee-inner"><h5>Service en cour</h5>
-                    <img src="http://www.html.am/images/html-codes/marquees/fish-swimming.gif" width="94" height="88" alt="Swimming fish" style="background-color:none;">
-                </div>
-                </div>
-               </marquee>
+           
+            <div class="col-xs-12 col-sm-12" style="margin-top:2rem;" >
+                <form (ngSubmit)="showmodalRetraitTigoCash()" #rechargementespeceTicoCash="ngForm" autocomplete="on">
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Numéro:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                            <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control"  required style="border-radius: 2rem;">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:2rem;">
+                        <div class="col-xs-4 col-sm-4" style="">
+                            <label style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;    margin-top: 1rem;" for="montantrechargementespece" class="col-sm-3 col-form-label">Montant:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7" style="">
+                            <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control"  required  style="border-radius: 2rem; ">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:2rem;">
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                   <button type="reset" class="btn btn-success"  style="border:none; background-color: transparent; margin-top: 0px;padding: 0px;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                    <button type="submit"   style="border:none; background-color: transparent; margin-left: 2rem;"><i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i></button>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                    </div>
+                </form>
 
             </div>
     </div>
@@ -2643,14 +2669,82 @@
             <div class="col-xs-12 col-sm-12" style="background-color:white; margin-top:2rem;" >
                 <h3 style="color: #337ab7; font-family: 'caviar dreams bold';" >Payer un transfert</h3>
             </div>
-            <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
-               <marquee>
-                <div class="marquee-outer">
-                <div class="marquee-inner"><h5>Service en cour</h5>
-                    <img src="http://www.html.am/images/html-codes/marquees/fish-swimming.gif" width="94" height="88" alt="Swimming fish">
-                </div>
-                </div>
-               </marquee>
+            <div class="col-xs-12 col-sm-12"  >
+                <form (ngSubmit)="showmodalPayerTransfertTigoCash()" #rechargementespeceTicoCash="ngForm" autocomplete="on">
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="codeRtraitPT" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Code retrait:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                            <input type="number" [(ngModel)]="this.codeReatrait"   name="coderetrait" id="codeRtraitPT" class="form-control"  required style="border-radius: 2rem;">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="prenomPTTC" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Prenom:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                            <input type="text" [(ngModel)]="this.prenomPT"   name="prenom" id="prenomPTTC" class="form-control"  required style="border-radius: 2rem;">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="nomPTTC" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Nom:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                            <input type="text" [(ngModel)]="this.nomPT"   name="nom" id="nomPTTC" class="form-control"  required style="border-radius: 2rem;">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">type piece:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                        <select class="form-control" [(ngModel)]="typepiece"  style="height: 3.4rem;border-radius: 2rem;margin-left:1rem;">
+                            <option value="Carte d'identité" selected>Carte d'identité</option>
+                            <option value="Passport">Passport</option>
+                            </select>                      
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="cniPTTC" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Numéro piece:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                            <input type="number" [(ngModel)]="this.cni"   name="cni" id="cniPTTC" class="form-control"  required style="border-radius: 2rem;">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" >
+                            <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Numéro:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7">
+                            <input type="number" [(ngModel)]="this.telephone"   name="telephone" id="telephonerechargementespece" class="form-control"  required style="border-radius: 2rem;">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-4 col-sm-4" style="">
+                            <label style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;    margin-top: 1rem;" for="montantrechargementespece" class="col-sm-3 col-form-label">Montant:</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7" style="">
+                            <input type="number" [(ngModel)]="this.montant"   name="montant" id="montantrechargementespece" class="form-control"  required  style="border-radius: 2rem; ">
+                        </div>
+                    </div>
+                    <div class="row" >
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                   <button type="reset" class="btn btn-success"  style="border:none; background-color: transparent; margin-top: 0px;padding: 0px;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                    <button type="submit"   style="border:none; background-color: transparent; margin-left: 2rem;"><i class="fa fa-check-circle" style="font-size:6rem; color:white;"></i></button>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+
+                            </div>
+                    </div>
+                </form>
 
             </div>
     </div>
@@ -4525,7 +4619,7 @@
         <div class="modal-dialog modal-sm">
            <div class="modal-content" >
              <div class="modal-header">
-               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCash()">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodaldepotTigoCashh()">
                    <span aria-hidden="true">&times;</span>
                </button>
                <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
@@ -4551,7 +4645,87 @@
          </div>
        </div>
 </div>
+<!-- Retrait tc-->
+<div bsModal #modalRetraitTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
+    <div class="modal-dialog modal-sm">
+       <div class="modal-content" >
+         <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalRetraitTigoCash()">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+        </div>
+        <div class="modal-body">
+
+            <div>
+                <form class="form">
+                    <div class="form-group">
+                        <label >Telephone client : {{this.telephone}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >montant : {{this.montant}}</label>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+             <input type="button" value="fermer" (click)="hidemodalRetraitTigoCash()" class="btn btn-danger" />
+             <input type="button" value="valider" (click)="retaitTigoCash()" class="btn btn-success" />
+        </div>
+     </div>
+   </div>
+</div>
+
+<!-- Payer Transfert modalPTTigoCash -->
+
+<div bsModal #modalPTTigoCash="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+       <div class="modal-content" >
+         <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalPayerTransfertTigoCash()">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+        </div>
+        <div class="modal-body">
+
+            <div>
+                <form class="form">
+                    <div class="form-group">
+                        <label >Code retrait : {{this.codeRetrait}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >prenom : {{this.prenomPT}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >nom : {{this.nomPT}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >type piéce : {{this.typepiece}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >numéro piéce : {{this.cni}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >Telephone client : {{this.telephone}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >montant : {{this.montant}}</label>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+             <input type="button" value="fermer" (click)="hidemodalPayerTransfertTigoCash()" class="btn btn-danger" />
+             <input type="button" value="valider" (click)="payerTransTigoCash()" class="btn btn-success" />
+        </div>
+     </div>
+   </div>
+</div>
 <!--modale bon d'achat-->
 <div bsModal #modalBonDachat="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-sm">

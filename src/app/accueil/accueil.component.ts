@@ -112,6 +112,13 @@ export class AccueilComponent implements OnInit {
   prenomben:string;
   nomben:string;
   nomen:string;
+  //payer Transfert
+  codeReatrait:number;
+  prenomPT:string;
+  nomPT:string;
+  typepiece:string;
+  numeroPiece:string;
+
   //le code que je veus ajouter
   coderecept : string ;
   listeVentes : any[] ;
@@ -302,6 +309,8 @@ export class AccueilComponent implements OnInit {
   }
 
   @ViewChild('modaldepotTigoCash') modaldepotTigoCash: ModalDirective;
+  @ViewChild('modalRetraitTigoCash') modalRetraitTigoCash: ModalDirective;
+  @ViewChild('modalPTTigoCash') modalPTTigoCash: ModalDirective;
   @ViewChild('modalvendreizi') modalvendreizi: ModalDirective;
   @ViewChild('modalPostCash') modalPostCash: ModalDirective;
   @ViewChild('modalProcessing') modalProcessing: ModalDirective;
@@ -901,6 +910,7 @@ export class AccueilComponent implements OnInit {
 
     let info = {'nom':'Orange money retrait','operateur':2,'operation':3,'coderetrait':this.coderetrait,'prenom':this.prenom,'nomclient':this.nom,'num':this.numclient,'date':this.date,'cni':this.cni,'montant':this.mnt};
     this.mobileProcessing(JSON.stringify(info));
+    console.log(info);
   //    let requete = "3/"+this.coderetrait+"/"+this.prenom+"/"+this.nom+"/"+this.date+"/"+this.cni+"/"+this.numclient;
     this.reinitialiser();
     this.hideAddChildModal();
@@ -1669,7 +1679,7 @@ export class AccueilComponent implements OnInit {
 
     let today = Number( Date.now() ) ;
     let omOps = [] ;
-        console.log(localStorage.getItem(operation));
+      console.log(localStorage.getItem(operation));
 
     if (localStorage.getItem(operation)==null ){
       localStorage.setItem(operation, JSON.stringify([{requete:incomingRequest, tstamp:today}]) );
@@ -1920,7 +1930,106 @@ export class AccueilComponent implements OnInit {
 
 /******************************************************************************************************/
 
-   retirertc(objet:any){
+   payerTransfertTC(objet:any){
+    let index = this.process.findIndex(
+      item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+    ));
+
+    this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+    let requete = "4/"+objet.data.coderetrait+"/"+objet.data.typepiece+"/"+objet.data.cni+"/"+objet.data.montant+"/"+objet.data.num;
+    console.log(requete);
+
+    if (this.repeatedInLastFifteen('tc-retrait', requete)==1){
+      objet.etats.etat=true;
+      objet.etats.load='terminated';
+      objet.etats.color='red';
+      objet.etats.errorCode='r';
+      this.process[index].etats.pourcentage = 5 ;
+      return 0 ;
+    }
+
+    this._tcService.requerirControllerTC(requete).then( resp => {
+    
+      if (resp.status==200){
+        
+        console.log("For this 'retrait', we just say : "+resp._body) ;
+
+        if(resp._body.trim()=='0'){
+           objet.etats.etat=true;
+           objet.etats.load='terminated';
+           objet.etats.color='red';
+           objet.etats.errorCode='0';
+           this.process[index].etats.pourcentage = 5 ;
+        }else
+            if(resp._body.match('-12')){
+               objet.etats.etat=true;
+               objet.etats.load='terminated';
+               objet.etats.color='red';
+               objet.etats.errorCode='-12';
+               this.process[index].etats.pourcentage = 5 ;
+            }
+            else
+
+           setTimeout(()=>{
+
+              this._tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
+                var donnee=rep._body.trim().toString();
+                console.log("Inside verifier retrait: "+donnee) ;
+                if(donnee=='1'){
+                   objet.etats.etat=true;
+                   objet.etats.load='terminated';
+                   objet.etats.color='#36A9E0';
+                   this.process[index].etats.pourcentage = 5 ;
+                   clearInterval(periodicVerifier) ;
+                }
+                else{
+                  if(donnee!='-1'){
+                   objet.etats.etat=true;
+                   objet.etats.load='terminated';
+                   objet.etats.color='red';
+                   objet.etats.errorCode=donnee;
+                   this.process[index].etats.pourcentage = 5 ;
+                   clearInterval(periodicVerifier) ;
+                  }else{
+                      var periodicVerifier = setInterval(()=>{
+                      this._tcService.verifierReponseTC(resp._body.trim().toString()).then(rep =>{
+                        var donnee=rep._body.trim().toString();
+                        console.log("Inside verifier retrait: "+donnee) ;
+                        if(donnee=='1'){
+                           objet.etats.etat=true;
+                           objet.etats.load='terminated';
+                           objet.etats.color='#36A9E0';
+                           this.process[index].etats.pourcentage = 5 ;
+                           clearInterval(periodicVerifier) ;
+                        }
+                        else{
+                          if(donnee!='-1'){
+                           objet.etats.etat=true;
+                           objet.etats.load='terminated';
+                           objet.etats.color='red';
+                           objet.etats.errorCode=donnee;
+                           this.process[index].etats.pourcentage = 5 ;
+                           clearInterval(periodicVerifier) ;
+                          }
+                        }
+                      });
+                      },2000);
+                  }
+                }
+              });
+
+           },20000);
+      }
+      else{
+        console.log("error") ;
+        this.process[index].etats.pourcentage = 5 ;
+
+        }
+    });
+
+  }
+
+  retirertc(objet:any){
     let index = this.process.findIndex(
       item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
     ));
@@ -2213,12 +2322,15 @@ public pdvacueilmenumobilemoneyretour(){
 
               switch(operation){
                 case 1:{
-                       this.deposertc(sesion);
-                       break;
+                  this.deposertc(sesion);
+                  break;
                 }
                 case 2:{
-                       this.retirertc(sesion);
-                       break;
+                  this.retirertc(sesion);
+                  break;
+                }
+                case 3:{
+                  this.payerTransfertTC(sesion)
                 }
                 case 5:{
                       //VENTE IZI
@@ -2420,6 +2532,7 @@ public pdvacueilmenumobilemoneyretour(){
     this.modalretraitcode.hide();
   }
   public reinitialiser(){
+    this.typepiece =undefined
     this.mnt=undefined;
     this.prenom=undefined;
     this.nom=undefined;
@@ -2492,7 +2605,7 @@ public pdvacueilmenumobilemoneyretour(){
 
 
   /**********************************************les modals***************************************/
-
+  
 
     showmodaldepotTigoCash(){
      this.modaldepotTigoCash.show();
@@ -2500,6 +2613,22 @@ public pdvacueilmenumobilemoneyretour(){
     hidemodaldepotTigoCash(){
      this.modaldepotTigoCash.hide()
     }
+    showmodalRetraitTigoCash(){
+      this.modalRetraitTigoCash.show();
+     }
+     hidemodalRetraitTigoCash(){
+      this.modalRetraitTigoCash.hide()
+     }
+     
+    showmodalPayerTransfertTigoCash(){
+      console.log(this.codeReatrait,this.prenomPT,this.nomPT,this.typepiece);
+      
+      this.modalPTTigoCash.show();
+     }
+     hidemodalPayerTransfertTigoCash(){
+      this.modalPTTigoCash.hide()
+     }
+     
     showmodalvendreizi(){
      this.modalvendreizi.show();
     }
@@ -3286,8 +3415,22 @@ public pdvacueilmenumobilemoneyretour(){
          let depotInfo = {'nom':'TigoCash depot','operateur':3,'operation':1,'num':this.telephone,'montant':this.montant};
          this.mobileProcessing(JSON.stringify(depotInfo));
          this.hidemodaldepotTigoCash();
-
       }
+  //Retrait TigoCash
+  retaitTigoCash(){
+    let RetraitInfo = {'nom':'TigoCash retrait','operateur':3,'operation':2,'num':this.telephone,'montant':this.montant};
+    this.mobileProcessing(JSON.stringify(RetraitInfo));
+    this.hidemodalRetraitTigoCash();
+    this.reinitialiser();
+
+  }
+
+  payerTransTigoCash(){
+    let RetraitInfo = {'nom':'TigoCash payer transfert','operateur':3,'operation':3,'coderetarit':this.coderetrait,'prenom':this.prenom,'nomC':this.nom,'typepiece':this.typepiece,'cni':this.cni,'num':this.telephone,'montant':this.montant};
+    this.mobileProcessing(JSON.stringify(RetraitInfo));
+    this.hidemodalPayerTransfertTigoCash();
+    //this.reinitialiser();
+  }
   //izi
       izi(){
        let iziInfo ={'nom':'tigoCash izi','operateur':3,'operation':5,'telephone':this.telephone,'montant':this.montant};
