@@ -168,6 +168,7 @@ import { PostCashService } from 'app/services/postCash.service';
 
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AirtimeService } from './services/airtime.service';
 /*--------------------------------------------------------------------------------------------------------*/
 /*                                            END OF IMPORTS                                              */
 /*--------------------------------------------------------------------------------------------------------*/
@@ -317,6 +318,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     TigocashService,
     ExpressocashService,
     MapsService,
+    AirtimeService,
   ],
   bootstrap: [AppComponent]
 })

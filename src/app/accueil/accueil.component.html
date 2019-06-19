@@ -57,11 +57,23 @@
                       <div  class="col-sm-12 col-xs-12" style=" padding:0px; margin:0px; padding-right:0px; margin-top:0rem;">
                             <button (click)="roadTo('ec')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
                                     <div  class="row">
+                                        <div  class="col-sm-3 col-xs-2">
+                                            <img  src="assets/pannier.png" style="height: 4rem;margin-left: -13px; padding-left: 0px; ">
+                                        </div>
+                                        <div  class="col-sm-10 col-xs-10">
+                                            <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem; text-align:left;">E-COMMERCE</h5>
+                                        </div>
+                                    </div>
+                            </button>
+                      </div>
+                      <div  class="col-sm-12 col-xs-12" style=" padding:0px; margin:0px; padding-right:0px; margin-top:0rem;">
+                            <button (click)="roadTo('airtime')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
+                                    <div  class="row">
                                             <div  class="col-sm-3 col-xs-2">
-                                                <img  src="assets/pannier.png" style="height: 4rem;margin-left: -13px; padding-left: 0px; ">
+                                                <img  src="assets/thumbnailphone.png" style="height: 4rem;margin-left: -13px; padding-left: 0px; ">
                                             </div>
                                             <div  class="col-sm-10 col-xs-10">
-                                                <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem; text-align:left;">E-COMMERCE</h5>
+                                                <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem; text-align:left;">AIRTIME</h5>
                                             </div>
                                     </div>
                             </button>
@@ -2166,6 +2178,87 @@
       </div>
      </div>
 </div>
+<!-- AIRTIME -->
+<div *ngIf="displayedPage=='accueil-airtime'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; ">
+    <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+      <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.9;">
+             <div  class="row" style="margin:0px; padding:0;">
+                   <div  class="col-sm-3 col-xs-3">
+                       <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+                   </div>
+                   <div  class="col-sm-6 col-xs-6">
+                       <img  src="assets/airtime.png" style="width: 90%;padding-top: 2rem;">
+                   </div>
+                   <div  class="col-sm-3 col-xs-3">
+                       <div class="row">
+                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
+                       </div>
+                       <div class="row" style="margin-top:1rem;">
+                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
+                       </div>
+                   </div>
+             </div>
+   
+             <div class="row" style="padding:1rem;background-color: white;">
+                     <h2 style="color: #36a9e0;font-family: caviar dreams; margin: 0px;">Vente de crédit</h2>
+             </div>
+             <div class="row">
+                 <h3 *ngIf="airtimereussi"  class="alert alert-success">Opération reussi!</h3>
+                 <h3 *ngIf="airtimedepot" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+                 <h3 *ngIf="numORmnterror" class="alert alert-danger">Numéro ou montant incorrect!</h3>
+             </div>
+             <div class="row">
+                  <div class="col-sm-12 col-xs-12">
+                        <form class="row" name="transnat" (ngSubmit)="showAddChildModalAirtime()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+                              <div class="col-sm-12 col-xs-12">
+                                  <div class="row">
+                                       <div class="col-xs-5 col-sm-5">
+                                               <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
+                                         </div>
+                                         <div class="col-xs-7 col-sm-7">
+                                               <input  type="text" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control"  autofocus style="border-radius:2rem; ">
+                                         </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-xs-12">
+                                      <p *ngIf="mag1" style="color:red">numero incorrect</p>
+                              </div>
+   
+                              <div class="col-sm-12 col-xs-12" >
+                                  <div class="row">
+                                       <div class="col-xs-5 col-sm-5">
+                                           <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
+                                       </div>
+                                       <div class="col-xs-7 col-sm-7">
+                                           <input type="text"  [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control"   style="border-radius:2rem; ">
+                                       </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-xs-12">
+                                  <p *ngIf="mag2" style="color:red">montant incorrect</p>
+                              </div>
+                              <div class="col-sm-12 col-xs-12">
+                                   <div class="row" style="margin-top:2rem;">
+                                          <div class="col-xs-4 col-sm-4">
+              
+                                          </div>
+                                          <div class="col-xs-2 col-sm-2">
+                                               <button type="reset" class="btn btn-success"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                           </div>
+                                          <div class="col-xs-2 col-sm-2">
+                                                 <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent; margin-left: 2rem;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                          </div>
+                                          <div class="col-xs-4 col-sm-4">
+              
+                                          </div>
+                                   </div>
+                             </div>
+                        </form>
+                  </div>
+             </div>
+     </div>
+    </div>
+</div>
 <!-- POSTCASH -->
 <div *ngIf="displayedPage=='accueil-mm-POSTCASH'" class="row">
     <!-- POSTCASH -->
@@ -2670,7 +2763,7 @@
                 <h3 style="color: #337ab7; font-family: 'caviar dreams bold';" >Payer un transfert</h3>
             </div>
             <div class="col-xs-12 col-sm-12"  >
-                <form (ngSubmit)="showmodalPayerTransfertTigoCash()" #rechargementespeceTicoCash="ngForm" autocomplete="on">
+                <form (ngSubmit)="showmodalPayerTransfertTigoCash()" #payerTransfertTigoCash="ngForm" autocomplete="on">
                     <div class="row" >
                         <div class="col-xs-4 col-sm-4" >
                             <label for="codeRtraitPT" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">Code retrait:</label>
@@ -2700,10 +2793,10 @@
                             <label for="telephonerechargementespece" class="col-sm-3 col-form-label" style="color: white;font-family:'caviar dreams bold'; font-size: 1.5rem;margin-top: 1rem;">type piece:</label>
                         </div>
                         <div class="col-xs-7 col-sm-7">
-                        <select class="form-control" [(ngModel)]="typepiece"  style="height: 3.4rem;border-radius: 2rem;margin-left:1rem;">
-                            <option value="Carte d'identité" selected>Carte d'identité</option>
-                            <option value="Passport">Passport</option>
-                            </select>                      
+                            <select class="form-control" [(ngModel)]="this.typepiece" name="typepiece" style="height: 3.4rem;border-radius: 2rem;margin-left:1rem;" >
+                                <option value="2">carte national d'identite</option>
+                                <option value="1">passport</option>
+                            </select>                     
                         </div>
                     </div>
                     <div class="row" >
@@ -5378,7 +5471,41 @@
     Autes Modals
 ..................................-->
 
+<!-- AIRTIME-->
+<div  bsModal #addChildModalAirtime="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
+        <div class="modal-dialog modal-sm">
+           <div class="modal-content" >
+             <div class="modal-header">
+               <button type="button" class="close pull-right" aria-label="Close" (click)="hideAddChildModal()">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+            </div>
+            <div class="modal-body">
+
+                   <div *ngIf="displayedPage=='accueil-airtime'">
+                       <form class="form">
+                           <div class="form-group">
+                               <label >numero client : {{this.numclient}} </label>
+                           </div>
+                           <div class="form-group">
+                               <label >montant : {{this.mnt}} </label>
+                           </div>
+                       </form>
+                   </div>   
+            </div>
+            <div class="modal-footer">
+
+               <div *ngIf="displayedPage=='accueil-airtime'">
+                    <input type="button" value="fermer" (click)="hideAddChildModalAirtime()" class="btn btn-danger" />
+                    <input type="button" value="valider" (click)="vendreCredit()" class="btn btn-success" />
+               </div>
+
+            </div>
+         </div>
+       </div>
+</div>
 <div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
          <div class="modal-dialog modal-sm">
