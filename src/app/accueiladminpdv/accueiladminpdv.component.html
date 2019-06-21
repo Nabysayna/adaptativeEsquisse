@@ -137,12 +137,13 @@
             <div class="col-sm-6 col-xs-6">
                 <img src="assets/rond.png" style="width: 100%; "/>
             </div>
-            <div class="col-sm-3 col-xs-3" (click)="pdvacueilretour()">
-                <div class="row" [ngStyle]="{'margin-top':'1rem'}">
-                    <i class="fa fa-arrow-circle-left"  style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
+            <div class="col-sm-3 col-xs-3" >
+                <div class="row" [ngStyle]="{'margin-top':'1rem'}" >
+                    <i class="fa fa-arrow-circle-left" (click)="pdvacueilretour()" style="color:rgb(255,144, 00); font-size: 3rem; margin-left: 3rem;"></i>
                 </div>
                 <div class="row">
-                    <img src="assets/deconnet.png" style=" height: 4rem; margin-left: 3rem;" (click)="deconnexion()" />
+                    <!--<img src="assets/disconnect.png" style=" height: 4rem; margin-left: 3rem;" (click)="deconnexion()" />-->
+                    <i class="fa fa-sign-out fa-2x" (click)="deconnexion()" style="color:orange;height: 4rem; margin-left:3rem; -webkit-transform: rotate(180deg);moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);"></i>
                 </div>
             </div>
         </div>

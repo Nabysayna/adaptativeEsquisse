@@ -25,6 +25,7 @@ import { Http, RequestOptions, RequestMethod, Headers  } from '@angular/http';
 import * as _ from "lodash";
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { AirtimeService } from 'app/services/airtime.service';
+import { CanalService } from 'app/services/canal.service';
 
 
 class Article {
@@ -179,6 +180,12 @@ export class AccueilComponent implements OnInit {
   smart : string ;
   descriptionsvalues=[];
 
+  numa:any=0;
+  formule:string;
+  reachCanal:any;
+  adresse:any;
+  numCarte:number;
+
   //zone: NgZone;
 
   receivedArticles = "" ;
@@ -297,6 +304,7 @@ export class AccueilComponent implements OnInit {
         private _omService:OrangemoneyService,
         private _tcService: TigocashService,
         private _airtimeService : AirtimeService,
+        private _canalService : CanalService,
         private _gestionreportingService:GestionreportingService){
           if ( window.screen.width <= 768 )
               this.isMobile = true ;
@@ -317,6 +325,8 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modalPostCash') modalPostCash: ModalDirective;
   @ViewChild('modalProcessing') modalProcessing: ModalDirective;
   @ViewChild('modalTnt') modalTnt: ModalDirective;
+  @ViewChild('modalcanalReabonnement') modalcanalReabonnement: ModalDirective;
+  
   @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
   @ViewChild('modalsde') public modalsde:ModalDirective;
   @ViewChild('modalrapido') public modalrapido:ModalDirective;
@@ -377,6 +387,8 @@ export class AccueilComponent implements OnInit {
           this.route.params.subscribe( (params : Params) => {
                 this.eFinancier = this.eFinancierService.getEFinancier(5);
           });
+          /* --------------------solde---------------*/ 
+          this.getSolde();
           /* --------------ngOnInit gestion reporting----------------*/
           this._gestionreportingService.servicepoint()
                   .subscribe(
@@ -690,6 +702,20 @@ export class AccueilComponent implements OnInit {
         });
     
       }
+       
+  solde:number;
+  getSolde(){
+    this._utilsService.checkCaution().subscribe(
+      data => {
+        this.solde = data ;
+        console.log("Le solde vaut "+data) ;
+      },
+      error => alert(error),
+      () => {
+        console.log(3)
+      }
+    )
+  }    
   deposer(objet:any){
     let index = this.process.findIndex(
       item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
@@ -2715,6 +2741,9 @@ public pdvacueilmenumobilemoneyretour(){
     this.modalretraitcode.hide();
   }
   public reinitialiser(){
+    this.numa=undefined
+    this.formule =undefined;
+    this.reachCanal =undefined;
     this.numORmnterror=false;
     this.codeReatrait = undefined;
     this.prenomPT = undefined;
@@ -2865,6 +2894,7 @@ public pdvacueilmenumobilemoneyretour(){
 
     /*-------------- -------- Facturier -------------------------------*/
 
+
           /********** TNT-modals ***************/
           showmodalTnt(){
             this.modalTnt.show();
@@ -2872,7 +2902,71 @@ public pdvacueilmenumobilemoneyretour(){
           hidemodalTnt(){
             this.modalTnt.hide()
           }
-
+          
+          /********** canal-modals ***************/
+          showmodalcanal(){
+            this.modalcanalReabonnement.show();
+          }
+          hidemodalcanal(){
+            this.modalcanalReabonnement.hide()
+          }
+          /**************CANAL Traitement **********/
+          numab:any=0;
+          lastFormule:any="";
+          rechercherCanal(){
+           this.loading = true ;
+            this.erreur = false ;
+            this._canalService.Recherhe(this.reachCanal.toString()).then(res =>{
+              let numFile = res['_body'].trim();
+              console.log(res['_body']);
+              //this.loading=true;
+             let intervalle1 = setInterval(()=>{ this._canalService.ResultRecherhe(numFile).then(res =>{ let result=res['_body'];
+              console.log('ResultRecherhe');
+              console.log(res['_body'].trim());
+              if(result.includes("[")){
+                console.log(res['_body'].split('['));
+                
+                 this.numab = result.split('[')[0];
+                this.numa = this.numab;
+                this.noma = result.split('[')[2];
+                this.prenoma = result.split('[')[3];
+                this.adresse = result.split('[')[7];
+                this.lastFormule = result.split('[')[8];
+                this.numCarte = result.split('[')[11];
+              this.loading=false;
+              this.roadTo('nv');
+              clearInterval(intervalle1);
+              console.log(this.numab+" "+this.numa+"  "+this.lastFormule+"  "+this.adress+" "+this.numCarte);
+              }else{
+                console.log("pas encore de reponse");
+                
+              }
+            });}, 10000);
+            
+          });
+          
+          
+          }
+          montantNet:any = 0;
+          getMontant(){
+            this.montantNet = 0;
+            if(this.tbouquet == 'Date à date Access'){
+              this.montantNet = this.montantNet +5000;
+            }else if(this.tbouquet == 'Date à date Evasion')  {
+              this.montantNet = this.montantNet + 10000;
+            }else if(this.tbouquet == 'Date à date ESSENTIEL Plus')  {
+              this.montantNet = this.montantNet + 12000;
+            }else if(this.tbouquet == 'Date à date Les Chaines canal plus & Access')  {
+              this.montantNet = this.montantNet + 15000;
+            }else if(this.tbouquet == 'Date à date Les Chaines canal plus & Evasion')  {
+              this.montantNet = this.montantNet + 20000;
+            }else if(this.tbouquet == 'Date à date Tout Canal Plus')  {
+              this.montantNet = this.montantNet + 40000 ;
+            }else if(this.tbouquet == 'Date à date Prestige')  {
+              this.montantNet = this.montantNet + 30000 ;
+            }
+            this.montantNet = this.montantNet * this.nbm;
+          }
         /********** TNT-Traitements ***************/
           validVerifierNum(){
             this.loading = true ;
