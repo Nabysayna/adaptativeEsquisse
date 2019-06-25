@@ -11,11 +11,12 @@
         <div class="row"   style="background-color:rgb(255,144, 00);width: 60%;text-align: center;overflow-y: scroll;  min-height: -webkit-fill-available; max-height: -webkit-fill-available; " >
             <div class="col-sm-12 col-xs-12" >
                   <div class="row">
-                         <div class="col-sm-4 col-xs-8">
-
-                         </div>
+                    <div class="col-sm-4 col-xs-8" (click)="getSolde()">
+                        <p style="color: white; margin-left: -3rem; margin-top: 1rem; font-size: 15px;">
+                         Solde : {{currency(solde)}} F</p>
+                        </div>
                         <div class="col-sm-4 col-xs-4">
-                             <img src="assets/deconnet.png" style=" height: 4rem;" (click)="deconnexion()" />
+                            <img src="assets/deconnet.png" style=" height: 4rem;" (click)="deconnexion()" />
                         </div>
                   </div>
             </div>
@@ -62,6 +63,19 @@
                                             </div>
                                             <div  class="col-sm-10 col-xs-10">
                                                 <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem; text-align:left;">E-COMMERCE</h5>
+                                            </div>
+                                    </div>
+                            </button>
+                      </div>
+                      
+                      <div  class="col-sm-12 col-xs-12" style=" padding:0px; margin:0px; padding-right:0px; margin-top:0rem;">
+                            <button (click)="roadTo('airtime')" style="background-color: transparent;border: 0px; width:100%; padding:0px; margin:0px;">
+                                    <div  class="row">
+                                            <div  class="col-sm-3 col-xs-2">
+                                                <img  src="assets/thumbnailphone.png" style="height: 4rem;margin-left: -13px; padding-left: 0px; ">
+                                            </div>
+                                            <div  class="col-sm-10 col-xs-10">
+                                                <h5  style="font-family:caviar dreams bold; color: white;margin-left: 0px;max-height: 20px; font-size: 1.8rem; text-align:left;">AIRTIME</h5>
                                             </div>
                                     </div>
                             </button>
@@ -119,6 +133,11 @@
             </div>
 
             <div class="row" style="margin-top:4rem;">
+                <button (click)="roadTo('ca')" style="background-color: transparent;border: 0px;width: 36rem;">
+                    <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">CANAL PLUS</p>
+                </button>
+            </div>
+            <div class="row" style="margin-top:0rem;">
                 <button (click)="roadTo('tnt')" style="background-color: transparent;border: 0px;width: 36rem;">
                     <p style="color:white;font-family: caviar dreams bold; font-size: 30px;">TNT</p>
                 </button>
@@ -448,7 +467,437 @@
           </div>
         </div>
     </div>
+<!-- facturier canal-->
+<div *ngIf="displayedPage=='accueil-fact-ca'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div  class="col-sm-12 col-xs-12" style="padding:0;">
+              <div  class="col-sm-3 col-xs-3">
+                    <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+              </div>
+              <div  class="col-sm-6 col-xs-6">
+                  <img  src="assets/canal11.png" style="width: 90%; margin-top:1rem; ">
+              </div>
+              <div  class="col-sm-3 col-xs-3">
+                  <div class="row">
+                       <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+                  <div class="row" style="margin-top:1rem;">
+                      <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+              </div>
+        </div>
 
+        <div class="col-xs-12 col-sm-12" style="border: 2px solid white; background-color:white; margin-top:4rem; padding: 1rem;">
+            <h2 style="color:#36A9E0; font-family:'caviar dreams bold';" class="row">CANAL PLUS</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+                <div class="row">
+                    <button style="background-color: transparent;border: 0px;width: 36rem;" (click)="roadTo('reab')">
+                        <p style="color:white; font-size: 30px; padding-top: 1rem;" >Réabonnement</p>
+                    </button>
+                </div>
+                <div class="row">
+                    <button style="background-color: transparent;border: 0px; width: 36rem;" (click)="roadTo('rec')">
+                        <p style="color:white; font-size: 30px; padding-top: 1rem;">Recrutement</p>
+                    </button>
+                </div>
+      </div>
+    </div>
+</div>
+<!-- Facturier canal réabonnement-->
+<div *ngIf="displayedPage=='accueil-fact-ca-reab'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;overflow-y: scroll;overflow-y: scroll;overflow-y: scroll;overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
+        <div  class="col-sm-12 col-xs-12" style="padding:0;">
+              <div  class="col-sm-3 col-xs-3">
+                   <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+              </div>
+              <div  class="col-sm-6 col-xs-6">
+                  <img  src="assets/canal11.png" style="width: 90%; margin-top:1rem;">
+              </div>
+              <div  class="col-sm-3 col-xs-3">
+                  <div class="row">
+                       <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem; ">
+                  </div>
+                  <div class="row" style="margin-top:1rem;">
+                      <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+              </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12" style="border: 2px solid white; background-color:white; margin-top:4rem; padding: 1rem;">
+            <h2 style="color:#36A9E0;font-family:'caviar dreams bold';" class="row">REABONNEMENT</h2>
+        </div>
+           <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+               <form name="validVerifierNum" (ngSubmit)="rechercherCanal()" #verifiernum="ngForm" autocomplete="on" >
+
+
+                   <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;">
+                           <div class="col-xs-12 col-sm-12">
+                               <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro abonné, Numéro carte ou Téléphone</label>
+                           </div>
+                           <div class="col-xs-12 col-sm-12" style="margin-top:2rem;">
+                               <input  class="form-control ng-dirty ng-valid ng-touched" type="number" [(ngModel)]="this.reachCanal" name="verifiernuminput" ng-reflect-required="" ng-reflect-name="montant" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                           </div>
+                   </div>
+                   <div class="row" style="margin-top:2rem;">
+                           <div class="col-xs-4 col-sm-4">
+
+                           </div>
+                           <div class="col-xs-2 col-sm-2">
+                               <button  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                           </div>
+                           <div class="col-xs-2 col-sm-2">
+                               <button type="submit"  class="btn btn-danger" style="border:none;background-color: transparent;margin-left: 2rem;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                           </div>
+                           <div class="col-xs-4 col-sm-4">
+
+                           </div>
+                   </div>
+               </form>
+        </div>
+    </div>
+</div>
+<!-- FActurier canal Nouvel abonnement-->
+<div *ngIf="displayedPage=='accueil-fact-ca-reab-nv'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll;padding-bottom:4rem;">
+        <div  class="col-sm-12 col-xs-12" style="padding:0;">
+              <div  class="col-sm-3 col-xs-3">
+                  <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+              </div>
+              <div  class="col-sm-6 col-xs-6">
+                  <img  src="assets/canal11.png" style="width: 90%; margin-top:1rem;">
+              </div>
+              <div  class="col-sm-3 col-xs-3">
+                  <div class="row">
+                       <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+                  <div class="row" style="margin-top:1rem;">
+                      <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+              </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12" style="border: 2px solid white;  background-color:white; margin-top:4rem; padding: 1rem;">
+            <h2 style="color:#36A9E0;  font-family:'caviar dreams bold';" class="row">CANAL PLUS</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+              <form class="row" (ngSubmit)="showmodalcanal()" #nabon="ngForm" autocomplete="on">
+                   <div class="col-xs-12 col-sm-12">
+                              <div class="row">
+                                  <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">REABONNEMENT</h4>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="this.canalReab == 1">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Abonné</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input [(ngModel)]="this.numab" name="numa" id="numa" class="form-control ng-dirty ng-valid ng-touched"  required="numa" type="number"  style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                              
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 1">
+                                <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Abonné</label>
+                                 </div>
+                                <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.noma" name="noma" id="noma" class="form-control ng-dirty ng-valid ng-touched"  required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 1">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom Abonné</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input [(ngModel)]="this.prenoma" name="prenoma" id="prenoma"  class="form-control ng-dirty ng-valid ng-touched"   required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 1">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Adresse</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input  [(ngModel)]="this.adresse"   name="adresse" id="idadresse" class="form-control ng-dirty ng-valid ng-touched"   required="" type="text" ng-reflect-required="te" ng-reflect-name="telephone" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                               
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 1">
+                                <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Formule</label>
+                                </div>
+                                <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.lastFormule"   name="formule" id="idformule"  class="form-control ng-dirty ng-valid ng-touched"   required="" type="text"  style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 1">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro Carte</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input [(ngModel)]="this.numCarte"   name="ncarteNewClient" id="ncarteNewClient"  class="form-control ng-dirty ng-valid ng-touched"   required="" type="number"  style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 2">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nombre De Mois</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input  [(ngModel)]="this.nbm" (keyup)="getMontant()" (click)="getMontant()"  name="nbm" id="nbm" class="form-control ng-dirty ng-valid ng-touched"   required="" type="number" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="this.canalReab == 2">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Type De Bouquet</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <select name="tbouquet" (keyup)="getMontant()" (click)="getMontant()" id="tbouquet" [(ngModel)]="this.tbouquet" class="form-control ng-pristine ng-invalid ng-touched" id="tbouquet" name="tbouquet" required="" style="margin-bottom: 2rem;margin-left: 1rem;" ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                                  <option (click)="getMontant()">Date à date Access</option>
+                                                  <option (click)="getMontant()">Date à date Evasion</option>
+                                                  <option (click)="getMontant()">Date à date ESSENTIEL Plus</option>
+                                                  <option (click)="getMontant()">Date à date Les Chaines canal plus & Access</option>
+                                                  <option (click)="getMontant()">Date à date Les Chaines canal plus & Evasion</option>
+                                                  <option (click)="getMontant()">Date à date Tout Canal Plus</option>
+                                                  
+                                            </select>
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="tbouquet != undefined && this.canalReab == 2">
+                                    <div class="col-xs-6 col-sm-6">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Offres optionnelles</label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12">
+                                            <label class="control-label" for="" style=" color: white;" >
+                                                <input  type="checkbox" name="charm" id="idcharm" (click)="getCharme()" title="5000" value="1" >CHARME
+                                            </label>    
+                                            <label class="control-label" for="" style=" color: white;" *ngIf="tbouquet != 'Date à date Access'">
+                                                <input  type="checkbox" name="pvd" id="idpvd" (click)="getPVR()" title="6000" value="1" >PVD
+                                            </label>    
+                                            <label class="control-label" for="" style=" color: white;" *ngIf="tbouquet != 'Date à date Access'">
+                                                <input  type="checkbox" name="ecran2" id="idEcran2" (click)="get2ecran()" title="6000" value="1" >2E ECRAN
+                                            </label>                                 
+                                    </div>
+                            </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 2rem;" *ngIf="this.canalReab == 2">
+                                    <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant net</label>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 3rem;">{{montantNet}}</label>
+                                     </div>
+                            </div>
+                              <div class="row" >
+                                
+                                     <div class="col-xs-4 col-sm-4">
+        
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2"   style="padding-top:4rem;">
+                                            <button *ngIf="this.canalReab == 2"  type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2"style="padding-top:4rem;" >
+                                            <button *ngIf="this.canalReab == 2" type="submit" class="btn btn-danger" style="margin-left: 2rem;border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                   
+                                    <div class="col-xs-1 col-sm-1"  style="padding-top:4rem;" >
+                                        <button *ngIf="canalReab==2"   type="button" (click)="canalReabBack()" class="btn btn-danger"  style="border:none; background-color: transparent;margin-left: 5rem;"><i class="fa fa-arrow-left" style="font-size:3rem; color:white;" ></i></button>
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1" >
+                                        <button *ngIf="canalReab==1" (click)="canalReabNext()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-arrow-right" style="font-size:3rem; color:white;" ></i></button>
+                                    </div>
+                                    <div class="col-xs-2 col-sm-2">
+
+                                    </div>
+                            </div>
+                              
+                   </div>
+              </form>   
+        </div>
+    </div>
+</div>
+<!-- Facturier canal recrutement  -->
+<div *ngIf="displayedPage=='accueil-fact-ca-rec'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
+    <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll;overflow-y: scroll;overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96; overflow-y: scroll;padding-bottom:4rem;">
+        <div  class="col-sm-12 col-xs-12" style="padding:0;">
+              <div  class="col-sm-3 col-xs-3">
+                  <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+              </div>
+              <div  class="col-sm-6 col-xs-6">
+                  <img  src="assets/canal11.png" style="width: 90%; margin-top:1rem;">
+              </div>
+              <div  class="col-sm-3 col-xs-3">
+                  <div class="row">
+                       <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+                  <div class="row" style="margin-top:1rem;">
+                      <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left:3rem;">
+                  </div>
+              </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12" style="border: 2px solid white;  background-color:white; margin-top:4rem; padding: 1rem;">
+            <h2 style="color:#36A9E0;  font-family:'caviar dreams bold';" class="row">CANAL PLUS</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12" style="margin-top:3rem;">
+              <form class="row" (ngSubmit)="showmodalcanal()" #nabon="ngForm" autocomplete="on">
+                   <div class="col-xs-12 col-sm-12">
+                              <div class="row">
+                                  <h4 style="color: white ; font-family:'caviar dreams bold'; padding-top:0.5rem; padding-bottom:0.5rem;">RECRUTEMENT</h4>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==1">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Titlre</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                        <select name="titre"  id="idtitre" [(ngModel)]="this.titre" class="form-control ng-pristine ng-invalid ng-touched" id="titre" name="titre" required="" style="margin-bottom: 2rem;margin-left: 1rem;" ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                            <option >Monsieur</option>
+                                            <option >Madame</option>
+                                            <option >mademoiselle</option>
+                                            <option >Societe</option>
+                                      </select>                                    
+                                     </div>
+                              </div>
+                              
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==1">
+                                <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nom Abonné</label>
+                                 </div>
+                                <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.nomrec" name="nomrec" id="nomrec" class="form-control ng-dirty ng-valid ng-touched"  required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==1">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Prénom Abonné</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input [(ngModel)]="this.prenomrec" name="prenomrec" id="prenomrec"  class="form-control ng-dirty ng-valid ng-touched"   required="prenom" type="text" ng-reflect-required="" ng-reflect-name="prenom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                               
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==1">
+                                <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">CNI</label>
+                                 </div>
+                                <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.cnirec" name="cnirec" id="cnirec" class="form-control ng-dirty ng-valid ng-touched"  required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                             
+                            <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==1">
+                                <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Ville</label>
+                                 </div>
+                                <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.villerec" name="villerec" id="villerec" class="form-control ng-dirty ng-valid ng-touched"   type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                             
+                            <div class="row" style="width:98%; margin-left:1%; margin-top:1rem;" *ngIf="canalRec==1">
+                                <div class="col-xs-5 col-sm-5">
+                                       <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Adresse</label>
+                                 </div>
+                                <div class="col-xs-7 col-sm-7">
+                                      <input [(ngModel)]="this.adresserec" name="adresserec" id="adresserec" class="form-control ng-dirty ng-valid ng-touched"  required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                             
+                            <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==1">
+                                <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">E-mail</label>
+                                    </div>
+                                <div class="col-xs-7 col-sm-7">
+                                        <input [(ngModel)]="this.emailrec" name="emailrec" id="emailrec" class="form-control ng-dirty ng-valid ng-touched"  required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div> 
+                            <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==2">
+                                <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Téléphone</label>
+                                    </div>
+                                <div class="col-xs-7 col-sm-7">
+                                        <input [(ngModel)]="this.telrec" name="telrec" id="telrec" class="form-control ng-dirty ng-valid ng-touched"  required="nom" type="text" ng-reflect-required="" ng-reflect-name="nom" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                </div>
+                            </div>
+                             
+                               
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==2">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Numéro decoudeur</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input [(ngModel)]="this.numDecRec"   name="numDecrec" id="ncarteNewClient"  class="form-control ng-dirty ng-valid ng-touched"   required="" type="number" ng-reflect-required="te" ng-reflect-name="carte" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==2">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Nombre De Mois</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <input  [(ngModel)]="this.nbm" (keyup)="getMontant()" (click)="getMontant()"  name="nbm" id="nbm" class="form-control ng-dirty ng-valid ng-touched"   required="" type="number" ng-reflect-required="te" ng-reflect-name="mois" ng-reflect-model="0" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==2">
+                                     <div class="col-xs-5 col-sm-5">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Type De Bouquet</label>
+                                     </div>
+                                     <div class="col-xs-7 col-sm-7">
+                                           <select name="tbouquet" (keyup)="getMontant()" (click)="getMontant()" id="tbouquet" [(ngModel)]="this.tbouquet" class="form-control ng-pristine ng-invalid ng-touched" id="tbouquet" name="tbouquet" required="" style="margin-bottom: 2rem;margin-left: 1rem;" ng-reflect-required="" ng-reflect-name="tbouquet" style="border-radius:2rem;  width:100%; margin-left:0px; margin-right:0px;">
+                                                  <option (click)="getMontant()">Date à date Evasion</option>
+                                                  <option (click)="getMontant()">Date à date ESSENTIEL Plus</option>
+                                                  <option (click)="getMontant()">Date à date Les Chaines canal plus & Access</option>
+                                                  <option (click)="getMontant()">Date à date Les Chaines canal plus & Evasion</option>
+                                                  <option (click)="getMontant()">Date à date Tout Canal Plus</option>
+                                                  
+                                            </select>
+                                     </div>
+                              </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="tbouquet != undefined && canalRec==2">
+                                <div class="col-xs-6 col-sm-6">
+                                    <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Offres optionnelles</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12">
+                                    <label class="control-label" for="" style=" color: white;" >
+                                        <input  type="checkbox" name="charm" id="idcharm" (click)="getCharme()" title="5000" value="1" >CHARME
+                                    </label>    
+                                    <label class="control-label" for="" style=" color: white;" *ngIf="tbouquet != 'Date à date Access'">
+                                        <input  type="checkbox" name="pvd" id="idpvd" (click)="getPVR()" title="6000" value="1" >PVD
+                                    </label>    
+                                    <label class="control-label" for="" style=" color: white;" *ngIf="tbouquet != 'Date à date Access'">
+                                        <input  type="checkbox" name="ecran2" id="idEcran2" (click)="get2ecran()" title="6000" value="1" >2E ECRAN
+                                    </label>                                 
+                                </div>
+                            </div>
+                              <div class="row" style="width:98%; margin-left:1%; margin-top: 1rem;" *ngIf="canalRec==2">
+                                    <div class="col-xs-5 col-sm-5">
+                                        <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 1.5rem;">Montant net</label>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7">
+                                            <label style="margin-top: 0.2rem;color:white ;font-family:'caviar dreams bold'; font-size: 3rem;">{{montantNet}}</label>
+                                     </div>
+                            </div>
+                              <div class="row" style="margin-top:2rem;">
+                                     <div class="col-xs-4 col-sm-4">
+        
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2">
+                                            <button *ngIf="canalRec==2" type="reset" class="btn btn-danger"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                     <div class="col-xs-2 col-sm-2">
+                                            <button *ngIf="canalRec==2" type="submit" class="btn btn-danger" style="margin-left: 2rem;border:none;background-color: transparent;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                     </div>
+                                     
+                                    <div class="col-xs-1 col-sm-1"  style="padding-top:4rem;" >
+                                        <button *ngIf="canalRec==2"   type="button" (click)="canalRecBack()" class="btn btn-danger"  style="border:none; background-color: transparent;margin-left: 5rem;"><i class="fa fa-arrow-left" style="font-size:3rem; color:white;" ></i></button>
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1" >
+                                        <button *ngIf="canalRec==1" (click)="canalRecNext()" type="button" class="btn btn-danger" style="border:none;background-color: transparent;" > <i class="fa fa-arrow-right" style="font-size:3rem; color:white;" ></i></button>
+                                    </div>
+                                    <div class="col-xs-2 col-sm-2">
+
+                                    </div>
+                              </div>
+                   </div>
+              </form>   
+        </div>
+    </div>
+</div>
 <!-- Facturier TNT -->
 <div *ngIf="displayedPage=='accueil-fact-tnt'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9;  min-height: -webkit-fill-available; max-height: -webkit-fill-available;">
         <div  class="row" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.96;">
@@ -1782,6 +2231,86 @@
            </div>
     
         </div>
+</div>
+<!-- Airtime -->
+<div *ngIf="displayedPage=='accueil-airtime'" class="row" style="background-image: url(assets/background-v.png); opacity: 0.9; ">
+    <div class="tab-pane fade col-sm-12 col-xs-12 in" id="depot">
+      <div class="col-xs-12 col-sm-12" style="background-color:rgb(255,144, 00);overflow-y: scroll; min-height: -webkit-fill-available; max-height: -webkit-fill-available; text-align: center; opacity:0.9;">
+             <div  class="row" style="margin:0px; padding:0;">
+                   <div  class="col-sm-3 col-xs-3">
+                       <img  src=""  (click)="returnHome()" style="height: 4rem; margin-right:3rem; ">
+                   </div>
+                   <div  class="col-sm-6 col-xs-6">
+                       <img  src="assets/airtime.png" style="width: 90%;padding-top: 2rem;">
+                   </div>
+                   <div  class="col-sm-3 col-xs-3">
+                       <div class="row">
+                            <img  src="assets/retour.png" (click)="pdvacueilretour()" style="height: 4rem; margin-left:3rem;">
+                       </div>
+                       <div class="row" style="margin-top:1rem;">
+                           <img  src="assets/deconnet.png" (click)="deconnexion()" style="height: 4rem; margin-left: 3rem;">
+                       </div>
+                   </div>
+             </div>
+   
+             <div class="row" style="padding:1rem;background-color: white;">
+                     <h2 style="color: #36a9e0;font-family: caviar dreams; margin: 0px;">Vente de crédit</h2>
+             </div>
+             <div class="row">
+                 <h3 *ngIf="ventereussi"  class="alert alert-success">Opération reussi!</h3>
+                 <h3 *ngIf="echecVente" class="alert alert-danger">Echec de l'operation reessayer plus tard SVP!</h3>
+             </div>
+             <div class="row">
+                  <div class="col-sm-12 col-xs-12">
+                        <form class="row" name="transnat" (ngSubmit)="showAddChildModalAirtime()" #formdepot="ngForm" autocomplete="on" style="margin-top: 2rem;margin-bottom: 2rem;">
+                              <div class="col-sm-12 col-xs-12">
+                                  <div class="row">
+                                       <div class="col-xs-5 col-sm-5">
+                                               <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Numéro du client  :</label>
+                                         </div>
+                                         <div class="col-xs-7 col-sm-7">
+                                               <input  type="text" [(ngModel)]="this.numclient" name="verifiernuminput" id="numclient"  class="form-control"  autofocus style="border-radius:2rem; ">
+                                         </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-xs-12">
+                                      <p *ngIf="mag1" style="color:red">numero incorrect</p>
+                              </div>
+   
+                              <div class="col-sm-12 col-xs-12" >
+                                  <div class="row">
+                                       <div class="col-xs-5 col-sm-5">
+                                           <label  style="margin-top: 1rem;color:white ;font-size: 1.5rem;">Montant transfert :</label>
+                                       </div>
+                                       <div class="col-xs-7 col-sm-7">
+                                           <input type="text"  [(ngModel)]="this.mnt" name="verifiernuminput" id="mnttrans"  class="form-control"   style="border-radius:2rem; ">
+                                       </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-xs-12">
+                                  <p *ngIf="mag2" style="color:red">montant incorrect</p>
+                              </div>
+                              <div class="col-sm-12 col-xs-12">
+                                   <div class="row" style="margin-top:2rem;">
+                                          <div class="col-xs-4 col-sm-4">
+              
+                                          </div>
+                                          <div class="col-xs-2 col-sm-2">
+                                               <button type="reset" class="btn btn-success"  style="border:none; background-color: transparent;"><i class="fa fa-times-circle" style="font-size:6rem; color:white;" ></i></button>
+                                           </div>
+                                          <div class="col-xs-2 col-sm-2">
+                                                 <button type="submit" class="btn btn-danger" style="border:none;background-color: transparent; margin-left: 2rem;" > <i class="fa fa-check-circle" style="font-size:6rem; color:white;" ></i></button>
+                                          </div>
+                                          <div class="col-xs-4 col-sm-4">
+              
+                                          </div>
+                                   </div>
+                             </div>
+                        </form>
+                  </div>
+             </div>
+     </div>
+    </div>
 </div>
     <!--les sous menu d'orangemoney-->
     <!-- Depot orange money -->
@@ -5378,6 +5907,42 @@
     Autes Modals
 ..................................-->
 
+<div  bsModal #addChildModalAirtime="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+       <div class="modal-content" >
+         <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="hideAddChildModalAirtime()">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           <h4 class="modal-title" id="myModalLabel">Fenêtre de confirmation.</h4>
+        </div>
+        <div class="modal-body">
+
+               <div >
+                   <form class="form">
+                       <div class="form-group">
+                           <label >numero client : {{this.numclient}} </label>
+                       </div>
+                       <div class="form-group">
+                           <label >montant : {{this.mnt}} </label>
+                       </div>
+                   </form>
+
+               </div>
+                           
+        </div>
+        <div class="modal-footer">
+
+           <div >
+                   <input type="button" value="fermer" (click)="hideAddChildModalAirtime()" class="btn btn-danger" />
+                   <input type="button" value="valider" (click)="venteAirtime()" class="btn btn-success" />
+           </div>
+
+        </div>
+     </div>
+   </div>
+</div>
 
 <div  bsModal #addChildModal="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
@@ -6270,6 +6835,99 @@
 </div>
   <!--fin modification-->
   
+
+
+</div>
+<div bsModal #modalcanalReabonnement="bs-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-sm">
+       <div class="modal-content" >
+         <div class="modal-header">
+           <button type="button" class="close pull-right" aria-label="Close" (click)="hidemodalcanal()">
+               <span aria-hidden="true">&times;</span>
+           </button>
+           <h4 class="modal-title" id="myModalLabel">Confirmation Détails CANAL</h4>
+        </div>
+        <div class="modal-body" style="font-family: 'caviar dreams bold';">
+            
+            <div *ngIf="displayedPage=='accueil-fact-ca-reab-nv'">
+                <form class="form">
+                    <div class="form-group">
+                        <label >Numéro abonné : {{ this.numab}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >Nom client : {{ this.noma}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label >Prènom client : {{this.prenoma}} </label>
+                    </div>
+                    <div class="form-group">
+                        <label >Adresse client : {{this.adresse}}</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label > Nombre de mois : {{this.nbm}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label > Type formule : {{this.tbouquet}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label > Montant à payer: {{this.montantNet}}</label>
+                    </div>
+                </form>
+
+            </div>
+            <div *ngIf="displayedPage=='accueil-fact-ca-rec'">
+                    <form class="form">
+                            <div class="form-group">
+                                <label >Nom client : {{ this.nomrec}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label >Prènom client : {{this.prenomrec}} </label>
+                            </div>
+                            <div class="form-group">
+                                <label >Telephone client : {{this.telrec}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label > Adresse client : {{this.adresserec}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label >E-mail : {{this.emailrec}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label >Numero carte : {{this.numDecRec}}</label>
+                            </div>
+   
+                            <div class="form-group">
+                                <label > Type bouquet : {{this.tbouquet}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label > Nombre de mois : {{this.nbm}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label > Offres optionnel : {{this.charm}} {{pvr}} {{ecran2}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label > Montant : {{this.montantNet}} Fcfa</label>
+                            </div>
+   
+                    </form>
+            </div>
+
+         
+        <div class="modal-footer">
+            <div *ngIf="displayedPage=='accueil-fact-ca-reab-nv'">
+                    <input type="button" value="fermer" (click)="hidemodalcanal()" class="btn btn-danger" />
+                    <input type="button" value="valider" class="btn btn-success" (click)="validnaboncanal()" />
+            </div>
+            <div *ngIf="displayedPage=='accueil-fact-ca-rec'">
+                <input type="button" value="fermer" (click)="hidemodalcanal()" class="btn btn-danger" />
+                <input type="button" value="valider" (click)="vendreDecodeurcanal()" class="btn btn-success" />
+            </div>
+
+        </div>
+     </div>
+   </div>
 
 
 </div>
