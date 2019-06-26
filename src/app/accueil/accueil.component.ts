@@ -3015,7 +3015,9 @@ this._utilsService.checkCaution().subscribe(
     }
   }
  
-  
+  public showAddChildModalAirtime(){
+    this.addChildModalAirtime.show();
+  }
 
   public hideAddChildModalAirtime():void {
     this.addChildModalAirtime.hide();
