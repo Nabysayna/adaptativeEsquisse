@@ -3017,10 +3017,14 @@ this._utilsService.checkCaution().subscribe(
  
   public showAddChildModalAirtime(){
     this.addChildModalAirtime.show();
+    this.ventereussi=false;
+    this.echecVente=false;
   }
 
   public hideAddChildModalAirtime():void {
     this.addChildModalAirtime.hide();
+    this.ventereussi=false;
+    this.echecVente=false;
   }
   public showAddChildModal():void {
     this.addChildModal.show();
