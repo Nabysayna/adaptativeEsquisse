@@ -2762,6 +2762,8 @@ public pdvacueilmenumobilemoneyretour(){
     
     this.hidemodalcanal();
     this.reinitialiser();
+    this.reachCanal = undefined;
+    this.numab = undefined;
   }
   titre:string;
   nomrec:string;
