@@ -180,6 +180,8 @@ export class AccueilComponent implements OnInit {
   smart : string ;
   descriptionsvalues=[];
 
+ 
+
   //zone: NgZone;
 
   receivedArticles = "" ;
@@ -299,6 +301,7 @@ export class AccueilComponent implements OnInit {
         private _wizallService : WizallService,
         private _omService:OrangemoneyService,
         private _tcService: TigocashService,
+
         private _gestionreportingService:GestionreportingService){
           if ( window.screen.width <= 768 )
               this.isMobile = true ;
@@ -319,6 +322,8 @@ export class AccueilComponent implements OnInit {
   @ViewChild('modalPostCash') modalPostCash: ModalDirective;
   @ViewChild('modalProcessing') modalProcessing: ModalDirective;
   @ViewChild('modalTnt') modalTnt: ModalDirective;
+  @ViewChild('modalcanalReabonnement') modalcanalReabonnement: ModalDirective;
+  
   @ViewChild('modalGestionReporting') modalGestionReporting: ModalDirective;
   @ViewChild('modalsde') public modalsde:ModalDirective;
   @ViewChild('modalrapido') public modalrapido:ModalDirective;
@@ -696,6 +701,107 @@ export class AccueilComponent implements OnInit {
     
       }
 
+
+     
+      creditVente(objet:any){
+        let index = this.process.findIndex(
+          item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
+        ));
+    
+        this.process[index].etats.pourcentage = Math.floor(Math.random() * 3) + 1;
+                
+        this._airtimeService.Airtime(objet.data.nom,objet.data.num,objet.data.montant).then( resp => {
+          console.log(resp);
+          
+          if (resp.status==200){
+               console.log("For this 'credit', we just say : "+resp._body) ;
+                if(resp._body.trim()=='0'){
+                   objet.etats.etat=true;
+                   objet.etats.load='terminated';
+                   objet.etats.color='red';
+                   objet.etats.errorCode='0';
+                   this.process[index].etats.pourcentage = 5;
+                }else
+                if(resp._body.match('-12')){
+                   objet.etats.etat=true;
+                   objet.etats.load='terminated';
+                   objet.etats.color='red';
+                   objet.etats.errorCode='-12';
+                   this.process[index].etats.pourcentage = 5;
+                }
+                else
+    
+               setTimeout(()=>{
+                  this._airtimeService.verifierReponse(resp._body.trim().toString()).then(rep =>{
+                    var donnee=rep._body.trim().toString();
+                    console.log("Inside verifier vente credit : "+donnee) ;
+                    if(donnee=='1'){
+                       objet.etats.etat=true;
+                       objet.etats.load='terminated';
+                       objet.etats.color='#36A9E0';
+                       this.process[index].etats.pourcentage = 5;
+                    }
+                    else{
+                      if(donnee!='-1'){
+                         objet.etats.etat=true;
+                         objet.etats.load='terminated';
+                         objet.etats.color='red';
+                         objet.etats.errorCode=donnee;
+                         this.process[index].etats.pourcentage = 5;
+                       }else{
+                            var periodicVerifier = setInterval(()=>{
+                            objet.etats.nbtour = objet.etats.nbtour + 1 ;
+                            this._omService.verifierReponseOM(resp._body.trim().toString()).then(rep =>{
+                              var donnee=rep._body.trim().toString();
+                              console.log("Inside verifier vente credit : "+donnee) ;
+                              if(donnee=='1'){
+                                 objet.etats.etat=true;
+                                 objet.etats.load='terminated';
+                                 objet.etats.color='#36A9E0';
+                                 this.process[index].etats.pourcentage = 5;
+                                 clearInterval(periodicVerifier) ;
+    
+                              }
+                              else{
+                                if(donnee!='-1'){
+                                 objet.etats.etat=true;
+                                 objet.etats.load='terminated';
+                                 objet.etats.color='red';
+                                 objet.etats.errorCode=donnee;
+                                 this.process[index].etats.pourcentage = 5;
+                                 clearInterval(periodicVerifier) ;
+                                }
+                                if(donnee=='-1' && objet.etats.nbtour>=45){
+                                  this._airtimeService.demanderAnnulation(resp._body.trim().toString()).then(rep =>{
+                                    var donnee=rep._body.trim().toString();
+                                     if(donnee=="c"){
+                                       objet.etats.etat=true;
+                                       objet.etats.load='terminated';
+                                       objet.etats.color='red';
+                                       objet.etats.errorCode="c";
+                                       this.process[index].etats.pourcentage = 5;
+                                       clearInterval(periodicVerifier) ;
+                                       }
+                                  }) ;
+                                }
+                              }
+                            });
+                            },2000);
+                       }
+                    }
+                  });
+    
+               },5000);
+          }
+          else{
+            console.log("error") ;
+    
+            }
+        });
+    
+      }
+       
+ 
   deposer(objet:any){
     let index = this.process.findIndex(
       item => (item.data.num === objet.data.num && item.data.montant === objet.data.montant && item.data.nom === objet.data.nom
@@ -2587,6 +2693,7 @@ public pdvacueilmenumobilemoneyretour(){
                 default : break;
           }
            break;
+
     }
     case 10:{
       this.airtime(sesion);
@@ -2620,12 +2727,36 @@ public pdvacueilmenumobilemoneyretour(){
 
   @ViewChild('addChildModal') public addChildModal:ModalDirective;
   @ViewChild('addChildModalAirtime') public addChildModalAirtime:ModalDirective;
-  @ViewChild('modalcanalReabonnement') public modalcanalReabonnement:ModalDirective;
+
+  //@ViewChild('modalcanalReabonnement') public modalcanalReabonnement:ModalDirective;
+
   @ViewChild('modalretrait') public modalretrait:ModalDirective;
    @ViewChild('modalventecredit') public modalventecredit:ModalDirective;
    @ViewChild('modalretraitcode') public modalretraitcode:ModalDirective;
 
-
+   
+   vendreCredit(){
+    // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
+    let service=""
+    if(this.numclient.split("")[0]== "7"){
+      if(this.numclient.split("")[1]== "7" || this.numclient.split("")[1]== "8"){
+        service = 'Seddo';
+      }
+      if(this.numclient.split("")[1]== "6"){
+        service = 'izi';
+      }
+      if(this.numclient.split("")[1]== "0" ){
+        service = 'yakalma';
+      }
+    }
+    let data=JSON.stringify({'nom':service,'operateur':10,'operation':1,'montant':this.mnt,'num':this.numclient});
+     this.mobileProcessing(data);
+    
+     this.hideAddChildModalAirtime()
+    // this.depotreussi=true;
+     //this.numclient = undefined ;
+     //this.mnt = undefined;
+}
   deposerOM(){
          // sessionStorage.setItem('curentProcess',JSON.stringify({'nom':'Orange money depot','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient}));
           let data=JSON.stringify({'nom':'OrangeMoney','operateur':2,'operation':1,'montant':this.mnt,'num':this.numclient});
@@ -2804,7 +2935,6 @@ public pdvacueilmenumobilemoneyretour(){
         objet.etats.load='terminated';
         objet.etats.color='#36A9E0';
         this.process[index].etats.pourcentage = 5;
-
       }else{
           objet.etats.etat=true;
           objet.etats.load='terminated';
@@ -2884,47 +3014,8 @@ this._utilsService.checkCaution().subscribe(
       return false;
     }
   }
-  verif_phone_number(number:string):boolean{
-    let numero=number.split("");
-    console.log(numero.length);
-    if(numero.length!=parseInt("9")){
-      return false;
-    }
-    for(let i=0;i<numero.length;i++){
-      if(!this.isNumber(numero[i])){
-        return false;
-      }
-    }
-    return true;
-  }
-  isNumber(num:string):boolean{
-    let tab=["0","1","2","3","4","5","6","7","8","9"];
-    for(let i=0;i<tab.length;i++){
-      if(num===tab[i]){
-        return true;
-      }
-    }
-    return false;
-  }
-  numORmnterror:boolean =false;
-  public showAddChildModalAirtime():void {
-    this.numORmnterror=false;
-    let tab=this.numclient.split("");
-	  let verif_number_bool=(tab[0]=="7" && (tab[1]=="7" || tab[1]=="8" || tab[1]=="6" || tab[1]=="0"));
-	  let verif_montant_bool=(this.verif_montant(this.mnt) && parseInt(this.mnt)>=100);
-	  
-	  if(this.verif_phone_number(this.numclient) && verif_montant_bool){
-			this.addChildModalAirtime.show();
-		}else{
-			if(!verif_number_bool || !this.verif_phone_number(this.numclient)){
-				this.numORmnterror=true;
-			}
-			if(!verif_montant_bool){
-				this.numORmnterror=true;
-			}
-    }
-    //this.verifnumber();
-  }
+ 
+  
 
   public hideAddChildModalAirtime():void {
     this.addChildModalAirtime.hide();
@@ -2959,6 +3050,13 @@ this._utilsService.checkCaution().subscribe(
     this.modalretraitcode.hide();
   }
   public reinitialiser(){
+    this.numa=undefined
+    //this.formule =undefined;
+    this.reachCanal =undefined;
+    //this.numORmnterror=false;
+    this.codeReatrait = undefined;
+    this.prenomPT = undefined;
+    this.nomPT = undefined;
     this.typepiece =undefined
     this.mnt=undefined;
     this.prenom=undefined;
@@ -3105,6 +3203,7 @@ this._utilsService.checkCaution().subscribe(
 
     /*-------------- -------- Facturier -------------------------------*/
 
+
           /********** TNT-modals ***************/
           showmodalTnt(){
             this.modalTnt.show();
@@ -3112,7 +3211,12 @@ this._utilsService.checkCaution().subscribe(
           hidemodalTnt(){
             this.modalTnt.hide()
           }
-
+          
+          /********** canal-modals ***************/
+         
+          /**************CANAL Traitement **********/
+         
+      
         /********** TNT-Traitements ***************/
           validVerifierNum(){
             this.loading = true ;
@@ -3853,7 +3957,7 @@ this._utilsService.checkCaution().subscribe(
   }
 
   payerTransTigoCash(){
-    let RetraitInfo = {'nom':'TigoCash payer transfert','operateur':3,'operation':3,'coderetarit':this.coderetrait,'prenom':this.prenom,'nomC':this.nom,'typepiece':this.typepiece,'cni':this.cni,'num':this.telephone,'montant':this.montant};
+    let RetraitInfo = {'nom':'TigoCash payer transfert','operateur':3,'operation':3,'coderetrait':this.codeReatrait,'prenom':this.prenom,'nomC':this.nom,'typepiece':this.typepiece,'cni':this.cni,'num':this.telephone,'montant':this.montant};
     this.mobileProcessing(JSON.stringify(RetraitInfo));
     this.hidemodalPayerTransfertTigoCash();
     //this.reinitialiser();

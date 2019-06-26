@@ -4,7 +4,7 @@ import { Http, Headers } from '@angular/http';
 @Injectable()
 export class CanalService {
 
-  private link = "https://sentool.bbstvnet.com/index.php";
+private link = "https://sentool.bbstvnet.com/index.php";
 
 
 private headers=new Headers();

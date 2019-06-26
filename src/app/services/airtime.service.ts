@@ -3,6 +3,7 @@ import { Http, Headers } from '@angular/http';
 
 @Injectable()
 export class AirtimeService {
+
 // private link = "https://mysentool.pro/index.php";
 private link = "https://sentool.bbstvnet.com/index.php";
 
